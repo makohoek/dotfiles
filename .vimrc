@@ -21,6 +21,7 @@ syntax enable             "syntax highlighting on based on filetype
 set cursorline        "show current line
 set background=dark   "dark version of
 colorscheme solarized "ethan schoovers amazing solarized
+let g:xml_syntax_folding=1 "allow folding for xmls
 set fdm=syntax        "folding method based on syntax
 set showmatch         "show matching bracket
 set number            "show line numbers
@@ -29,8 +30,8 @@ set number            "show line numbers
 " indentation /tabs
 "-------------------------------------------------------------------------------
 set expandtab     "spaces instead of tabs
-set shiftwidth=2  "number of spaces for each step of indent
-set softtabstop=2 "number of spaces that a tab counts for
+set shiftwidth=4  "number of spaces for each step of indent
+set softtabstop=4 "number of spaces that a tab counts for
 set autoindent    "Copy indent from current line when starting a new line
 set backspace=indent,eol,start "backspace over autoindent, linebreaks and insert
 
@@ -75,7 +76,7 @@ autocmd BufReadPost *
 let g:show_column_limit='off'
 function! ToggleShowColumnLimit()
   if g:show_column_limit == 'off'
-    set colorcolumn=80
+    set colorcolumn=80,100
     let g:show_column_limit='on'
   else
     set colorcolumn=0
@@ -105,8 +106,14 @@ nnoremap <CR><CR> :nohlsearch<CR>
 
 let mapleader=","
 
+" Command-T keybindings
+nnoremap <silent> <Leader>o :CommandT<CR>
+
 " YouCompleteMe keybindings
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"Easytags keybing
+nnoremap <leader>tt :HighlightTags<CR>
 
 " UltiSnip keybindings
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -123,6 +130,10 @@ let g:ycm_enable_diagnostic_signs = 0 "disable ugly error bar
 " close annoying preview window after completion
 let g:ycm_autoclose_preview_window_after_completion = 1
 
+" Easytags settings
+"-------------------------------------------------------------------------------
+let g:easytags_updatetime_min = 4000
+let g:easytags_updatetime_warn = 0 "tell easytags to shut up for updates
 
 " Store temporary files in a central spot
 "------------------------------------------------------------------------------
