@@ -9,8 +9,7 @@ Feel free to copycat anything you want!
 After cloning the repository, we  must initialize the
 submodules:
 
-    git submodule init
-    git submodule update --recursive
+    git submodule update --init --recursive
 
 ### symbolic links
 go to your home folder
