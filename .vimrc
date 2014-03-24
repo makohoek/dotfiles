@@ -20,7 +20,7 @@ filetype plugin indent on  "Allow specific plugins based on filetype
 syntax enable             "syntax highlighting on based on filetype
 set cursorline        "show current line
 set background=dark   "dark version of
-colorscheme base16-solarized "modified solarized
+colorscheme solarized "modified solarized
 let g:xml_syntax_folding=1 "allow folding for xmls
 set fdm=syntax        "folding method based on syntax
 set showmatch         "show matching bracket
