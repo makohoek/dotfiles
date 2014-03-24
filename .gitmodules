@@ -1,12 +1,12 @@
 [submodule ".vim/bundle/vim-colors-solarized.git"]
 	path = .vim/bundle/vim-colors-solarized.git
-	url = git@github.com:altercation/vim-colors-solarized.git
+	url = https://github.com/altercation/solarized.git
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
-	url = git@github.com:Valloric/YouCompleteMe.git
+	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
-	url = git@github.com:SirVer/ultisnips.git
+	url = https://github.com/SirVer/ultisnips.git
 [submodule ".vim/bundle/base16-vim"]
 	path = .vim/bundle/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
