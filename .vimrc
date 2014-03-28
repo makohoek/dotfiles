@@ -90,14 +90,7 @@ endfunction
 "comma always followed by a space
 inoremap  ,  ,<Space>
 ""left brace/bracket always followed by right one
-"inoremap ( ()<Left>
-"inoremap [ []<Left>
-"inoremap { {}<Left>
-""left {double, back}quote always followed by right one
-"inoremap  '  ''<Left>
-"inoremap  "  ""<Left>
-"inoremap  `  ``<Left>
-
+inoremap { {}<Left>
 
 " Keybindings
 "-------------------------------------------------------------------------------
