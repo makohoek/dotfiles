@@ -1,4 +1,4 @@
-! MakoHoek's .Xresources
+! MakoHoek .Xresources
 !
 URxvt*buffered: true
 URxvt*cursorBlink: true
@@ -7,13 +7,12 @@ URxvt*boldFont:  xft:inconsolata:style=extrabold:pixelsize=14:antialias=true
 ! redefine for transparency
 URxvt*depth: 32
 !*background:              [90]S_base03
-
 URxvt*borderless: 1
 URxvt*scrollBar: false
 URxvt*loginShell: true
 Urxvt*secondaryScroll:  true    # Enable Shift-PageUp/Down in screen
 URxvt*saveLines: 5000
-URxvt*termName: rxvt-unicode
+URxvt*termName: rxvt-unicode-256color
 URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher:firefox
 URxvt.matcher.button: 1
