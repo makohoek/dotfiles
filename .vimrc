@@ -17,6 +17,7 @@ filetype plugin indent on  "Allow specific plugins based on filetype
 
 " Colorscheme and appearance
 "-------------------------------------------------------------------------------
+set t_Co=256;
 syntax enable             "syntax highlighting on based on filetype
 set cursorline        "show current line
 set background=dark   "dark version of
