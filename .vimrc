@@ -85,6 +85,16 @@ function! ToggleShowColumnLimit()
   endif
 endfunction
 
+" Toggle background color easily
+"-------------------------------------------------------------------------------
+function! ToggleBackgroundColor()
+  if &background == 'dark'
+      set background=light
+  else
+      set background=dark
+  endif
+endfunction
+
 
 " Autocomplete for some symbols
 "-------------------------------------------------------------------------------
@@ -117,6 +127,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " show columns for max length rules
 nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
 
+" toggle background color for less eye hurting
+nnoremap <leader>b :call ToggleBackgroundColor()<CR>
 
 " YouCompleteMe settings
 "-------------------------------------------------------------------------------
