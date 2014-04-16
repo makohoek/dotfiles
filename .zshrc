@@ -58,14 +58,11 @@ export PATH="/home/kir0gawa/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/lo
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='mvim'
+   export EDITOR='vim'
  fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 alias helpcvim='less ~/Documents/reminderSnipmate'
 alias pycharm='~/bin/pycharm-2.7.3/bin/pycharm.sh'
@@ -83,3 +80,4 @@ nbOfLines=$( cat .motivationalQuotes | wc -l ); randline=$(( $RANDOM % $(( nbOfL
 alias wakerpi='sudo etherwake b8:27:eb:5f:8d:f8'
 
 export LD_LIBRARY_PATH=~/Intel/pfw/lib
+alias tmux='export TERM="screen-256color"; tmux -2'
