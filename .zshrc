@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="duellj"
+ZSH_THEME="3den"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -80,4 +80,4 @@ nbOfLines=$( cat .motivationalQuotes | wc -l ); randline=$(( $RANDOM % $(( nbOfL
 alias wakerpi='sudo etherwake b8:27:eb:5f:8d:f8'
 
 export LD_LIBRARY_PATH=~/Intel/pfw/lib
-alias tmux='export TERM="screen-256color"; tmux -2'
+alias tmux='export TERM="screen-256color"; tmux -2; unset TERM'
