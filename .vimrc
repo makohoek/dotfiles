@@ -95,6 +95,15 @@ function! ToggleBackgroundColor()
   endif
 endfunction
 
+" Toggle mouse on/off
+"-------------------------------------------------------------------------------
+function! ToggleMouse()
+  if &mouse == 'a'
+      set mouse=
+  else
+      set mouse=a
+  endif
+endfunction
 
 " Autocomplete for some symbols
 "-------------------------------------------------------------------------------
@@ -129,6 +138,9 @@ nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
 
 " toggle background color for less eye hurting
 nnoremap <leader>b :call ToggleBackgroundColor()<CR>
+
+" toggle mouse in terminal
+nnoremap <leader>m :call ToggleMouse()<CR>
 
 " YouCompleteMe settings
 "-------------------------------------------------------------------------------
