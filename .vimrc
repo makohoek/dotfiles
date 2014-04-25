@@ -125,8 +125,8 @@ nnoremap <silent> <Leader>o :CommandT<CR>
 " YouCompleteMe keybindings
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-"Easytags keybing
-nnoremap <leader>tt :HighlightTags<CR>
+"Taghighlight keybing
+nnoremap <leader>tt :UpdateTypesFile<CR>
 
 " UltiSnip keybindings
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -147,11 +147,6 @@ nnoremap <leader>m :call ToggleMouse()<CR>
 let g:ycm_enable_diagnostic_signs = 0 "disable ugly error bar
 " close annoying preview window after completion
 let g:ycm_autoclose_preview_window_after_completion = 1
-
-" Easytags settings
-"-------------------------------------------------------------------------------
-let g:easytags_updatetime_min = 4000
-let g:easytags_updatetime_warn = 0 "tell easytags to shut up for updates
 
 " Store temporary files in a central spot
 "------------------------------------------------------------------------------
