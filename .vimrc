@@ -7,6 +7,8 @@
 " Plugin loading with pathogen
 "-------------------------------------------------------------------------------
 execute pathogen#infect()
+" add the helps for the plugins in ~/.vim/bundle
+execute pathogen#helptags()
 
 " Filetype
 "-------------------------------------------------------------------------------
