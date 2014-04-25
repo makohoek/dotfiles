@@ -102,8 +102,10 @@ endfunction
 function! ToggleMouse()
   if &mouse == 'a'
       set mouse=
+      echo 'mouse disabled'
   else
       set mouse=a
+      echo 'mouse enabled'
   endif
 endfunction
 
@@ -145,6 +147,12 @@ nnoremap <leader>b :call ToggleBackgroundColor()<CR>
 
 " toggle mouse in terminal
 nnoremap <leader>m :call ToggleMouse()<CR>
+
+" show element for syntax highlighting for finer tuning
+" http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
+map <F3> :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . '> trans<'
+            \ . synIDattr(synID(line("."), col("."), 0), "name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name") . ">"<CR>
 
 " YouCompleteMe settings
 "-------------------------------------------------------------------------------
