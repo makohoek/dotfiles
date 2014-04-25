@@ -19,15 +19,15 @@ filetype plugin indent on  "Allow specific plugins based on filetype
 
 " Colorscheme and appearance
 "-------------------------------------------------------------------------------
-set t_Co=256;
+set t_Co=256
 syntax enable             "syntax highlighting on based on filetype
 set cursorline        "show current line
 set background=dark   "dark version of
 colorscheme solarized "modified solarized
-let g:xml_syntax_folding=1 "allow folding for xmls
 set fdm=syntax        "folding method based on syntax
 set showmatch         "show matching bracket
 set number            "show line numbers
+let g:xml_syntax_folding=1 "allow folding for xmls
 
 
 " indentation /tabs
@@ -120,6 +120,8 @@ inoremap { {}<Left>
 nnoremap <CR><CR> :nohlsearch<CR>
 
 let mapleader=","
+
+nnoremap <leader><CR> o<Esc>
 
 " Command-T keybindings
 nnoremap <silent> <Leader>o :CommandT<CR>
