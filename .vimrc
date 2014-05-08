@@ -39,7 +39,7 @@ set autoindent    "Copy indent from current line when starting a new line
 set backspace=indent,eol,start "backspace over autoindent, linebreaks and insert
 
 "set 4 tabs when editing python
-autocmd FileType python set sw=4 sts=4 et
+autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4 noexpandtab
 
 
 " status bar configuration
@@ -57,7 +57,7 @@ set smartcase "ignore case only when putting on a lowercase
 set incsearch "start search when typing
 
 " Show hidden tabs or trailing spaces
-set listchars=tab:>~,nbsp:_,trail:~
+set listchars=tab:▸\ ,nbsp:_,trail:⍨
 set list
 
 " See :help fo-table
