@@ -29,7 +29,6 @@ set showmatch         "show matching bracket
 set number            "show line numbers
 let g:xml_syntax_folding=1 "allow folding for xmls
 
-
 " indentation /tabs
 "-------------------------------------------------------------------------------
 set expandtab     "spaces instead of tabs
@@ -109,6 +108,19 @@ function! ToggleMouse()
   endif
 endfunction
 
+" Remove trailing whitespaces (thanks vimcasts.org)
+function! <SID>StripTrailingWhitespaces()
+    " Preparation : save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
 " Autocomplete for some symbols
 "-------------------------------------------------------------------------------
 "comma always followed by a space
@@ -123,6 +135,7 @@ nnoremap <CR><CR> :nohlsearch<CR>
 
 let mapleader=","
 
+" Insert a blank line below selected line
 nnoremap <leader><CR> o<Esc>
 
 " Command-T keybindings
@@ -131,8 +144,12 @@ nnoremap <silent> <Leader>o :CommandT<CR>
 " YouCompleteMe keybindings
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-"Taghighlight keybing
+" Taghighlight keybing
 nnoremap <leader>tt :UpdateTypesFile<CR>
+
+" Toggle spellchecking (from vimcasts.org)
+nmap <leader>s :set spell!<CR>
+set spelllang=en_gb " Set region to British English
 
 " UltiSnip keybindings
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -147,6 +164,12 @@ nnoremap <leader>b :call ToggleBackgroundColor()<CR>
 
 " toggle mouse in terminal
 nnoremap <leader>m :call ToggleMouse()<CR>
+
+" jump back and forth between files
+nnoremap <leader><leader> <C-^>
+
+" remove trailing whitespaces
+nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
 " show element for syntax highlighting for finer tuning
 " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
