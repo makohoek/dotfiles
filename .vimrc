@@ -20,10 +20,11 @@ filetype plugin indent on  "Allow specific plugins based on filetype
 " Colorscheme and appearance
 "-------------------------------------------------------------------------------
 set t_Co=256
+let base16colorspace=256  " Access colors present in 256 colorspace
 syntax enable             "syntax highlighting on based on filetype
 set cursorline        "show current line
 set background=dark   "dark version of
-colorscheme solarized "modified solarized
+colorscheme base16-solarized "modified solarized
 set fdm=syntax        "folding method based on syntax
 set showmatch         "show matching bracket
 set number            "show line numbers

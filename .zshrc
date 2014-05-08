@@ -1,3 +1,8 @@
+# Base16 Shell
+BASE16_SCHEME="solarized"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -37,7 +42,7 @@ ZSH_THEME="3den"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -72,10 +77,7 @@ alias getedt='cd ~/Development/EdtCamsi/src/ && python Main.py'
 alias vpn='cd ~/Documents/OpenVPN/NequaliaLinux/ && sudo ./startOpenvpn'
 
 # be greeted by great motivationalQuotes
-nbOfLines=$( cat .motivationalQuotes | wc -l ); randline=$(( $RANDOM % $(( nbOfLines + 1 )) + 1 )); tail -$randline .motivationalQuotes | head -1 | cowsay -f stegosaurus
-
-# show vim cheats every time because i have to learn them :)
-#cat ~/.cheatsVIM
+nbOfLines=$( cat ~/.motivationalQuotes | wc -l ); randline=$(( $RANDOM % $(( nbOfLines + 1 )) + 1 )); tail -$randline .motivationalQuotes | head -1 | cowsay -f stegosaurus
 
 alias wakerpi='sudo etherwake b8:27:eb:5f:8d:f8'
 
