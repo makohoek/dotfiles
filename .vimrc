@@ -139,8 +139,8 @@ let mapleader=","
 " Insert a blank line below selected line
 nnoremap <leader><CR> o<Esc>
 
-" Command-T keybindings
-nnoremap <silent> <Leader>o :CommandT<CR>
+" Controlp keybindings
+nnoremap <silent> <Leader>o :CtrlP<CR>
 
 " YouCompleteMe keybindings
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
