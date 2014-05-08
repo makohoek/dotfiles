@@ -122,6 +122,13 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
+" Open the Url passed as argument (thanks tpope)
+function! OpenURL(url)
+    exe "silent !x-www-browser \"".a:url."\""
+    redraw!
+endfunction
+command! -nargs=1 OpenURL :call OpenURL(<q-args>)
+
 " Autocomplete for some symbols
 "-------------------------------------------------------------------------------
 "comma always followed by a space
@@ -183,6 +190,11 @@ nnoremap <C-h> <C-w><
 nnoremap <C-k> <C-W>-
 nnoremap <C-j> <C-W>+
 nnoremap <C-l> <C-w>>
+
+" search current word under cursor (found on tpopes vimrc)
+nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
+" if we are doing cpp, use different search
+autocmd FileType cpp nnoremap gs :OpenURL http://www.cplusplus.com/search.do?q=<cword><CR>
 
 " YouCompleteMe settings
 "-------------------------------------------------------------------------------
