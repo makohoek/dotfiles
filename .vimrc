@@ -178,6 +178,12 @@ map <F3> :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . '> tra
             \ . synIDattr(synID(line("."), col("."), 0), "name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name") . ">"<CR>
 
+" better window resizing : maps Alt-[h,j,k,l] to resizing a window split
+nnoremap <C-h> <C-w><
+nnoremap <C-k> <C-W>-
+nnoremap <C-j> <C-W>+
+nnoremap <C-l> <C-w>>
+
 " YouCompleteMe settings
 "-------------------------------------------------------------------------------
 let g:ycm_enable_diagnostic_signs = 0 "disable ugly error bar
