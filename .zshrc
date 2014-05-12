@@ -83,3 +83,6 @@ alias wakerpi='sudo etherwake b8:27:eb:5f:8d:f8'
 
 export LD_LIBRARY_PATH=~/Intel/pfw/lib
 alias tmux='export TERM="screen-256color"; tmux -2; unset TERM'
+alias vims='vim --servername VIM'
+alias vie='vim --remote'
+alias vit='vim --remote-tab'
