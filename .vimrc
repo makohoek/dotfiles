@@ -30,7 +30,7 @@ set showmatch         "show matching bracket
 set number            "show line numbers
 let g:xml_syntax_folding=1 "allow folding for xmls
 
-" indentation /tabs
+" indentation spaces/tabs
 "-------------------------------------------------------------------------------
 set expandtab     "spaces instead of tabs
 set shiftwidth=4  "number of spaces for each step of indent
@@ -55,6 +55,9 @@ set showcmd "show entered command
 set hlsearch "highlight searched items
 set smartcase "ignore case only when putting on a lowercase
 set incsearch "start search when typing
+
+" allow hidden buffers
+set hidden
 
 " Show hidden tabs or trailing spaces
 set listchars=tab:▸\ ,nbsp:_,trail:⍨
