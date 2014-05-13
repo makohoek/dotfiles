@@ -38,8 +38,8 @@ set softtabstop=4 "number of spaces that a tab counts for
 set autoindent    "Copy indent from current line when starting a new line
 set backspace=indent,eol,start "backspace over autoindent, linebreaks and insert
 
-"set 4 tabs when editing python
-autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4 noexpandtab
+"set 4 spaces when editing python
+autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
 
 
 " status bar configuration
