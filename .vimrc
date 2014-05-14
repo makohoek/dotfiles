@@ -194,6 +194,10 @@ nnoremap <C-k> <C-W>-
 nnoremap <C-j> <C-W>+
 nnoremap <C-l> <C-w>>
 
+" Double jj to leave insert modus
+imap jj <esc>
+cmap jj <esc>
+
 " search current word under cursor (found on tpopes vimrc)
 nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 " if we are doing cpp, use different search
