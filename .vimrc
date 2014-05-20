@@ -209,6 +209,10 @@ let g:ycm_enable_diagnostic_signs = 0 "disable ugly error bar
 " close annoying preview window after completion
 let g:ycm_autoclose_preview_window_after_completion = 1
 
+" CtrlP settings
+"-------------------------------------------------------------------------------
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
+
 " Store temporary files in a central spot
 "------------------------------------------------------------------------------
 set backup
