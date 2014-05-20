@@ -1,0 +1,40 @@
+[global_config]
+  title_transmit_bg_color = "#dc322f"
+  focus = system
+  title_inactive_bg_color = "#657b83"
+[keybindings]
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    palette = "#002b36:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#93a1a1:#657b83:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#fdf6e3"
+    font = Monaco 9
+    background_image = None
+    use_system_font = False
+    cursor_color = "#93a1a1"
+    foreground_color = "#93a1a1"
+    icon_bell = False
+    show_titlebar = False
+    copy_on_selection = True
+    background_color = "#002b36"
+  [[Base16 Solarized Dark]]
+    scrollbar_position = hidden
+    palette = "#002b36:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#93a1a1:#657b83:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#fdf6e3"
+    font = Monaco 9
+    background_image = None
+    use_system_font = False
+    cursor_color = "#93a1a1"
+    foreground_color = "#93a1a1"
+    icon_bell = False
+    show_titlebar = False
+    copy_on_selection = True
+    background_color = "#002b36"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = Base16 Solarized Dark
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
