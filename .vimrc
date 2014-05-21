@@ -41,7 +41,6 @@ set backspace=indent,eol,start "backspace over autoindent, linebreaks and insert
 "set 4 spaces when editing python
 autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
 
-
 " status bar configuration
 "-------------------------------------------------------------------------------
 set ruler "show line and column number
@@ -171,7 +170,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
 
 " toggle background color for less eye hurting
-nnoremap <leader>b :call ToggleBackgroundColor()<CR>
+nnoremap <leader>c :call ToggleBackgroundColor()<CR>
+
+" Navigate trough open buffers
+nnoremap <leader>b :CtrlPBuffer<CR>
 
 " toggle mouse in terminal
 nnoremap <leader>m :call ToggleMouse()<CR>
