@@ -42,7 +42,6 @@ set backspace=indent,eol,start "backspace over autoindent, linebreaks and insert
 "set 4 spaces when editing python
 autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
 
-
 " status bar configuration
 "-------------------------------------------------------------------------------
 set ruler "show line and column number
@@ -172,7 +171,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
 
 " toggle background color for less eye hurting
-nnoremap <leader>b :call ToggleBackgroundColor()<CR>
+nnoremap <leader>c :call ToggleBackgroundColor()<CR>
+
+" Navigate trough open buffers
+nnoremap <leader>b :CtrlPBuffer<CR>
 
 " toggle mouse in terminal
 nnoremap <leader>m :call ToggleMouse()<CR>
@@ -195,6 +197,10 @@ nnoremap <C-k> <C-W>-
 nnoremap <C-j> <C-W>+
 nnoremap <C-l> <C-w>>
 
+" Double jj to leave insert modus
+imap jj <esc>
+cmap jj <esc>
+
 " search current word under cursor (found on tpopes vimrc)
 nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 " if we are doing cpp, use different search
@@ -205,6 +211,10 @@ autocmd FileType cpp nnoremap gs :OpenURL http://www.cplusplus.com/search.do?q=<
 let g:ycm_enable_diagnostic_signs = 0 "disable ugly error bar
 " close annoying preview window after completion
 let g:ycm_autoclose_preview_window_after_completion = 1
+
+" CtrlP settings
+"-------------------------------------------------------------------------------
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
 
 " Store temporary files in a central spot
 "------------------------------------------------------------------------------
