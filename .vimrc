@@ -20,6 +20,7 @@ filetype plugin indent on  "Allow specific plugins based on filetype
 " Colorscheme and appearance
 "-------------------------------------------------------------------------------
 set t_Co=256
+" This should be disabled when connected via Putty!!!!
 let base16colorspace=256  " Access colors present in 256 colorspace
 syntax enable             "syntax highlighting on based on filetype
 set cursorline        "show current line
