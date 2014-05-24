@@ -67,6 +67,10 @@ set formatoptions+=r "multi comment when in insert mode
 set formatoptions+=q "allows formatting of comments
 set formatoptions+=c "allows automatic formatting of comments
 
+" External programs
+"-------------------------------------------------------------------------------
+" use par for paragragh formatting
+set formatprg=par\ -w80re
 
 " Go back to laster cursor position for each opened file
 "-------------------------------------------------------------------------------
@@ -112,6 +116,7 @@ function! ToggleMouse()
 endfunction
 
 " Remove trailing whitespaces (thanks vimcasts.org)
+"-------------------------------------------------------------------------------
 function! <SID>StripTrailingWhitespaces()
     " Preparation : save last search, and cursor position.
     let _s=@/
@@ -125,25 +130,68 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 " Open the Url passed as argument (thanks tpope)
+"-------------------------------------------------------------------------------
 function! OpenURL(url)
     exe "silent !x-www-browser \"".a:url."\""
     redraw!
 endfunction
 command! -nargs=1 OpenURL :call OpenURL(<q-args>)
 
+" Call Uncrustify with a command
+" Usage : :call Uncrustify('cpp')
+"-------------------------------------------------------------------------------
+" Restore cursor position, window position, and last search after running a
+" command.
+function! Preserve(command)
+  " Save the last search.
+  let search = @/
+
+  " Save the current cursor position.
+  let cursor_position = getpos('.')
+
+  " Save the current window position.
+  normal! H
+  let window_position = getpos('.')
+  call setpos('.', cursor_position)
+
+  " Execute the command.
+  execute a:command
+
+  " Restore the last search.
+  let @/ = search
+
+  " Restore the previous window position.
+  call setpos('.', window_position)
+  normal! zt
+
+  " Restore the previous cursor position.
+  call setpos('.', cursor_position)
+endfunction
+
+" Specify path to your Uncrustify configuration file.
+let g:uncrustify_cfg_file_path =
+    \ shellescape(fnamemodify('~/dotfiles/my-uncrustify.cfg', ':p'))
+
+" Don't forget to add Uncrustify executable to $PATH (on Unix) or
+" %PATH% (on Windows) for this command to work.
+function! Uncrustify(language)
+  call Preserve(':silent %!uncrustify'
+      \ . ' -q '
+      \ . ' -l ' . a:language
+      \ . ' -c ' . g:uncrustify_cfg_file_path)
+endfunction
+
 " Autocomplete for some symbols
 "-------------------------------------------------------------------------------
-"comma always followed by a space
-inoremap  ,  ,<Space>
 ""left brace/bracket always followed by right one
 inoremap { {}<Left>
 
 " Keybindings
 "-------------------------------------------------------------------------------
 "stop search higlight when hitting return key
-nnoremap <CR><CR> :nohlsearch<CR>
+nnoremap ,, :nohlsearch<CR>
 
-let mapleader=","
+let mapleader=" "
 
 " Insert a blank line below selected line
 nnoremap <leader><CR> o<Esc>
