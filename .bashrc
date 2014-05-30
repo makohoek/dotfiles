@@ -60,7 +60,6 @@ alias egrep='egrep --color=auto'
 
 # Bash prompt with git
 ######################################################################
-
 if [ -f ~/.bash_git_prompt ]; then
     . ~/.bash_git_prompt
 fi
@@ -88,14 +87,22 @@ alias vims='vim --servername VIM'
 alias vie='vim --remote-silent'
 alias vit='vim --remote-tab-silent'
 
-alias soundalert='~/bin/playNotificationSound.sh'
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"; soundalert'
-
-
 # Functions
 ######################################################################
+
+soundalert()
+{
+    cvlc --play-and-exit ~/Musique/notifications/Bell\ of\ Victory.mp3 >& /dev/null
+}
+
+# Alert alias for long running commands.
+# Usage example: sleep 10; alert
+alert()
+{
+    icon="$( [ $? = 0 ] && echo terminal || echo error )"
+    text="$( history | tail -n1 | sed 's/^\s*[0-9]\+\s*//' | sed 's/[;&|]\s*alert$//' )"
+    notify-send --urgency=low --icon "$icon" "$text"
+}
 
 # Colored man
 # see man termcap for the variables
