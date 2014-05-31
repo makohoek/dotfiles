@@ -2,7 +2,7 @@
 " kir0gawa's .vimrc
 " Feel free to copycat
 " What you need :)
-"-------------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 
 " Plugin loading with pathogen
 "-------------------------------------------------------------------------------
@@ -60,7 +60,7 @@ set incsearch "start search when typing
 set hidden
 
 " Show hidden tabs or trailing spaces
-set listchars=tab:▸\ ,nbsp:_,trail:⍨
+set listchars=tab:▸\ ,nbsp:_,trail:⎵
 set list
 
 " See :help fo-table
@@ -223,6 +223,9 @@ nnoremap <leader>c :call ToggleBackgroundColor()<CR>
 
 " Navigate trough open buffers
 nnoremap <leader>b :CtrlPBuffer<CR>
+
+" Navigate trough most recent used files
+nnoremap <leader>r :CtrlPMRU<CR>
 
 " toggle mouse in terminal
 nnoremap <leader>m :call ToggleMouse()<CR>
