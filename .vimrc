@@ -182,6 +182,17 @@ function! Uncrustify(language)
       \ . ' -c ' . g:uncrustify_cfg_file_path)
 endfunction
 
+" Calls uncrustify on a copy of the file and opens a diff with it
+function! UncrustifyDiff(language)
+    silent !cp % fix_proposal_%
+    silent rightb vsp fix_proposal_%
+    redraw!
+    call Uncrustify('cpp')
+    diffthis
+    normal! h
+    diffthis
+endfunction
+
 " Autocomplete for some symbols
 "-------------------------------------------------------------------------------
 ""left brace/bracket always followed by right one
