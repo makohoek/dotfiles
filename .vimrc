@@ -254,6 +254,9 @@ nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 " if we are doing cpp, use different search
 autocmd FileType cpp nnoremap gs :OpenURL http://www.cplusplus.com/search.do?q=<cword><CR>
 
+" Turn spelling on for git commit msgs
+autocmd BufRead COMMIT_EDITMSG setlocal spell!
+
 " YouCompleteMe settings
 "-------------------------------------------------------------------------------
 let g:ycm_enable_diagnostic_signs = 0 "disable ugly error bar
