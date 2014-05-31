@@ -227,6 +227,9 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 " Navigate trough most recent used files
 nnoremap <leader>r :CtrlPMRU<CR>
 
+" Go to current file directory
+nnoremap <leader>ff :cd %:h<CR>
+
 " toggle mouse in terminal
 nnoremap <leader>m :call ToggleMouse()<CR>
 
@@ -256,6 +259,7 @@ cmap jj <esc>
 nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 " if we are doing cpp, use different search
 autocmd FileType cpp nnoremap gs :OpenURL http://www.cplusplus.com/search.do?q=<cword><CR>
+
 
 " Turn spelling on for git commit msgs
 autocmd BufRead COMMIT_EDITMSG setlocal spell!
