@@ -251,7 +251,7 @@ nnoremap <leader><leader> <C-^>
 nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
 " Navigate fast between all buffers
-nnoremap <tab> :bnext<CR>
+nnoremap <tab> :silent! bnext<CR>
 
 " show element for syntax highlighting for finer tuning
 " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
@@ -287,6 +287,9 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " CtrlP settings
 "-------------------------------------------------------------------------------
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
+" Open multiple files always in hidden buffers
+" After that, jump to last opened
+let g:ctrlp_open_multiple_files = 'ij'
 
 " Store temporary files in a central spot
 "------------------------------------------------------------------------------
