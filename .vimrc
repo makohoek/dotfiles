@@ -250,6 +250,9 @@ nnoremap <leader><leader> <C-^>
 " remove trailing whitespaces
 nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
+" Navigate fast between all buffers
+nnoremap <tab> :bnext<CR>
+
 " show element for syntax highlighting for finer tuning
 " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
 map <F3> :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . '> trans<'
