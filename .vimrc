@@ -41,6 +41,8 @@ set backspace=indent,eol,start "backspace over autoindent, linebreaks and insert
 
 "set 4 spaces when editing python
 autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
+autocmd FileType vim set sw=2 sts=2 ts=2 tabstop=2
+autocmd FileType ruby set sw=2 sts=2 ts=2 tabstop=2
 
 " status bar configuration
 "-------------------------------------------------------------------------------
