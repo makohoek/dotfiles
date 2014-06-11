@@ -29,7 +29,7 @@ shopt -s extglob
 ######################################################################
 export EDITOR=vim
 export VISUAL=vim
-
+export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 
 # History stuff
 ######################################################################
