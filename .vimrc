@@ -202,10 +202,10 @@ inoremap { {}<Left>
 
 " Keybindings
 "-------------------------------------------------------------------------------
-"stop search higlight when hitting return key
-nnoremap ,, :nohlsearch<CR>
-
 let mapleader=" "
+
+"stop search higlight when hitting return key
+nnoremap <leader>, :nohlsearch<CR>
 
 " Insert a blank line below selected line
 nnoremap <leader><CR> o<Esc>
