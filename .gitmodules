@@ -37,3 +37,9 @@
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".config/awesome/themes/solarized"]
+	path = .config/awesome/themes/solarized
+	url = https://github.com/cycojesus/awesome-solarized.git
+[submodule ".vim/bundle/ack.vim"]
+	path = .vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
