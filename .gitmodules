@@ -39,7 +39,10 @@
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule ".config/awesome/themes/solarized"]
 	path = .config/awesome/themes/solarized
-	url = https://github.com/cycojesus/awesome-solarized.git
-[submodule ".vim/bundle/ack.vim"]
-	path = .vim/bundle/ack.vim
+	url = https://github.com/kir0gawa/awesome-solarized.git
+[submodule ".vim/bundle/ack"]
+	path = .vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
