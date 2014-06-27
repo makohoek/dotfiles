@@ -1,0 +1,60 @@
+diff --git a/lib/git.zsh b/lib/git.zsh
+index 305a77a..d47b6f7 100644
+--- a/lib/git.zsh
++++ b/lib/git.zsh
+@@ -1,9 +1,7 @@
+ # get the name of the branch we are on
+ function git_prompt_info() {
+   if [[ "$(git config --get oh-my-zsh.hide-status)" != "1" ]]; then
+-    ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+-    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
+-    echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
++    echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+   fi
+ }
+ 
+@@ -13,6 +11,9 @@ parse_git_dirty() {
+   local SUBMODULE_SYNTAX=''
+   local GIT_STATUS=''
+   local CLEAN_MESSAGE='nothing to commit (working directory clean)'
++  ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
++    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
++
+   if [[ "$(command git config --get oh-my-zsh.hide-status)" != "1" ]]; then
+     if [[ $POST_1_7_2_GIT -gt 0 ]]; then
+           SUBMODULE_SYNTAX="--ignore-submodules=dirty"
+@@ -23,12 +24,12 @@ parse_git_dirty() {
+         GIT_STATUS=$(command git status -s ${SUBMODULE_SYNTAX} 2> /dev/null | tail -n1)
+     fi
+     if [[ -n $GIT_STATUS ]]; then
+-      echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
++      echo "$ZSH_THEME_GIT_PROMPT_DIRTY_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_DIRTY_SUFFIX"
+     else
+-      echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
++      echo "$ZSH_THEME_GIT_PROMPT_CLEAN_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_CLEAN_SUFFIX"
+     fi
+   else
+-    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
++    echo "$ZSH_THEME_GIT_PROMPT_CLEAN_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_CLEAN_SUFFIX"
+   fi
+ }
+ 
+diff --git a/plugins/gitfast/gitfast.plugin.zsh b/plugins/gitfast/gitfast.plugin.zsh
+index dba1b13..fb517e3 100644
+--- a/plugins/gitfast/gitfast.plugin.zsh
++++ b/plugins/gitfast/gitfast.plugin.zsh
+@@ -4,5 +4,5 @@ source $dir/git-prompt.sh
+ 
+ function git_prompt_info() {
+   dirty="$(parse_git_dirty)"
+-  __git_ps1 "${ZSH_THEME_GIT_PROMPT_PREFIX//\%/%%}%s${dirty//\%/%%}${ZSH_THEME_GIT_PROMPT_SUFFIX//\%/%%}"
++  __git_ps1 "${ZSH_THEME_GIT_PROMPT_PREFIX//\%/%%}${dirty//\%/%%}%s${dirty//\%/%%}${ZSH_THEME_GIT_PROMPT_SUFFIX//\%/%%}"
+ }
+diff --git a/themes/makohoek.zsh-theme b/themes/makohoek.zsh-theme
+new file mode 120000
+index 0000000..a7e9f59
+--- /dev/null
++++ b/themes/makohoek.zsh-theme
+@@ -0,0 +1 @@
++/home/lab/dotfiles/.oh-my-zsh/themes/makohoek.zsh-theme
+\ No newline at end of file
