@@ -1,0 +1,20 @@
+diff -r bed71c37618c src/syntax.c
+--- a/src/syntax.c	Thu May 29 14:36:29 2014 +0200
++++ b/src/syntax.c	Fri Jul 04 15:52:56 2014 +0200
+@@ -9121,10 +9121,14 @@
+      * highlighting attributes, need to allocate an attr number.
+      */
+     if (sgp->sg_cterm_fg == 0 && sgp->sg_cterm_bg == 0)
+-	sgp->sg_cterm_attr = sgp->sg_cterm;
++        //HACK!! use gui attributes instead of cterm ones
++	//sgp->sg_cterm_attr = sgp->sg_cterm;
++	sgp->sg_cterm_attr = sgp->sg_gui;
+     else
+     {
+-	at_en.ae_attr = sgp->sg_cterm;
++        //HACK!! use gui attributes instead of cterm ones
++	//at_en.ae_attr = sgp->sg_cterm;
++	at_en.ae_attr = sgp->sg_gui;
+ 	at_en.ae_u.cterm.fg_color = sgp->sg_cterm_fg;
+ 	at_en.ae_u.cterm.bg_color = sgp->sg_cterm_bg;
+ 	sgp->sg_cterm_attr = get_attr_entry(&cterm_attr_table, &at_en);
