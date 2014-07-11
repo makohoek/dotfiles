@@ -118,6 +118,16 @@ man() {
         man "$@"
 }
 
+cscope_generate_files()
+{
+    find $(pwd) -name '*.c' -o -name '*.h' -o -name '*.cpp' -o -name '*.hpp' > cscope.files
+}
+
+cscope_rebuild_index()
+{
+    cscope -b -q -k
+}
+
 # Private includes
 ######################################################################
 
