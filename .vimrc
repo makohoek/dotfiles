@@ -257,7 +257,7 @@ nnoremap <tab> :silent! bnext<CR>
 
 " show element for syntax highlighting for finer tuning
 " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
-map <F3> :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . '> trans<'
+map <leader>cg :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . '> trans<'
             \ . synIDattr(synID(line("."), col("."), 0), "name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name") . ">"<CR>
 
@@ -276,9 +276,12 @@ nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 " if we are doing cpp, use different search
 autocmd FileType cpp nnoremap gs :OpenURL http://www.cplusplus.com/search.do?q=<cword><CR>
 
-
 " Turn spelling on for git commit msgs
 autocmd BufRead COMMIT_EDITMSG setlocal spell!
+
+" Use autopep8 for formating python files with gq
+autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\ -
+
 
 " YouCompleteMe settings
 "-------------------------------------------------------------------------------
