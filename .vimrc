@@ -292,6 +292,8 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
 " Open multiple files always in hidden buffers
 " After that, jump to last opened
 let g:ctrlp_open_multiple_files = 'ij'
+" do not search in the git directory, but in the current one
+let g:ctrlp_working_path_mode = 'c'
 
 " Store temporary files in a central spot
 "------------------------------------------------------------------------------

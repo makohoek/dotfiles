@@ -28,6 +28,9 @@ export PATH="/home/kir0gawa/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/lo
 
 export EDITOR=vim
 
+# par variable from manual
+export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
