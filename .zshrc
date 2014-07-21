@@ -28,6 +28,12 @@ export PATH="/home/kir0gawa/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/lo
 
 export EDITOR=vim
 
+# par variable from manual
+export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
 alias pycharm='~/bin/pycharm-2.7.3/bin/pycharm.sh'
 alias webstorm='~/bin/WebStorm-129.664/bin/webstorm.sh'
 alias intellij='~/bin/idea-IC-129.713/bin/idea.sh'
