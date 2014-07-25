@@ -1,6 +1,6 @@
 # Base16 shell colors
-BASE16_SCHEME="solarized"
-BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+BASE16_SCHEME="solarized.dark"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
 # Path to your oh-my-zsh configuration.
@@ -40,10 +40,10 @@ alias intellij='~/bin/idea-IC-129.713/bin/idea.sh'
 alias getedt='cd ~/Development/EdtCamsi/src/ && python Main.py'
 alias vpn='cd ~/Documents/OpenVPN/NequaliaLinux/ && sudo ./startOpenvpn'
 
-# be greeted by great motivationalQuotes
-#nbOfLines=$( cat ~/.motivationalQuotes | wc -l ); randline=$(( $RANDOM % $(( nbOfLines + 1 )) + 1 )); tail -$randline .motivationalQuotes | head -1 | cowsay -f stegosaurus
-
 alias tmux='export TERM="screen-256color"; tmux -2'
 alias vims='vim --servername VIM'
 alias vie='vim --remote'
 alias vit='vim --remote-tab'
+
+alias gmail='/opt/google/chrome/google-chrome --app-id=pjkljhegncpnkpknbcohdijeoejaedia --profile-directory=Default'
+alias gcal='/opt/google/chrome/google-chrome --app-id=ejjicmeblgpmajnghnpcppodonldlgfn --profile-directory=Default'

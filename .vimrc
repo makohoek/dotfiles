@@ -227,6 +227,7 @@ set spelllang=en_gb " Set region to British English
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "customSnippets"]
 
 " show columns for max length rules
 nnoremap <leader>v :call ToggleShowColumnLimit()<CR>

@@ -1,0 +1,22 @@
+priority -50
+
+extends cpp
+
+priority -48
+
+snippet fun "function" b
+${1:void} ${2:function_name}(${3})
+{
+	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+endsnippet
+
+snippet fund "function declaration" b
+/**
+ * @param $3
+ * @return $1
+ */
+${1:void} ${2:function_name}(${3});
+endsnippet
+
+# vim:ft=snippets:
