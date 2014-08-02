@@ -16,7 +16,6 @@ set nocompatible           "disable vi compatibility for better filetype
 filetype plugin on         "Allows vim to detect filetype
 filetype plugin indent on  "Allow specific plugins based on filetype
 
-
 " Colorscheme and appearance
 "-------------------------------------------------------------------------------
 set t_Co=256
@@ -224,10 +223,17 @@ nmap <leader>s :set spell!<CR>
 set spelllang=en_us "spell language which should be used
 
 " UltiSnip keybindings
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger="<C-o>"
+let g:UltiSnipsJumpForwardTrigger="<C-o>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "customSnippets"]
+
+" Bindings for the great tmux_navigator
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
 
 " show columns for max length rules
 nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
@@ -261,12 +267,6 @@ nnoremap <tab> :silent! bnext<CR>
 map <leader>cg :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . '> trans<'
             \ . synIDattr(synID(line("."), col("."), 0), "name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name") . ">"<CR>
-
-" better window resizing : maps Alt-[h,j,k,l] to resizing a window split
-nnoremap <C-h> <C-w><
-nnoremap <C-k> <C-W>-
-nnoremap <C-j> <C-W>+
-nnoremap <C-l> <C-w>>
 
 " Double jj to leave insert modus
 imap jj <esc>
