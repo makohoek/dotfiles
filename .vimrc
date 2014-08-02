@@ -1,5 +1,5 @@
 "-------------------------------------------------------------------------------
-" kir0gawa's .vimrc
+" Makohoek's .vimrc
 " Feel free to copycat
 " What you need :)
 "------------------------------------------------------------------------------
@@ -221,7 +221,7 @@ nnoremap <leader>tt :UpdateTypesFile<CR>
 
 " Toggle spellchecking (from vimcasts.org)
 nmap <leader>s :set spell!<CR>
-set spelllang=en_gb " Set region to British English
+set spelllang=en_us "spell language which should be used
 
 " UltiSnip keybindings
 let g:UltiSnipsExpandTrigger="<c-j>"
