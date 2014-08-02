@@ -4,7 +4,7 @@ USERNAME='%n'
 CURRENTDIRECTORY='%~'
 
 
-PROMPT=$'%F{019}$CLOCK%f $(git_prompt_info) %{$fg[white]%}%{$fg_bold[yellow]%}$CURRENTDIRECTORY%{$reset_color%} %{$fg_bold[blue]%}$PROMPTSYMBOL%{$reset_color%} '
+PROMPT=$'$(git_prompt_info) %{$fg[white]%}%{$fg_bold[yellow]%}$CURRENTDIRECTORY%{$reset_color%} %{$fg_bold[blue]%}$PROMPTSYMBOL%{$reset_color%} '
 
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
