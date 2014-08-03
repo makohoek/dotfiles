@@ -299,6 +299,10 @@ let g:ctrlp_open_multiple_files = 'ij'
 " do not search in the git directory, but in the current one
 let g:ctrlp_working_path_mode = 'c'
 
+" powerline setttings
+"-------------------------------------------------------------------------------
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+
 " Store temporary files in a central spot
 "------------------------------------------------------------------------------
 set backup
