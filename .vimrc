@@ -194,11 +194,6 @@ function! UncrustifyDiff(language)
     diffthis
 endfunction
 
-" Autocomplete for some symbols
-"-------------------------------------------------------------------------------
-""left brace/bracket always followed by right one
-inoremap { {}<Left>
-
 " Keybindings
 "-------------------------------------------------------------------------------
 let mapleader=" "
