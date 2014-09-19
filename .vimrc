@@ -194,11 +194,6 @@ function! UncrustifyDiff(language)
     diffthis
 endfunction
 
-" Autocomplete for some symbols
-"-------------------------------------------------------------------------------
-""left brace/bracket always followed by right one
-inoremap { {}<Left>
-
 " Keybindings
 "-------------------------------------------------------------------------------
 let mapleader=" "
@@ -300,6 +295,10 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
 let g:ctrlp_open_multiple_files = 'ij'
 " do not search in the git directory, but in the current one
 let g:ctrlp_working_path_mode = 'c'
+
+" powerline setttings
+"-------------------------------------------------------------------------------
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " Store temporary files in a central spot
 "------------------------------------------------------------------------------
