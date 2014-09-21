@@ -7,17 +7,16 @@ URxvt*skipScroll: false
 
 URxvt*cursorBlink: true
 
-URxvt*font:  xft:monaco:regular:size=9:antialias=true
-URxvt*boldFont:  xft:monaco:bold:size=9:antialias=true
+URxvt*font:  xft:monaco:regular:size=10:antialias=true
+URxvt*boldFont:  xft:monaco:bold:size=10:antialias=true
 URxvt*letterSpace: -1
 ! redefine for transparency
 URxvt*depth: 32
-!*background:              [90]S_base03
 URxvt*borderless: 1
 URxvt*scrollBar: false
 Urxvt*secondaryScroll:  true    # Enable Shift-PageUp/Down in screen
 URxvt*saveLines: 5000
-URxvt*termName: xterm
+URxvt*termName: screen-256color
 URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher:firefox
 URxvt.matcher.button: 1

@@ -1,3 +1,3 @@
-#! /bin/sh
-xrdb solarized-xresources/solarized
-xrdb -merge .Xresources
+# Set settings for urxvt
+xrdb ~/.Xresources
+xrdb -merge ~/dotfiles/solarized-xresources/solarized

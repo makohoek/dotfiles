@@ -18,13 +18,12 @@ filetype plugin indent on  "Allow specific plugins based on filetype
 
 " Colorscheme and appearance
 "-------------------------------------------------------------------------------
-set t_Co=256
 " This should be disabled when connected via Putty!!!!
-let base16colorspace=256  " Access colors present in 256 colorspace
-syntax enable             "syntax highlighting on based on filetype
-set cursorline        "show current line
+""let base16colorspace=256  " Access colors present in 256 colorspace
+syntax enable         "syntax highlighting on based on filetype
 set background=dark   "dark version of
-colorscheme base16-solarized "modified solarized
+colorscheme solarized "solarized
+set cursorline        "show current line
 set fdm=syntax        "folding method based on syntax
 set showmatch         "show matching bracket
 set number            "show line numbers
@@ -61,7 +60,7 @@ set incsearch "start search when typing
 set hidden
 
 " Show hidden tabs or trailing spaces
-set listchars=tab:▸\ ,nbsp:_,trail:⎵
+set listchars=tab:▸\ ,nbsp:_,trail:¬
 set list
 
 " See :help fo-table
