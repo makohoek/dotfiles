@@ -4,19 +4,19 @@
 " What you need :)
 "------------------------------------------------------------------------------
 
-" Plugin loading with pathogen
+" {{{1 Plugin loading with pathogen
 "-------------------------------------------------------------------------------
 execute pathogen#infect()
 " add the helps for the plugins in ~/.vim/bundle
 execute pathogen#helptags()
 
-" Filetype
+" {{{1 Filetype
 "-------------------------------------------------------------------------------
 set nocompatible           "disable vi compatibility for better filetype
 filetype plugin on         "Allows vim to detect filetype
 filetype plugin indent on  "Allow specific plugins based on filetype
 
-" Colorscheme and appearance
+" {{{1 Colorscheme and appearance
 "-------------------------------------------------------------------------------
 " This should be disabled when connected via Putty!!!!
 ""let base16colorspace=256  " Access colors present in 256 colorspace
@@ -29,7 +29,7 @@ set showmatch         "show matching bracket
 set number            "show line numbers
 let g:xml_syntax_folding=1 "allow folding for xmls
 
-" indentation spaces/tabs
+" {{{1 Indentation spaces/tabs
 "-------------------------------------------------------------------------------
 set expandtab     "spaces instead of tabs
 set shiftwidth=4  "number of spaces for each step of indent
@@ -42,7 +42,7 @@ autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
 autocmd FileType vim set sw=2 sts=2 ts=2 tabstop=2
 autocmd FileType ruby set sw=2 sts=2 ts=2 tabstop=2
 
-" status bar configuration
+" {{{1 status bar configuration
 "-------------------------------------------------------------------------------
 set ruler "show line and column number
 set laststatus=2 "always show last status
@@ -50,9 +50,7 @@ set statusline=%<%f%h%w%m%r%=%y\ %l,%c\ %P "see :help statusline
 set showcmd "show entered command
 
 
-" Search options
-"-------------------------------------------------------------------------------
-set hlsearch "highlight searched items
+" {{{1 Search options
 set smartcase "ignore case only when putting on a lowercase
 set incsearch "start search when typing
 
@@ -68,7 +66,7 @@ set formatoptions+=r "multi comment when in insert mode
 set formatoptions+=q "allows formatting of comments
 set formatoptions+=c "allows automatic formatting of comments
 
-" External programs
+" {{{1 External programs
 "-------------------------------------------------------------------------------
 " use par for paragragh formatting
 set formatprg=par\ -w80re
@@ -80,21 +78,22 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
+" {{{1 Functions
 
-" Shows column limit based on coding styles (80 chars)
+" {{{2 Shows column limit based on coding styles (80 chars)
 "-------------------------------------------------------------------------------
 let g:show_column_limit='off'
 function! ToggleShowColumnLimit()
   if g:show_column_limit == 'off'
     set colorcolumn=80,100
-    let g:show_column_limit='on'
+    let b:show_column_limit='on'
   else
     set colorcolumn=0
-    let g:show_column_limit='off'
+    let b:show_column_limit='off'
   endif
 endfunction
 
-" Toggle background color easily
+" {{{2 Toggle background color easily
 "-------------------------------------------------------------------------------
 function! ToggleBackgroundColor()
   if &background == 'dark'
@@ -104,7 +103,7 @@ function! ToggleBackgroundColor()
   endif
 endfunction
 
-" Toggle mouse on/off
+" {{{2 Toggle mouse on/off
 "-------------------------------------------------------------------------------
 function! ToggleMouse()
   if &mouse == 'a'
@@ -116,7 +115,7 @@ function! ToggleMouse()
   endif
 endfunction
 
-" Remove trailing whitespaces (thanks vimcasts.org)
+" {{{2 Remove trailing whitespaces (thanks vimcasts.org)
 "-------------------------------------------------------------------------------
 function! <SID>StripTrailingWhitespaces()
     " Preparation : save last search, and cursor position.
@@ -130,7 +129,7 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
-" Open the Url passed as argument (thanks tpope)
+" {{{2 Open the Url passed as argument (thanks tpope)
 "-------------------------------------------------------------------------------
 function! OpenURL(url)
     exe "silent !x-www-browser \"".a:url."\""
@@ -138,7 +137,7 @@ function! OpenURL(url)
 endfunction
 command! -nargs=1 OpenURL :call OpenURL(<q-args>)
 
-" Call Uncrustify with a command
+" 2{{{ Call Uncrustify with a command
 " Usage : :call Uncrustify('cpp')
 "-------------------------------------------------------------------------------
 " Restore cursor position, window position, and last search after running a
@@ -193,7 +192,7 @@ function! UncrustifyDiff(language)
     diffthis
 endfunction
 
-" Keybindings
+" {{{1 Keybindings
 "-------------------------------------------------------------------------------
 let mapleader=" "
 
@@ -277,8 +276,10 @@ autocmd BufRead COMMIT_EDITMSG setlocal spell!
 " Use autopep8 for formating python files with gq
 autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\ -
 
+" {{{1 Plugin specific settings
+"-------------------------------------------------------------------------------
 
-" YouCompleteMe settings
+" {{{2 YouCompleteMe settings
 "-------------------------------------------------------------------------------
 let g:ycm_enable_diagnostic_signs = 0 "disable ugly error bar
 " close annoying preview window after completion
@@ -286,7 +287,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " do NOT request config file
 let g:ycm_confirm_extra_conf = 0
 
-" CtrlP settings
+" {{{2 CtrlP settings
 "-------------------------------------------------------------------------------
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
 " Open multiple files always in hidden buffers
@@ -295,11 +296,11 @@ let g:ctrlp_open_multiple_files = 'ij'
 " do not search in the git directory, but in the current one
 let g:ctrlp_working_path_mode = 'c'
 
-" powerline setttings
+" {{{2 powerline setttings
 "-------------------------------------------------------------------------------
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
-" Store temporary files in a central spot
+" {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
