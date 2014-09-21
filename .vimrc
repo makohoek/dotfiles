@@ -3,7 +3,6 @@
 " Feel free to copycat
 " What you need :)
 "------------------------------------------------------------------------------
-
 " {{{1 Plugin loading with pathogen
 "-------------------------------------------------------------------------------
 execute pathogen#infect()
@@ -305,3 +304,6 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" {{{1 modeline
+" vim: fdm=marker
