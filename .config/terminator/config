@@ -8,7 +8,7 @@
   [[default]]
     scrollbar_position = hidden
     palette = "#002b36:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#93a1a1:#657b83:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#fdf6e3"
-    font = Monaco 9
+    font = Bitstream Vera Sans Mono 9
     background_image = None
     use_system_font = False
     cursor_color = "#93a1a1"
@@ -20,7 +20,7 @@
   [[Base16 Solarized Dark]]
     scrollbar_position = hidden
     palette = "#002b36:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#93a1a1:#657b83:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#fdf6e3"
-    font = Monaco 9
+    font = Monaco for Powerline 9
     background_image = None
     use_system_font = False
     cursor_color = "#93a1a1"
