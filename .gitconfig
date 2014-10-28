@@ -1,0 +1,10 @@
+[alias]
+    st = status
+    amend = commit --amend
+    dc = diff --cached
+    di = diff
+[user]
+    email = mattijs.korpershoek@gmail.com
+    name = Mattijs Korpershoek
+[merge]
+    tool = vimdiff

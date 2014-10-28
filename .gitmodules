@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/vim-exchange"]
 	path = .vim/bundle/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange.git
+[submodule ".vim/bundle/vala.vim"]
+	path = .vim/bundle/vala.vim
+	url = https://github.com/cbracken/vala.vim.git
