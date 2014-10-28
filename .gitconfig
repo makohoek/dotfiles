@@ -1,0 +1,18 @@
+[alias]
+    st = status
+    amend = commit --amend
+    dc = diff --cached
+    di = diff
+    tree = "log --oneline --decorate --all --graph"
+    treeb = "log --oneline --decorate --graph --branches"
+[user]
+    email = mattijs.korpershoek@gmail.com
+    name = Mattijs Korpershoek
+[merge]
+    tool = vimdiff
+[difftool]
+    tool = vimdiff
+[diff]
+    tool = vimdiff
+[color]
+    ui = true
