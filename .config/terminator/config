@@ -2,6 +2,10 @@
   title_transmit_bg_color = "#d30102"
   focus = system
 [keybindings]
+  go_left = ISO_Level5_Shift
+  go_down = <Shift><Alt>Menu
+  go_right = ISO_Level5_Shift
+  go_up = <Shift><Alt>ISO_Level5_Shift
 [profiles]
   [[default]]
     background_image = None
