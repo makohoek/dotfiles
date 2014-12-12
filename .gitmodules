@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/vala.vim"]
 	path = .vim/bundle/vala.vim
 	url = https://github.com/cbracken/vala.vim.git
+[submodule ".vim/bundle/vim-monokai"]
+	path = .vim/bundle/vim-monokai
+	url = https://github.com/crusoexia/vim-monokai.git
