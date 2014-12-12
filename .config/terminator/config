@@ -1,49 +1,36 @@
 [global_config]
-  enabled_plugins = ,
-  title_transmit_bg_color = "#dc322f"
+  title_transmit_bg_color = "#d30102"
   focus = system
-  title_inactive_bg_color = "#657b83"
 [keybindings]
 [profiles]
   [[default]]
+    background_image = None
+  [[solarized-dark]]
     scrollbar_position = hidden
-    palette = "#002b36:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#93a1a1:#657b83:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#fdf6e3"
-    font = Bitstream Vera Sans Mono 9
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     background_image = None
     use_system_font = False
-    cursor_color = "#93a1a1"
-    foreground_color = "#93a1a1"
-    icon_bell = False
+    cursor_color = "#eee8d5"
+    foreground_color = "#839496"
     show_titlebar = False
-    copy_on_selection = True
-    background_color = "#002b36"
-  [[Base16 Solarized Dark]]
-    scrollbar_position = hidden
-    palette = "#002b36:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#93a1a1:#657b83:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#fdf6e3"
-    font = Monaco for Powerline 9
-    background_image = None
-    use_system_font = False
-    cursor_color = "#93a1a1"
-    foreground_color = "#93a1a1"
-    icon_bell = False
-    show_titlebar = False
-    copy_on_selection = True
-    background_color = "#002b36"
-  [[Base16 Solarized Light]]
-    palette = "#fdf6e3:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#93a1a1:#657b83:#dc322f:#859900:#b58900:#268bd2:#6c71c4:#2aa198:#002b36"
     font = Monaco 9
+    background_color = "#002b36"
+    scrollback_infinite = True
+  [[solarized-light]]
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     background_image = None
     use_system_font = False
-    cursor_color = "#586e75"
-    foreground_color = "#586e75"
-    copy_on_selection = True
+    cursor_color = "#002b36"
+    foreground_color = "#657b83"
+    show_titlebar = False
+    font = Monaco 9
     background_color = "#fdf6e3"
 [layouts]
   [[default]]
     [[[child1]]]
       type = Terminal
       parent = window0
-      profile = Base16 Solarized Dark
+      profile = solarized-dark
     [[[window0]]]
       type = Window
       parent = ""
