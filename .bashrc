@@ -45,6 +45,8 @@ HISTFILESIZE=2000
 # Extra includes
 ######################################################################
 
+
+
 # Bash prompt with git
 if [ -f ~/.bash_git_prompt ]; then
     . ~/.bash_git_prompt

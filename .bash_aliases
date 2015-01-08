@@ -12,6 +12,8 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+alias info='info --vi-keys'
+
 # Extra aliases
 ######################################################################
 alias pycharm='~/bin/pycharm-2.7.3/bin/pycharm.sh'
