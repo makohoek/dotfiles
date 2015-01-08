@@ -25,6 +25,7 @@ set background=dark   "dark version of
 colorscheme solarized "solarized
 set cursorline        "show current line
 set fdm=syntax        "folding method based on syntax
+set foldlevel=16      "open folds by default
 set showmatch         "show matching bracket
 set number            "show line numbers
 let g:xml_syntax_folding=1 "allow folding for xmls
@@ -215,6 +216,9 @@ nnoremap <leader>tt :UpdateTypesFile<CR>
 " Toggle spellchecking (from vimcasts.org)
 nmap <leader>s :set spell!<CR>
 set spelllang=en_us "spell language which should be used
+
+" Preserve indentation while pasting text from the clipboard
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 " UltiSnip keybindings
 let g:UltiSnipsExpandTrigger="<C-o>"
