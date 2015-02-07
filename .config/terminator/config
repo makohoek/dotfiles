@@ -17,7 +17,7 @@
     cursor_color = "#eee8d5"
     foreground_color = "#839496"
     show_titlebar = False
-    font = Monaco 9
+    font = Inconsolata Medium 11
     background_color = "#002b36"
     scrollback_infinite = True
   [[tomorrow-night]]
