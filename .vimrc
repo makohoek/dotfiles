@@ -21,7 +21,7 @@ filetype plugin indent on  "Allow specific plugins based on filetype
 ""let base16colorspace=256  " Access colors present in 256 colorspace
 syntax enable         "syntax highlighting on based on filetype
 set background=dark   "dark version of
-colorscheme Tomorrow-Night "Tomorrow-Night
+colorscheme solarized "solarized
 set cursorline        "show current line
 set fdm=syntax        "folding method based on syntax
 set showmatch         "show matching bracket
