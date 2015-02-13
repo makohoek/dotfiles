@@ -56,7 +56,9 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # chruby for easy ruby version changing
-source /usr/local/share/chruby/chruby.sh
+if [ -f /usr/local/share/chruby/chruby.sh ]; then
+    . /usr/local/share/chruby/chruby.sh
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
