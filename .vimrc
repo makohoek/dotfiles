@@ -28,6 +28,7 @@ set fdm=syntax        "folding method based on syntax
 set foldlevel=16      "open folds by default
 set showmatch         "show matching bracket
 set number            "show line numbers
+set hlsearch          "show search highlighting
 let g:xml_syntax_folding=1 "allow folding for xmls
 
 " {{{1 Indentation spaces/tabs
