@@ -9,6 +9,9 @@ execute pathogen#infect()
 " add the helps for the plugins in ~/.vim/bundle
 execute pathogen#helptags()
 
+" load default vim man plugin
+runtime ftplugin/man.vim
+
 " {{{1 Filetype
 "-------------------------------------------------------------------------------
 set nocompatible           "disable vi compatibility for better filetype
