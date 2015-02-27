@@ -50,11 +50,15 @@ HISTFILESIZE=2000
 # Bash prompt with git
 if [ -f ~/.bash_git_prompt ]; then
     . ~/.bash_git_prompt
+else
+    echo ".bash_git_prompt is not available!"
 fi
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+else
+    echo ".bash_aliases is not available!"
 fi
 
 # chruby for easy ruby version changing
