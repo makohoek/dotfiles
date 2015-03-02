@@ -55,6 +55,7 @@ set laststatus=2 "always show last status
 set statusline=%<%f%h%w%m%r%=%y\ %l,%c\ %P "see :help statusline
 set showcmd "show entered command
 
+set wildmenu "command completion in ex mode
 
 " {{{1 Search options
 set smartcase "ignore case only when putting on a lowercase
