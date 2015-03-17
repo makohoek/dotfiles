@@ -39,6 +39,3 @@ alias tmux='export TERM="screen-256color"; tmux -2'
 alias vims='vim --servername VIM'
 alias vie='vim --remote'
 alias vit='vim --remote-tab'
-
-alias gmail='/opt/google/chrome/google-chrome --app-id=pjkljhegncpnkpknbcohdijeoejaedia --profile-directory=Default'
-alias gcal='/opt/google/chrome/google-chrome --app-id=ejjicmeblgpmajnghnpcppodonldlgfn --profile-directory=Default'
