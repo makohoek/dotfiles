@@ -5,6 +5,7 @@
 "------------------------------------------------------------------------------
 " {{{1 Plugin loading with vim-plug
 "-------------------------------------------------------------------------------
+set modelines=0
 let g:plug_url_format = 'https://github.com/%s.git'
 call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
