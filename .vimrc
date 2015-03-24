@@ -3,11 +3,29 @@
 " Feel free to copycat
 " What you need :)
 "------------------------------------------------------------------------------
-" {{{1 Plugin loading with pathogen
+" {{{1 Plugin loading with vim-plug
 "-------------------------------------------------------------------------------
-execute pathogen#infect()
-" add the helps for the plugins in ~/.vim/bundle
-execute pathogen#helptags()
+set modelines=0
+let g:plug_url_format = 'https://github.com/%s.git'
+call plug#begin('~/.vim/plugged')
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-rails'
+Plug 'tommcdo/vim-exchange'
+Plug 'cbracken/vala.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
+Plug 'SirVer/ultisnips'
+Plug 'Makohoek/pfw-vim-syntax'
+call plug#end()
 
 " load default vim man plugin
 runtime ftplugin/man.vim
