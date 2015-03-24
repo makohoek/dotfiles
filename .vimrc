@@ -3,11 +3,11 @@
 " Feel free to copycat
 " What you need :)
 "------------------------------------------------------------------------------
-" {{{1 Plugin loading with pathogen
+" {{{1 Plugin loading with vim-plug
 "-------------------------------------------------------------------------------
-execute pathogen#infect()
-" add the helps for the plugins in ~/.vim/bundle
-execute pathogen#helptags()
+call plug#begin('~/.vim/plugged')
+
+call plug#end()
 
 " load default vim man plugin
 runtime ftplugin/man.vim
