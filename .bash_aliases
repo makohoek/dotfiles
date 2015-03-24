@@ -14,6 +14,8 @@ alias egrep='egrep --color=auto'
 
 alias info='info --vi-keys'
 
+alias pwdcp='pwd; tmux copy-mode \; send-keys k ^ v $ y'
+
 # Extra aliases
 ######################################################################
 alias pycharm='~/bin/pycharm-2.7.3/bin/pycharm.sh'
