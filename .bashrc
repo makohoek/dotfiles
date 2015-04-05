@@ -55,7 +55,8 @@ function source_if_exists()
     fi
 }
 
-
+# this prompt must be sourced to use __git_ps1
+source_if_exists /usr/share/git-core/contrib/completion/git-prompt.sh
 source_if_exists ~/.bash_git_prompt
 source_if_exists ~/.bash_aliases
 source_if_exists /usr/local/share/chruby/chruby.sh
