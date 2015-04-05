@@ -22,7 +22,7 @@ Plug 'cbracken/vala.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer', 'for': 'cpp' }
 Plug 'SirVer/ultisnips'
 Plug 'Makohoek/pfw-vim-syntax'
 call plug#end()
