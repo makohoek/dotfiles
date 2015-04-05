@@ -1,7 +1,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-
 # Shell Options
 ######################################################################
 
@@ -23,7 +22,6 @@ shopt -s hostcomplete
 
 # allow extended globs such as !()
 shopt -s extglob
-
 
 # Environment variables
 ######################################################################
@@ -65,11 +63,6 @@ source_if_exists /etc/bash_completion
 # Functions
 ######################################################################
 
-soundalert()
-{
-    cvlc --play-and-exit ~/Musique/notifications/Bell\ of\ Victory.mp3 >& /dev/null
-}
-
 # Alert alias for long running commands.
 # Usage example: sleep 10; alert
 alert()
@@ -105,8 +98,6 @@ cscope_rebuild_index()
 
 # Private includes
 ######################################################################
-
 if [ -f ~/.bash_work ]; then
     . ~/.bash_work
 fi
-
