@@ -45,33 +45,21 @@ HISTFILESIZE=2000
 # Extra includes
 ######################################################################
 
+function source_if_exists()
+{
+    local file_to_source="$1"
+    if [ -f "$file_to_source" ]; then
+        source $file_to_source
+    else
+        >&2 echo "$file_to_source is not available!"
+    fi
+}
 
 
-# Bash prompt with git
-if [ -f ~/.bash_git_prompt ]; then
-    . ~/.bash_git_prompt
-else
-    echo ".bash_git_prompt is not available!"
-fi
-
-# Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-else
-    echo ".bash_aliases is not available!"
-fi
-
-# chruby for easy ruby version changing
-if [ -f /usr/local/share/chruby/chruby.sh ]; then
-    . /usr/local/share/chruby/chruby.sh
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
+source_if_exists ~/.bash_git_prompt
+source_if_exists ~/.bash_aliases
+source_if_exists /usr/local/share/chruby/chruby.sh
+source_if_exists /etc/bash_completion
 
 # Functions
 ######################################################################
