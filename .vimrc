@@ -26,6 +26,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'SirVer/ultisnips'
 Plug 'Shougo/unite.vim' "for taskwarrior
 Plug 'farseer90718/vim-taskwarrior'
+Plug 'bogado/file-line'
 Plug 'Makohoek/pfw-vim-syntax'
 call plug#end()
 
