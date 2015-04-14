@@ -29,6 +29,7 @@ Plug 'farseer90718/vim-taskwarrior'
 Plug 'bogado/file-line'
 Plug 'Makohoek/pfw-vim-syntax'
 call plug#end()
+set modelines=1
 
 " load default vim man plugin
 runtime ftplugin/man.vim
