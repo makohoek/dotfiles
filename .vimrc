@@ -27,8 +27,10 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets' "default snippets for ultisnips
 Plug 'Shougo/unite.vim' "for taskwarrior
 Plug 'farseer90718/vim-taskwarrior'
+Plug 'bogado/file-line'
 Plug 'Makohoek/pfw-vim-syntax'
 call plug#end()
+set modelines=1
 
 " load default vim man plugin
 runtime ftplugin/man.vim
