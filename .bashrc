@@ -1,6 +1,8 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# disable flow control (C-s and C-q) since I use tmux for that feature
+stty -ixon
 
 # Shell Options
 ######################################################################
