@@ -6,6 +6,7 @@
     tree = "log --oneline --decorate --all --graph"
     treeb = "log --oneline --decorate --graph --branches"
     ll = "!. ~/.githelpers && pretty_git_log"
+    vimdiff = difftool -w -y -t vimdiff
 [user]
     email = mattijs.korpershoek@gmail.com
     name = Mattijs Korpershoek
