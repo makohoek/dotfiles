@@ -110,16 +110,13 @@ autocmd BufReadPost *
 
 " {{{1 Functions
 
-" {{{2 Shows column limit based on coding styles (80 chars)
+" {{{2 Shows column limit based on coding styles (80,100 chars)
 "-------------------------------------------------------------------------------
-let g:show_column_limit='off'
 function! ToggleShowColumnLimit()
-  if g:show_column_limit == 'off'
+  if &colorcolumn == '' || &colorcolumn == '0'
     set colorcolumn=80,100
-    let b:show_column_limit='on'
   else
     set colorcolumn=0
-    let b:show_column_limit='off'
   endif
 endfunction
 
