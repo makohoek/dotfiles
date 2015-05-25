@@ -28,6 +28,8 @@ Plug 'honza/vim-snippets' "default snippets for ultisnips
 Plug 'Shougo/unite.vim' "for taskwarrior
 Plug 'farseer90718/vim-taskwarrior'
 Plug 'bogado/file-line'
+Plug 'nanotech/jellybeans.vim'
+Plug 'chriskempson/base16-vim'
 Plug 'Makohoek/pfw-vim-syntax'
 call plug#end()
 set modelines=1
@@ -48,7 +50,7 @@ filetype plugin indent on  "Allow specific plugins based on filetype
 syntax enable         "syntax highlighting on based on filetype
 set t_Co=256
 set background=dark   "dark version of
-colorscheme solarized "solarized
+colorscheme base16-default "solarized
 set cursorline        "show current line
 set fdm=syntax        "folding method based on syntax
 set foldlevel=16      "open folds by default
