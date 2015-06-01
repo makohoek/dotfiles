@@ -236,9 +236,6 @@ nnoremap <silent> <Leader>o :CtrlP<CR>
 " YouCompleteMe keybindings
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" Taghighlight keybing
-nnoremap <leader>tt :UpdateTypesFile<CR>
-
 " Toggle spellchecking (from vimcasts.org)
 nmap <leader>s :set spell!<CR>
 set spelllang=en_us "spell language which should be used
