@@ -243,11 +243,14 @@ nnoremap <leader>tt :UpdateTypesFile<CR>
 nmap <leader>s :set spell!<CR>
 set spelllang=en_us "spell language which should be used
 
-" Preserve indentation while pasting text from the clipboard
-noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
-" Copy text from vim in the system clipboard (need GUI support)
-" Use visual selection to copy
-noremap <leader>y "+y
+" Copy paste clipboard from
+" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
 
 " UltiSnip keybindings
 let g:UltiSnipsExpandTrigger="<C-o>"
