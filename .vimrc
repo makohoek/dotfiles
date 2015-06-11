@@ -298,6 +298,9 @@ map <leader>cg :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . 
 imap jj <esc>
 cmap jj <esc>
 
+" neovim specific: quit terminal mode with Esc
+tnoremap <Esc> <C-\><C-n>
+
 " search current word under cursor (found on tpopes vimrc)
 nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 " if we are doing cpp, use different search
