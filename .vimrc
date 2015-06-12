@@ -30,6 +30,7 @@ Plug 'bogado/file-line'
 Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'Makohoek/pfw-vim-syntax'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 set modelines=1
 
