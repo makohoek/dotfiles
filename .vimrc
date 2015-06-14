@@ -249,6 +249,9 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
+" getting help in a fullscreen tab
+map  <silent> <F1> :tabnew<CR>:h<CR>:on<CR>
+
 " UltiSnip keybindings
 let g:UltiSnipsExpandTrigger="<C-o>"
 let g:UltiSnipsJumpForwardTrigger="<C-o>"
