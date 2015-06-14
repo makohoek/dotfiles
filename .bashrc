@@ -1,11 +1,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-
-# Base16 Shell
-BASE16_SHELL="$HOME/base16-shell/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
 # disable flow control (C-s and C-q) since I use tmux for that feature
 stty -ixon
 
