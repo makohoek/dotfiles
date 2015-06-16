@@ -31,6 +31,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'Makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
+Plug 'Shougo/unite.vim'
 call plug#end()
 set modelines=1
 
@@ -272,8 +273,8 @@ nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
 " toggle background color for less eye hurting
 nnoremap <leader>c :call ToggleBackgroundColor()<CR>
 
-" Navigate trough open buffers
-nnoremap <leader>b :CtrlPBuffer<CR>
+" Navigate trough open buffers with unite
+nnoremap <leader>b :<C-u>Unite -start-insert -direction=below buffer<CR>
 
 " Navigate trough most recent used files
 nnoremap <leader>r :CtrlPMRU<CR>
@@ -334,6 +335,11 @@ let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
 " Open multiple files always in hidden buffers
 " After that, jump to last opened
 let g:ctrlp_open_multiple_files = 'ij'
+
+" {{{2 Unite settings
+"-------------------------------------------------------------------------------
+" Use fuzzy matcher by default to duplicate CtrlP
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
 " {{{2 powerline setttings
 "-------------------------------------------------------------------------------
