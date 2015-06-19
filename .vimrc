@@ -274,7 +274,7 @@ nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
 nnoremap <leader>c :call ToggleBackgroundColor()<CR>
 
 " Navigate trough open buffers with unite
-nnoremap <leader>b :<C-u>Unite -start-insert -direction=below buffer<CR>
+nnoremap <leader>b :<C-u>Unite -start-insert -no-split buffer<CR>
 
 " Navigate trough most recent used files
 nnoremap <leader>r :CtrlPMRU<CR>
