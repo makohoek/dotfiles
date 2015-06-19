@@ -10,9 +10,9 @@ current_directory = os.path.expandvars('$PWD')
 
 if len(sys.argv) > 1:
     file_to_open = sys.argv[1]
-    vsplit_arguments = current_directory + '/' + file_to_open
+    absolute_path_to_file = current_directory + '/' + file_to_open
 else:
-    vsplit_arguments = current_directory + '/'
+    absolute_path_to_file = current_directory + '/'
 
-nvim.command('vsplit ' + vsplit_arguments)
+nvim.command('edit ' + absolute_path_to_file)
 nvim.command('cd ' + current_directory)
