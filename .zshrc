@@ -30,6 +30,10 @@ source /usr/local/share/chruby/chruby.sh
 
 export EDITOR=vim
 
+# Setting for the new UTF-8 terminal support in Lion
+export LC_ALL=fr_FR.UTF-8
+export LC_CTYPE=fr_FR.UTF-8
+
 # par variable from manual
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 
