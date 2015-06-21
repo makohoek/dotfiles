@@ -1,7 +1,11 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="makohoek"
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="robbyrussell"
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -18,24 +22,17 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/kir0gawa/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
+#
+source $ZSH/oh-my-zsh.sh
+source /usr/local/share/chruby/chruby.sh
 
 export EDITOR=vim
 
 # par variable from manual
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-alias pycharm='~/bin/pycharm-2.7.3/bin/pycharm.sh'
-alias webstorm='~/bin/WebStorm-129.664/bin/webstorm.sh'
-alias intellij='~/bin/idea-IC-129.713/bin/idea.sh'
-alias getedt='cd ~/Development/EdtCamsi/src/ && python Main.py'
-alias vpn='cd ~/Documents/OpenVPN/NequaliaLinux/ && sudo ./startOpenvpn'
-
-alias tmux='export TERM="screen-256color"; tmux -2'
-alias vims='vim --servername VIM'
-alias vie='vim --remote'
-alias vit='vim --remote-tab'
+alias nvi="~/dotfiles/neovim_helpers/open_file_in_left_split.py"
+alias gcommit="~/dotfiles/neovim_helpers/run_fugitive_commit.py"
+alias nvim='NVIM_LISTEN_ADDRESS=/tmp/nvim nvim'
