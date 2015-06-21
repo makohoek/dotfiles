@@ -276,10 +276,10 @@ nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
 nnoremap <leader>c :call ToggleBackgroundColor()<CR>
 
 " Navigate trough open buffers with unite
-nnoremap <leader>b :<C-u>Unite -start-insert -no-split buffer<CR>
+nnoremap <leader>b :<C-u>Unite -start-insert -no-split -prompt=> buffer<CR>
 
 " Navigate trough most recent used files
-nnoremap <leader>r :<C-u>Unite -start-insert -no-split file_mru<CR>
+nnoremap <leader>r :<C-u>Unite -start-insert -no-split -prompt=> file_mru<CR>
 
 " Go to current file directory
 nnoremap <leader>ff :cd %:h<CR>
