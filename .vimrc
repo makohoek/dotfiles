@@ -32,6 +32,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'Makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
 call plug#end()
 set modelines=1
 
@@ -278,7 +279,7 @@ nnoremap <leader>c :call ToggleBackgroundColor()<CR>
 nnoremap <leader>b :<C-u>Unite -start-insert -no-split buffer<CR>
 
 " Navigate trough most recent used files
-nnoremap <leader>r :CtrlPMRU<CR>
+nnoremap <leader>r :<C-u>Unite -start-insert -no-split file_mru<CR>
 
 " Go to current file directory
 nnoremap <leader>ff :cd %:h<CR>
