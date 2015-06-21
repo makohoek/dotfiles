@@ -225,6 +225,7 @@ endfunction
 " {{{1 Keybindings
 "-------------------------------------------------------------------------------
 let mapleader=" "
+let maplocalleader=" "
 
 "stop search higlight when hitting return key
 nnoremap <leader>, :nohlsearch<CR>
