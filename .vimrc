@@ -327,9 +327,6 @@ map <leader>cg :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . 
 imap jj <esc>
 cmap jj <esc>
 
-" neovim specific: quit terminal mode with Esc
-tnoremap <Esc> <C-\><C-n>
-
 " search current word under cursor (found on tpopes vimrc)
 nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 " if we are doing cpp, use different search
@@ -352,11 +349,23 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " do NOT request config file
 let g:ycm_confirm_extra_conf = 0
 
+" {{{2 :Ack.vim settings
+let g:ackprg = 'grep --rsni'
+
 " {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" {{{1 Neovim specifics
+"-------------------------------------------------------------------------------
+if has('nvim')
+  " quit terminal mode with Esc
+  tnoremap <Esc> <C-\><C-n>
+  " send escape to terminal
+  tnoremap <C><Esc> <Esc>
+endif
 
 " {{{1 modeline
 " vim: fdm=marker
