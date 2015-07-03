@@ -19,7 +19,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-rails'
 Plug 'tommcdo/vim-exchange'
 Plug 'cbracken/vala.vim'
-Plug 'kien/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
@@ -31,8 +30,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'Makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/neomru.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 call plug#end()
 set modelines=1
 
@@ -223,6 +221,31 @@ function! UncrustifyDiff(language)
     diffthis
 endfunction
 
+" 2{{{ FZF specific functions and commands
+function! s:buflist()
+  redir => ls
+  silent ls
+  redir END
+  return split(ls, '\n')
+endfunction
+
+function! s:bufopen(e)
+  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+endfunction
+
+command! FZFBuffers call fzf#run({
+      \   'source':  reverse(<sid>buflist()),
+      \   'sink':    function('<sid>bufopen'),
+      \   'options': '+m',
+      \   'down':    len(<sid>buflist()) + 2
+      \ })
+
+command! FZFMru call fzf#run({
+    \ 'source': v:oldfiles,
+    \ 'sink' : 'e ',
+    \ 'options' : '-m',
+    \ })
+
 " {{{1 Keybindings
 "-------------------------------------------------------------------------------
 let mapleader=" "
@@ -233,9 +256,6 @@ nnoremap <leader>, :nohlsearch<CR>
 
 " Insert a blank line below selected line
 nnoremap <leader><CR> o<Esc>
-
-" Controlp keybindings
-nnoremap <silent> <Leader>o :CtrlP<CR>
 
 " YouCompleteMe keybindings
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -272,14 +292,14 @@ nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
 " show columns for max length rules
 nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
 
-" toggle background color for less eye hurting
-nnoremap <leader>c :call ToggleBackgroundColor()<CR>
+" FZF trough open files
+nnoremap <silent> <Leader>o :FZF<CR>
 
-" Navigate trough open buffers with unite
-nnoremap <leader>b :<C-u>Unite -start-insert -no-split -prompt=> buffer<CR>
+" Navigate trough open buffers
+nnoremap <silent> <Leader>b :FZFBuffers<CR>
 
 " Navigate trough most recent used files
-nnoremap <leader>r :<C-u>Unite -start-insert -no-split -prompt=> file_mru<CR>
+nnoremap <silent> <Leader>r :FZFMru<CR>
 
 " Go to current file directory
 nnoremap <leader>ff :cd %:h<CR>
@@ -330,22 +350,6 @@ let g:ycm_enable_diagnostic_signs = 0 "disable ugly error bar
 let g:ycm_autoclose_preview_window_after_completion = 1
 " do NOT request config file
 let g:ycm_confirm_extra_conf = 0
-
-" {{{2 CtrlP settings
-"-------------------------------------------------------------------------------
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
-" Open multiple files always in hidden buffers
-" After that, jump to last opened
-let g:ctrlp_open_multiple_files = 'ij'
-
-" {{{2 Unite settings
-"-------------------------------------------------------------------------------
-" Use fuzzy matcher by default to duplicate CtrlP
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-
-" {{{2 powerline setttings
-"-------------------------------------------------------------------------------
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------

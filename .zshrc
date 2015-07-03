@@ -39,3 +39,4 @@ export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 alias nvi="~/dotfiles/neovim_helpers/open_file_in_left_split.py"
 alias gcommit="~/dotfiles/neovim_helpers/run_fugitive_commit.py"
 alias nvim='NVIM_LISTEN_ADDRESS=/tmp/nvim nvim'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
