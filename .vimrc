@@ -28,6 +28,7 @@ Plug 'jceb/vim-orgmode'
 Plug 'bogado/file-line'
 Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'junegunn/seoul256.vim'
 Plug 'Makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
