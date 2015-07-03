@@ -17,3 +17,4 @@ alias pwdcp='pwd; tmux copy-mode \; send-keys k ^ v $ y'
 
 # tmux alias to fixup vim-solarized in tmux
 alias tmux='export TERM="screen-256color"; tmux -2'
+# vim: filetype=sh syntax=sh
