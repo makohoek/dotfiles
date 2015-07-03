@@ -104,3 +104,5 @@ cscope_rebuild_index()
 if [ -f ~/.bash_work ]; then
     . ~/.bash_work
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
