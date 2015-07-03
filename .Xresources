@@ -1,22 +1,13 @@
 ! MakoHoek .Xresources
 !
 URxvt*buffered: true
-! Avoid glitch in vim
-URxvt*jumpScroll: false
-URxvt*skipScroll: false
-
 URxvt*cursorBlink: true
-
-URxvt*font:  xft:monaco:regular:size=10:antialias=true
-URxvt*boldFont:  xft:monaco:bold:size=10:antialias=true
-URxvt*letterSpace: -1
-! redefine for transparency
-URxvt*depth: 32
-URxvt*borderless: 1
+URxvt*font: xft:Meslo LG S:style=Regular:size=10:antialias=true
+URxvt*boldFont: xft:Meslo LG S:style=Bold:size=10:antialias=true
+URxvt.letterSpace: -1
+! Workaround for base16 colorscheme troubles
+URxvt*intensityStyles:      false
 URxvt*scrollBar: false
-Urxvt*secondaryScroll:  true    # Enable Shift-PageUp/Down in screen
-URxvt*saveLines: 5000
+URxvt*saveLines: 10000
 URxvt*termName: screen-256color
-URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher:firefox
-URxvt.matcher.button: 1
