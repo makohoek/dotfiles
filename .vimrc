@@ -367,5 +367,12 @@ if has('nvim')
   tnoremap <C><Esc> <Esc>
 endif
 
+" {{{1 Local (specific) extra vimrc
+"-------------------------------------------------------------------------------
+let s:local_vimrc = fnamemodify(resolve(expand('<sfile>')), ':p:h').'/vimrc-extra'
+if filereadable(s:local_vimrc)
+  execute 'source' s:local_vimrc
+endif
+
 " {{{1 modeline
 " vim: fdm=marker
