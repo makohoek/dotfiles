@@ -11,3 +11,4 @@ ln -s ~/dotfiles/.githelpers ~/
 ln -s ~/dotfiles/.gvimrc ~/
 ln -s ~/dotfiles/.gvimrc ~/
 ln -s ~/dotfiles/.ycm_extra_conf.py ~/
+ln -s ~/dotfiles/.Xmodmap ~/
