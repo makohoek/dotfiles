@@ -350,7 +350,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_confirm_extra_conf = 0
 
 " {{{2 :Ack.vim settings
-let g:ackprg = 'grep --rsni'
+let g:ackprg = 'grep -rsni'
 
 " {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------
