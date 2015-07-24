@@ -32,6 +32,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'Makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 set modelines=1
 
@@ -351,6 +352,9 @@ let g:ycm_confirm_extra_conf = 0
 
 " {{{2 :Ack.vim settings
 let g:ackprg = 'grep -rsni'
+
+" {{{2 vim-cpp-enhanced highlight
+let g:cpp_class_scope_highlight = 1
 
 " {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------
