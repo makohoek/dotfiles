@@ -1,2 +1,2 @@
-set guifont=Monaco\ 9
+set guifont=Monaco:h11
 set bg=light
