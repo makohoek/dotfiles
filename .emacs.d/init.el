@@ -23,6 +23,16 @@
 (require 'evil)
 (evil-mode 1)
 
+;; similar to tpope's surround
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+
+;; similar to Tom McDonald's exchange plugin
+(require 'evil-exchange)
+;;change default key bindings
+(setq evil-exchange-key (kbd "gx"))
+(evil-exchange-install)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
