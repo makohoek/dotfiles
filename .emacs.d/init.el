@@ -33,6 +33,9 @@
 (setq evil-exchange-key (kbd "gx"))
 (evil-exchange-install)
 
+;; magit log global mapping
+(global-set-key (kbd "C-x g") 'magit-status)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
