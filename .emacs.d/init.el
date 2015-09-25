@@ -41,6 +41,8 @@
 ;; magit log global mapping
 (global-set-key (kbd "C-x g") 'magit-status)
 
+(global-set-key (kbd "C-u") 'evil-scroll-up)
+
 ;; powerline setup to show evil status at the left
 (require 'powerline-evil)
 (powerline-evil-vim-color-theme)
