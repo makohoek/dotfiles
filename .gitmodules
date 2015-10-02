@@ -10,3 +10,12 @@
 [submodule ".config/awesome/themes/solarized"]
 	path = .config/awesome/themes/solarized
 	url = https://github.com/kir0gawa/awesome-solarized.git
+[submodule ".emacs.d/custom-submodules/log-tools"]
+	path = .emacs.d/custom-submodules/log-tools
+	url = https://github.com/JulienMasson/log-tools.git
+[submodule ".emacs.d/custom-submodules/virtual-desktops"]
+	path = .emacs.d/custom-submodules/virtual-desktops
+	url = https://github.com/chep/virtual-desktops.el.git
+[submodule ".emacs.d/custom-submodules/statusbar"]
+	path = .emacs.d/custom-submodules/statusbar
+	url = https://github.com/JulienMasson/status.git
