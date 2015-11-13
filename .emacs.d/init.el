@@ -165,4 +165,17 @@
 		    'magit-status-mode))
   (add-to-list 'evil-emacs-state-modes mode))
 
+;; magit push gerrit
+(defun magit-push-gerrit (branch remote &optional remote-branch args)
+  "Push a branch to gerrit"
+  (interactive (magit-push-read-args t))
+  (magit-run-git-async-no-revert
+   "push" "-v" args remote
+   (if remote-branch
+       (format "%s:refs/for/%s" branch remote-branch)
+     branch)))
+
+(magit-define-popup-action 'magit-push-popup
+  ?g "Gerrit" 'magit-push-gerrit)
+
 (put 'dired-find-alternate-file 'disabled nil)
