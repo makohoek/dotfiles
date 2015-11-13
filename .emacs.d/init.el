@@ -54,8 +54,6 @@
 
 ;; fixup scroll-up for evil mode
 (global-set-key (kbd "C-u") 'evil-scroll-up)
-;; because of that, redefine universal-argument since needed to invoke another shell :(
-(global-set-key (kbd "C-M-$") 'universal-argument)
 
 ;; jumping around the splits with C-M-hjkl
 (global-set-key (kbd "C-M-h") 'windmove-left)
