@@ -57,8 +57,10 @@ function source_if_exists()
 }
 
 # this prompt must be sourced to use __git_ps1
-source_if_exists /usr/share/git-core/contrib/completion/git-prompt.sh
-source_if_exists ~/.bash_git_prompt
+if [[ $TERM != "eterm-color" ]]; then
+    source_if_exists /usr/share/git-core/contrib/completion/git-prompt.sh
+    source_if_exists ~/.bash_git_prompt
+fi
 source_if_exists ~/.bash_aliases
 source_if_exists /usr/local/share/chruby/chruby.sh
 source_if_exists /etc/bash_completion
