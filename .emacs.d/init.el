@@ -43,10 +43,6 @@
 (add-to-list 'default-frame-alist '(font . "Inconsolata-10.7" ))
 (set-face-attribute 'default nil :font "Inconsolata-10.7")
 
-;; enable evil mode
-(require 'evil)
-(evil-mode 1)
-
 ;; similar to tpope's surround
 (require 'evil-surround)
 (global-evil-surround-mode 1)
@@ -223,5 +219,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 (global-set-key [escape] 'evil-exit-emacs-state)
+
+(require 'evil)
+(evil-mode 1)
 
 (put 'dired-find-alternate-file 'disabled nil)
