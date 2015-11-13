@@ -165,6 +165,32 @@
 		    'magit-status-mode))
   (add-to-list 'evil-emacs-state-modes mode))
 
+; gnus rebindings
+; group mode
+; TODO: add window controls C-W by default
+(eval-after-load 'gnus
+  '(progn
+     (defvar gnus-group-mode-map)
+     (evil-make-overriding-map gnus-group-mode-map 'normal)
+     (evil-define-key 'normal gnus-group-mode-map
+       "j" 'evil-next-line
+       "k" 'evil-previous-line
+       "RET" 'gnus-topic-select-group)
+     (evil-set-initial-state 'gnus-group-mode 'normal)
+     ))
+
+; summary mode
+(eval-after-load 'gnus
+  '(progn
+     (defvar gnus-summary-mode-map)
+     (evil-make-overriding-map gnus-summary-mode-map 'normal)
+     (evil-define-key 'normal gnus-summary-mode-map
+       "j" 'evil-next-line
+       "k" 'evil-previous-line
+       "RET" 'gnus-summary-scroll-up)
+     (evil-set-initial-state 'gnus-summary-mode 'normal)
+     ))
+
 ;; magit push gerrit
 (defun magit-push-gerrit (branch remote &optional remote-branch args)
   "Push a branch to gerrit"
