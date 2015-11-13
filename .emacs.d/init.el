@@ -11,19 +11,27 @@
 
 ;; do not show ugly emacs UI menu bar
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(column-number-mode t)
+ '(custom-safe-themes
+   (quote
+    ("1abda075ebacaa3795d675bb2be0a905322ac856f9c0c259da63f9ccfe1962ec" "3539b3cc5cbba41609117830a79f71309a89782f23c740d4a5b569935f9b7726" "9f3a4edb56d094366afed2a9ba3311bbced0f32ca44a47a765d8ef4ce5b8e4ea" "75c0b1d2528f1bce72f53344939da57e290aa34bea79f3a1ee19d6808cb55149" default)))
+ '(indent-tabs-mode nil)
  '(menu-bar-mode nil)
  '(tool-bar-mode nil))
 
 (require 'whitespace)
 (setq whitespace-style
-   (quote (face tabs trailing space-before-tab empty space-after-tab tab-mark)))
+   (quote (face trailing indentation::tab space-before-tab empty space-after-tab tab-mark)))
 
 ;; Theme specific stuff
 ;; use cursorline as in vim
 (global-hl-line-mode)
 ;; colorscheme
-(load-theme 'base16-eighties-dark t)
+(load-theme 'base16-tomorrow-dark t)
 
 ;; remove scroll bar
 (scroll-bar-mode -1)
