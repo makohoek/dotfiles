@@ -3,3 +3,6 @@ clear lock
 clear control
 keycode 0x42 = Control_L
 add control = Caps_Lock Control_L Control_R
+
+! natural scrolling
+pointer = 1 2 3 5 4 6 7 8 9 10 11 12
