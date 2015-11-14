@@ -259,6 +259,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (global-set-key [escape] 'evil-exit-emacs-state)
 
 (require 'evil)
-(evil-mode 1)
+(evil-mode t)
 
 (put 'dired-find-alternate-file 'disabled nil)
