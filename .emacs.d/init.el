@@ -1,9 +1,48 @@
 ;; Other packages source list for package-list
-(setq package-archives
- '(("gnu" . "http://elpa.gnu.org/packages/")
-  ("melpa" . "http://melpa.milkbox.net/packages/")))
+(require 'package)
+
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+
+(setq package-enable-at-startup nil)
+
+;; Auto install not installed packages
+(defun ensure-package-installed (&rest packages)
+  "Assure every package is installed, ask for installation if it’s not.
+
+Return a list of installed packages or nil for every skipped package."
+  (mapcar
+   (lambda (package)
+     (if (package-installed-p package)
+         nil
+       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+           (package-install package)
+         package)))
+   packages))
+
+;; Make sure to have downloaded archive description.
+(or (file-exists-p package-user-dir)
+    (package-refresh-contents))
+
+;; Activate installed packages
 (package-initialize)
 
+;; List of packages which should be fetched from elpa/melpa
+(ensure-package-installed
+ 'base16-theme
+ 'evil
+ 'evil-exchange
+ 'evil-leader
+ 'evil-surround
+ 'evil-visualstar
+ 'magit
+ 'powerline-evil
+ 'multi-term
+)
+
+
+;; For manual packages which are not on elpa/melpa
 (add-to-list 'load-path "~/.emacs.d/custom-submodules")
 (let ((default-directory "~/.emacs.d/custom-submodules"))
   (normal-top-level-add-subdirs-to-load-path))
