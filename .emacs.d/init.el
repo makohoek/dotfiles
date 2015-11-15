@@ -71,6 +71,9 @@ Return a list of installed packages or nil for every skipped package."
 ;; colorscheme
 (load-theme 'base16-tomorrow-dark t)
 
+;; no splash screen
+(setq inhibit-splash-screen t)
+
 ;; remove scroll bar
 (scroll-bar-mode -1)
 
