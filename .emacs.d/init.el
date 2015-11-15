@@ -100,10 +100,10 @@ Return a list of installed packages or nil for every skipped package."
 (global-set-key (kbd "C-u") 'evil-scroll-up)
 
 ;; jumping around the splits with C-M-hjkl
-(global-set-key (kbd "C-M-h") 'windmove-left)
-(global-set-key (kbd "C-M-j") 'windmove-down)
-(global-set-key (kbd "C-M-k") 'windmove-up)
-(global-set-key (kbd "C-M-l") 'windmove-right)
+(global-set-key (kbd "C-h") 'windmove-left)
+(global-set-key (kbd "C-j") 'windmove-down)
+(global-set-key (kbd "C-k") 'windmove-up)
+(global-set-key (kbd "C-l") 'windmove-right)
 
 ;; powerline setup to show evil status at the left
 (require 'powerline-evil)
