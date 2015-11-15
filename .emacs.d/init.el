@@ -212,4 +212,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (evil-leader/set-key "gl" 'magit-log-all-branches)
 (evil-leader/set-key "gs" 'magit-status)
 (evil-leader/set-key "h" 'help)
+
+;; j/k for browsing wrapped lines
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
 (put 'dired-find-alternate-file 'disabled nil)
