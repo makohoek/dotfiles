@@ -217,4 +217,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
+;; word delimiting like in vim: _ is part of a word
+;; this fixes * and yiw behaviour for instance
+;; https://bitbucket.org/lyro/evil/wiki/Home
+(modify-syntax-entry ?_ "w")
+
 (put 'dired-find-alternate-file 'disabled nil)
