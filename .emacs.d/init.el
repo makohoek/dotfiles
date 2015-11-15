@@ -37,6 +37,7 @@ Return a list of installed packages or nil for every skipped package."
  'evil-magit
  'evil-surround
  'evil-visualstar
+ 'fiplr
  'magit
  'powerline-evil
  'multi-term
@@ -212,6 +213,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (evil-leader/set-key "gl" 'magit-log-all-branches)
 (evil-leader/set-key "gs" 'magit-status)
 (evil-leader/set-key "h" 'help)
+(evil-leader/set-key "ff" 'fiplr-find-file)
+(evil-leader/set-key "fd" 'fiplr-find-directory)
 
 ;; j/k for browsing wrapped lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
