@@ -40,6 +40,7 @@ Return a list of installed packages or nil for every skipped package."
  'magit
  'powerline-evil
  'multi-term
+ 'git-gutter+
 )
 
 
