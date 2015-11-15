@@ -214,6 +214,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (evil-leader/set-key "gs" 'magit-status)
 (evil-leader/set-key "gr" 'global-git-gutter+-mode)
 (evil-leader/set-key "h" 'help)
+(evil-leader/set-key "b" 'ido-switch-buffer)
 (evil-leader/set-key "ff" 'fiplr-find-file)
 (evil-leader/set-key "fd" 'fiplr-find-directory)
 
