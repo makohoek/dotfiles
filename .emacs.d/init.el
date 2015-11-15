@@ -214,6 +214,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (evil-leader/set-key "ff" 'fiplr-find-file)
 (evil-leader/set-key "fd" 'fiplr-find-directory)
 
+;; git gutter maps
+(eval-after-load 'git-gutter+
+  '(progn
+     ;;; Jump between hunks
+     (define-key git-gutter+-mode-map (kbd "]c") 'git-gutter+-next-hunk)
+     (define-key git-gutter+-mode-map (kbd "[c") 'git-gutter+-previous-hunk)))
+
 ;; j/k for browsing wrapped lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
