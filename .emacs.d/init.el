@@ -202,4 +202,14 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (require 'evil)
 (evil-mode t)
 
+;; evil leader
+(global-evil-leader-mode)
+(evil-leader/set-leader "SPC")
+(setq evil-leader/in-all-states 1)
+
+;; leader related keybidings
+(evil-leader/set-key "x" 'execute-extended-command)
+(evil-leader/set-key "gl" 'magit-log-all-branches)
+(evil-leader/set-key "gs" 'magit-status)
+(evil-leader/set-key "h" 'help)
 (put 'dired-find-alternate-file 'disabled nil)
