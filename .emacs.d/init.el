@@ -94,9 +94,6 @@ Return a list of installed packages or nil for every skipped package."
 (setq evil-exchange-key (kbd "gx"))
 (evil-exchange-install)
 
-;; magit log global mapping
-(global-set-key (kbd "C-x g") 'magit-status)
-
 ;; fixup scroll-up for evil mode
 (global-set-key (kbd "C-u") 'evil-scroll-up)
 
