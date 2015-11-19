@@ -54,12 +54,11 @@ filetype plugin indent on  "Allow specific plugins based on filetype
 syntax enable         "syntax highlighting on based on filetype
 set t_Co=256
 set background=dark   "dark version of
-colorscheme base16-default "solarized
+colorscheme base16-tomorrow "solarized
 set cursorline        "show current line
 set fdm=syntax        "folding method based on syntax
 set foldlevel=16      "open folds by default
 set showmatch         "show matching bracket
-set number            "show line numbers
 set hlsearch          "show search highlighting
 let g:xml_syntax_folding=1 "allow folding for xmls
 
