@@ -37,6 +37,8 @@
 # color09 orange
 # color10 same as cursorline in vim
 # color11 at bit lighter as vim cursorline
+# color14 lightorange
+# color16 darkblack
 
 # basic colors ---------------------------------------------------------
 color normal        brightblack     default
@@ -46,7 +48,7 @@ color message       blue            default                                     
 color markers       red             white
 color attachment    white           default
 color search        brightmagenta   default
-color status        brightblack     color10
+color status        magenta           color10
 color indicator     brightblack     color10
 color tree          brightblack     default                                     # arrow in threads
 
@@ -68,8 +70,9 @@ color index         white           color11        "~T"                        #
 
 # message headers ------------------------------------------------------
 #color header        brightgreen     default         "^"
-color hdrdefault    brightgreen     default
-color header        blue            default         "^(From)"
+color header        color9          default         "^(From)"
+color header        blue            default         "^(Date)"
+color header        blue            default         "^(To)"
 color header        yellow          default         "^(Subject)"
 
 # body -----------------------------------------------------------------
@@ -79,7 +82,7 @@ color quoted2       yellow          default
 color quoted3       red             default
 color quoted4       brightred       default
 
-color signature     blue     default
+color signature     blue            default
 color bold          black           default
 color underline     black           default
 color normal        white           default
@@ -93,7 +96,6 @@ color body          brightcyan      default         "[ ][*][^*]*[*][ ]?" # more 
 color body          brightcyan      default         "[ ]?[*][^*]*[*][ ]" # more emoticon?
 
 ## pgp
-
 color body          red             default         "(BAD signature)"
 color body          cyan            default         "(Good signature)"
 color body          brightblack     default         "^gpg: Good signature .*"
@@ -127,6 +129,3 @@ color body          red             default         "([a-z][a-z0-9+-]*://(((([a-
 #folder-hook .                  "color status        J_black         J_status        "
 #folder-hook gmail/inbox        "color status        J_black         yellow          "
 #folder-hook gmail/important    "color status        J_black         yellow          "
-
-
-
