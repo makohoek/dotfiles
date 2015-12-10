@@ -1,2 +1,3 @@
-set guifont=Monaco:h11
+set guifont=Monaco\ for\ Powerline\ 10
+colorscheme solarized
 set bg=light
