@@ -102,6 +102,10 @@ set formatoptions+=r "multi comment when in insert mode
 set formatoptions+=q "allows formatting of comments
 set formatoptions+=c "allows automatic formatting of comments
 
+set ttimeout ttimeoutlen=0 notimeout " Disable timeout for Esc key
+set ttyfast " Optimize for fast terminal connections
+set lazyredraw " Don't redraw while executing macros (good performance config)
+
 " {{{1 External programs
 "-------------------------------------------------------------------------------
 " use par for paragragh formatting
