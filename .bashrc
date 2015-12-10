@@ -40,8 +40,8 @@ export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 HISTCONTROL=ignoreboth
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # Extra includes
 ######################################################################
