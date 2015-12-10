@@ -64,6 +64,7 @@ fi
 source_if_exists ~/.bash_aliases
 source_if_exists /usr/local/share/chruby/chruby.sh
 source_if_exists /etc/bash_completion
+source_if_exists ~/dotfiles/bin/shell_bookmarks.sh
 
 # Functions
 ######################################################################
