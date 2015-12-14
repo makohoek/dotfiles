@@ -375,6 +375,16 @@ set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
+if exists("+undofile")
+  " Store undofile in to fixed location
+  " undofile - This allows you to use undos after exiting and restarting
+  " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+  " :help undo-persistence
+  " This is only present in 7.3+
+  set undofile
+  set undodir=/var/tmp//,/tmp//,.
+endif
+
 " {{{1 Neovim specifics
 "-------------------------------------------------------------------------------
 if has('nvim')
