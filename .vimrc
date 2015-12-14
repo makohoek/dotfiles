@@ -85,6 +85,10 @@ set statusline=%<%f%h%w%m%r%=%y\ %l,%c\ %P "see :help statusline
 set showcmd "show entered command
 
 set wildmenu "command completion in ex mode
+" wildignore options
+set wildignore+=.DS_Store,.git/**,tmp/**,*.log,.bundle/**,node_modules/**,tags
+set wildignore+=*.rbc,.rbx,*.scssc,*.sassc,.sass-cache,*.pyc,*.gem
+set wildignore+=*.jpg,*.jpeg,*.tiff,*.gif,*.png,*.svg,*.psd,*.pdf
 
 " {{{1 Search options
 set smartcase "ignore case only when putting on a lowercase
