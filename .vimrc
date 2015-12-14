@@ -385,6 +385,11 @@ if exists("+undofile")
   set undodir=/var/tmp//,/tmp//,.
 endif
 
+if v:version > 703 || v:version == 703 && has("patch541")
+  " Delete comment character when joining commented lines
+  set formatoptions+=j
+endif
+
 " {{{1 Neovim specifics
 "-------------------------------------------------------------------------------
 if has('nvim')
