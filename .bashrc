@@ -43,6 +43,9 @@ HISTCONTROL=ignoreboth
 HISTSIZE=10000
 HISTFILESIZE=20000
 
+# Save command history before each prompt
+export PROMPT_COMMAND='history -a'
+
 # Extra includes
 ######################################################################
 
