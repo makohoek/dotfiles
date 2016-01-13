@@ -6,6 +6,8 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+-- extra widgets
+vicious = require("vicious")
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -39,6 +41,8 @@ end
 -- Themes define colours, icons, and wallpapers
 beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/default/theme.lua")
 -- beautiful.init("/home/lab/.config/awesome/themes/awesome-solarized/dark/theme.lua")
+
+require("pomodoro")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -77,7 +81,7 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    tags[s] = awful.tag({ "epic", "urxvt", "www", 4, 5, 6, 7, 8, 9 }, s, layouts[1])
 end
 -- }}}
 
@@ -106,6 +110,21 @@ mytextclock = awful.widget.textclock({ align = "right" })
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
+
+-- vicious
+-- Initialize widget
+memwidget = widget({ type = "textbox" })
+-- -- Register widget
+vicious.register(memwidget, vicious.widgets.mem, "MEM: $1% ($2MB/$3MB) |", 13)
+
+-- Initialize widget
+cpuwidget = widget({ type = "textbox" })
+-- Register widget
+vicious.register(cpuwidget, vicious.widgets.cpu, "CPU: $1% | ")
+
+diskwidget = widget({ type = "textbox" })
+-- Register widget
+vicious.register(diskwidget, vicious.widgets.fs, "DISK: ${/ avail_gb}GB/${/ size_gb}GB | ")
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -183,6 +202,10 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        pomodoro(),
+        memwidget,
+        cpuwidget,
+        diskwidget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
