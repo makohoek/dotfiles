@@ -344,8 +344,10 @@ nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 " if we are doing cpp, use different search
 autocmd FileType cpp nnoremap gs :OpenURL http://www.cplusplus.com/search.do?q=<cword><CR>
 
-" Turn spelling on for git commit msgs
-autocmd BufRead COMMIT_EDITMSG setlocal spell!
+" commit message specific stuff
+autocmd FileType gitcommit setlocal spell
+autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
+autocmd FileType git,gitcommit exe "normal gg"
 
 " Use autopep8 for formating python files with gq
 autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\ -
