@@ -92,7 +92,7 @@ macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to s
 # Saner copy/move dialogs
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 # macro based on http://unix.stackexchange.com/questions/105733/mutt-macro-for-saving-messages-to-a-folder
-macro index m ":set auto_tag=yes\n<save-message>?\n<sync-mailbox>" "move messages to a mailbox"
+macro index m ":set auto_tag=yes\n<save-message>?<toggle-mailboxes>" "move messages to a mailbox"
 # Ctrl-p to move to move tagged mail to private mailbox
 macro index \Cp "<tag-prefix><save-message>=mattijs.korpershoek.gmail.com/Private\n<sync-mailbox>"
 
