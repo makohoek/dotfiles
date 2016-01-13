@@ -41,7 +41,7 @@
 # color16 darkblack
 
 # basic colors ---------------------------------------------------------
-color normal        brightblack     default
+color normal        color8     default
 color error         red             default
 color tilde         black           default
 color message       blue            default                                     # mutt processing messages
@@ -49,8 +49,8 @@ color markers       red             white
 color attachment    white           default
 color search        brightmagenta   default
 color status        magenta           color10
-color indicator     brightblack     color10
-color tree          brightblack     default                                     # arrow in threads
+color indicator     color8     color10
+color tree          color8     default                                     # arrow in threads
 
 # basic monocolor screen
 mono  bold          bold
@@ -62,7 +62,7 @@ mono  error         bold
 color sidebar_new color9 default
 
 # index ----------------------------------------------------------------
-color index         brightblack     default        "~A"                        # all messages
+color index         color8     default        "~A"                        # all messages
 color index         white           red            "~D"                        # deleted messages
 color index         color9          default        "~(~N)"                     # messages in threads with some unread
 color index         white           color9         "~v~(~N)"                   # collapsed thread with some unread
@@ -98,7 +98,7 @@ color body          brightcyan      default         "[ ]?[*][^*]*[*][ ]" # more 
 ## pgp
 color body          red             default         "(BAD signature)"
 color body          cyan            default         "(Good signature)"
-color body          brightblack     default         "^gpg: Good signature .*"
+color body          color8     default         "^gpg: Good signature .*"
 color body          brightyellow    default         "^gpg: "
 color body          brightyellow    red             "^gpg: BAD signature from.*"
 mono  body          bold                            "^gpg: Good signature"
