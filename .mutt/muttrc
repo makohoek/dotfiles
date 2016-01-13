@@ -109,6 +109,9 @@ set menu_scroll            # scroll in menus
 unset markers              # no ugly plus signs
 
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+
+# automatic html view
+auto_view text/html
 alternative_order text/plain text/enriched text/html
 
 # Pager Key Bindings ---------------------------------
