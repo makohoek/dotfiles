@@ -272,7 +272,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "l",     function () awful.util.spawn(lockscreen_cmd)    end),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey },            "r",     function () awful.util.spawn("dmenu_run") end),
 
     awful.key({ modkey }, "x",
     function ()
