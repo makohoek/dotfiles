@@ -110,9 +110,6 @@ set ttimeout ttimeoutlen=0 notimeout " Disable timeout for Esc key
 set ttyfast " Optimize for fast terminal connections
 set lazyredraw " Don't redraw while executing macros (good performance config)
 
-" always change directory
-set autochdir " Vim will change the current working directory whenever you open a file
-
 " {{{1 External programs
 "-------------------------------------------------------------------------------
 " use par for paragragh formatting
