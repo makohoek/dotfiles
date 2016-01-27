@@ -26,6 +26,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets' "default snippets for ultisnips
 Plug 'jceb/vim-orgmode'
+Plug 'vim-scripts/utl.vim' " for links in org-mode
 Plug 'bogado/file-line'
 Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/base16-vim'
