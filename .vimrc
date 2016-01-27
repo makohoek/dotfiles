@@ -399,7 +399,7 @@ endif
 "-------------------------------------------------------------------------------
 if has('nvim')
   " quit terminal mode with Esc
-  tnoremap <Esc> <C-\><C-n>
+  tnoremap <Esc> <Esc><C-\><C-n>
   " send escape to terminal
   tnoremap <C><Esc> <Esc>
 endif
