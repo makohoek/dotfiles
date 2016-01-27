@@ -406,7 +406,7 @@ endif
 
 " {{{1 Local (specific) extra vimrc
 "-------------------------------------------------------------------------------
-let s:local_vimrc = fnamemodify(resolve(expand('<sfile>')), ':p:h').'/vimrc-extra'
+let s:local_vimrc = expand('$HOME').'/.vimrc-extra'
 if filereadable(s:local_vimrc)
   execute 'source' s:local_vimrc
 endif
