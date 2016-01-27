@@ -33,7 +33,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'Makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/confluencewiki.vim'
