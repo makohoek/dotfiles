@@ -39,6 +39,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/confluencewiki.vim'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 set modelines=1
 
@@ -273,8 +274,6 @@ nnoremap <leader><CR> o<Esc>
 " YouCompleteMe keybindings
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" Toggle spellchecking (from vimcasts.org)
-nmap <leader>s :set spell!<CR>
 set spelllang=en_us "spell language which should be used
 
 " Copy paste clipboard from
@@ -368,6 +367,12 @@ let g:ackprg = 'grep -rsni'
 
 " {{{2 vim-cpp-enhanced highlight
 let g:cpp_class_scope_highlight = 1
+
+" {{{2 easymotion settings
+let g:EasyMotion_use_upper = 1
+map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;'
+hi link EasyMotionTargetDefault IncSearch
 
 " {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------
