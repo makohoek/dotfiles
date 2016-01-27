@@ -35,6 +35,7 @@ Plug 'Makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/confluencewiki.vim'
