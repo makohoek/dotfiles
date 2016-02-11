@@ -330,10 +330,6 @@ map <leader>cg :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . 
             \ . synIDattr(synID(line("."), col("."), 0), "name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name") . ">"<CR>
 
-" Double jj to leave insert modus
-imap jj <esc>
-cmap jj <esc>
-
 " C-a and C-e support for ex-mode
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
