@@ -276,14 +276,10 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 set spelllang=en_us "spell language which should be used
 
-" Copy paste clipboard from
-" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+" Copy paste clipboard with tmux
+vmap <Leader>y "+ygv:Tyank<CR>
+nmap <Leader>p :Tput<CR>
+vmap <Leader>p :Tput<CR>
 
 " getting help in a fullscreen tab
 map  <silent> <F1> :tabnew<CR>:h<CR>:on<CR>
