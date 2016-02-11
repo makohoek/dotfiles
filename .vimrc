@@ -338,6 +338,10 @@ map <leader>cg :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . 
 imap jj <esc>
 cmap jj <esc>
 
+" C-a and C-e support for ex-mode
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
 " search current word under cursor (found on tpopes vimrc)
 nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 " if we are doing cpp, use different search
