@@ -334,6 +334,9 @@ map <leader>cg :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . 
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+" use enter to type :
+nnoremap <enter> :
+
 " search current word under cursor (found on tpopes vimrc)
 nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 " if we are doing cpp, use different search
