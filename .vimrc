@@ -138,28 +138,6 @@ function! ToggleShowColumnLimit()
   endif
 endfunction
 
-" {{{2 Toggle background color easily
-"-------------------------------------------------------------------------------
-function! ToggleBackgroundColor()
-  if &background == 'dark'
-      set background=light
-  else
-      set background=dark
-  endif
-endfunction
-
-" {{{2 Toggle mouse on/off
-"-------------------------------------------------------------------------------
-function! ToggleMouse()
-  if &mouse == 'a'
-      set mouse=
-      echo 'mouse disabled'
-  else
-      set mouse=a
-      echo 'mouse enabled'
-  endif
-endfunction
-
 " {{{2 Remove trailing whitespaces (thanks vimcasts.org)
 "-------------------------------------------------------------------------------
 function! <SID>StripTrailingWhitespaces()
@@ -311,9 +289,6 @@ nnoremap <silent> <Leader>r :FZFMru<CR>
 
 " Go to current file directory
 nnoremap <leader>ff :cd %:h<CR>
-
-" toggle mouse in terminal
-nnoremap <leader>m :call ToggleMouse()<CR>
 
 " jump back and forth between files
 nnoremap <leader><leader> <C-^>
