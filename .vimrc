@@ -54,12 +54,10 @@ filetype plugin indent on  "Allow specific plugins based on filetype
 
 " {{{1 Colorscheme and appearance
 "-------------------------------------------------------------------------------
-" This should be disabled when connected via Putty!!!!
-""let base16colorspace=256  " Access colors present in 256 colorspace
 syntax enable         "syntax highlighting on based on filetype
 set t_Co=256
 set background=dark   "dark version of
-colorscheme base16-tomorrow "solarized
+colorscheme base16-tomorrow
 set cursorline        "show current line
 set fdm=syntax        "folding method based on syntax
 set foldlevel=16      "open folds by default
