@@ -294,9 +294,6 @@ nnoremap <leader><leader> <C-^>
 " remove trailing whitespaces
 nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
-" Navigate fast between all buffers
-nnoremap <tab> :silent! bnext<CR>
-
 " show element for syntax highlighting for finer tuning
 " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
 map <leader>cg :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . '> trans<'
@@ -306,9 +303,6 @@ map <leader>cg :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . 
 " C-a and C-e support for ex-mode
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-
-" use enter to type :
-nnoremap <enter> :
 
 " search current word under cursor (found on tpopes vimrc)
 nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
