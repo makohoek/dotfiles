@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="lambda"
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -35,6 +35,12 @@ export LC_CTYPE=fr_FR.UTF-8
 
 # par variable from manual
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
+
+# for swi prolog
+PATH="$PATH:/Applications/SWI-Prolog.app/Contents/MacOS"
+
+# for pdflatex
+PATH="$PATH:/usr/local/texlive/2015/bin/universal-darwin/"
 
 alias nvi="~/dotfiles/neovim_helpers/open_file_in_left_split.py"
 alias gcommit="~/dotfiles/neovim_helpers/run_fugitive_commit.py"
