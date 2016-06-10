@@ -241,6 +241,12 @@ endfunction
 let mapleader=" "
 let maplocalleader=" "
 
+" navigate in wrapped lines easily
+noremap <buffer> <silent> k gk
+noremap <buffer> <silent> j gj
+noremap <buffer> <silent> ^ g^
+noremap <buffer> <silent> $ g$
+
 "stop search higlight when hitting return key
 nnoremap <leader>, :nohlsearch<CR>
 
