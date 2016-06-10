@@ -236,6 +236,28 @@ function! SetCodingStyle(style)
   endif
 endfunction
 
+" buffer delete function but keep the splits
+" borrowed from:
+" http://stackoverflow.com/questions/1444322/how-can-i-close-a-buffer-without-closing-the-window
+function! BufferDelete()
+    if &modified
+        echohl ErrorMsg
+        echomsg "No write since last change. Not closing buffer."
+        echohl NONE
+    else
+        let s:total_nr_buffers = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+
+        if s:total_nr_buffers == 1
+            bdelete
+            echo "Buffer deleted. Created new buffer."
+        else
+            bprevious
+            bdelete #
+            echo "Buffer deleted."
+        endif
+    endif
+endfunction
+
 " {{{1 Keybindings
 "-------------------------------------------------------------------------------
 let mapleader=" "
@@ -296,6 +318,9 @@ nnoremap <leader>ff :cd %:h<CR>
 
 " jump back and forth between files
 nnoremap <leader><leader> <C-^>
+
+" delete current buffer, keep the split
+nnoremap <leader>d :call BufferDelete()<CR>
 
 " remove trailing whitespaces
 nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
