@@ -36,6 +36,12 @@ export LC_CTYPE=fr_FR.UTF-8
 # par variable from manual
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 
+# for swi prolog
+PATH="$PATH:/Applications/SWI-Prolog.app/Contents/MacOS"
+
+# for pdflatex
+PATH="$PATH:/usr/local/texlive/2015/bin/universal-darwin/"
+
 alias nvi="~/dotfiles/neovim_helpers/open_file_in_left_split.py"
 alias gcommit="~/dotfiles/neovim_helpers/run_fugitive_commit.py"
 alias nvim='NVIM_LISTEN_ADDRESS=/tmp/nvim nvim'
