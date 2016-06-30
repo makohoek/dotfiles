@@ -150,7 +150,6 @@ set forward_quote                    # include message in forwards
 set from     = "mattijs.korpershoek@gmail.com"
 set sendmail = "/usr/local/bin/msmtp -a mattijs.korpershoek"
 set sendmail_wait = 0
-unset record
 
 # Theming settings -----------------------------------
 source ~/.mutt/base16-default-dark.muttcolors
