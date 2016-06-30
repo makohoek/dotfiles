@@ -155,7 +155,12 @@ set sendmail_wait = 0
 source ~/.mutt/base16-default-dark.muttcolors
 
 # Contact autocompletion -----------------------------
-set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
-bind editor <Tab> complete-query
-bind editor ^T    complete
+# ## Contacts, for MacOSX
+#set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+#bind editor <Tab> complete-query
+#bind editor ^T    complete
 
+# ## Abook, for Linux
+set query_command= "abook --mutt-query '%s'"
+macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+bind editor        <Tab> complete-query
