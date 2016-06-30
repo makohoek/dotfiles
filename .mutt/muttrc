@@ -95,6 +95,9 @@ macro index m ":set auto_tag=yes\n<save-message>?<toggle-mailboxes>" "move messa
 # Ctrl-p to move to move tagged mail to private mailbox
 macro index \Cp "<tag-prefix><save-message>=mattijs.korpershoek.gmail.com/Private\n<sync-mailbox>"
 
+# fold everyting (collapse/all)
+bind index za     collapse-all
+
 # Sidebar Navigation ---------------------------------
 bind index,pager <down>   sidebar-next
 bind index,pager <up>     sidebar-prev
