@@ -107,8 +107,6 @@ cscope_rebuild_index()
 
 # Private includes
 ######################################################################
-if [ -f ~/.bash_work ]; then
-    . ~/.bash_work
-fi
+source_if_exists  ~/.bash_work
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
