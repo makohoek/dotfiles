@@ -113,7 +113,7 @@ values."
    dotspacemacs-default-font '("Source Code Pro"
                                :size 13
                                :weight normal
-                               :width normal
+                               :width extra-condensed
                                :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
