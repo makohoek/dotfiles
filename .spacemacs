@@ -255,6 +255,8 @@ you should place your code here."
           '(("TODO" . org-warning) ("IN PROGRESS" . "orange")
             ("REVIEW/PENDING MERGE" . "orange")))
     )
+  ;; never prompt, always follow symlinks
+  (setq vc-follow-symlinks t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
