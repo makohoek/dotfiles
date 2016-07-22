@@ -134,7 +134,7 @@ values."
    ;; If non nil `Y' is remapped to `y$'. (default t)
    dotspacemacs-remap-Y-to-y$ t
    ;; Name of the default layout (default "Default")
-   dotspacemacs-default-layout-name "Default"
+   dotspacemacs-default-layout-name "Home"
    ;; If non nil the default layout name is displayed in the mode-line.
    ;; (default nil)
    dotspacemacs-display-default-layout nil
