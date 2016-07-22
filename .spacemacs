@@ -276,6 +276,7 @@ you should place your code here."
    (quote
     ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "b6db49cec08652adf1ff2341ce32c7303be313b0de38c621676122f255ee46db" default)))
  '(magit-commit-arguments (quote ("--signoff")))
+ '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
