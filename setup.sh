@@ -12,3 +12,5 @@ ln -s ~/dotfiles/.gvimrc ~/
 ln -s ~/dotfiles/.gvimrc ~/
 ln -s ~/dotfiles/.ycm_extra_conf.py ~/
 ln -s ~/dotfiles/.Xmodmap ~/
+ln -s ~/dotfiles/.emacs.d/private/makohoek-theme/ ~/.emacs.d/private/
+ln -s ~/dotfiles/.spacemacs ~/
