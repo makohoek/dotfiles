@@ -33,6 +33,7 @@ values."
      cscope
      c-c++
      emacs-lisp
+     shell-scripts
      python
      javascript
      html
