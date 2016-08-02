@@ -1,0 +1,6 @@
+xsetroot
+xrdb ~/dotfiles/.Xresources && xrdb -merge ~/dotfiles/base16-xresources/base16-tomorrow.dark.xresources
+parcellite &
+feh --bg-fill Pictures/magical_evening_by_ryky-da2bt2m.png &
+redshift -l 46:1 &
+pasystray &
