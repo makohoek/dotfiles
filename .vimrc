@@ -236,10 +236,38 @@ function! SetCodingStyle(style)
   endif
 endfunction
 
+" buffer delete function but keep the splits
+" borrowed from:
+" http://stackoverflow.com/questions/1444322/how-can-i-close-a-buffer-without-closing-the-window
+function! BufferDelete()
+    if &modified
+        echohl ErrorMsg
+        echomsg "No write since last change. Not closing buffer."
+        echohl NONE
+    else
+        let s:total_nr_buffers = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+
+        if s:total_nr_buffers == 1
+            bdelete
+            echo "Buffer deleted. Created new buffer."
+        else
+            bprevious
+            bdelete #
+            echo "Buffer deleted."
+        endif
+    endif
+endfunction
+
 " {{{1 Keybindings
 "-------------------------------------------------------------------------------
 let mapleader=" "
 let maplocalleader=" "
+
+" navigate in wrapped lines easily
+noremap <buffer> <silent> k gk
+noremap <buffer> <silent> j gj
+noremap <buffer> <silent> ^ g^
+noremap <buffer> <silent> $ g$
 
 "stop search higlight when hitting return key
 nnoremap <leader>, :nohlsearch<CR>
@@ -291,11 +319,11 @@ nnoremap <leader>ff :cd %:h<CR>
 " jump back and forth between files
 nnoremap <leader><leader> <C-^>
 
+" delete current buffer, keep the split
+nnoremap <leader>d :call BufferDelete()<CR>
+
 " remove trailing whitespaces
 nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
-
-" Navigate fast between all buffers
-nnoremap <tab> :silent! bnext<CR>
 
 " show element for syntax highlighting for finer tuning
 " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
@@ -306,9 +334,6 @@ map <leader>cg :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . 
 " C-a and C-e support for ex-mode
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-
-" use enter to type :
-nnoremap <enter> :
 
 " search current word under cursor (found on tpopes vimrc)
 nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>

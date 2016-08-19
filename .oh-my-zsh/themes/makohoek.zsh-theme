@@ -1,5 +1,5 @@
 CLOCK='%D{%I:%M:%S}'
-PROMPTSYMBOL='ʐ'
+PROMPTSYMBOL='▸'
 USERNAME='%n'
 CURRENTDIRECTORY='%~'
 
@@ -12,5 +12,5 @@ ZSH_THEME_GIT_PROMPT_CLEAN_SUFFIX="%)${reset_color%}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}${reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}${reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}☔${reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}☀${reset_color%}"

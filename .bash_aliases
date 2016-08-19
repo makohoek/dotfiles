@@ -17,4 +17,8 @@ alias pwdcp='pwd; tmux copy-mode \; send-keys k ^ v $ y'
 
 # tmux alias to fixup vim-solarized in tmux
 alias tmux='export TERM="screen-256color"; tmux -2'
+
+# neovim specific stuff
+alias nvimd='NVIM_LISTEN_ADDRESS=/tmp/nvim nvim'
+
 # vim: filetype=sh syntax=sh

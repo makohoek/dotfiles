@@ -81,8 +81,8 @@ Return a list of installed packages or nil for every skipped package."
 (ido-mode 1)
 
 ;; font
-(add-to-list 'default-frame-alist '(font . "Inconsolata-10.7" ))
-(set-face-attribute 'default nil :font "Inconsolata-10.7")
+;; (add-to-list 'default-frame-alist '(font . "meslo lg l-10"))
+;; (set-face-attribute 'default nil :font "meslo lg l-10")
 
 ;; similar to tpope's surround
 (require 'evil-surround)

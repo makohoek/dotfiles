@@ -15,7 +15,7 @@ else:
 
 try:
 # Create a python API session attached to unix domain socket created above:
-    nvim = attach('socket', path='/tmp/nvimm')
+    nvim = attach('socket', path='/tmp/nvim')
     nvim.command('edit ' + absolute_path_to_file)
     nvim.command('cd ' + current_directory)
 except Exception, e:

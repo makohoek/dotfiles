@@ -1,6 +1,5 @@
 # Paths ----------------------------------------------
 set folder           = ~/.mail               # mailbox location
-set alias_file       = ~/.mutt/alias         # where to store aliases
 set header_cache     = ~/.mutt/cache/headers # where to store headers
 set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
 set certificate_file = ~/.mutt/certificates  # where to store certs
@@ -25,7 +24,7 @@ set thorough_search      # strip headers and eval mimes before searching
 # Sidebar Patch --------------------------------------
 set sidebar_delim   = " │"
 set sidebar_visible = yes
-set sidebar_width   = 30
+set sidebar_width   = 45
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
@@ -96,6 +95,9 @@ macro index m ":set auto_tag=yes\n<save-message>?<toggle-mailboxes>" "move messa
 # Ctrl-p to move to move tagged mail to private mailbox
 macro index \Cp "<tag-prefix><save-message>=mattijs.korpershoek.gmail.com/Private\n<sync-mailbox>"
 
+# fold everyting (collapse/all)
+bind index za     collapse-all
+
 # Sidebar Navigation ---------------------------------
 bind index,pager <down>   sidebar-next
 bind index,pager <up>     sidebar-prev
@@ -148,13 +150,17 @@ set forward_quote                    # include message in forwards
 set from     = "mattijs.korpershoek@gmail.com"
 set sendmail = "/usr/local/bin/msmtp -a mattijs.korpershoek"
 set sendmail_wait = 0
-unset record
 
 # Theming settings -----------------------------------
 source ~/.mutt/base16-default-dark.muttcolors
 
 # Contact autocompletion -----------------------------
-set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
-bind editor <Tab> complete-query
-bind editor ^T    complete
+# ## Contacts, for MacOSX
+#set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+#bind editor <Tab> complete-query
+#bind editor ^T    complete
 
+# ## Abook, for Linux
+set query_command= "abook --mutt-query '%s'"
+macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+bind editor        <Tab> complete-query
