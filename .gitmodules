@@ -25,3 +25,6 @@
 [submodule ".emacs.d/private/makohoek-packages/pfw-emacs-mode"]
 	path = .emacs.d/private/makohoek-packages/pfw-emacs-mode
 	url = https://github.com/Makohoek/pfw-emacs-mode.git
+[submodule "external/i3blocks"]
+	path = external/i3blocks
+	url = https://github.com/Anachron/i3blocks.git
