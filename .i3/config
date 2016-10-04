@@ -151,14 +151,16 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # resize window (you can also use the mouse for that)
-mode "system" {
-        bindsym l exec "i3lock --image ~/Pictures/lockscreen.png"
+set $mode_system System: [l]ock
+bindsym $mod+Shift+s mode "$mode_system"
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+mode "$mode_system" {
+		bindsym l exec "i3lock --image ~/Pictures/lockscreen.png"
+
+		# back to normal: Enter or Escape
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
 }
-bindsym $mod+Shift+s mode "system"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
