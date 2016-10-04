@@ -166,6 +166,7 @@ mode "$mode_system" {
 # finds out, if available)
 bar {
   font pango:Terminus 9
+  position top
   #status_command py3status -c ~/.i3/status
 	status_command i3blocks
   colors {
