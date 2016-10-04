@@ -60,7 +60,7 @@ function source_if_exists()
 }
 
 # this prompt must be sourced to use __git_ps1
-if [[ $TERM != "eterm-color" ]]; then
+if [[ $TERM != "eterm-color" ]] && [[ $TERM != "dumb" ]]; then
     source_if_exists /usr/share/git-core/contrib/completion/git-prompt.sh
     source_if_exists ~/.bash_git_prompt
 fi
