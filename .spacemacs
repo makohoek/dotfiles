@@ -261,6 +261,20 @@ you should place your code here."
     )
   ;; never prompt, always follow symlinks
   (setq vc-follow-symlinks t)
+
+  ;; whitespace mode
+  (with-eval-after-load 'whitespace
+    (setq whitespace-style
+          '(face spaces tabs newline indentation tab-mark))
+
+    ;; for tabs in between lines
+    (set-face-attribute 'whitespace-tab nil :background nil :foreground "DimGray")
+    ;; for tabs as indentation
+    (set-face-attribute 'whitespace-indentation nil :background  nil :foreground "DimGray")
+
+    (setq whitespace-display-mappings
+          '((tab-mark 9 [187 9] [92 9]) ; 9:tab, 187:»
+            )))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
