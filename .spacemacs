@@ -26,7 +26,7 @@ values."
      git
      markdown
      org
-		 erc
+     erc
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
