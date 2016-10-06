@@ -284,24 +284,8 @@ you should place your code here."
   ;; tab indentation
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode 't)
+
+  (setq custom-file "~/.emacs.d/private/custom.el")
+  (load custom-file)
   )
 
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "b6db49cec08652adf1ff2341ce32c7303be313b0de38c621676122f255ee46db" default)))
- '(magit-commit-arguments (quote ("--signoff")))
- '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
- '(paradox-github-token t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
