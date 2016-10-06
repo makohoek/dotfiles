@@ -276,6 +276,10 @@ you should place your code here."
           '((tab-mark 9 [187 9] [92 9]) ; 9:tab, 187:»
             )))
 
+  ;; enable whitespace mode in C and Cpp
+  (add-hook 'c-mode-hook (function whitespace-mode))
+  (add-hook 'c++-mode-hook (function whitespace-mode))
+
   ;; tab indentation
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode 't)
