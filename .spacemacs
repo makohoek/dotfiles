@@ -272,6 +272,7 @@ you should place your code here."
     ;; for tabs as indentation
     (set-face-attribute 'whitespace-indentation nil :background  nil :foreground "DimGray")
 
+    ;; change tab displayed char to »
     (setq whitespace-display-mappings
           '((tab-mark 9 [187 9] [92 9]) ; 9:tab, 187:»
             )))
