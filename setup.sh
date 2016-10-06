@@ -16,3 +16,4 @@ ln -s ~/dotfiles/.emacs.d/private/makohoek-theme/ ~/.emacs.d/private/
 ln -s ~/dotfiles/.spacemacs ~/
 ln -s ~/dotfiles/.xprofile ~/
 ln -s ~/dotfiles/.i3blocks.conf ~/
+ln -s ~/dotfiles/.emacs.d/private/ .emacs.d/private
