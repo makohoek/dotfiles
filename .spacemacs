@@ -275,6 +275,10 @@ you should place your code here."
     (setq whitespace-display-mappings
           '((tab-mark 9 [187 9] [92 9]) ; 9:tab, 187:»
             )))
+
+  ;; tab indentation
+  (setq-default tab-width 4)
+  (setq-default indent-tabs-mode 't)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
