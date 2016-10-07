@@ -106,7 +106,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Bitstream Vera Sans Mono"
+   dotspacemacs-default-font '("Meslo LG S"
                                :size 9.0
                                :weight normal
                                :width ultra-condensed
