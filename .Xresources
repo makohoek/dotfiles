@@ -4,7 +4,7 @@ URxvt*buffered: true
 URxvt*cursorBlink: true
 URxvt*font: xft:Meslo LG S:style=Regular:size=9:antialias=true
 URxvt*boldFont: xft:Meslo LG S:style=Bold:size=9:antialias=true
-URxvt.letterSpace: -1
+URxvt.letterSpace: -2
 ! Workaround for base16 colorscheme troubles
 URxvt*intensityStyles:      false
 URxvt*scrollBar: false
