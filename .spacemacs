@@ -285,7 +285,7 @@ you should place your code here."
   (cscope-setup)
 
   ;; tab indentation
-  (setq-default tab-width 4)
+  (setq-default tab-width 8)
   (setq-default indent-tabs-mode 't)
 
   (setq custom-file "~/.emacs.d/private/custom.el")
