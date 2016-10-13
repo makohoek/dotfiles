@@ -281,6 +281,9 @@ you should place your code here."
   (add-hook 'c-mode-hook (function whitespace-mode))
   (add-hook 'c++-mode-hook (function whitespace-mode))
 
+  ;; enable cscope minor mode on startup in C and C++
+  (cscope-setup)
+
   ;; tab indentation
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode 't)
