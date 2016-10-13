@@ -288,7 +288,7 @@ you should place your code here."
   (setq-default tab-width 8)
   (setq-default indent-tabs-mode 't)
 
-  (setq custom-file "~/.emacs.d/private/custom.el")
+  (setq custom-file "~/dotfiles/.emacs.d/private/custom.el")
   (load custom-file)
   )
 
