@@ -288,5 +288,8 @@ you should place your code here."
 
   ;; fix theme loading, which appears broken since v2.0 via dotspacemacs-themes
   (load-theme 'base16-eighties-dark)
+
+  ;; use ido for finding files instead of helm
+  (global-set-key (kbd "C-x C-f") 'ido-find-file)
   )
 
