@@ -291,5 +291,7 @@ you should place your code here."
 
   ;; use ido for finding files instead of helm
   (global-set-key (kbd "C-x C-f") 'ido-find-file)
+  ;; use ido for listing buffers
+  (global-set-key (kbd "C-x b") 'ido-switch-buffer)
   )
 
