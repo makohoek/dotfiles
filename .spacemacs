@@ -253,6 +253,10 @@ you should place your code here."
     (setq org-todo-keyword-faces
           '(("TODO" . org-warning) ("IN PROGRESS" . "orange")
             ("REVIEW/PENDING MERGE" . "orange")))
+
+    ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode
+      "k" 'org-toggle-checkbox)
     )
   ;; never prompt, always follow symlinks
   (setq vc-follow-symlinks t)
