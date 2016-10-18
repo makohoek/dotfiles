@@ -4,3 +4,5 @@ parcellite &
 feh --bg-fill Pictures/wpap.jpg &
 redshift -l 46:1 &
 pasystray &
+wicd-gtk &
+synergy &
