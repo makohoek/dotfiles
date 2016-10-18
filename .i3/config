@@ -116,7 +116,7 @@ bindsym $mod+0 workspace 10
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace $workspace_terminal
 bindsym $mod+Shift+3 move container to workspace $workspace_emacs
-bindsym $mod+Shift+4 move container to workspace $chrome_workspace
+bindsym $mod+Shift+4 move container to workspace $workspace_chrome
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
