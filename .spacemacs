@@ -297,5 +297,11 @@ you should place your code here."
   (global-set-key (kbd "C-x C-f") 'ido-find-file)
   ;; use ido for listing buffers
   (global-set-key (kbd "C-x b") 'ido-switch-buffer)
+
+  ;; set default browser to google-chrome
+  ;; from https://www.emacswiki.org/emacs/BrowseUrl#toc1
+  (setq gnus-button-url 'browse-url-generic
+	browse-url-generic-program "google-chrome-stable"
+	browse-url-browser-function gnus-button-url)
   )
 
