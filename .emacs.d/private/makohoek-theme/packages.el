@@ -32,7 +32,7 @@
   '(
     seoul256-theme
     base16-theme
-		spacegray-theme
+    spacegray-theme
     ))
 ;; programmatically defin the init functions
 (dolist (pkg makohoek-theme-packages)
