@@ -303,5 +303,9 @@ you should place your code here."
   (setq gnus-button-url 'browse-url-generic
 	browse-url-generic-program "google-chrome-stable"
 	browse-url-browser-function gnus-button-url)
+
+  ;; do not fetch tags in magit status
+  (setq magit-status-headers-hook
+	(remove 'magit-insert-tags-header magit-status-headers-hook))
   )
 
