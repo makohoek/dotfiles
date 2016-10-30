@@ -305,7 +305,9 @@ you should place your code here."
 	browse-url-browser-function gnus-button-url)
 
   ;; do not fetch tags in magit status
-  (setq magit-status-headers-hook
-	(remove 'magit-insert-tags-header magit-status-headers-hook))
+  (with-eval-after-load 'magit
+    (setq magit-status-headers-hook
+	  (remove 'magit-insert-tags-header magit-status-headers-hook))
+  )
   )
 
