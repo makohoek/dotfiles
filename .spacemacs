@@ -308,6 +308,8 @@ you should place your code here."
   (with-eval-after-load 'magit
     (setq magit-status-headers-hook
 	  (remove 'magit-insert-tags-header magit-status-headers-hook))
+    (setq magit-revision-sections-hook
+      (remove 'magit-insert-revision-headers magit-revision-sections-hook))
   )
   )
 
