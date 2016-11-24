@@ -1,7 +1,7 @@
 xsetroot
 xrdb ~/dotfiles/.Xresources && xrdb -merge ~/dotfiles/base16-xresources/base16-tomorrow.dark.xresources
 parcellite &
-feh --bg-fill Pictures/wpap.jpg &
+feh --bg-fill Pictures/AeKQcUf.jpg
 redshift -l 46:1 &
 pasystray &
 wicd-gtk &
