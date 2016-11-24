@@ -28,8 +28,8 @@ values."
      org
      erc
      (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
+        shell-default-height 30
+        shell-default-position 'bottom)
      makohoek-theme
      cscope
      c-c++
@@ -99,18 +99,18 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(default
-                         spacegray
-                         spacemacs-dark
-                         solarized-light)
+             spacegray
+             spacemacs-dark
+             solarized-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Meslo LG S"
-                               :size 9.0
-                               :weight normal
-                               :width ultra-condensed
-                               :powerline-scale 1.1)
+                   :size 9.0
+                   :weight normal
+                   :width ultra-condensed
+                   :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -248,11 +248,11 @@ you should place your code here."
     ;; here goes your Org config :)
     ;; org todo keywords
     (setq org-todo-keywords
-          '((sequence "TODO" "IN PROGRESS" "REVIEW/PENDING MERGE" "|" "DONE")))
+      '((sequence "TODO" "IN PROGRESS" "REVIEW/PENDING MERGE" "|" "DONE")))
     ;; org todo keywords colors
     (setq org-todo-keyword-faces
-          '(("TODO" . org-warning) ("IN PROGRESS" . "orange")
-            ("REVIEW/PENDING MERGE" . "orange")))
+      '(("TODO" . org-warning) ("IN PROGRESS" . "orange")
+        ("REVIEW/PENDING MERGE" . "orange")))
 
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
     (spacemacs/set-leader-keys-for-major-mode 'org-mode
@@ -264,7 +264,7 @@ you should place your code here."
   ;; whitespace mode
   (with-eval-after-load 'whitespace
     (setq whitespace-style
-          '(face spaces tabs newline indentation tab-mark))
+      '(face spaces tabs newline indentation tab-mark))
 
     ;; for tabs in between lines
     (set-face-attribute 'whitespace-tab nil :background nil :foreground "DimGray")
@@ -273,8 +273,8 @@ you should place your code here."
 
     ;; change tab displayed char to »
     (setq whitespace-display-mappings
-          '((tab-mark 9 [187 9] [92 9]) ; 9:tab, 187:»
-            )))
+      '((tab-mark 9 [187 9] [92 9]) ; 9:tab, 187:»
+        )))
 
   ;; enable whitespace mode in C and Cpp
   (add-hook 'c-mode-hook (function whitespace-mode))
@@ -301,13 +301,13 @@ you should place your code here."
   ;; set default browser to google-chrome
   ;; from https://www.emacswiki.org/emacs/BrowseUrl#toc1
   (setq gnus-button-url 'browse-url-generic
-	browse-url-generic-program "google-chrome-stable"
-	browse-url-browser-function gnus-button-url)
+    browse-url-generic-program "google-chrome-stable"
+    browse-url-browser-function gnus-button-url)
 
   ;; do not fetch tags in magit status
   (with-eval-after-load 'magit
     (setq magit-status-headers-hook
-	  (remove 'magit-insert-tags-header magit-status-headers-hook))
+      (remove 'magit-insert-tags-header magit-status-headers-hook))
     (setq magit-revision-sections-hook
       (remove 'magit-insert-revision-headers magit-revision-sections-hook))
   )
