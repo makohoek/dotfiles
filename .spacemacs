@@ -244,48 +244,15 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (with-eval-after-load 'org
-    ;; here goes your Org config :)
-    ;; org todo keywords
-    (setq org-todo-keywords
-      '((sequence "TODO" "IN PROGRESS" "REVIEW/PENDING MERGE" "|" "DONE")))
-    ;; org todo keywords colors
-    (setq org-todo-keyword-faces
-      '(("TODO" . org-warning) ("IN PROGRESS" . "orange")
-        ("REVIEW/PENDING MERGE" . "orange")))
-
-    ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
-    (spacemacs/set-leader-keys-for-major-mode 'org-mode
-      "k" 'org-toggle-checkbox)
-    )
   ;; never prompt, always follow symlinks
   (setq vc-follow-symlinks t)
-
-  ;; whitespace mode
-  (with-eval-after-load 'whitespace
-    (setq whitespace-style
-      '(face spaces tabs newline indentation tab-mark))
-
-    ;; for tabs in between lines
-    (set-face-attribute 'whitespace-tab nil :background nil :foreground "DimGray")
-    ;; for tabs as indentation
-    (set-face-attribute 'whitespace-indentation nil :background  nil :foreground "DimGray")
-
-    ;; change tab displayed char to »
-    (setq whitespace-display-mappings
-      '((tab-mark 9 [187 9] [92 9]) ; 9:tab, 187:»
-        )))
-
-  ;; enable whitespace mode in C and Cpp
-  (add-hook 'c-mode-hook (function whitespace-mode))
-  (add-hook 'c++-mode-hook (function whitespace-mode))
 
   ;; enable cscope minor mode on startup in C and C++
   (cscope-setup)
 
   ;; tab indentation
-  (setq-default tab-width 8)
-  (setq-default indent-tabs-mode 't)
+  (setq-default tab-width 4)
+  (setq-default indent-tabs-mode nil)
 
   (setq custom-file "~/dotfiles/.emacs.d/private/custom.el")
   (load custom-file)
@@ -303,6 +270,42 @@ you should place your code here."
   (setq gnus-button-url 'browse-url-generic
     browse-url-generic-program "google-chrome-stable"
     browse-url-browser-function gnus-button-url)
+
+  (with-eval-after-load 'org
+    ;; here goes your Org config :)
+    ;; org todo keywords
+    (setq org-todo-keywords
+          '((sequence "TODO" "IN PROGRESS" "REVIEW/PENDING MERGE" "|" "DONE")))
+    ;; org todo keywords colors
+    (setq org-todo-keyword-faces
+          '(("TODO" . org-warning) ("IN PROGRESS" . "orange")
+            ("REVIEW/PENDING MERGE" . "orange")))
+
+    ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode
+      "k" 'org-toggle-checkbox)
+    )
+
+  ;; whitespace mode
+  (with-eval-after-load 'whitespace
+    (setq whitespace-style
+          '(face spaces tabs newline indentation tab-mark))
+
+    ;; for tabs in between lines
+    (set-face-attribute 'whitespace-tab nil :background nil :foreground "DimGray")
+    ;; for tabs as indentation
+    (set-face-attribute 'whitespace-indentation nil :background  nil :foreground "DimGray")
+
+    ;; change tab displayed char to »
+    (setq whitespace-display-mappings
+          '((tab-mark 9 [187 9] [92 9]) ; 9:tab, 187:»
+            )))
+
+  ;; enable whitespace mode in C and Cpp
+  (add-hook 'c-mode-hook (function whitespace-mode))
+  (add-hook 'c++-mode-hook (function whitespace-mode))
+  ;; enable whitespace mode in lisp
+  (add-hook 'lisp-mode-hook (function whitespace-mode))
 
   ;; do not fetch tags in magit status
   (with-eval-after-load 'magit
