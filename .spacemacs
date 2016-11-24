@@ -35,6 +35,7 @@ values."
      c-c++
      emacs-lisp
      shell-scripts
+     semantic
      python
      javascript
      html
