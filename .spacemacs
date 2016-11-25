@@ -264,11 +264,6 @@ you should place your code here."
   ;; fix theme loading, which appears broken since v2.0 via dotspacemacs-themes
   (load-theme 'base16-eighties-dark)
 
-  ;; use ido for finding files instead of helm
-  (global-set-key (kbd "C-x C-f") 'ido-find-file)
-  ;; use ido for listing buffers
-  (global-set-key (kbd "C-x b") 'ido-switch-buffer)
-
   ;; set default browser to google-chrome
   ;; from https://www.emacswiki.org/emacs/BrowseUrl#toc1
   (setq gnus-button-url 'browse-url-generic
