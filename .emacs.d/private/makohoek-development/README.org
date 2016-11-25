@@ -1,7 +1,7 @@
 #+TITLE: makohoek-development layer
 
 # The maximum height of the logo should be 200 pixels.
-[[img/makohoek-development.png]]
+# [[img/makohoek-development.png]]
 
 # TOC links should be GitHub style anchors.
 * Table of Contents                                        :TOC_4_gh:noexport:
@@ -10,8 +10,9 @@
  - [[#key-bindings][Key bindings]]
 
 * Description
-This layer does wonderful things:
-  - thing01
+This layer adds additional development tools I use which are not in
+other spacemacs layers such as
+  - dtrt-indent
 
 * Install
 To use this configuration layer, add it to your =~/.spacemacs=. You will need to
@@ -19,10 +20,11 @@ add =makohoek-development= to the existing =dotspacemacs-configuration-layers= l
 file.
 
 * Key bindings
+Currently, there are no extra bindings available with this layer
 
-| Key Binding | Description    |
-|-------------+----------------|
-| ~SPC x x x~ | Does thing01   |
+# | Key Binding | Description    |
+# |-------------+----------------|
+# | ~SPC x x x~ | Does thing01   |
 # Use GitHub URLs if you wish to link a Spacemacs documentation file or its heading.
 # Examples:
 # [[https://github.com/syl20bnr/spacemacs/blob/master/doc/VIMUSERS.org#sessions]]
