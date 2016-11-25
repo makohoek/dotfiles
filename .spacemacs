@@ -251,7 +251,8 @@ you should place your code here."
   ;; enable cscope minor mode on startup in C and C++
   (cscope-setup)
 
-  ;; tab indentation
+  ;; tab indentation: default to userspace mode
+  ;; see coding-style-kernel for switching to kernel style
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode nil)
 
@@ -315,5 +316,17 @@ you should place your code here."
     (setq magit-revision-sections-hook
       (remove 'magit-insert-revision-headers magit-revision-sections-hook))
   )
+
+  ;; coding style for kernel/userspace
+  (defun coding-style-kernel()
+    "Set coding style to tabs/tabwidth=8"
+    (interactive)
+    (setq-default tab-width 8)
+    (setq-default indent-tabs-mode 't))
+  (defun coding-style-userspace()
+    "Set coding style to spaces/tabwidth=4"
+    (interactive)
+    (setq-default tab-width 4)
+    (setq-default indent-tabs-mode nil))
   )
 
