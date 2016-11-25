@@ -32,6 +32,7 @@ values."
         shell-default-position 'bottom)
      makohoek-theme
      makohoek-development
+     ivy
      cscope
      c-c++
      emacs-lisp
