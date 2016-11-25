@@ -309,12 +309,16 @@ you should place your code here."
   ;; enable whitespace mode in lisp
   (add-hook 'lisp-mode-hook (function whitespace-mode))
 
-  ;; do not fetch tags in magit status
+  ;; performance tricks for magit (useful in kernel tree)
   (with-eval-after-load 'magit
+    ;; remove tag entry for magit status
     (setq magit-status-headers-hook
       (remove 'magit-insert-tags-header magit-status-headers-hook))
+    ;; remove revision header in magit-diff
     (setq magit-revision-sections-hook
       (remove 'magit-insert-revision-headers magit-revision-sections-hook))
+    ;; don't display --graph on magit-log
+    (setq magit-log-arguments '("-n256" "--decorate"))
   )
 
   ;; coding style for kernel/userspace
