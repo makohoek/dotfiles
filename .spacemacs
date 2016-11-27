@@ -274,11 +274,11 @@ you should place your code here."
     ;; here goes your Org config :)
     ;; org todo keywords
     (setq org-todo-keywords
-          '((sequence "TODO" "IN PROGRESS" "REVIEW/PENDING MERGE" "|" "DONE")))
+          '((sequence "TODO" "IN PROGRESS" "REVIEW" "|" "DONE")))
     ;; org todo keywords colors
     (setq org-todo-keyword-faces
           '(("TODO" . org-warning) ("IN PROGRESS" . "orange")
-            ("REVIEW/PENDING MERGE" . "orange")))
+            ("REVIEW" . "orange")))
 
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
     (spacemacs/set-leader-keys-for-major-mode 'org-mode
