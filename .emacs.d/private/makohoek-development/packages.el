@@ -29,7 +29,8 @@
 
 
 (defconst makohoek-development-packages
-  '(dtrt-indent)
+  '(dtrt-indent
+    ag)
   "The list of Lisp packages required by the makohoek-development layer."
   )
 
@@ -38,5 +39,9 @@
   (add-hook 'c-mode-common-hook
             (lambda() (require 'dtrt-indent)
               (dtrt-indent-mode t))))
+
+(defun makohoek-development/init-ag ()
+  ;; nothing to configure here
+  )
 
 ;;; packages.el ends here
