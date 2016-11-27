@@ -3,7 +3,7 @@
 ;; Copyright (c) 2012-2016 Mattijs Korpershoek
 ;;
 ;; Author:  <mattijs.korpershoek@gmail.com>
-;; URL: https://github.com/syl20bnr/spacemacs
+;; URL: https://github.com/Makohoek/dotfiles
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
