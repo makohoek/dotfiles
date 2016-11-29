@@ -271,7 +271,6 @@ you should place your code here."
     browse-url-browser-function gnus-button-url)
 
   (with-eval-after-load 'org
-    ;; here goes your Org config :)
     ;; org todo keywords
     (setq org-todo-keywords
           '((sequence "TODO" "IN PROGRESS" "REVIEW" "|" "DONE")))
