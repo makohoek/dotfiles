@@ -258,6 +258,7 @@ you should place your code here."
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode nil)
 
+  ;; don't pollute my spacemacs file, add it to a custom.el file
   (setq custom-file "~/dotfiles/.emacs.d/private/custom.el")
   (load custom-file)
 
