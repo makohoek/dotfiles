@@ -283,7 +283,15 @@ you should place your code here."
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
     (spacemacs/set-leader-keys-for-major-mode 'org-mode
       "k" 'org-toggle-checkbox)
-    )
+
+    ;; org-pomodoro notification once pomodoro is completed
+    (defun pomodoro-completed()
+      (notifications-notify
+       :title "Pomodoro completed"
+       :body "Go take a break"
+       :timeout 0))
+
+    (add-hook 'org-pomodoro-finished-hook (function pomodoro-completed)))
 
   ;; whitespace mode
   (with-eval-after-load 'whitespace
