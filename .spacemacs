@@ -292,8 +292,15 @@ you should place your code here."
        :title "Pomodoro completed"
        :body "Go take a break"
        :timeout 0))
+    (defun pomodoro-break-completed()
+      (notifications-notify
+       :title "Break done"
+       :body "Go fix some code"
+       :timeout 0))
 
-    (add-hook 'org-pomodoro-finished-hook (function pomodoro-completed)))
+    (add-hook 'org-pomodoro-finished-hook (function pomodoro-completed))
+    (add-hook 'org-pomodoro-break-finished-hook (function pomodoro-break-completed))
+    )
 
   ;; whitespace mode
   (with-eval-after-load 'whitespace
