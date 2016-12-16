@@ -46,7 +46,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(org-jira)
+   dotspacemacs-additional-packages '(ag org-jira ox-reveal)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(helm-cscope)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -279,6 +279,8 @@ you should place your code here."
     (setq org-todo-keyword-faces
           '(("TODO" . org-warning) ("IN PROGRESS" . "orange")
             ("REVIEW" . "orange")))
+    (with-eval-after-load 'ox-reveal
+      (setq org-reveal-root "file:///home/mako/code/js/reveal.js-master/"))
 
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
     (spacemacs/set-leader-keys-for-major-mode 'org-mode
