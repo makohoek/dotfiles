@@ -25,13 +25,16 @@ values."
      ;; ----------------------------------------------------------------
      git
      markdown
-     org
+     (org :variables
+          org-enable-reveal-js-support t)
+     gnus
      erc
      (shell :variables
         shell-default-height 30
         shell-default-position 'bottom)
      makohoek-theme
      makohoek-development
+     makohoek-org
      ivy
      cscope
      c-c++
@@ -279,8 +282,6 @@ you should place your code here."
     (setq org-todo-keyword-faces
           '(("TODO" . org-warning) ("IN PROGRESS" . "orange")
             ("REVIEW" . "orange")))
-    (with-eval-after-load 'ox-reveal
-      (setq org-reveal-root "file:///home/mako/code/js/reveal.js-master/"))
 
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
     (spacemacs/set-leader-keys-for-major-mode 'org-mode
