@@ -306,6 +306,8 @@ you should place your code here."
   (add-hook 'c++-mode-hook (function whitespace-mode))
   ;; enable whitespace mode in lisp
   (add-hook 'lisp-mode-hook (function whitespace-mode))
+  ;; enable whitespace mode in python
+  (add-hook 'python-mode-hook (function whitespace-mode))
 
   ;; performance tricks for magit (useful in kernel tree)
   (with-eval-after-load 'magit
