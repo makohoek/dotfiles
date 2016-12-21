@@ -23,6 +23,7 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     gnus
      git
      markdown
      org
@@ -317,6 +318,15 @@ you should place your code here."
     ;; don't display --graph on magit-log
     (setq magit-log-arguments '("-n256" "--decorate"))
   )
+
+  ;; gnus related settings
+  (with-eval-after-load 'gnus
+    (setq gnus-select-method '(nnnil ""))
+    (setq gnus-secondary-select-methods
+          '((nnmaildir "Gmail"
+                       (directory "~/.mail/mattijs.korpershoek.gmail.com")
+                       (directory-files nnheader-directory-files-safe)
+                       (get-new-mail nil)))))
 
   ;; coding style for kernel/userspace
   (defun coding-style-kernel()
