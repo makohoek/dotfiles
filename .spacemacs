@@ -347,5 +347,26 @@ you should place your code here."
     (interactive)
     (setq-default tab-width 4)
     (setq-default indent-tabs-mode nil))
+  ;; projectile settings
+  (with-eval-after-load 'projectile
+    (defun my-switch-project-hook ()
+      "Perform some action after switching Projectile projects."
+      (message "Switched to new project: %s" (projectile-project-name))
+      (when (string= (projectile-project-name) "nbl-android")
+        (setq projectile-project-compilation-cmd "./gradlew :wear:assembleDebug")
+        (setq projectile-project-test-cmd "cd wear/build/outputs/apk && make")
+        )
+      (when (string= (projectile-project-name) "audio-hal")
+        (setq projectile-project-compilation-cmd
+              "/bin/bash -c 'cd /build/mkorperx/ndg-android/ && \
+               source build/envsetup.sh && \
+               lunch anthracite-userdebug && \
+               m audio.primary.merrifield'")
+        (setq projectile-project-test-cmd
+              "ssh mako@acers5.tl.intel.com \
+               'cd /home/mako/tools/install-ndg-android && make audiohal'")
+        )
+      )
+    (add-hook 'projectile-after-switch-project-hook #'my-switch-project-hook))
   )
 
