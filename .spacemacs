@@ -23,6 +23,7 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     gnus
      git
      markdown
      (org :variables
@@ -323,18 +324,29 @@ you should place your code here."
   (add-hook 'c++-mode-hook (function whitespace-mode))
   ;; enable whitespace mode in lisp
   (add-hook 'lisp-mode-hook (function whitespace-mode))
+  ;; enable whitespace mode in python
+  (add-hook 'python-mode-hook (function whitespace-mode))
 
   ;; performance tricks for magit (useful in kernel tree)
   (with-eval-after-load 'magit
     ;; remove tag entry for magit status
     (setq magit-status-headers-hook
-      (remove 'magit-insert-tags-header magit-status-headers-hook))
+          (remove 'magit-insert-tags-header magit-status-headers-hook))
     ;; remove revision header in magit-diff
     (setq magit-revision-sections-hook
-      (remove 'magit-insert-revision-headers magit-revision-sections-hook))
+          (remove 'magit-insert-revision-headers magit-revision-sections-hook))
     ;; don't display --graph on magit-log
     (setq magit-log-arguments '("-n256" "--decorate"))
-  )
+    )
+
+  ;; gnus related settings
+  (with-eval-after-load 'gnus
+    (setq gnus-select-method '(nnnil ""))
+    (setq gnus-secondary-select-methods
+          '((nnmaildir "Gmail"
+                       (directory "~/.mail/mattijs.korpershoek.gmail.com")
+                       (directory-files nnheader-directory-files-safe)
+                       (get-new-mail nil)))))
 
   ;; coding style for kernel/userspace
   (defun coding-style-kernel()
