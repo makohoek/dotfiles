@@ -351,6 +351,8 @@ you should place your code here."
   (with-eval-after-load 'projectile
     ;; do not run find-file after a project switch
     (setq projectile-switch-project-action 'projectile-dired)
+
+    ;; specific per-project compile commands
     (defun my-switch-project-hook ()
       "Perform some action after switching Projectile projects."
       (message "Switched to new project: %s" (projectile-project-name))
