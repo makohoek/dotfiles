@@ -355,7 +355,7 @@ you should place your code here."
     ;; specific per-project compile commands
     (defun my-switch-project-hook ()
       "Perform some action after switching Projectile projects."
-      (message "Switched to new project: %s" (projectile-project-name))
+      (message "Switched to project: %s" (projectile-project-name))
       (when (string= (projectile-project-name) "nbl-android")
         (setq projectile-project-compilation-cmd "./gradlew :wear:assembleDebug")
         (setq projectile-project-test-cmd "cd wear/build/outputs/apk && make")
