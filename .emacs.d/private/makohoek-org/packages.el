@@ -35,7 +35,7 @@
    Is empty, since already in the spacemacs org layer."
   )
 
-(defun makohoek-development/post-init-org ()
+(defun makohoek-development/post-init-ox-reveal ()
   ;; point towards default reveal directory
   ;; FIXME: reveal.js should probably be a submodule of this repo
   (setq org-reveal-root "file:///home/mako/code/js/reveal.js-master/")
