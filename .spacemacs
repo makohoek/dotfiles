@@ -349,6 +349,8 @@ you should place your code here."
     (setq-default indent-tabs-mode nil))
   ;; projectile settings
   (with-eval-after-load 'projectile
+    ;; do not run find-file after a project switch
+    (setq projectile-switch-project-action 'projectile-dired)
     (defun my-switch-project-hook ()
       "Perform some action after switching Projectile projects."
       (message "Switched to new project: %s" (projectile-project-name))
