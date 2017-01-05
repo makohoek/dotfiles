@@ -370,6 +370,26 @@ you should place your code here."
               "ssh mako@acers5.tl.intel.com \
                'cd /home/mako/tools/install-ndg-android && make audiohal'")
         )
+      (when (string= (projectile-project-name) "robby")
+        (setq projectile-project-compilation-cmd
+              "/bin/bash -c 'cd /build/mkorperx/ndg-android/ && \
+               source build/envsetup.sh && \
+               lunch anthracite-userdebug && \
+               cd device/intel/robby/audio && mm'")
+        (setq projectile-project-test-cmd
+              "ssh mako@acers5.tl.intel.com \
+               'cd /home/mako/tools/install-ndg-android && make pfw'")
+        )
+      (when (string= (projectile-project-name) "kernel")
+        (setq projectile-project-compilation-cmd
+              "/bin/bash -c 'cd /build/mkorperx/ndg-android/ && \
+               source build/envsetup.sh && \
+               lunch anthracite-userdebug && \
+               mbimg -j32'")
+        (setq projectile-project-test-cmd
+              "ssh mako@acers5.tl.intel.com \
+               'cd /home/mako/tools/install-ndg-android && make kernel'")
+        )
       )
     (add-hook 'projectile-after-switch-project-hook #'my-switch-project-hook))
   )
