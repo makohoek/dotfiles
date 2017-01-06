@@ -368,11 +368,13 @@ you should place your code here."
     (defun my-switch-project-hook ()
       "Perform some action after switching Projectile projects."
       (message "Switched to project: %s" (projectile-project-name))
-      (when (string= (projectile-project-name) "nbl-android")
+
+      (cond
+       ((string= (projectile-project-name) "nbl-android")
         (setq projectile-project-compilation-cmd "./gradlew :wear:assembleDebug")
         (setq projectile-project-test-cmd "cd wear/build/outputs/apk && make")
         )
-      (when (string= (projectile-project-name) "audio-hal")
+       ((string= (projectile-project-name) "audio-hal")
         (setq projectile-project-compilation-cmd
               "/bin/bash -c 'cd /build/mkorperx/ndg-android/ && \
                source build/envsetup.sh && \
@@ -382,7 +384,7 @@ you should place your code here."
               "ssh mako@acers5.tl.intel.com \
                'cd /home/mako/tools/install-ndg-android && make audiohal'")
         )
-      (when (string= (projectile-project-name) "robby")
+       ((string= (projectile-project-name) "robby")
         (setq projectile-project-compilation-cmd
               "/bin/bash -c 'cd /build/mkorperx/ndg-android/ && \
                source build/envsetup.sh && \
@@ -392,7 +394,7 @@ you should place your code here."
               "ssh mako@acers5.tl.intel.com \
                'cd /home/mako/tools/install-ndg-android && make pfw'")
         )
-      (when (string= (projectile-project-name) "kernel")
+       ((string= (projectile-project-name) "kernel")
         (setq projectile-project-compilation-cmd
               "/bin/bash -c 'cd /build/mkorperx/ndg-android/ && \
                source build/envsetup.sh && \
@@ -402,6 +404,7 @@ you should place your code here."
               "ssh mako@acers5.tl.intel.com \
                'cd /home/mako/tools/install-ndg-android && make kernel'")
         )
+       )
       )
     (add-hook 'projectile-after-switch-project-hook #'my-switch-project-hook))
   )
