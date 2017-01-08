@@ -359,6 +359,7 @@ you should place your code here."
     (interactive)
     (setq-default tab-width 4)
     (setq-default indent-tabs-mode nil))
+
   ;; projectile settings
   (with-eval-after-load 'projectile
     ;; do not run find-file after a project switch
