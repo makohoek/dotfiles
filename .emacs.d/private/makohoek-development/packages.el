@@ -30,7 +30,8 @@
 
 (defconst makohoek-development-packages
   '(dtrt-indent
-    ag)
+    ag
+    projectile)
   "The list of Lisp packages required by the makohoek-development layer."
   )
 
@@ -42,6 +43,56 @@
 
 (defun makohoek-development/init-ag ()
   ;; nothing to configure here
+  )
+
+
+(defun makohoek-development/post-init-projectile ()
+    ;; do not run find-file after a project switch
+    (setq projectile-switch-project-action 'projectile-dired)
+
+    ;; specific per-project compile commands
+    (defun my-switch-project-hook ()
+      "Perform some action after switching Projectile projects."
+      (message "Switched to project: %s" (projectile-project-name))
+
+      (cond
+       ((string= (projectile-project-name) "nbl-android")
+        (setq projectile-project-compilation-cmd "./gradlew :wear:assembleDebug")
+        (setq projectile-project-test-cmd "cd wear/build/outputs/apk && make")
+        )
+       ((string= (projectile-project-name) "audio-hal")
+        (setq projectile-project-compilation-cmd
+              "/bin/bash -c 'cd /build/mkorperx/ndg-android/ && \
+               source build/envsetup.sh && \
+               lunch anthracite-userdebug && \
+               m audio.primary.merrifield'")
+        (setq projectile-project-test-cmd
+              "ssh mako@acers5.tl.intel.com \
+               'cd /home/mako/tools/install-ndg-android && make audiohal'")
+        )
+       ((string= (projectile-project-name) "robby")
+        (setq projectile-project-compilation-cmd
+              "/bin/bash -c 'cd /build/mkorperx/ndg-android/ && \
+               source build/envsetup.sh && \
+               lunch anthracite-userdebug && \
+               cd device/intel/robby/audio && mm'")
+        (setq projectile-project-test-cmd
+              "ssh mako@acers5.tl.intel.com \
+               'cd /home/mako/tools/install-ndg-android && make pfw'")
+        )
+       ((string= (projectile-project-name) "kernel")
+        (setq projectile-project-compilation-cmd
+              "/bin/bash -c 'cd /build/mkorperx/ndg-android/ && \
+               source build/envsetup.sh && \
+               lunch anthracite-userdebug && \
+               mbimg -j32'")
+        (setq projectile-project-test-cmd
+              "ssh mako@acers5.tl.intel.com \
+               'cd /home/mako/tools/install-ndg-android && make kernel'")
+        )
+       )
+      )
+    (add-hook 'projectile-after-switch-project-hook #'my-switch-project-hook)
   )
 
 ;;; packages.el ends here
