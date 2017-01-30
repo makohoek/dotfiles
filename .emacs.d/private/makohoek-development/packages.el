@@ -31,7 +31,8 @@
 (defconst makohoek-development-packages
   '(dtrt-indent
     ag
-    projectile)
+    projectile
+    magit)
   "The list of Lisp packages required by the makohoek-development layer."
   )
 
@@ -93,5 +94,26 @@
       )
     (add-hook 'projectile-after-switch-project-hook #'my-switch-project-hook)
   )
+
+(defun makohoek-development/post-init-magit ()
+  (with-eval-after-load 'magit
+    ;; performance tricks for magit (useful in kernel tree)
+    ;; remove tag entry for magit status
+    (setq magit-status-headers-hook
+          (remove 'magit-insert-tags-header magit-status-headers-hook))
+    ;; remove revision header in magit-diff
+    (setq magit-revision-sections-hook
+          (remove 'magit-insert-revision-headers magit-revision-sections-hook))
+    ;; don't display --graph on magit-log
+    (setq magit-log-arguments '("-n30" "--decorate"))
+
+
+    ;; signed-off by default
+    (setq magit-commit-arguments (quote ("--signoff")))
+    (setq magit-revert-arguments (quote ("--signoff")))
+
+    ;; better rebase
+    (setq magit-rebase-arguments (quote ("--autosquash" "--autostash")))
+    ))
 
 ;;; packages.el ends here
