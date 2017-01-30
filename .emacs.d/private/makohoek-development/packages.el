@@ -45,7 +45,6 @@
   ;; nothing to configure here
   )
 
-
 (defun makohoek-development/post-init-projectile ()
     ;; do not run find-file after a project switch
     (setq projectile-switch-project-action 'projectile-dired)
