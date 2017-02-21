@@ -200,7 +200,7 @@ values."
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
    dotspacemacs-inactive-transparency 90
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen. (default t)
@@ -268,6 +268,9 @@ you should place your code here."
 
   ;; fix theme loading, which appears broken since v2.0 via dotspacemacs-themes
   (load-theme 'base16-eighties-dark)
+
+  ;; use smaller powerline seperator
+  (setq powerline-default-separator 'alternate)
 
   ;; set default browser to google-chrome
   ;; from https://www.emacswiki.org/emacs/BrowseUrl#toc1
