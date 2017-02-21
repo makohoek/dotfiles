@@ -1,4 +1,4 @@
-;;; packages.el --- makohoek-development layer packages file for Spacemacs.
+;;; packages.el --- makohoek-dev layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2012-2016 Mattijs Korpershoek
 ;;
@@ -18,36 +18,36 @@
 ;;
 ;;
 ;; Briefly, each package to be installed or configured by this layer should be
-;; added to `makohoek-development-packages'. Then, for each package PACKAGE:
+;; added to `makohoek-dev-packages'. Then, for each package PACKAGE:
 ;;
 ;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
-;;   function `makohoek-development/init-PACKAGE' to load and initialize the package.
+;;   function `makohoek-dev/init-PACKAGE' to load and initialize the package.
 
 ;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
-;;   define the functions `makohoek-development/pre-init-PACKAGE' and/or
-;;   `makohoek-development/post-init-PACKAGE' to customize the package as it is loaded.
+;;   define the functions `makohoek-dev/pre-init-PACKAGE' and/or
+;;   `makohoek-dev/post-init-PACKAGE' to customize the package as it is loaded.
 
 
-(defconst makohoek-development-packages
+(defconst makohoek-dev-packages
   '(dtrt-indent
     ag
     projectile
     magit
     whitespace)
-  "The list of Lisp packages required by the makohoek-development layer."
+  "The list of Lisp packages required by the makohoek-dev layer."
   )
 
-(defun makohoek-development/init-dtrt-indent ()
+(defun makohoek-dev/init-dtrt-indent ()
   ;; enable dtrt-indent for c development
   (add-hook 'c-mode-common-hook
             (lambda() (require 'dtrt-indent)
               (dtrt-indent-mode t))))
 
-(defun makohoek-development/init-ag ()
+(defun makohoek-dev/init-ag ()
   ;; nothing to configure here
   )
 
-(defun makohoek-development/post-init-projectile ()
+(defun makohoek-dev/post-init-projectile ()
     ;; do not run find-file after a project switch
     (setq projectile-switch-project-action 'projectile-dired)
 
@@ -96,7 +96,7 @@
     (add-hook 'projectile-after-switch-project-hook #'my-switch-project-hook)
   )
 
-(defun makohoek-development/post-init-magit ()
+(defun makohoek-dev/post-init-magit ()
   (with-eval-after-load 'magit
     ;; performance tricks for magit (useful in kernel tree)
     ;; remove tag entry for magit status
@@ -117,7 +117,7 @@
     (setq magit-rebase-arguments (quote ("--autosquash" "--autostash")))
     ))
 
-(defun makohoek-development/post-init-whitespace ()
+(defun makohoek-dev/post-init-whitespace ()
   ;; whitespace mode
   (with-eval-after-load 'whitespace
     (setq whitespace-style
