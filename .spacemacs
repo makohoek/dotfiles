@@ -275,35 +275,6 @@ you should place your code here."
     browse-url-generic-program "google-chrome-stable"
     browse-url-browser-function gnus-button-url)
 
-  (with-eval-after-load 'org
-    ;; org todo keywords
-    (setq org-todo-keywords
-          '((sequence "TODO" "IN PROGRESS" "REVIEW" "|" "DONE")))
-    ;; org todo keywords colors
-    (setq org-todo-keyword-faces
-          '(("TODO" . org-warning) ("IN PROGRESS" . "orange")
-            ("REVIEW" . "orange")))
-
-    ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
-    (spacemacs/set-leader-keys-for-major-mode 'org-mode
-      "k" 'org-toggle-checkbox)
-
-    ;; org-pomodoro notification once pomodoro is completed
-    (defun pomodoro-completed()
-      (notifications-notify
-       :title "Pomodoro completed"
-       :body "Go take a break"
-       :timeout 0))
-    (defun pomodoro-break-completed()
-      (notifications-notify
-       :title "Break done"
-       :body "Go fix some code"
-       :timeout 0))
-
-    (add-hook 'org-pomodoro-finished-hook (function pomodoro-completed))
-    (add-hook 'org-pomodoro-break-finished-hook (function pomodoro-break-completed))
-    )
-
   ;; gnus related settings
   (with-eval-after-load 'gnus
     (setq gnus-select-method '(nnnil ""))

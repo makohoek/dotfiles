@@ -29,16 +29,35 @@
 
 ;;; Code:
 
-(defconst makohoek-org-packages
-  '()
-  "The list of Lisp packages required by the makohoek-org layer.
-   Is empty, since already in the spacemacs org layer."
-  )
+(defconst makohoek-org-packages '(org))
 
-(defun makohoek-development/post-init-ox-reveal ()
+(defun makohoek-org/post-init-org ()
   ;; point towards default reveal directory
   ;; FIXME: reveal.js should probably be a submodule of this repo
   (setq org-reveal-root "file:///home/mako/code/js/reveal.js-master/")
-  )
+  (with-eval-after-load 'org
+    ;; org todo keywords
+    (setq org-todo-keywords '((sequence "TODO" "IN PROGRESS" "REVIEW" "|"
+                                        "DONE")))
+    ;; org todo keywords colors
+    (setq org-todo-keyword-faces '(("TODO" . org-warning)
+                                   ("IN PROGRESS" . "orange")
+                                   ("REVIEW" . "orange")))
+    ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
+    (spacemacs/set-leader-keys-for-major-mode
+      'org-mode "k" 'org-toggle-checkbox)
+    ;; org-pomodoro notification once pomodoro is completed
+    (defun pomodoro-completed ()
+      (notifications-notify :title "Pomodoro completed"
+                            :body "Go take a break"
+                            :timeout 0))
+    (defun pomodoro-break-completed ()
+      (notifications-notify :title "Break done"
+                            :body "Go fix some code"
+                            :timeout 0))
+    (add-hook 'org-pomodoro-finished-hook
+              (function pomodoro-completed))
+    (add-hook 'org-pomodoro-break-finished-hook
+              (function pomodoro-break-completed))))
 
 ;;; packages.el ends here
