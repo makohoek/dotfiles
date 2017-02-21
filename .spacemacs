@@ -304,29 +304,6 @@ you should place your code here."
     (add-hook 'org-pomodoro-break-finished-hook (function pomodoro-break-completed))
     )
 
-  ;; whitespace mode
-  (with-eval-after-load 'whitespace
-    (setq whitespace-style
-          '(face spaces tabs newline indentation tab-mark))
-
-    ;; for tabs in between lines
-    (set-face-attribute 'whitespace-tab nil :background nil :foreground "DimGray")
-    ;; for tabs as indentation
-    (set-face-attribute 'whitespace-indentation nil :background  nil :foreground "DimGray")
-
-    ;; change tab displayed char to »
-    (setq whitespace-display-mappings
-          '((tab-mark 9 [187 9] [92 9]) ; 9:tab, 187:»
-            )))
-
-  ;; enable whitespace mode in C and Cpp
-  (add-hook 'c-mode-hook (function whitespace-mode))
-  (add-hook 'c++-mode-hook (function whitespace-mode))
-  ;; enable whitespace mode in lisp
-  (add-hook 'lisp-mode-hook (function whitespace-mode))
-  ;; enable whitespace mode in python
-  (add-hook 'python-mode-hook (function whitespace-mode))
-
   ;; gnus related settings
   (with-eval-after-load 'gnus
     (setq gnus-select-method '(nnnil ""))
