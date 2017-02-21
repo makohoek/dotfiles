@@ -28,7 +28,7 @@
 ;;   `makohoek-dev/post-init-PACKAGE' to customize the package as it is loaded.
 
 
-(defconst makohoek-dev-packages '(dtrt-indent ag projectile magit whitespace)
+(defconst makohoek-dev-packages '(dtrt-indent ag ediff projectile magit whitespace)
   "The list of Lisp packages required by the makohoek-dev layer.")
 
 (defun makohoek-dev/init-dtrt-indent ()
@@ -125,4 +125,10 @@
   ;; enable whitespace mode in python
   (add-hook 'python-mode-hook
             (function whitespace-mode)))
+
+(defun makohoek-dev/post-init-ediff ()
+  ;; ediff customization: show char based diff
+  (with-eval-after-load 'ediff
+    (setq-default ediff-forward-word-function
+                  'forward-char)))
 ;;; packages.el ends here
