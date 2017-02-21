@@ -136,8 +136,8 @@
   ;; enable whitespace mode in C and Cpp
   (add-hook 'c-mode-hook (function whitespace-mode))
   (add-hook 'c++-mode-hook (function whitespace-mode))
-  ;; enable whitespace mode in lisp
-  (add-hook 'lisp-mode-hook (function whitespace-mode))
+  ;; enable whitespace mode in elisp
+  (add-hook 'emacs-lisp-mode-hook (function whitespace-mode))
   ;; enable whitespace mode in python
   (add-hook 'python-mode-hook (function whitespace-mode))
 
