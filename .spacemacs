@@ -272,7 +272,7 @@ you should place your code here."
   (load-theme 'base16-eighties-dark)
 
   ;; use smaller powerline seperator
-  (setq powerline-default-separator 'alternate)
+  (setq powerline-default-separator 'bar)
 
   ;; set default browser to google-chrome
   ;; from https://www.emacswiki.org/emacs/BrowseUrl#toc1
