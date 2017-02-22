@@ -34,7 +34,7 @@ values."
         shell-default-height 30
         shell-default-position 'bottom)
      makohoek-theme
-     makohoek-development
+     makohoek-dev
      makohoek-org
      ivy
      cscope
@@ -200,7 +200,7 @@ values."
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
    dotspacemacs-inactive-transparency 90
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen. (default t)
@@ -269,63 +269,14 @@ you should place your code here."
   ;; fix theme loading, which appears broken since v2.0 via dotspacemacs-themes
   (load-theme 'base16-eighties-dark)
 
+  ;; use smaller powerline seperator
+  (setq powerline-default-separator 'alternate)
+
   ;; set default browser to google-chrome
   ;; from https://www.emacswiki.org/emacs/BrowseUrl#toc1
   (setq gnus-button-url 'browse-url-generic
     browse-url-generic-program "google-chrome-stable"
     browse-url-browser-function gnus-button-url)
-
-  (with-eval-after-load 'org
-    ;; org todo keywords
-    (setq org-todo-keywords
-          '((sequence "TODO" "IN PROGRESS" "REVIEW" "|" "DONE")))
-    ;; org todo keywords colors
-    (setq org-todo-keyword-faces
-          '(("TODO" . org-warning) ("IN PROGRESS" . "orange")
-            ("REVIEW" . "orange")))
-
-    ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
-    (spacemacs/set-leader-keys-for-major-mode 'org-mode
-      "k" 'org-toggle-checkbox)
-
-    ;; org-pomodoro notification once pomodoro is completed
-    (defun pomodoro-completed()
-      (notifications-notify
-       :title "Pomodoro completed"
-       :body "Go take a break"
-       :timeout 0))
-    (defun pomodoro-break-completed()
-      (notifications-notify
-       :title "Break done"
-       :body "Go fix some code"
-       :timeout 0))
-
-    (add-hook 'org-pomodoro-finished-hook (function pomodoro-completed))
-    (add-hook 'org-pomodoro-break-finished-hook (function pomodoro-break-completed))
-    )
-
-  ;; whitespace mode
-  (with-eval-after-load 'whitespace
-    (setq whitespace-style
-          '(face spaces tabs newline indentation tab-mark))
-
-    ;; for tabs in between lines
-    (set-face-attribute 'whitespace-tab nil :background nil :foreground "DimGray")
-    ;; for tabs as indentation
-    (set-face-attribute 'whitespace-indentation nil :background  nil :foreground "DimGray")
-
-    ;; change tab displayed char to »
-    (setq whitespace-display-mappings
-          '((tab-mark 9 [187 9] [92 9]) ; 9:tab, 187:»
-            )))
-
-  ;; enable whitespace mode in C and Cpp
-  (add-hook 'c-mode-hook (function whitespace-mode))
-  (add-hook 'c++-mode-hook (function whitespace-mode))
-  ;; enable whitespace mode in lisp
-  (add-hook 'lisp-mode-hook (function whitespace-mode))
-  ;; enable whitespace mode in python
-  (add-hook 'python-mode-hook (function whitespace-mode))
 
   ;; gnus related settings
   (with-eval-after-load 'gnus
