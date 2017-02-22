@@ -33,9 +33,6 @@ values."
      (shell :variables
         shell-default-height 30
         shell-default-position 'bottom)
-     makohoek-theme
-     makohoek-dev
-     makohoek-org
      ivy
      cscope
      c-c++
@@ -45,6 +42,10 @@ values."
      python
      javascript
      html
+     ;; own, private layers
+     makohoek-theme
+     makohoek-dev
+     makohoek-org
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
