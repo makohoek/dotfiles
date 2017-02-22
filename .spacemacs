@@ -233,6 +233,8 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
+   ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
+   dotspacemacs-emacs-command-key "SPC"
    ))
 
 (defun dotspacemacs/user-init ()
