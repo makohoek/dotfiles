@@ -106,7 +106,7 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(default
+   dotspacemacs-themes '(base16-eighties
              spacegray
              spacemacs-dark
              solarized-light)
@@ -268,9 +268,6 @@ you should place your code here."
   ;; don't pollute my spacemacs file, add it to a custom.el file
   (setq custom-file "~/dotfiles/.emacs.d/private/custom.el")
   (load custom-file)
-
-  ;; fix theme loading, which appears broken since v2.0 via dotspacemacs-themes
-  (load-theme 'base16-eighties-dark)
 
   ;; use smaller powerline seperator
   (setq powerline-default-separator 'bar)
