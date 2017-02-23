@@ -23,6 +23,9 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     (auto-completion :variables
+                      auto-completion-tab-key-behavior 'complete
+                      auto-completion-enable-snippets-in-popup t)
      gnus
      git
      markdown
