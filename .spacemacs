@@ -302,5 +302,7 @@ you should place your code here."
     (setq-default tab-width 4)
     (setq-default indent-tabs-mode nil))
 
+  ;; call SPC bB with SPC bb
+  (spacemacs/set-leader-keys "bb" 'spacemacs-layouts/non-restricted-buffer-list-ivy)
   )
 
