@@ -73,12 +73,14 @@
                'cd /home/mako/tools/install-ndg-android && make pfw'"))
      ((string= (projectile-project-name)
                "kernel")
-      (setq projectile-project-compilation-cmd "/bin/bash -c 'cd /build/mkorperx/ndg-android/ && \
+      (setq projectile-project-compilation-cmd "/bin/bash -c 'cd ~/code/android/ndg-android-f44/ && \
                source build/envsetup.sh && \
                lunch anthracite-userdebug && \
-               mbimg -j32'")
-      (setq projectile-project-test-cmd "ssh mako@acers5.tl.intel.com \
-               'cd /home/mako/tools/install-ndg-android && make kernel'"))))
+               mbimg -j3'")
+      (setq projectile-project-test-cmd "cd ~/code/android/ndg-android-f44/out/target/product/anthracite && \
+               adb reboot bootloader && \
+               fastboot flash boot boot.img && \
+               fastboot continue"))))
   (add-hook 'projectile-after-switch-project-hook
             #'my-switch-project-hook))
 
