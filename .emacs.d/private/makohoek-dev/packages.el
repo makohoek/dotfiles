@@ -102,6 +102,8 @@
     (setq git-commit-summary-max-length 50)
     ;; line must not be longer than 72
     (setq git-commit-fill-column 72)
+    ;; support Tracked-On: pseudo-header
+    (add-to-list 'git-commit-known-pseudo-headers "Tracked-On")
     ;; spell check when commiting
     (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell))
 
