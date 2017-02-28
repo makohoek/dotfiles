@@ -97,7 +97,13 @@
     (setq magit-commit-arguments (quote ("--signoff")))
     (setq magit-revert-arguments (quote ("--signoff")))
     ;; better rebase
-    (setq magit-rebase-arguments (quote ("--autosquash" "--autostash")))))
+    (setq magit-rebase-arguments (quote ("--autosquash" "--autostash"))))
+    ;; title must be no longer than 50
+    (setq git-commit-summary-max-length 50)
+    ;; line must not be longer than 72
+    (setq git-commit-fill-column 72)
+    ;; spell check when commiting
+    (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell))
 
 (defun makohoek-dev/post-init-whitespace ()
   ;; whitespace mode
