@@ -97,7 +97,7 @@
     (setq magit-commit-arguments (quote ("--signoff")))
     (setq magit-revert-arguments (quote ("--signoff")))
     ;; better rebase
-    (setq magit-rebase-arguments (quote ("--autosquash" "--autostash"))))
+    (setq magit-rebase-arguments (quote ("--autosquash" "--autostash")))
     ;; title must be no longer than 50
     (setq git-commit-summary-max-length 50)
     ;; line must not be longer than 72
@@ -106,7 +106,7 @@
     (add-to-list 'git-commit-known-pseudo-headers "Tracked-On")
     (add-to-list 'git-commit-known-pseudo-headers "Changed-Id")
     ;; spell check when commiting
-    (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell))
+    (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)))
 
 (defun makohoek-dev/post-init-whitespace ()
   ;; whitespace mode
