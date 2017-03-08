@@ -48,6 +48,8 @@
   ;; specific per-project compile commands
   (defun my-switch-project-hook ()
     "Perform some action after switching Projectile projects."
+    (setq my-projects-android-platform "~/code/android/ndg-android-f44/")
+
     (message "Switched to project: %s"
              (projectile-project-name))
     (cond
@@ -57,39 +59,39 @@
       (setq projectile-project-test-cmd "cd wear/build/outputs/apk && make"))
      ((string= (projectile-project-name)
                "audio-hal")
-      (setq projectile-project-compilation-cmd "/bin/bash -c 'cd /build/mkorperx/ndg-android/ && \
+      (setq projectile-project-compilation-cmd (concat "/bin/bash -c 'cd " my-projects-android-platform " && \
                source build/envsetup.sh && \
                lunch anthracite-userdebug && \
-               m audio.primary.merrifield'")
+               m audio.primary.merrifield'"))
       (setq projectile-project-test-cmd "ssh mako@acers5.tl.intel.com \
                'cd /home/mako/tools/install-ndg-android && make audiohal'"))
      ((string= (projectile-project-name)
                "robby")
-      (setq projectile-project-compilation-cmd "/bin/bash -c 'cd /build/mkorperx/ndg-android/ && \
+      (setq projectile-project-compilation-cmd (concat "/bin/bash -c 'cd " my-projects-android-platform " && \
                source build/envsetup.sh && \
                lunch anthracite-userdebug && \
-               cd device/intel/robby/audio && mm'")
+               cd device/intel/robby/audio && mm'"))
       (setq projectile-project-test-cmd "ssh mako@acers5.tl.intel.com \
                'cd /home/mako/tools/install-ndg-android && make pfw'"))
      ((string= (projectile-project-name)
                "bt")
-      (setq projectile-project-compilation-cmd "/bin/bash -c 'cd ~/code/android/ndg-android-f44/ && \
+      (setq projectile-project-compilation-cmd (concat "/bin/bash -c 'cd " my-projects-android-platform " && \
                source build/envsetup.sh && \
                lunch anthracite-userdebug && \
-               cd system/bt/audio_a2dp_hw && mm'")
-      (setq projectile-project-test-cmd "cd ~/code/android/ndg-android-f44/out/target/product/anthracite && \
+               cd system/bt/audio_a2dp_hw && mm'"))
+      (setq projectile-project-test-cmd (concat "cd " my-projects-android-platform "/out/target/product/anthracite && \
                adb root && adb remount && \
-               adb push system/lib/hw/lib/audio.a2dp.default.so /system/lib/hw"))
+               adb push system/lib/hw/lib/audio.a2dp.default.so /system/lib/hw")))
      ((string= (projectile-project-name)
                "kernel")
-      (setq projectile-project-compilation-cmd "/bin/bash -c 'cd ~/code/android/ndg-android-f44/ && \
+      (setq projectile-project-compilation-cmd (concat "/bin/bash -c 'cd " my-projects-android-platform " && \
                source build/envsetup.sh && \
                lunch anthracite-userdebug && \
-               mbimg -j3'")
-      (setq projectile-project-test-cmd "cd ~/code/android/ndg-android-f44/out/target/product/anthracite && \
+               mbimg -j3'"))
+      (setq projectile-project-test-cmd (concat "cd " my-projects-android-platform "/out/target/product/anthracite && \
                adb reboot bootloader && \
                fastboot flash boot boot.img && \
-               fastboot continue"))))
+               fastboot continue")))))
   (add-hook 'projectile-after-switch-project-hook
             #'my-switch-project-hook))
 
