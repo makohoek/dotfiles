@@ -72,6 +72,15 @@
       (setq projectile-project-test-cmd "ssh mako@acers5.tl.intel.com \
                'cd /home/mako/tools/install-ndg-android && make pfw'"))
      ((string= (projectile-project-name)
+               "bt")
+      (setq projectile-project-compilation-cmd "/bin/bash -c 'cd ~/code/android/ndg-android-f44/ && \
+               source build/envsetup.sh && \
+               lunch anthracite-userdebug && \
+               cd system/bt/audio_a2dp_hw && mm'")
+      (setq projectile-project-test-cmd "cd ~/code/android/ndg-android-f44/out/target/product/anthracite && \
+               adb root && adb remount && \
+               adb push system/lib/hw/lib/audio.a2dp.default.so /system/lib/hw"))
+     ((string= (projectile-project-name)
                "kernel")
       (setq projectile-project-compilation-cmd "/bin/bash -c 'cd ~/code/android/ndg-android-f44/ && \
                source build/envsetup.sh && \
