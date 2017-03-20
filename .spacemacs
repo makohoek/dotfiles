@@ -308,5 +308,9 @@ you should place your code here."
 
   ;; disable global company mode
   (global-company-mode -1)
+
+  (with-eval-after-load 'tramp
+    (setq tramp-default-method "ssh")
+    )
   )
 
