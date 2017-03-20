@@ -42,56 +42,64 @@
   ;; nothing to configure here
   )
 
+(cl-defstruct makohoek-project
+  name            ; name of the projectile project . This is matched with the git folder name
+  compile-command ; compile command for this project
+  test-command    ; test command for this project
+  (android nil))  ; is this project part of the android tree? if yes, commands will be run from root dir
+
+(setq makohoek-project-list '())
+
+;; default values, must be overriden
+(setq private-android-code-directory nil)
+(setq private-android-allowed-targets '("aosp_dragon" "aosp_shamu"))
+
+;; Load private projects, if they exist
+(setq private-projects "~/dotfiles-private/spacemacs/makohoek-dev/projects.el")
+(load private-projects 't)
+
+(defun makohoek-project-make-android-prefix (target)
+  (setq root-directory private-android-code-directory)
+  (concat
+   "/bin/bash -c 'cd " root-directory " && "
+   "source build/envsetup.sh"         " && "
+   "lunch " target "-userdebug"       " && "))
+
+(defun makohoek-project-make-android-test-prefix (target)
+  (setq root-directory)
+  (concat
+   "cd " root-directory "/out/target/product/" target "/" " && "))
+
 (defun makohoek-dev/post-init-projectile ()
   ;; do not run find-file after a project switch
   (setq projectile-switch-project-action 'projectile-dired)
   ;; specific per-project compile commands
   (defun my-switch-project-hook ()
     "Perform some action after switching Projectile projects."
-    (setq my-projects-android-platform "~/code/android/ndg-android-f44/")
+    (dolist (proj makohoek-project-list)
+      ;; project is in our database
+      (when (string= (projectile-project-name) (makohoek-project-name proj))
+        ;; if project exists, check if it is an android project
+        (if (makohoek-project-android proj)
+            ;; if it is an android project, ask for target + prefix&postfix the compile command
+            (progn
+              (setq allowed-targets private-android-allowed-targets)
+              (setq selected-target (ivy-completing-read "target: " allowed-targets))
+              (setq projectile-project-compilation-cmd
+                    (concat
+                     (makohoek-project-make-android-prefix selected-target)
+                     (makohoek-project-compile-command proj)
+                     "'"))
+              (setq projectile-project-test-cmd
+                    (concat
+                     (makohoek-project-make-android-test-prefix selected-target)
+                     (makohoek-project-test-command proj)))
+              )
+          ;; else, just set the variables
+          (progn
+            (setq projectile-project-compilation-cmd (makohoek-project-test-command proj))
+            (setq projectile-project-test-cmd (makohoek-project-test-command proj)))))))
 
-    (message "Switched to project: %s"
-             (projectile-project-name))
-    (cond
-     ((string= (projectile-project-name)
-               "nbl-android")
-      (setq projectile-project-compilation-cmd "./gradlew :wear:assembleDebug")
-      (setq projectile-project-test-cmd "cd wear/build/outputs/apk && make"))
-     ((string= (projectile-project-name)
-               "audio-hal")
-      (setq projectile-project-compilation-cmd (concat "/bin/bash -c 'cd " my-projects-android-platform " && \
-               source build/envsetup.sh && \
-               lunch anthracite-userdebug && \
-               m audio.primary.merrifield'"))
-      (setq projectile-project-test-cmd "ssh mako@acers5.tl.intel.com \
-               'cd /home/mako/tools/install-ndg-android && make audiohal'"))
-     ((string= (projectile-project-name)
-               "robby")
-      (setq projectile-project-compilation-cmd (concat "/bin/bash -c 'cd " my-projects-android-platform " && \
-               source build/envsetup.sh && \
-               lunch anthracite-userdebug && \
-               cd device/intel/robby/audio && mm'"))
-      (setq projectile-project-test-cmd "ssh mako@acers5.tl.intel.com \
-               'cd /home/mako/tools/install-ndg-android && make pfw'"))
-     ((string= (projectile-project-name)
-               "bt")
-      (setq projectile-project-compilation-cmd (concat "/bin/bash -c 'cd " my-projects-android-platform " && \
-               source build/envsetup.sh && \
-               lunch anthracite-userdebug && \
-               cd system/bt/audio_a2dp_hw && mm'"))
-      (setq projectile-project-test-cmd (concat "cd " my-projects-android-platform "/out/target/product/anthracite && \
-               adb root && adb remount && \
-               adb push system/lib/hw/lib/audio.a2dp.default.so /system/lib/hw")))
-     ((string= (projectile-project-name)
-               "kernel")
-      (setq projectile-project-compilation-cmd (concat "/bin/bash -c 'cd " my-projects-android-platform " && \
-               source build/envsetup.sh && \
-               lunch anthracite-userdebug && \
-               mbimg -j3'"))
-      (setq projectile-project-test-cmd (concat "cd " my-projects-android-platform "/out/target/product/anthracite && \
-               adb reboot bootloader && \
-               fastboot flash boot boot.img && \
-               fastboot continue")))))
   (add-hook 'projectile-after-switch-project-hook
             #'my-switch-project-hook))
 
