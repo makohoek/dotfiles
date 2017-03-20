@@ -25,7 +25,8 @@ values."
      ;; ----------------------------------------------------------------
      (auto-completion :variables
                       auto-completion-tab-key-behavior 'complete
-                      auto-completion-enable-snippets-in-popup t)
+                      auto-completion-enable-snippets-in-popup t
+                      :disabled-for org erc)
      gnus
      git
      markdown
