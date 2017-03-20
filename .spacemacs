@@ -304,5 +304,8 @@ you should place your code here."
 
   ;; call SPC bB with SPC bb
   (spacemacs/set-leader-keys "bb" 'spacemacs-layouts/non-restricted-buffer-list-ivy)
+
+  ;; disable global company mode
+  (global-company-mode -1)
   )
 
