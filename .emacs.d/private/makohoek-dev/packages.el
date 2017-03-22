@@ -97,7 +97,7 @@
               )
           ;; else, just set the variables
           (progn
-            (setq projectile-project-compilation-cmd (makohoek-project-test-command proj))
+            (setq projectile-project-compilation-cmd (makohoek-project-compile-command proj))
             (setq projectile-project-test-cmd (makohoek-project-test-command proj)))))))
 
   (add-hook 'projectile-after-switch-project-hook
