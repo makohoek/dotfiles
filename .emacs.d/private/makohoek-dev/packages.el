@@ -77,7 +77,9 @@
   (defun my-switch-project-hook ()
     "Perform some action after switching Projectile projects."
     (dolist (proj makohoek-project-list)
-      ;; project is in our database
+      ;; project is in our database: we don't want to use the "cached compilation cmd"
+      ;; FIXME: should remove only the key/value for this project, not all
+      (clrhash projectile-compilation-cmd-map)
       (when (string= (projectile-project-name) (makohoek-project-name proj))
         ;; if project exists, check if it is an android project
         (if (makohoek-project-android proj)
