@@ -66,7 +66,7 @@
    "lunch " target "-userdebug"       " && "))
 
 (defun makohoek-project-make-android-test-prefix (target)
-  (setq root-directory)
+  (setq root-directory private-android-code-directory)
   (concat
    "cd " root-directory "/out/target/product/" target "/" " && "))
 
