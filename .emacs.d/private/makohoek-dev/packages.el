@@ -80,6 +80,7 @@
       ;; project is in our database: we don't want to use the "cached compilation cmd"
       ;; FIXME: should remove only the key/value for this project, not all
       (clrhash projectile-compilation-cmd-map)
+      (clrhash projectile-test-cmd-map)
       (when (string= (projectile-project-name) (makohoek-project-name proj))
         ;; if project exists, check if it is an android project
         (if (makohoek-project-android proj)
