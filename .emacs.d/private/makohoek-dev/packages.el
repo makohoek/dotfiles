@@ -126,7 +126,7 @@
     (setq git-commit-fill-column 72)
     ;; support Tracked-On: + Change-Id: pseudo-headers
     (add-to-list 'git-commit-known-pseudo-headers "Tracked-On")
-    (add-to-list 'git-commit-known-pseudo-headers "Changed-Id")
+    (add-to-list 'git-commit-known-pseudo-headers "Change-Id")
     ;; spell check when commiting
     (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)))
 
