@@ -15,3 +15,6 @@ ln -s ~/dotfiles/.Xmodmap ~/
 ln -s ~/dotfiles/.spacemacs ~/
 ln -s ~/dotfiles/.xprofile ~/
 ln -s ~/dotfiles/.i3blocks.conf ~/
+ln -s ~/dotfiles/.tmux-colors.conf ~/
+ln -s ~/dotfiles/.tmux-osx.conf ~/
+
