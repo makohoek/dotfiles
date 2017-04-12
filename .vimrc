@@ -22,8 +22,6 @@ Plug 'tommcdo/vim-exchange'
 Plug 'cbracken/vala.vim'
 Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets' "default snippets for ultisnips
 Plug 'jceb/vim-orgmode'
 Plug 'vim-scripts/utl.vim' " for links in org-mode
@@ -287,11 +285,6 @@ vmap <Leader>p :Tput<CR>
 
 " getting help in a fullscreen tab
 map  <silent> <F1> :tabnew<CR>:h<CR>:on<CR>
-
-" UltiSnip keybindings
-let g:UltiSnipsExpandTrigger="<C-o>"
-let g:UltiSnipsJumpForwardTrigger="<C-o>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "customSnippets"]
 
 " Bindings for the great tmux_navigator
 let g:tmux_navigator_no_mappings = 1
