@@ -10,6 +10,7 @@ let g:plug_url_format = 'https://github.com/%s.git'
 call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-abolish'
@@ -54,8 +55,11 @@ filetype plugin indent on  "Allow specific plugins based on filetype
 "-------------------------------------------------------------------------------
 syntax enable         "syntax highlighting on based on filetype
 set t_Co=256
-set background=dark   "dark version of
-colorscheme base16-tomorrow
+
+set background=dark
+let g:seoul256_background = 239
+colorscheme seoul256
+let g:airline_theme='base16'
 set cursorline        "show current line
 set fdm=syntax        "folding method based on syntax
 set foldlevel=16      "open folds by default
