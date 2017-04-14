@@ -77,10 +77,6 @@
   (defun my-switch-project-hook ()
     "Perform some action after switching Projectile projects."
     (dolist (proj makohoek-project-list)
-      ;; project is in our database: we don't want to use the "cached compilation cmd"
-      ;; FIXME: should remove only the key/value for this project, not all
-      (clrhash projectile-compilation-cmd-map)
-      (clrhash projectile-test-cmd-map)
       (when (string= (projectile-project-name) (makohoek-project-name proj))
         ;; if project exists, check if it is an android project
         (if (makohoek-project-android proj)
@@ -88,20 +84,26 @@
             (progn
               (setq allowed-targets private-android-allowed-targets)
               (setq selected-target (ivy-completing-read "target: " allowed-targets))
-              (setq projectile-project-compilation-cmd
+              (puthash (projectile-compilation-dir)
                     (concat
                      (makohoek-project-make-android-prefix selected-target)
                      (makohoek-project-compile-command proj)
-                     "'"))
-              (setq projectile-project-test-cmd
+                     "'")
+                    projectile-project-compilation-cmd)
+              (puthash (projectile-compilation-dir)
                     (concat
                      (makohoek-project-make-android-test-prefix selected-target)
-                     (makohoek-project-test-command proj)))
+                     (makohoek-project-test-command proj))
+                    projectile-test-cmd-map)
               )
-          ;; else, just set the variables
+          ;; else, just set the new compilation/test cmd
           (progn
-            (setq projectile-project-compilation-cmd (makohoek-project-compile-command proj))
-            (setq projectile-project-test-cmd (makohoek-project-test-command proj)))))))
+            (puthash (projectile-compilation-dir)
+                     (makohoek-project-compile-command proj)
+                     projectile-compilation-cmd-map)
+            (puthash (projectile-compilation-dir)
+                     (makohoek-project-test-command proj)
+                     projectile-test-cmd-map))))))
 
   (add-hook 'projectile-after-switch-project-hook
             #'my-switch-project-hook))
