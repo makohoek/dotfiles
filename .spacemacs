@@ -383,5 +383,10 @@ you should place your code here."
   (with-eval-after-load 'tramp
     (setq tramp-default-method "ssh")
     )
+
+  ;; do not disable find-file-hook for remote files
+  ;; this is needed for projectile to add new projects
+  ;; automatically
+  (setq counsel-find-file-speedup-remote nil)
   )
 
