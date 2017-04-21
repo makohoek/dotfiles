@@ -57,6 +57,7 @@ values."
      emacs-lisp
      shell-scripts
      semantic
+     spell-checking
      python
      javascript
      html
