@@ -74,7 +74,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(helm-cscope rainbow-delimiters neotree)
+   dotspacemacs-excluded-packages '(helm-cscope rainbow-delimiters neotree company-mode)
   ;; Defines the behaviour of Spacemacs when installing packages.
   ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
   ;; `used-only' installs only explicitly used packages and uninstall any
@@ -377,9 +377,6 @@ you should place your code here."
 
   ;; call SPC bB with SPC bb
   (spacemacs/set-leader-keys "bb" 'spacemacs-layouts/non-restricted-buffer-list-ivy)
-
-  ;; disable global company mode
-  (global-company-mode -1)
 
   (with-eval-after-load 'tramp
     (setq tramp-default-method "ssh")
