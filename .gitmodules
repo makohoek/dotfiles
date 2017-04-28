@@ -19,9 +19,9 @@
 [submodule "/home/mako/dotfiles/.config/awesome/pomodoro"]
 	path = /home/mako/dotfiles/.config/awesome/pomodoro
 	url = https://github.com/francois2metz/pomodoro-awesome.git
-[submodule ".emacs.d/private/makohoek-packages/pfw-emacs-mode"]
-	path = .emacs.d/private/makohoek-packages/pfw-emacs-mode
-	url = https://github.com/Makohoek/pfw-emacs-mode.git
 [submodule "external/i3blocks"]
 	path = external/i3blocks
 	url = https://github.com/Anachron/i3blocks.git
+[submodule "spacemacs-layers/makohoek-dev/local/log-tools"]
+	path = spacemacs-layers/makohoek-dev/local/log-tools
+	url = https://github.com/JulienMasson/log-tools.git

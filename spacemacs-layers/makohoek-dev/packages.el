@@ -28,7 +28,7 @@
 ;;   `makohoek-dev/post-init-PACKAGE' to customize the package as it is loaded.
 
 
-(defconst makohoek-dev-packages '(dtrt-indent ag ediff projectile magit whitespace)
+(defconst makohoek-dev-packages '(dtrt-indent ag ediff projectile magit whitespace (log-tools :location local) (lt-logcat :location local))
   "The list of Lisp packages required by the makohoek-dev layer.")
 
 (defun makohoek-dev/init-dtrt-indent ()
@@ -40,6 +40,16 @@
 
 (defun makohoek-dev/init-ag ()
   ;; nothing to configure here
+  )
+
+(defun makohoek-dev/init-log-tools()
+  ;; nothing to configure here
+  (require 'log-tools)
+  )
+
+(defun makohoek-dev/init-lt-logcat()
+  ;; nothing to configure here
+  (require 'lt-logcat)
   )
 
 (cl-defstruct makohoek-project
