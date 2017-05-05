@@ -42,9 +42,11 @@ values."
      ;;                  auto-completion-enable-snippets-in-popup t
      ;;                  :disabled-for org erc)
      ;; layers from spacemacs-all
+     spacemacs-completion
      spacemacs-layouts
      spacemacs-org
      spacemacs-ui-visual
+     ivy
      ;; additional spacemacs layers
      gnus
      git
@@ -56,7 +58,6 @@ values."
      (shell :variables
         shell-default-height 30
         shell-default-position 'bottom)
-     ivy
      cscope
      c-c++
      emacs-lisp
