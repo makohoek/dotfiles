@@ -37,10 +37,15 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     (auto-completion :variables
-                      auto-completion-tab-key-behavior 'complete
-                      auto-completion-enable-snippets-in-popup t
-                      :disabled-for org erc)
+     ;; (auto-completion :variables
+     ;;                  auto-completion-tab-key-behavior 'complete
+     ;;                  auto-completion-enable-snippets-in-popup t
+     ;;                  :disabled-for org erc)
+     ;; layers from spacemacs-all
+     spacemacs-layouts
+     spacemacs-org
+     spacemacs-ui-visual
+     ;; additional spacemacs layers
      gnus
      git
      markdown
@@ -57,7 +62,8 @@ values."
      emacs-lisp
      shell-scripts
      semantic
-     spell-checking
+     (spell-checking :variables
+                     spell-checking-enable-by-default nil)
      python
      javascript
      html
@@ -74,7 +80,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(helm-cscope rainbow-delimiters neotree company-mode)
+   dotspacemacs-excluded-packages '(helm-cscope rainbow-delimiters neotree company-mode smartparens)
   ;; Defines the behaviour of Spacemacs when installing packages.
   ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
   ;; `used-only' installs only explicitly used packages and uninstall any
