@@ -45,7 +45,7 @@ values."
      spacemacs-completion
      spacemacs-layouts
      spacemacs-org
-     spacemacs-ui-visual
+     (spacemacs-ui-visual :packages (not neotree fancy-battery))
      ivy
      ;; additional spacemacs layers
      gnus
