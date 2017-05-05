@@ -385,6 +385,9 @@ you should place your code here."
   ;; call SPC bB with SPC bb
   (spacemacs/set-leader-keys "bb" 'spacemacs-layouts/non-restricted-buffer-list-ivy)
 
+  ;; always prefer horizontal splitting to vertical
+  (setq split-height-threshold nil)
+
   (with-eval-after-load 'tramp
     (setq tramp-default-method "ssh")
     )
