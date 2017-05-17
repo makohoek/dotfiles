@@ -62,7 +62,6 @@ values."
      c-c++
      emacs-lisp
      shell-scripts
-     semantic
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      python
