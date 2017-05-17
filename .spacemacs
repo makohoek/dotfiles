@@ -48,12 +48,10 @@ values."
      (spacemacs-ui-visual :packages (not neotree fancy-battery))
      ivy
      ;; additional spacemacs layers
-     gnus
      git
      markdown
      (org :variables
           org-enable-reveal-js-support t)
-     gnus
      erc
      (shell :variables
         shell-default-height 30
