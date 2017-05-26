@@ -46,6 +46,7 @@ values."
      spacemacs-layouts
      spacemacs-org
      (spacemacs-ui-visual :packages (not neotree fancy-battery))
+     (spacemacs-editing-visual :packages auto-highlight-symbol)
      ivy
      ;; additional spacemacs layers
      git
