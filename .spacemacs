@@ -387,6 +387,7 @@ you should place your code here."
 
   (with-eval-after-load 'tramp
     (setq tramp-default-method "scp")
+    (setq tramp-completion-reread-directory-timeout nil)
     )
 
   )
