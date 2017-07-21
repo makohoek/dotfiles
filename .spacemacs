@@ -386,7 +386,7 @@ you should place your code here."
   (setq split-height-threshold nil)
 
   (with-eval-after-load 'tramp
-    (setq tramp-default-method "ssh")
+    (setq tramp-default-method "scp")
     )
 
   )
