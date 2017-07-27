@@ -386,6 +386,9 @@ you should place your code here."
   ;; always prefer horizontal splitting to vertical
   (setq split-height-threshold nil)
 
+  ;; fringe style: equivalent of "half-width"
+  (set-fringe-style 4)
+
   (with-eval-after-load 'tramp
     (setq tramp-default-method "scp")
     (setq tramp-completion-reread-directory-timeout nil)
