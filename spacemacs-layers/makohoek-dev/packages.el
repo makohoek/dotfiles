@@ -165,6 +165,9 @@
   ;; enable whitespace mode in elisp
   (add-hook 'emacs-lisp-mode-hook
             (function whitespace-mode))
+  ;; enable whitespace mode in go
+  (add-hook 'go-mode-hook
+            (function whitespace-mode))
   ;; enable whitespace mode in python
   (add-hook 'python-mode-hook
             (function whitespace-mode)))

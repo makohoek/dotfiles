@@ -60,6 +60,7 @@ values."
      c-c++
      emacs-lisp
      shell-scripts
+     go
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      python
