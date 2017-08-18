@@ -137,7 +137,32 @@
     (setq git-commit-fill-column 72)
     ;; support Tracked-On: + Change-Id: pseudo-headers
     (add-to-list 'git-commit-known-pseudo-headers "Tracked-On")
-    (add-to-list 'git-commit-known-pseudo-headers "Change-Id")))
+    (add-to-list 'git-commit-known-pseudo-headers "Change-Id")
+
+    ;; magit push gerrit
+    ;; from JM-config: https://github.com/JulienMasson/jm-config
+    (defun magit-git-push-gerrit (branch target args)
+      (run-hooks 'magit-credential-hook)
+      (-let [(remote . target)
+             (magit-split-branch-name target)]
+        (magit-run-git-async "push" "-v" args remote
+                             (format "%s:refs/for/%s" branch target))))
+
+    (defun magit-push-gerrit (source target args)
+      "Push an arbitrary branch or commit somewhere.
+  Both the source and the target are read in the minibuffer."
+      (interactive
+       (let ((source (magit-read-local-branch-or-commit "Push")))
+         (list source
+               (magit-read-remote-branch (format "Push %s to" source) nil
+                                         (magit-get-upstream-branch source)
+                                         source 'confirm)
+               (magit-push-arguments))))
+      (magit-git-push-gerrit source target args))
+
+    (magit-define-popup-action 'magit-push-popup
+      ?g "gerrit" 'magit-push-gerrit)
+  ))
 
 (defun makohoek-dev/post-init-whitespace ()
   ;; whitespace mode
