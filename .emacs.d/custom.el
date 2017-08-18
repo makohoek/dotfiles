@@ -16,9 +16,9 @@
  '(cua-read-only-cursor-color "#859900")
  '(custom-safe-themes
    (quote
-    ("9be1d34d961a40d94ef94d0d08a364c3d27201f3c98c9d38e36f10588469ea57" "d8f76414f8f2dcb045a37eb155bfaa2e1d17b6573ed43fb1d18b936febc7bbc2" "f245c9f24b609b00441a6a336bcc556fe38a6b24bfc0ca4aedd4fe23d858ba31" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "b6db49cec08652adf1ff2341ce32c7303be313b0de38c621676122f255ee46db" default)))
+    ("ff7625ad8aa2615eae96d6b4469fcc7d3d20b2e1ebc63b761a349bebbb9d23cb" "6fc0ae7cc2abd82d8add1140874ccf8773feaaae73a704981d52fdf357341038" "25c242b3c808f38b0389879b9cba325fb1fa81a0a5e61ac7cae8da9a32e2811b" "9be1d34d961a40d94ef94d0d08a364c3d27201f3c98c9d38e36f10588469ea57" "d8f76414f8f2dcb045a37eb155bfaa2e1d17b6573ed43fb1d18b936febc7bbc2" "f245c9f24b609b00441a6a336bcc556fe38a6b24bfc0ca4aedd4fe23d858ba31" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "b6db49cec08652adf1ff2341ce32c7303be313b0de38c621676122f255ee46db" default)))
  '(evil-want-Y-yank-to-eol t)
- '(fci-rule-color "#eee8d5" t)
+ '(fci-rule-color "#eee8d5")
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -42,12 +42,13 @@
  '(hl-fg-colors
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
+ '(lt-serial-default-port "ttyUSB1")
  '(nrepl-message-colors
    (quote
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (spaceline powerline popwin hl-todo golden-ratio fill-column-indicator fancy-battery persp-mode eyebrowse yapfify xterm-color xcscope which-key wgrep web-mode web-beautify visual-regexp use-package tagedit stickyfunc-enhance srefactor spacegray-theme smex smeargle slim-mode shell-pop seoul256-theme scss-mode sass-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements pcre2el ox-reveal orgit org-projectile org-present org-pomodoro org-jira org-download multi-term mmm-mode markdown-toc magit-gitflow macrostep livid-mode live-py-mode less-css-mode json-mode js2-refactor js-doc ivy-hydra insert-shebang hy-mode htmlize help-fns+ helm-make gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-ivy flx fish-mode exec-path-from-shell evil-visualstar evil-magit evil-escape eshell-z eshell-prompt-extras esh-help erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode elisp-slime-nav dtrt-indent disaster cython-mode counsel-projectile coffee-mode cmake-mode clang-format bind-map base16-theme auto-dictionary auto-compile anaconda-mode ag ace-window)))
+    (copy-as-format go-guru go-eldoc go-mode yapfify xterm-color xcscope which-key wgrep web-mode web-beautify use-package toc-org tagedit spaceline spacegray-theme smex smeargle slim-mode shell-pop seoul256-theme scss-mode sass-mode pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pcre2el ox-reveal orgit org-projectile org-present org-pomodoro org-jira org-download org-bullets multi-term mmm-mode markdown-toc magit-gitflow macrostep livid-mode live-py-mode less-css-mode json-mode js2-refactor js-doc ivy-hydra insert-shebang hy-mode htmlize hl-todo help-fns+ helm-make golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-ivy flx fish-mode fill-column-indicator eyebrowse exec-path-from-shell evil-visualstar evil-magit evil-escape eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dtrt-indent disaster cython-mode counsel-projectile coffee-mode cmake-mode clang-format bind-map base16-theme auto-highlight-symbol auto-dictionary auto-compile anaconda-mode ag ace-window)))
  '(paradox-github-token t)
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
