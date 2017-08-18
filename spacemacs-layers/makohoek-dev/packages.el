@@ -167,7 +167,7 @@
 (defun makohoek-dev/post-init-whitespace ()
   ;; whitespace mode
   (with-eval-after-load 'whitespace
-    (setq whitespace-style '(face spaces tabs newline indentation tab-mark))
+    (setq whitespace-style '(face spaces tabs newline indentation trailing tab-mark))
     ;; for tabs in between lines
     (set-face-attribute 'whitespace-tab nil :background nil
                         :foreground "DimGray")
