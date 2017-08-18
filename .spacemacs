@@ -390,7 +390,7 @@ you should place your code here."
   (set-fringe-style 4)
 
   (with-eval-after-load 'tramp
-    (setq tramp-default-method "scp")
+    (setq tramp-default-method "ssh")
     (setq tramp-completion-reread-directory-timeout nil)
     (setq tramp-verbose 1)
     )
