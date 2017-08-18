@@ -28,7 +28,7 @@
 ;;   `makohoek-dev/post-init-PACKAGE' to customize the package as it is loaded.
 
 
-(defconst makohoek-dev-packages '(dtrt-indent ag ediff projectile magit whitespace (log-tools :location local) (lt-logcat :location local))
+(defconst makohoek-dev-packages '(dtrt-indent ag ediff projectile magit whitespace xcscope (log-tools :location local) (lt-logcat :location local) (lt-serial :location local) (lt-serial-kernel :location local))
   "The list of Lisp packages required by the makohoek-dev layer.")
 
 (defun makohoek-dev/init-dtrt-indent ()
@@ -40,17 +40,37 @@
 
 (defun makohoek-dev/init-ag ()
   ;; nothing to configure here
+  (spacemacs/declare-prefix "i" "intel-tools prefix")
+  (spacemacs/set-leader-keys "ia" 'ag)
   )
 
 (defun makohoek-dev/init-log-tools()
   ;; nothing to configure here
   (require 'log-tools)
+  (spacemacs/declare-prefix "i" "intel-tools prefix")
+  (spacemacs/set-leader-keys "il" 'log-tools)
   )
 
 (defun makohoek-dev/init-lt-logcat()
   ;; nothing to configure here
   (require 'lt-logcat)
   )
+
+(defun makohoek-dev/init-lt-serial()
+  ;; nothing to configure here
+  (require 'lt-serial)
+  (customize-set-variable 'lt-serial-default-port "ttyUSB1"))
+
+(defun makohoek-dev/init-lt-serial-kernel()
+  ;; nothing to configure here
+  (require 'lt-serial-kernel))
+
+(defun makohoek-dev/init-xcscope()
+  (with-eval-after-load 'xcscope
+    ;; The -q option in cscope: use an inverted database index. Takes
+    ;; longer to build, but results in faster lookups. Useful for very
+    ;; large codebases
+    (setq cscope-option-use-inverted-index t)))
 
 (cl-defstruct makohoek-project
   name            ; name of the projectile project . This is matched with the git folder name
@@ -78,7 +98,11 @@
 (defun makohoek-project-make-android-test-prefix (target)
   (setq root-directory private-android-code-directory)
   (concat
-   "cd " root-directory "/out/target/product/" target "/" " && "))
+    "/bin/bash -c 'export PATH=$PATH:/home/mako/bin/platform-tools && "
+    "cd " root-directory " && "
+    "source build/envsetup.sh"         " && "
+    "lunch " target "-userdebug"       " && "
+    "croot && cd out/target/product/" target "/ && "))
 
 (defun makohoek-dev/post-init-projectile ()
   ;; do not run find-file after a project switch
