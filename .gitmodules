@@ -25,3 +25,6 @@
 [submodule "spacemacs-layers/makohoek-dev/local/log-tools"]
 	path = spacemacs-layers/makohoek-dev/local/log-tools
 	url = https://github.com/JulienMasson/log-tools.git
+[submodule "spacemacs-layers/makohoek-dev/local/pfw-emacs-mode"]
+	path = spacemacs-layers/makohoek-dev/local/pfw-emacs-mode
+	url = https://github.com/Makohoek/pfw-emacs-mode.git
