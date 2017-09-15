@@ -347,10 +347,6 @@ you should place your code here."
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode nil)
 
-  ;; don't pollute my spacemacs file, add it to a custom.el file
-  (setq custom-file "~/dotfiles/.emacs.d/custom.el")
-  (load custom-file)
-
   ;; use smaller powerline seperator
   (setq powerline-default-separator 'bar)
 
@@ -437,10 +433,10 @@ you should place your code here."
   ;; .bashrc or .zshrc.
   (setq exec-path-from-shell-check-startup-files nil)
 
-  ;; python default to ipython2
-  ;; (setq python-shell-interpreter "/usr/local/bin/ipython2")
+  ;; additional files
+  ;; don't pollute my spacemacs file, add it to a custom.el file
+  (load "~/dotfiles/.emacs.d/custom")
 
-  ;; additional files with work related stuff
-  ;; do not report errors if file do not exist
+  ;; work related stuff: do not report errors if file do not exist
   (load "~/dotfiles-private/spacemacs/work/proxy" 't)
   )
