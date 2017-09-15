@@ -423,9 +423,9 @@ you should place your code here."
       (insert (shell-command-to-string "pbpaste"))
       )
     )
-  (evil-leader/set-key "o y" 'copy-to-clipboard)
-  (evil-leader/set-key "o p" 'paste-from-clipboard)
-
+  (spacemacs/declare-prefix "o" "clipboard functions")
+  (spacemacs/set-leader-keys "o y" 'copy-to-clipboard)
+  (spacemacs/set-leader-keys "o p" 'paste-from-clipboard)
 
   ;; stop warning about this!
   ;; If non-nil, warn if variables are being set in the wrong shell startup files.
