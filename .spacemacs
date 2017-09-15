@@ -398,5 +398,49 @@ you should place your code here."
     (add-to-list 'exec-path "~/bin")
     )
 
-  )
+  ;; system clipboard copy/paste (terminal mode)
+  ;; thanks to Ninrod and others from https://github.com/syl20bnr/spacemacs/issues/2222
+  (defun copy-to-clipboard ()
+    "Copies selection to x-clipboard."
+    (interactive)
+    (if (display-graphic-p)
+        (progn
+          (message "Yanked region to x-clipboard!")
+          (call-interactively 'clipboard-kill-ring-save)
+          )
+      (if (region-active-p)
+          (progn
+            (shell-command-on-region (region-beginning) (region-end) "pbcopy")
+            (message "Yanked region to clipboard!")
+            (deactivate-mark))
+        (message "No region active; can't yank to clipboard!")))
+    )
 
+  (defun paste-from-clipboard ()
+    "Pastes from x-clipboard."
+    (interactive)
+    (if (display-graphic-p)
+        (progn
+          (clipboard-yank)
+          (message "graphics active")
+          )
+      (insert (shell-command-to-string "pbpaste"))
+      )
+    )
+  (evil-leader/set-key "o y" 'copy-to-clipboard)
+  (evil-leader/set-key "o p" 'paste-from-clipboard)
+
+
+  ;; stop warning about this!
+  ;; If non-nil, warn if variables are being set in the wrong shell startup files.
+  ;; Environment variables should be set in .profile or .zshenv rather than
+  ;; .bashrc or .zshrc.
+  (setq exec-path-from-shell-check-startup-files nil)
+
+  ;; python default to ipython2
+  ;; (setq python-shell-interpreter "/usr/local/bin/ipython2")
+
+  ;; additional files with work related stuff
+  ;; do not report errors if file do not exist
+  (load "~/dotfiles-private/spacemacs/work/proxy" 't)
+  )
