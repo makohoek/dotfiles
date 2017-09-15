@@ -394,6 +394,8 @@ you should place your code here."
     (setq tramp-default-method "ssh")
     (setq tramp-completion-reread-directory-timeout nil)
     (setq tramp-verbose 1)
+    (add-to-list 'tramp-remote-path "~/bin")
+    (add-to-list 'exec-path "~/bin")
     )
 
   )
