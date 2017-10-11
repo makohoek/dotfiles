@@ -63,7 +63,7 @@ values."
      go
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
-     python
+     (python :packages (not anaconda-mode))
      javascript
      html
      ;; own, private layers
@@ -76,11 +76,11 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(ag org-jira ox-reveal copy-as-format solarized-theme color-theme-sanityinc-tomorrow xclip)
+   dotspacemacs-additional-packages '(ag org-jira ox-reveal copy-as-format solarized-theme color-theme-sanityinc-tomorrow xclip rg pydoc)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(helm-cscope rainbow-delimiters neotree company-mode smartparens linum-mode)
+   dotspacemacs-excluded-packages '(helm-cscope anaconda-mode rainbow-delimiters neotree company-mode smartparens linum-mode)
   ;; Defines the behaviour of Spacemacs when installing packages.
   ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
   ;; `used-only' installs only explicitly used packages and uninstall any
