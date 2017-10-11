@@ -441,4 +441,11 @@ you should place your code here."
 
   ;; work related stuff: do not report errors if file do not exist
   (load "~/dotfiles-private/spacemacs/work/proxy" 't)
+
+  ;; python documentation remap to pydoc-at-point
+  ;; FIXME: manual loading is needed for now before binding got active
+  (with-eval-after-load 'pydoc
+    (spacemacs/set-leader-keys-for-major-mode 'python-mode
+      "hh" 'pydoc-at-point))
+
   )
