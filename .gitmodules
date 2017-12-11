@@ -4,18 +4,9 @@
 [submodule "solarized-xresources"]
 	path = solarized-xresources
 	url = https://github.com/solarized/xresources.git
-[submodule ".config/base16-shell"]
-	path = .config/base16-shell
-	url = https://github.com/chriskempson/base16-shell.git
 [submodule ".emacs.d/custom-submodules/log-tools"]
 	path = .emacs.d/custom-submodules/log-tools
 	url = https://github.com/JulienMasson/log-tools.git
-[submodule ".emacs.d/custom-submodules/virtual-desktops"]
-	path = .emacs.d/custom-submodules/virtual-desktops
-	url = https://github.com/chep/virtual-desktops.el.git
-[submodule ".emacs.d/custom-submodules/statusbar"]
-	path = .emacs.d/custom-submodules/statusbar
-	url = https://github.com/JulienMasson/status.git
 [submodule "/home/mako/dotfiles/.config/awesome/pomodoro"]
 	path = /home/mako/dotfiles/.config/awesome/pomodoro
 	url = https://github.com/francois2metz/pomodoro-awesome.git
