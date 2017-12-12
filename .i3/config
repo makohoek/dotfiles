@@ -98,7 +98,7 @@ bindsym $mod+a focus parent
 # http://fontawesome.io/cheatsheet/
 set $workspace_emacs 1: 
 set $workspace_terminal 2: 
-set $workspace_chrome 3: 
+set $workspace_chrome 3: 
 set $workspace_pcmanfm 4: 
 
 # switch to workspace
