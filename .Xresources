@@ -11,5 +11,3 @@ URxvt*scrollBar: false
 URxvt*saveLines: 10000
 URxvt*termName: screen-256color
 URxvt.urlLauncher:firefox
-
-emacs.font: Meslo LG S:style=Regular:size=13:antialias=true
