@@ -44,12 +44,20 @@
   (spacemacs/set-leader-keys "is" 'ag)
   )
 
+(defun logtools-run-logcat ()
+  (interactive)
+  (log-tools "logcat"))
+
+(defun logtools-run-kernel ()
+  (interactive)
+  (log-tools "serial-kernel"))
+
 (defun makohoek-dev/init-log-tools()
   ;; nothing to configure here
   (require 'log-tools)
   (spacemacs/declare-prefix "il" "intel-log-tools")
-  (spacemacs/set-leader-keys "ill" 'lt-logcat-init)
-  (spacemacs/set-leader-keys "ilk" 'lt-serial-kernel-init)
+  (spacemacs/set-leader-keys "ill" 'logtools-run-logcat)
+  (spacemacs/set-leader-keys "ilk" 'logtools-run-kernel)
   )
 
 (defun makohoek-dev/init-lt-logcat()
