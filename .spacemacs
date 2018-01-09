@@ -66,6 +66,7 @@ values."
      (python :packages (not anaconda-mode))
      javascript
      html
+     osx
      ;; own, private layers
      makohoek-theme
      makohoek-dev
