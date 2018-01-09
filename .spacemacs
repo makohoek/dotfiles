@@ -430,6 +430,15 @@ you should place your code here."
   (spacemacs/set-leader-keys "o y" 'copy-to-clipboard)
   (spacemacs/set-leader-keys "o p" 'paste-from-clipboard)
 
+  ;; trash to trashcan from macOSX (note: requires `brew install trash`
+  (setq delete-by-moving-to-trash t)
+  (defun system-move-file-to-trash (file)
+    "Use \"trash\" to move FILE to the system trash.
+When using Homebrew, install it using \"brew install trash\"."
+    (call-process (executable-find "trash")
+                  nil 0 nil
+                  file))
+
   ;; stop warning about this!
   ;; If non-nil, warn if variables are being set in the wrong shell startup files.
   ;; Environment variables should be set in .profile or .zshenv rather than
