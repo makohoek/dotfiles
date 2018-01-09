@@ -40,15 +40,16 @@
 
 (defun makohoek-dev/init-ag ()
   ;; nothing to configure here
-  (spacemacs/declare-prefix "i" "intel-tools prefix")
+  (spacemacs/declare-prefix "i" "intel-tools")
   (spacemacs/set-leader-keys "is" 'ag)
   )
 
 (defun makohoek-dev/init-log-tools()
   ;; nothing to configure here
   (require 'log-tools)
-  (spacemacs/declare-prefix "i" "intel-tools prefix")
-  (spacemacs/set-leader-keys "il" 'log-tools)
+  (spacemacs/declare-prefix "il" "intel-log-tools")
+  (spacemacs/set-leader-keys "ill" 'lt-logcat-init)
+  (spacemacs/set-leader-keys "ilk" 'lt-serial-kernel-init)
   )
 
 (defun makohoek-dev/init-lt-logcat()
