@@ -69,6 +69,7 @@ values."
      javascript
      html
      osx
+     gnus
      ;; own, private layers
      makohoek-theme
      makohoek-dev
