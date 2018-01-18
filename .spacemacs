@@ -69,7 +69,7 @@ values."
      javascript
      html
      osx
-     gnus
+     (mu4e :variables mu4e-account-alist t)
      ;; own, private layers
      makohoek-theme
      makohoek-dev
@@ -356,20 +356,6 @@ you should place your code here."
   ;; use smaller powerline seperator
   (setq powerline-default-separator 'bar)
 
-  ;; set default browser to google-chrome
-  ;; from https://www.emacswiki.org/emacs/BrowseUrl#toc1
-  (setq gnus-button-url 'browse-url-generic
-    browse-url-generic-program "open"
-    browse-url-browser-function gnus-button-url)
-
-  ;; gnus related settings
-  (with-eval-after-load 'gnus
-    (setq gnus-select-method '(nnnil ""))
-    (setq gnus-secondary-select-methods
-          '((nnmaildir "Gmail"
-                       (directory "~/.mail/mattijs.korpershoek.gmail.com")
-                       (directory-files nnheader-directory-files-safe)
-                       (get-new-mail nil)))))
 
   ;; coding style for kernel/userspace
   (defun coding-style-kernel()
