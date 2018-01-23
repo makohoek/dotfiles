@@ -18,3 +18,5 @@ ln -s ~/dotfiles/.i3blocks.conf ~/
 ln -s ~/dotfiles/.tmux-colors.conf ~/
 ln -s ~/dotfiles/.tmux-osx.conf ~/
 
+mkdir ~/.gnupg
+ln -s ~/dotfiles/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
