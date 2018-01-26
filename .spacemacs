@@ -356,6 +356,23 @@ you should place your code here."
   ;; use smaller powerline seperator
   (setq powerline-default-separator 'bar)
 
+  ;; change headers in mail view
+  (setq mu4e-headers-date-format "%a %b %d %R %Y")
+  ;; Fri Jan 26 09:48:44 2018
+
+  (setq mu4e-headers-fields '((:date          .  23)
+                              (:from          .  28)
+                              (:subject       .  nil)))
+  (setq mu4e-view-fields '(:from :to :cc :subject :date :mailing-list :attachments :signature))
+
+  ;; enable inline images
+  (setq mu4e-view-show-images t)
+
+  ;; body display on the html-version
+  (setq mu4e-view-prefer-html t)
+
+  ;; show full addresses in view message
+  (setq mu4e-view-show-addresses 't)
 
   ;; coding style for kernel/userspace
   (defun coding-style-kernel()
