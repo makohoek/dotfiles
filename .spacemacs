@@ -451,17 +451,15 @@ When using Homebrew, install it using \"brew install trash\"."
   ;; .bashrc or .zshrc.
   (setq exec-path-from-shell-check-startup-files nil)
 
-  ;; additional files
-  ;; don't pollute my spacemacs file, add it to a custom.el file
-  (load "~/dotfiles/.emacs.d/custom")
-
-  ;; work related stuff: do not report errors if file do not exist
-  (load "~/dotfiles-private/spacemacs/work/proxy" 't)
-
   ;; python documentation remap to pydoc-at-point
   ;; FIXME: manual loading is needed for now before binding got active
   (with-eval-after-load 'pydoc
     (spacemacs/set-leader-keys-for-major-mode 'python-mode
       "hh" 'pydoc-at-point))
 
-  )
+  ;; additional files
+  ;; don't pollute my spacemacs file, add it to a custom.el file
+  (load "~/dotfiles/.emacs.d/custom")
+
+  ;; work related stuff: do not report errors if file do not exist
+  (load "~/dotfiles-private/spacemacs/work/proxy" 't))
