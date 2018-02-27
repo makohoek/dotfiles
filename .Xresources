@@ -2,14 +2,12 @@
 !
 URxvt*buffered: true
 URxvt*cursorBlink: true
-URxvt*font: xft:Meslo LG S:style=Regular:size=9:antialias=true
-URxvt*boldFont: xft:Meslo LG S:style=Bold:size=9:antialias=true
-URxvt.letterSpace: -2
+URxvt*font: xft:FiraCode:style=Medium:size=8:antialias=true
+URxvt*boldFont: xft:FiraCode:style=Bold:size=8:antialias=true
+!URxvt.letterSpace: -2
 ! Workaround for base16 colorscheme troubles
 URxvt*intensityStyles:      false
 URxvt*scrollBar: false
 URxvt*saveLines: 10000
 URxvt*termName: screen-256color
 URxvt.urlLauncher:firefox
-
-emacs.font: Meslo LG S:style=Regular:size=13:antialias=true
