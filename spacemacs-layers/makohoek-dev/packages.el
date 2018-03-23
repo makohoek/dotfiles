@@ -40,8 +40,6 @@
 
 (defun makohoek-dev/init-ag ()
   ;; nothing to configure here
-  (spacemacs/declare-prefix "i" "intel-tools")
-  (spacemacs/set-leader-keys "is" 'ag)
   )
 
 (defun logtools-run-logcat ()
