@@ -65,7 +65,7 @@ values."
      go
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
-     (python :packages (not anaconda-mode))
+     python
      javascript
      html
      osx
@@ -84,7 +84,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(helm-cscope anaconda-mode rainbow-delimiters neotree company-mode smartparens linum-mode)
+   dotspacemacs-excluded-packages '(helm-cscope rainbow-delimiters neotree company-mode smartparens linum-mode)
   ;; Defines the behaviour of Spacemacs when installing packages.
   ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
   ;; `used-only' installs only explicitly used packages and uninstall any
