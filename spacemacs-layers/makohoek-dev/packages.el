@@ -28,7 +28,7 @@
 ;;   `makohoek-dev/post-init-PACKAGE' to customize the package as it is loaded.
 
 
-(defconst makohoek-dev-packages '(dtrt-indent ag ediff projectile magit whitespace pydoc xcscope (log-tools :location local) (lt-logcat :location local) (lt-serial :location local) (lt-serial-kernel :location local))
+(defconst makohoek-dev-packages '(dtrt-indent ag ediff projectile magit whitespace xcscope (log-tools :location local) (lt-logcat :location local) (lt-serial :location local) (lt-serial-kernel :location local))
   "The list of Lisp packages required by the makohoek-dev layer.")
 
 (defun makohoek-dev/init-dtrt-indent ()
@@ -63,14 +63,6 @@
 (defun makohoek-dev/init-lt-logcat()
   ;; nothing to configure here
   (require 'lt-logcat)
-  )
-
-(defun makohoek-dev/init-pydoc()
-  ;; python documentation remap to pydoc-at-point
-  (require 'pydoc)
-  (with-eval-after-load 'pydoc
-    (spacemacs/set-leader-keys-for-major-mode 'python-mode
-      "hh" 'pydoc-at-point))
   )
 
 (defun makohoek-dev/init-lt-serial()
