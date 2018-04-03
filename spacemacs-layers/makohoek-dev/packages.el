@@ -102,15 +102,6 @@
    "source build/envsetup.sh"         " && "
    "lunch " target "-userdebug"       " && "))
 
-(defun makohoek-project-make-android-test-prefix (target)
-  (setq root-directory private-android-code-directory)
-  (concat
-    "/bin/bash -c 'export PATH=$PATH:/home/mako/bin/platform-tools && "
-    "cd " root-directory " && "
-    "source build/envsetup.sh"         " && "
-    "lunch " target "-userdebug"       " && "
-    "croot && cd out/target/product/" target "/ && "))
-
 (defun makohoek-dev/post-init-projectile ()
   ;; do not run find-file after a project switch
   (setq projectile-switch-project-action 'projectile-dired)
