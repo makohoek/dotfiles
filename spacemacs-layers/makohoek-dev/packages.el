@@ -134,11 +134,7 @@
                      (makohoek-project-make-android-prefix selected-target)
                      (makohoek-project-compile-command proj)
                      "'"))
-              (setq projectile-project-test-cmd
-                    (concat
-                     (makohoek-project-make-android-test-prefix selected-target)
-                     (makohoek-project-test-command proj)
-                     "'"))
+              (setq projectile-project-test-cmd (makohoek-project-test-command proj))
               )
           ;; else, just set the variables
           (progn
