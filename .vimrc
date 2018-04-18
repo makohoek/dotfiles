@@ -29,6 +29,7 @@ Plug 'vim-scripts/utl.vim' " for links in org-mode
 Plug 'bogado/file-line'
 Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/tomorrow-theme'
 Plug 'junegunn/seoul256.vim'
 Plug 'Makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
@@ -45,6 +46,9 @@ set modelines=1
 " load default vim man plugin
 runtime ftplugin/man.vim
 
+" Load additional themes which are not in standard plug directory
+set runtimepath+=~/.vim/plugged/tomorrow-theme/vim
+
 " {{{1 Filetype
 "-------------------------------------------------------------------------------
 set nocompatible           "disable vi compatibility for better filetype
@@ -57,9 +61,8 @@ syntax enable         "syntax highlighting on based on filetype
 set t_Co=256
 
 set background=dark
-let g:seoul256_background = 239
-colorscheme seoul256
-let g:airline_theme='base16'
+colorscheme Tomorrow-Night
+let g:airline_theme='tomorrow'
 set cursorline        "show current line
 set fdm=syntax        "folding method based on syntax
 set foldlevel=16      "open folds by default
