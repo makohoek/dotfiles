@@ -40,15 +40,22 @@
 
 (defun makohoek-dev/init-ag ()
   ;; nothing to configure here
-  (spacemacs/declare-prefix "i" "intel-tools prefix")
-  (spacemacs/set-leader-keys "ia" 'ag)
   )
+
+(defun logtools-run-logcat ()
+  (interactive)
+  (log-tools "logcat"))
+
+(defun logtools-run-kernel ()
+  (interactive)
+  (log-tools "serial-kernel"))
 
 (defun makohoek-dev/init-log-tools()
   ;; nothing to configure here
   (require 'log-tools)
-  (spacemacs/declare-prefix "i" "intel-tools prefix")
-  (spacemacs/set-leader-keys "il" 'log-tools)
+  (spacemacs/declare-prefix "il" "intel-log-tools")
+  (spacemacs/set-leader-keys "ill" 'logtools-run-logcat)
+  (spacemacs/set-leader-keys "ilk" 'logtools-run-kernel)
   )
 
 (defun makohoek-dev/init-lt-logcat()
@@ -95,15 +102,6 @@
    "source build/envsetup.sh"         " && "
    "lunch " target "-userdebug"       " && "))
 
-(defun makohoek-project-make-android-test-prefix (target)
-  (setq root-directory private-android-code-directory)
-  (concat
-    "/bin/bash -c 'export PATH=$PATH:/home/mako/bin/platform-tools && "
-    "cd " root-directory " && "
-    "source build/envsetup.sh"         " && "
-    "lunch " target "-userdebug"       " && "
-    "croot && cd out/target/product/" target "/ && "))
-
 (defun makohoek-dev/post-init-projectile ()
   ;; do not run find-file after a project switch
   (setq projectile-switch-project-action 'projectile-dired)
@@ -127,11 +125,7 @@
                      (makohoek-project-make-android-prefix selected-target)
                      (makohoek-project-compile-command proj)
                      "'"))
-              (setq projectile-project-test-cmd
-                    (concat
-                     (makohoek-project-make-android-test-prefix selected-target)
-                     (makohoek-project-test-command proj)
-                     "'"))
+              (setq projectile-project-test-cmd (makohoek-project-test-command proj))
               )
           ;; else, just set the variables
           (progn

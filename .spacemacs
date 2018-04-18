@@ -32,15 +32,13 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     vimscript
+     yaml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; (auto-completion :variables
-     ;;                  auto-completion-tab-key-behavior 'complete
-     ;;                  auto-completion-enable-snippets-in-popup t
-     ;;                  :disabled-for org erc)
      ;; layers from spacemacs-all
      spacemacs-completion
      spacemacs-layouts
@@ -49,6 +47,10 @@ values."
      (spacemacs-editing-visual :packages auto-highlight-symbol)
      ivy
      ;; additional spacemacs layers
+     (auto-completion :variables
+                      auto-completion-tab-key-behavior 'complete
+                      auto-completion-enable-snippets-in-popup t
+                      :disabled-for org erc)
      git
      markdown
      (org :variables
@@ -66,6 +68,8 @@ values."
      python
      javascript
      html
+     osx
+     (mu4e :variables mu4e-account-alist t)
      ;; own, private layers
      makohoek-theme
      makohoek-dev
@@ -76,7 +80,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(ag org-jira ox-reveal copy-as-format solarized-theme color-theme-sanityinc-tomorrow xclip)
+   dotspacemacs-additional-packages '(ag org-jira ox-reveal copy-as-format solarized-theme color-theme-sanityinc-tomorrow xclip realgud)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -112,7 +116,7 @@ values."
    ;; when the current branch is not `develop'. Note that checking for
    ;; new versions works via git commands, thus it calls GitHub services
    ;; whenever you start Emacs. (default nil)
-   dotspacemacs-check-for-update nil
+   dotspacemacs-check-for-update 't
    ;; If non-nil, a form that evaluates to a package directory. For example, to
    ;; use different package directories for different Emacs versions, set this
    ;; to `emacs-version'.
@@ -352,20 +356,23 @@ you should place your code here."
   ;; use smaller powerline seperator
   (setq powerline-default-separator 'bar)
 
-  ;; set default browser to google-chrome
-  ;; from https://www.emacswiki.org/emacs/BrowseUrl#toc1
-  (setq gnus-button-url 'browse-url-generic
-    browse-url-generic-program "open"
-    browse-url-browser-function gnus-button-url)
+  ;; change headers in mail view
+  (setq mu4e-headers-date-format "%a %b %d %R %Y")
+  ;; Fri Jan 26 09:48:44 2018
 
-  ;; gnus related settings
-  (with-eval-after-load 'gnus
-    (setq gnus-select-method '(nnnil ""))
-    (setq gnus-secondary-select-methods
-          '((nnmaildir "Gmail"
-                       (directory "~/.mail/mattijs.korpershoek.gmail.com")
-                       (directory-files nnheader-directory-files-safe)
-                       (get-new-mail nil)))))
+  (setq mu4e-headers-fields '((:date          .  23)
+                              (:from          .  28)
+                              (:subject       .  nil)))
+  (setq mu4e-view-fields '(:from :to :cc :subject :date :mailing-list :attachments :signature))
+
+  ;; enable inline images
+  (setq mu4e-view-show-images t)
+
+  ;; body display on the html-version
+  (setq mu4e-view-prefer-html t)
+
+  ;; show full addresses in view message
+  (setq mu4e-view-show-addresses 't)
 
   ;; coding style for kernel/userspace
   (defun coding-style-kernel()
@@ -429,16 +436,30 @@ you should place your code here."
   (spacemacs/set-leader-keys "o y" 'copy-to-clipboard)
   (spacemacs/set-leader-keys "o p" 'paste-from-clipboard)
 
+  ;; trash to trashcan from macOSX (note: requires `brew install trash`
+  (setq delete-by-moving-to-trash t)
+  (defun system-move-file-to-trash (file)
+    "Use \"trash\" to move FILE to the system trash.
+When using Homebrew, install it using \"brew install trash\"."
+    (call-process (executable-find "trash")
+                  nil 0 nil
+                  file))
+
   ;; stop warning about this!
   ;; If non-nil, warn if variables are being set in the wrong shell startup files.
   ;; Environment variables should be set in .profile or .zshenv rather than
   ;; .bashrc or .zshrc.
   (setq exec-path-from-shell-check-startup-files nil)
 
+  ;; python documentation remap to pydoc-at-point
+  ;; FIXME: manual loading is needed for now before binding got active
+  (with-eval-after-load 'pydoc
+    (spacemacs/set-leader-keys-for-major-mode 'python-mode
+      "hh" 'pydoc-at-point))
+
   ;; additional files
   ;; don't pollute my spacemacs file, add it to a custom.el file
   (load "~/dotfiles/.emacs.d/custom")
 
   ;; work related stuff: do not report errors if file do not exist
-  (load "~/dotfiles-private/spacemacs/work/proxy" 't)
-  )
+  (load "~/dotfiles-private/spacemacs/work/proxy" 't))
