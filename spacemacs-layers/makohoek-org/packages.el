@@ -37,12 +37,18 @@
   (setq org-reveal-root "file:///home/mako/code/js/reveal.js-master/")
   (with-eval-after-load 'org
     ;; org todo keywords
-    (setq org-todo-keywords '((sequence "TODO" "IN PROGRESS" "REVIEW" "|"
-                                        "DONE")))
+    (setq org-todo-keywords '(
+                              (sequence "TODO(t!)" "IN PROGRESS(i!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELLED(c)")
+                              ))
     ;; org todo keywords colors
-    (setq org-todo-keyword-faces '(("TODO" . org-warning)
-                                   ("IN PROGRESS" . "orange")
-                                   ("REVIEW" . "orange")))
+    (setq org-todo-keyword-faces '(("TODO" . org-todo)
+                                  ("IN PROGRESS" . "orange")
+                                  ("WAIT" . "orange")
+                                  ("DONE" . org-done)
+                                  ("CANCELLED" . org-done)))
+    ;; org-agenda files
+    (setq org-agenda-files (append org-agenda-files '("~/org/work.org" "~/org/Notes.org" "~/org/calendar.org")))
+
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
     (spacemacs/set-leader-keys-for-major-mode
       'org-mode "k" 'org-toggle-checkbox)
