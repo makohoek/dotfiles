@@ -42,10 +42,10 @@
                               ))
     ;; org todo keywords colors
     (setq org-todo-keyword-faces '(("TODO" . org-todo)
-                                  ("IN PROGRESS" . "orange")
-                                  ("WAIT" . "orange")
-                                  ("DONE" . org-done)
-                                  ("CANCELLED" . org-done)))
+                                   ("IN PROGRESS" . "orange")
+                                   ("WAIT" . "orange")
+                                   ("DONE" . org-done)
+                                   ("CANCELLED" . org-done)))
     ;; org-agenda files
     (setq org-agenda-files (append org-agenda-files '("~/org/work.org" "~/org/Notes.org" "~/org/calendar.org")))
 
