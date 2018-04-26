@@ -73,8 +73,6 @@
     (if (equal retcode "finished\n")
         (progn (org-revert-all-org-buffers)
                (org-id-update-id-locations)
-               (org-mobile-pull)
-               (org-mobile-push)
                (org-save-all-org-buffers)
                (switch-to-buffer "*Org Sync Output*")
                (make-process
