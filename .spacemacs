@@ -415,7 +415,8 @@ Minibuffer is ignored."
                                  "^\\*Help\\*$"
                                  "^\\*compilation\\*$"
                                  "^\\*magit\\*$"
-                                 "^\\*magit\\*$"
+                                 "^\\*ag search text*\\*$"
+                                 "^\\*Org Sync Output\\*$"
                                  "^\\*Colors\\*$"
                                  "^\\*Async Shell Command\\*$"))
 
