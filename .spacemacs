@@ -360,9 +360,9 @@ you should place your code here."
   (setq mu4e-headers-date-format "%a %b %d %R %Y")
   ;; Fri Jan 26 09:48:44 2018
 
-  (setq mu4e-headers-fields '((:date          .  23)
-                              (:from          .  28)
-                              (:subject       .  nil)))
+  (setq mu4e-headers-fields '((:date    .  23)
+                              (:from    .  28)
+                              (:subject .  nil)))
   (setq mu4e-view-fields '(:from :to :cc :subject :date :mailing-list :attachments :signature))
 
   ;; enable inline images
