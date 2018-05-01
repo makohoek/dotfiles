@@ -336,7 +336,12 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+  ;; additional files
+  ;; don't pollute my spacemacs file, add it to a custom.el file
+  (load "~/dotfiles/.emacs.d/custom")
+
+  ;; work related stuff: do not report errors if file do not exist
+  (load "~/intel-tools/spacemacs/makohoek-intel/proxy" 't))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -443,10 +448,5 @@ Minibuffer is ignored."
   ;; If non-nil, warn if variables are being set in the wrong shell startup files.
   ;; Environment variables should be set in .profile or .zshenv rather than
   ;; .bashrc or .zshrc.
-  (setq exec-path-from-shell-check-startup-files nil)
-  ;; additional files
-  ;; don't pollute my spacemacs file, add it to a custom.el file
-  (load "~/dotfiles/.emacs.d/custom")
+  (setq exec-path-from-shell-check-startup-files nil))
 
-  ;; work related stuff: do not report errors if file do not exist
-  (load "~/intel-tools/spacemacs/makohoek-intel/proxy" 't))
