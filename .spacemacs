@@ -445,6 +445,39 @@ When using Homebrew, install it using \"brew install trash\"."
                   nil 0 nil
                   file))
 
+  (defun sasa/display-buffer (buffer &optional alist)
+    "Select window for BUFFER (need to use word ALIST on the first line).
+Returns thirth visible window if there are three visible windows, nil otherwise.
+Minibuffer is ignored."
+    (let ((wnr (if (active-minibuffer-window) 3 2)))
+      (when (= (+ wnr 1) (length (window-list)))
+        (let ((window (nth wnr (window-list))))
+          (set-window-buffer window buffer)
+          window)))
+    )
+
+(defvar sasa/help-temp-buffers '("^\\*Flycheck errors\\*$"
+                                 "^\\*Completions\\*$"
+                                 "^\\*Help\\*$"
+                                 "^\\*compilation\\*$"
+                                 "^\\*magit\\*$"
+                                 "^\\*magit\\*$"
+                                 "^\\*Colors\\*$"
+                                 "^\\*Async Shell Command\\*$"))
+
+(while sasa/help-temp-buffers
+  (add-to-list 'display-buffer-alist
+               `(,(car sasa/help-temp-buffers)
+                 (display-buffer-reuse-window
+                  sasa/display-buffer
+                  display-buffer-in-side-window)
+                 (reusable-frames     . visible)
+                 (side                . bottom)
+                 (window-height       . 0.33)
+                 ))
+  (setq sasa/help-temp-buffers (cdr sasa/help-temp-buffers)))
+
+
   ;; stop warning about this!
   ;; If non-nil, warn if variables are being set in the wrong shell startup files.
   ;; Environment variables should be set in .profile or .zshenv rather than
