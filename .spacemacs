@@ -488,4 +488,4 @@ Minibuffer is ignored."
   (load "~/dotfiles/.emacs.d/custom")
 
   ;; work related stuff: do not report errors if file do not exist
-  (load "~/dotfiles-private/spacemacs/work/proxy" 't))
+  (load "~/intel-tools/spacemacs/makohoek-intel/proxy" 't))
