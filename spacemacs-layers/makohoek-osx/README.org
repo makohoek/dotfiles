@@ -1,0 +1,32 @@
+#+TITLE: makohoek-osx layer
+
+# The maximum height of the logo should be 200 pixels.
+[[img/makohoek-osx.png]]
+
+# TOC links should be GitHub style anchors.
+* Table of Contents                                        :TOC_4_gh:noexport:
+ - [[#description][Description]]
+ - [[#install][Install]]
+ - [[#keybindings][Keybindings]]
+
+* Description
+MacOSX specifics I use, including:
+- copy to/from system cliboard with pbaste
+- move to trash with a special trash command instead of rm'ing
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =makohoek-osx= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+
+You will also need to install =pbpaste= and =trash= with:
+#+BEGIN_SRC sh
+brew install pbaste
+brew install trash
+#+END_SRC
+
+* Keybindings
+| Key Binding | Description                 |
+|-------------+-----------------------------|
+| ~SPC o y~   | Copy to system clipboard    |
+| ~SPC o p~   | Paste from system clipboard |
