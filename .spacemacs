@@ -341,7 +341,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (load "~/dotfiles/.emacs.d/custom")
 
   ;; work related stuff: do not report errors if file do not exist
-  (load "~/intel-tools/spacemacs/makohoek-intel/proxy" 't))
+  (load "~/intel-tools/spacemacs/makohoek-intel/proxy" 't)
+
+  ;; stop warning about this!
+  ;; If non-nil, warn if variables are being set in the wrong shell startup files.
+  ;; Environment variables should be set in .profile or .zshenv rather than
+  ;; .bashrc or .zshrc.
+  (setq exec-path-from-shell-check-startup-files nil))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -363,6 +369,19 @@ you should place your code here."
 
   ;; use smaller powerline seperator
   (setq powerline-default-separator 'bar)
+
+  ;; mu4e
+  ;;; Set up some common mu4e variables
+  (setq mu4e-maildir "~/.mail"
+        mu4e-sent-folder "/intel/Sent Items"
+        mu4e-draft-folder "/intel/Drafts"
+        mu4e-trash-folder "/intel/Deleted Items"
+        mu4e-refile-folder "/Archive"
+        mu4e-get-mail-command "offlineimap"
+        mu4e-update-interval nil
+        mu4e-compose-signature-auto-include nil
+        mu4e-view-show-images t
+        mu4e-view-show-addresses t)
 
   ;; change headers in mail view
   (setq mu4e-headers-date-format "%a %b %d %R %Y")
@@ -441,12 +460,5 @@ Minibuffer is ignored."
                  (side                . bottom)
                  (window-height       . 0.33)
                  ))
-  (setq sasa/help-temp-buffers (cdr sasa/help-temp-buffers)))
-
-
-  ;; stop warning about this!
-  ;; If non-nil, warn if variables are being set in the wrong shell startup files.
-  ;; Environment variables should be set in .profile or .zshenv rather than
-  ;; .bashrc or .zshrc.
-  (setq exec-path-from-shell-check-startup-files nil))
+  (setq sasa/help-temp-buffers (cdr sasa/help-temp-buffers))))
 
