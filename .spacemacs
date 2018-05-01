@@ -61,7 +61,6 @@ values."
      cscope
      c-c++
      emacs-lisp
-     semantic ;; emacs-lisp buffer refactoring
      shell-scripts
      go
      (spell-checking :variables
