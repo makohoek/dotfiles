@@ -27,7 +27,7 @@ values."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("~/dotfiles/spacemacs-layers/" "~/intel-tools/spacemacs/")
+   dotspacemacs-configuration-layer-path '("~/dotfiles/spacemacs-layers/" "~/dotfiles-private/spacemacs/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
@@ -74,7 +74,7 @@ values."
      makohoek-theme
      makohoek-dev
      makohoek-org
-     makohoek-intel
+     makohoek-work
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
