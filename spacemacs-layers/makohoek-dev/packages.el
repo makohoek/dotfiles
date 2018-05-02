@@ -83,13 +83,6 @@
   ;; nothing to configure here
   (require 'lt-serial-kernel))
 
-(defun makohoek-dev/post-init-xcscope()
-  (with-eval-after-load 'xcscope
-    ;; The -q option in cscope: use an inverted database index. Takes
-    ;; longer to build, but results in faster lookups. Useful for very
-    ;; large codebases
-    (setq cscope-option-use-inverted-index t)))
-
 (cl-defstruct makohoek-project
   name            ; name of the projectile project . This is matched with the git folder name
   compile-command ; compile command for this project
@@ -113,6 +106,7 @@
    "source build/envsetup.sh"         " && "
    "lunch " target "-userdebug"       " && "))
 
+;; projectile is owned by 'spacemacs-base'
 (defun makohoek-dev/post-init-projectile ()
   ;; do not run find-file after a project switch
   (setq projectile-switch-project-action 'projectile-dired)
@@ -146,6 +140,7 @@
   (add-hook 'projectile-after-switch-project-hook
             #'my-switch-project-hook))
 
+;; magit is owned by layer 'git'
 (defun makohoek-dev/post-init-magit ()
   (with-eval-after-load 'magit
     ;; performance tricks for magit (useful in kernel tree)
@@ -193,6 +188,7 @@
       ?g "gerrit" 'magit-push-gerrit)
   ))
 
+;; ediff is owned by 'spacemacs-base' layer
 (defun makohoek-dev/post-init-whitespace ()
   ;; whitespace mode
   (with-eval-after-load 'whitespace
@@ -227,9 +223,20 @@
   (add-hook 'python-mode-hook
             (function whitespace-mode)))
 
+;; ediff is owned by 'spacemacs-base' layer
 (defun makohoek-dev/post-init-ediff ()
   ;; ediff customization: show char based diff
   (with-eval-after-load 'ediff
     (setq-default ediff-forward-word-function
                   'forward-char)))
+
+;; xcscope is owned by 'cscope' layer
+(defun makohoek-dev/post-init-xcscope()
+  (with-eval-after-load 'xcscope
+    ;; The -q option in cscope: use an inverted database index. Takes
+    ;; longer to build, but results in faster lookups. Useful for very
+    ;; large codebases
+    (setq cscope-option-use-inverted-index t)))
+
 ;;; packages.el ends here
+
