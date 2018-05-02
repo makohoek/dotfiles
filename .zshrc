@@ -43,9 +43,18 @@ export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 PATH="$PATH:/Applications/SWI-Prolog.app/Contents/MacOS"
 
 # for pdflatex
-PATH="$PATH:/usr/local/texlive/2015/bin/universal-darwin/"
+PATH="$PATH:/usr/local/texlive/2017basic/bin/x86_64-darwin"
+
+# for my own custom scripts
+PATH="$PATH:/Users/makohoek/bin"
 
 alias nvi="~/dotfiles/neovim_helpers/open_file_in_left_split.py"
 alias gcommit="~/dotfiles/neovim_helpers/run_fugitive_commit.py"
 alias nvim='NVIM_LISTEN_ADDRESS=/tmp/nvim nvim'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
+
+# gpgagnet
+start_gpg_agent() {
+    eval $(gpg-agent --daemon)
+}
