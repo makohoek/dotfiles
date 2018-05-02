@@ -27,7 +27,7 @@ values."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("~/dotfiles/spacemacs-layers/" "~/intel-tools/spacemacs/")
+   dotspacemacs-configuration-layer-path '("~/dotfiles/spacemacs-layers/" "~/dotfiles-private/spacemacs/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
@@ -73,14 +73,16 @@ values."
      ;; own, private layers
      makohoek-theme
      makohoek-dev
+     makohoek-email
      makohoek-org
-     makohoek-intel
+     makohoek-osx
+     makohoek-work
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(ag org-jira ox-reveal copy-as-format solarized-theme color-theme-sanityinc-tomorrow xclip realgud)
+   dotspacemacs-additional-packages '(org-jira ox-reveal copy-as-format xclip realgud)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -153,7 +155,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacegray
+   dotspacemacs-themes '(zenburn
+             spacegray
              base16-eighties
              spacemacs-dark
              solarized-light)
@@ -333,7 +336,18 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+  ;; additional files
+  ;; don't pollute my spacemacs file, add it to a custom.el file
+  (load "~/dotfiles/.emacs.d/custom")
+
+  ;; work related stuff: do not report errors if file do not exist
+  (load "~/intel-tools/spacemacs/makohoek-intel/proxy" 't)
+
+  ;; stop warning about this!
+  ;; If non-nil, warn if variables are being set in the wrong shell startup files.
+  ;; Environment variables should be set in .profile or .zshenv rather than
+  ;; .bashrc or .zshrc.
+  (setq exec-path-from-shell-check-startup-files nil))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -355,24 +369,6 @@ you should place your code here."
 
   ;; use smaller powerline seperator
   (setq powerline-default-separator 'bar)
-
-  ;; change headers in mail view
-  (setq mu4e-headers-date-format "%a %b %d %R %Y")
-  ;; Fri Jan 26 09:48:44 2018
-
-  (setq mu4e-headers-fields '((:date          .  23)
-                              (:from          .  28)
-                              (:subject       .  nil)))
-  (setq mu4e-view-fields '(:from :to :cc :subject :date :mailing-list :attachments :signature))
-
-  ;; enable inline images
-  (setq mu4e-view-show-images t)
-
-  ;; body display on the html-version
-  (setq mu4e-view-prefer-html t)
-
-  ;; show full addresses in view message
-  (setq mu4e-view-show-addresses 't)
 
   ;; coding style for kernel/userspace
   (defun coding-style-kernel()
@@ -403,63 +399,36 @@ you should place your code here."
     (add-to-list 'exec-path "~/bin")
     )
 
-  ;; system clipboard copy/paste (terminal mode)
-  ;; thanks to Ninrod and others from https://github.com/syl20bnr/spacemacs/issues/2222
-  (defun copy-to-clipboard ()
-    "Copies selection to x-clipboard."
-    (interactive)
-    (if (display-graphic-p)
-        (progn
-          (message "Yanked region to x-clipboard!")
-          (call-interactively 'clipboard-kill-ring-save)
-          )
-      (if (region-active-p)
-          (progn
-            (shell-command-on-region (region-beginning) (region-end) "pbcopy")
-            (message "Yanked region to clipboard!")
-            (deactivate-mark))
-        (message "No region active; can't yank to clipboard!")))
+  (defun sasa/display-buffer (buffer &optional alist)
+    "Select window for BUFFER (need to use word ALIST on the first line).
+Returns thirth visible window if there are three visible windows, nil otherwise.
+Minibuffer is ignored."
+    (let ((wnr (if (active-minibuffer-window) 3 2)))
+      (when (= (+ wnr 1) (length (window-list)))
+        (let ((window (nth wnr (window-list))))
+          (set-window-buffer window buffer)
+          window)))
     )
 
-  (defun paste-from-clipboard ()
-    "Pastes from x-clipboard."
-    (interactive)
-    (if (display-graphic-p)
-        (progn
-          (clipboard-yank)
-          (message "graphics active")
-          )
-      (insert (shell-command-to-string "pbpaste"))
-      )
-    )
-  (spacemacs/declare-prefix "o" "clipboard functions")
-  (spacemacs/set-leader-keys "o y" 'copy-to-clipboard)
-  (spacemacs/set-leader-keys "o p" 'paste-from-clipboard)
+(defvar sasa/help-temp-buffers '("^\\*Flycheck errors\\*$"
+                                 "^\\*Completions\\*$"
+                                 "^\\*Help\\*$"
+                                 "^\\*compilation\\*$"
+                                 "^\\*magit\\*$"
+                                 "^\\*ag search text*\\*$"
+                                 "^\\*Org Sync Output\\*$"
+                                 "^\\*Colors\\*$"
+                                 "^\\*Async Shell Command\\*$"))
 
-  ;; trash to trashcan from macOSX (note: requires `brew install trash`
-  (setq delete-by-moving-to-trash t)
-  (defun system-move-file-to-trash (file)
-    "Use \"trash\" to move FILE to the system trash.
-When using Homebrew, install it using \"brew install trash\"."
-    (call-process (executable-find "trash")
-                  nil 0 nil
-                  file))
+(while sasa/help-temp-buffers
+  (add-to-list 'display-buffer-alist
+               `(,(car sasa/help-temp-buffers)
+                 (display-buffer-reuse-window
+                  sasa/display-buffer
+                  display-buffer-in-side-window)
+                 (reusable-frames     . visible)
+                 (side                . bottom)
+                 (window-height       . 0.33)
+                 ))
+  (setq sasa/help-temp-buffers (cdr sasa/help-temp-buffers))))
 
-  ;; stop warning about this!
-  ;; If non-nil, warn if variables are being set in the wrong shell startup files.
-  ;; Environment variables should be set in .profile or .zshenv rather than
-  ;; .bashrc or .zshrc.
-  (setq exec-path-from-shell-check-startup-files nil)
-
-  ;; python documentation remap to pydoc-at-point
-  ;; FIXME: manual loading is needed for now before binding got active
-  (with-eval-after-load 'pydoc
-    (spacemacs/set-leader-keys-for-major-mode 'python-mode
-      "hh" 'pydoc-at-point))
-
-  ;; additional files
-  ;; don't pollute my spacemacs file, add it to a custom.el file
-  (load "~/dotfiles/.emacs.d/custom")
-
-  ;; work related stuff: do not report errors if file do not exist
-  (load "~/dotfiles-private/spacemacs/work/proxy" 't))

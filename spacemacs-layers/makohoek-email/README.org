@@ -1,0 +1,18 @@
+#+TITLE: makohoek-email layer
+
+# The maximum height of the logo should be 200 pixels.
+[[img/makohoek-email.png]]
+
+# TOC links should be GitHub style anchors.
+* Table of Contents                                        :TOC_4_gh:noexport:
+ - [[#description][Description]]
+ - [[#install][Install]]
+
+* Description
+This is all my mu4e related customization
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =makohoek-email= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+This depends on the mu4e layer to be functional (the spacemacs one)
