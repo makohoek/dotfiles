@@ -28,7 +28,7 @@
 ;;   `makohoek-dev/post-init-PACKAGE' to customize the package as it is loaded.
 
 
-(defconst makohoek-dev-packages '(dtrt-indent ag ediff projectile magit whitespace xcscope (log-tools :location local) (lt-logcat :location local) (lt-serial :location local) (lt-serial-kernel :location local))
+(defconst makohoek-dev-packages '(dtrt-indent ag ediff projectile magit whitespace (log-tools :location local) (lt-logcat :location local) (lt-serial :location local) (lt-serial-kernel :location local))
   "The list of Lisp packages required by the makohoek-dev layer.")
 
 (defun makohoek-dev/init-dtrt-indent ()
@@ -72,7 +72,7 @@
   ;; nothing to configure here
   (require 'lt-serial-kernel))
 
-(defun makohoek-dev/init-xcscope()
+(defun makohoek-dev/post-init-xcscope()
   (with-eval-after-load 'xcscope
     ;; The -q option in cscope: use an inverted database index. Takes
     ;; longer to build, but results in faster lookups. Useful for very
@@ -199,7 +199,6 @@
                                                   [92 9]) ; 9:tab, 187:»
                                         )))
   ;; enable whitespace mode in C and Cpp
-
   (add-hook 'c-mode-hook
             (function whitespace-mode))
   (add-hook 'c++-mode-hook
