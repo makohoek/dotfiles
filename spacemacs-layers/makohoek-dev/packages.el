@@ -204,24 +204,18 @@
     (setq whitespace-display-mappings '((tab-mark 9
                                                   [187 9]
                                                   [92 9]) ; 9:tab, 187:»
-                                        )))
-  ;; enable whitespace mode in C and Cpp
-  (add-hook 'c-mode-hook
-            (function whitespace-mode))
-  (add-hook 'c++-mode-hook
-            (function whitespace-mode))
-  ;; enable whitespace mode in elisp
-  (add-hook 'emacs-lisp-mode-hook
-            (function whitespace-mode))
-  ;; enable whitespace mode in go
-  (add-hook 'go-mode-hook
-            (function whitespace-mode))
-  ;; enable whitespace mode in makefile mode
-  (add-hook 'makefile-mode-hook
-            (function whitespace-mode))
-  ;; enable whitespace mode in python
-  (add-hook 'python-mode-hook
-            (function whitespace-mode)))
+                                        ))
+    ;; enable whitespace mode in C and Cpp
+    (add-hook 'c-mode-hook (function whitespace-mode))
+    (add-hook 'c++-mode-hook (function whitespace-mode))
+    ;; enable whitespace mode in elisp
+    (add-hook 'emacs-lisp-mode-hook (function whitespace-mode))
+    ;; enable whitespace mode in go
+    (add-hook 'go-mode-hook (function whitespace-mode))
+    ;; enable whitespace mode in makefile mode
+    (add-hook 'makefile-mode-hook (function whitespace-mode))
+    ;; enable whitespace mode in python
+    (add-hook 'python-mode-hook (function whitespace-mode))))
 
 ;; ediff is owned by 'spacemacs-base' layer
 (defun makohoek-dev/post-init-ediff ()
