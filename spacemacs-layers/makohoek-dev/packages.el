@@ -28,19 +28,30 @@
 ;;   `makohoek-dev/post-init-PACKAGE' to customize the package as it is loaded.
 
 
-(defconst makohoek-dev-packages '(dtrt-indent ag ediff projectile magit whitespace xcscope (log-tools :location local) (lt-logcat :location local) (lt-serial :location local) (lt-serial-kernel :location local))
+;;; Code:
+
+(defconst makohoek-dev-packages '(ag
+                                  ediff
+                                  dtrt-indent
+                                  magit
+                                  projectile
+                                  whitespace
+                                  (log-tools :location local)
+                                  (lt-logcat :location local)
+                                  (lt-serial :location local)
+                                  (lt-serial-kernel :location local))
   "The list of Lisp packages required by the makohoek-dev layer.")
 
 (defun makohoek-dev/init-dtrt-indent ()
-  ;; enable dtrt-indent for c development
+  "Enable dtrt-indent for c development."
   (add-hook 'c-mode-common-hook
             (lambda ()
               (require 'dtrt-indent)
               (dtrt-indent-mode t))))
 
-(defun makohoek-dev/init-ag ()
-  ;; nothing to configure here
-  )
+;; nothing to configure. We still need to init it so that
+;; it is available
+(defun makohoek-dev/init-ag ())
 
 (defun logtools-run-logcat ()
   (interactive)
@@ -72,13 +83,6 @@
   ;; nothing to configure here
   (require 'lt-serial-kernel))
 
-(defun makohoek-dev/init-xcscope()
-  (with-eval-after-load 'xcscope
-    ;; The -q option in cscope: use an inverted database index. Takes
-    ;; longer to build, but results in faster lookups. Useful for very
-    ;; large codebases
-    (setq cscope-option-use-inverted-index t)))
-
 (cl-defstruct makohoek-project
   name            ; name of the projectile project . This is matched with the git folder name
   compile-command ; compile command for this project
@@ -102,6 +106,7 @@
    "source build/envsetup.sh"         " && "
    "lunch " target "-userdebug"       " && "))
 
+;; projectile is owned by 'spacemacs-base'
 (defun makohoek-dev/post-init-projectile ()
   ;; do not run find-file after a project switch
   (setq projectile-switch-project-action 'projectile-dired)
@@ -135,6 +140,7 @@
   (add-hook 'projectile-after-switch-project-hook
             #'my-switch-project-hook))
 
+;; magit is owned by layer 'git'
 (defun makohoek-dev/post-init-magit ()
   (with-eval-after-load 'magit
     ;; performance tricks for magit (useful in kernel tree)
@@ -182,6 +188,7 @@
       ?g "gerrit" 'magit-push-gerrit)
   ))
 
+;; ediff is owned by 'spacemacs-base' layer
 (defun makohoek-dev/post-init-whitespace ()
   ;; whitespace mode
   (with-eval-after-load 'whitespace
@@ -197,29 +204,33 @@
     (setq whitespace-display-mappings '((tab-mark 9
                                                   [187 9]
                                                   [92 9]) ; 9:tab, 187:»
-                                        )))
-  ;; enable whitespace mode in C and Cpp
+                                        ))
+    ;; enable whitespace mode in C and Cpp
+    (add-hook 'c-mode-hook (function whitespace-mode))
+    (add-hook 'c++-mode-hook (function whitespace-mode))
+    ;; enable whitespace mode in elisp
+    (add-hook 'emacs-lisp-mode-hook (function whitespace-mode))
+    ;; enable whitespace mode in go
+    (add-hook 'go-mode-hook (function whitespace-mode))
+    ;; enable whitespace mode in makefile mode
+    (add-hook 'makefile-mode-hook (function whitespace-mode))
+    ;; enable whitespace mode in python
+    (add-hook 'python-mode-hook (function whitespace-mode))))
 
-  (add-hook 'c-mode-hook
-            (function whitespace-mode))
-  (add-hook 'c++-mode-hook
-            (function whitespace-mode))
-  ;; enable whitespace mode in elisp
-  (add-hook 'emacs-lisp-mode-hook
-            (function whitespace-mode))
-  ;; enable whitespace mode in go
-  (add-hook 'go-mode-hook
-            (function whitespace-mode))
-  ;; enable whitespace mode in makefile mode
-  (add-hook 'makefile-mode-hook
-            (function whitespace-mode))
-  ;; enable whitespace mode in python
-  (add-hook 'python-mode-hook
-            (function whitespace-mode)))
-
+;; ediff is owned by 'spacemacs-base' layer
 (defun makohoek-dev/post-init-ediff ()
   ;; ediff customization: show char based diff
   (with-eval-after-load 'ediff
     (setq-default ediff-forward-word-function
                   'forward-char)))
+
+;; xcscope is owned by 'cscope' layer
+(defun makohoek-dev/post-init-xcscope()
+  (with-eval-after-load 'xcscope
+    ;; The -q option in cscope: use an inverted database index. Takes
+    ;; longer to build, but results in faster lookups. Useful for very
+    ;; large codebases
+    (setq cscope-option-use-inverted-index t)))
+
 ;;; packages.el ends here
+
