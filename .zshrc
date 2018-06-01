@@ -49,3 +49,7 @@ alias nvi="~/dotfiles/neovim_helpers/open_file_in_left_split.py"
 alias gcommit="~/dotfiles/neovim_helpers/run_fugitive_commit.py"
 alias nvim='NVIM_LISTEN_ADDRESS=/tmp/nvim nvim'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# for git dotfiles in ~/
+# https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
