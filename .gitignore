@@ -23,3 +23,6 @@ Music/
 Parallels/
 Pictures/
 Public/
+
+# MacOS temp files
+.DS_Store
