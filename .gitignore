@@ -10,3 +10,16 @@ tags
 # this is where my dotfiles will live now
 # https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 .cfg
+
+# All MacOS base folders
+Applications/
+Desktop/
+Documents/
+Downloads/
+Images/
+Library/
+Movies/
+Music/
+Parallels/
+Pictures/
+Public/
