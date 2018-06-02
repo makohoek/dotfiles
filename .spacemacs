@@ -338,7 +338,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; additional files
   ;; don't pollute my spacemacs file, add it to a custom.el file
-  (load "~/dotfiles/.emacs.d/custom")
+  (load "~/.config/spacemacs/custom")
 
   ;; work related stuff: do not report errors if file do not exist
   (load "~/intel-tools/spacemacs/makohoek-intel/proxy" 't)
