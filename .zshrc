@@ -52,4 +52,11 @@ alias nvim='NVIM_LISTEN_ADDRESS=/tmp/nvim nvim'
 
 # for git dotfiles in ~/
 # https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+function git() {
+    if [[ "$PWD" == "$HOME" ]]; then
+        /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME "$@"
+    else
+        /usr/bin/git "$@"
+    fi
+}
+# alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
