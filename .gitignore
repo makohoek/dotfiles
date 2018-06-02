@@ -43,3 +43,29 @@ Applications (Parallels)/
 .fzf.bash
 .fzf.zsh
 .fzf/
+
+# python specifics
+.pylint.d/
+.tox/
+.ipython/
+
+# rust
+.cargo
+.rustup
+.multirust
+
+# js
+.npm
+
+# llvm debugger
+.lldb
+
+# java / android
+.gradle
+.android
+
+# perl
+.cpan
+
+# ruby
+.gem
