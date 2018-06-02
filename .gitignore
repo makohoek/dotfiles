@@ -34,3 +34,12 @@ Public/
 .python_history
 .sh_history
 .zsh_history
+
+# parallel desktop
+Applications (Parallels)/
+
+# FZF related
+# is installed by vim with :PlugInstall
+.fzf.bash
+.fzf.zsh
+.fzf/
