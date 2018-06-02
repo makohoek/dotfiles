@@ -22,3 +22,6 @@
 [submodule "/Users/mkorperx/.oh-my-zsh"]
 	path = /Users/mkorperx/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "/Users/mkorperx/.emacs.d"]
+	path = /Users/mkorperx/.emacs.d
+	url = https://github.com/syl20bnr/spacemacs
