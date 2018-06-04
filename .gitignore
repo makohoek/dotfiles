@@ -26,6 +26,7 @@ Public/
 
 # MacOS temp files
 .DS_Store
+.Trash
 
 # history related
 .bash_history
@@ -34,6 +35,9 @@ Public/
 .python_history
 .sh_history
 .zsh_history
+
+# bash
+.bash_sessions
 
 # parallel desktop
 Applications (Parallels)/
@@ -69,3 +73,42 @@ Applications (Parallels)/
 
 # ruby
 .gem
+
+# java/jre
+.oracle_jre_usage
+
+# org
+org/
+
+# tmp
+tmp
+
+# anyconnect
+.anyconnect
+.anyconnect_fingerprint
+.cisco
+
+# docker
+.docker
+
+# .ssh
+.ssh
+
+# .mail is where i store my offlineimap stuff
+.mail
+
+# aspell
+.aspell.en.prepl
+.aspell.en.pws
+
+# printer
+.cups
+
+# ~/code contains a lot of other git projects i don't want to look at from here
+code/
+
+# this is usually very local to each computer so ignore it
+.wgetrc
+
+# .password-store is used by pass, the commandline password manager
+.password-store/
