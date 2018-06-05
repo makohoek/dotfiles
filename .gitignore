@@ -115,3 +115,6 @@ code/
 
 # .password-store is used by pass, the commandline password manager
 .password-store/
+
+# work related stuff
+work/
