@@ -39,6 +39,9 @@ Public/
 # bash
 .bash_sessions
 
+# zsh related
+.zsh-update
+
 # parallel desktop
 Applications (Parallels)/
 
