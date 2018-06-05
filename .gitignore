@@ -118,3 +118,6 @@ code/
 
 # work related stuff
 work/
+
+# gnupg
+.gnupg/
