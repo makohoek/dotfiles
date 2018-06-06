@@ -63,6 +63,7 @@ values."
      emacs-lisp
      shell-scripts
      go
+     docker
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      python
@@ -431,4 +432,3 @@ Minibuffer is ignored."
                  (window-height       . 0.33)
                  ))
   (setq sasa/help-temp-buffers (cdr sasa/help-temp-buffers))))
-
