@@ -60,3 +60,5 @@ function git() {
     fi
 }
 # alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+[ -f work/.work.zsh ] && source work/.work.zsh
