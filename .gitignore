@@ -79,6 +79,10 @@ Syncplicity Folders/
 # java / android
 .gradle
 .android
+.jack-server/
+.jack-settings
+.repoconfig/
+.repopickle_.gitconfig
 
 # perl
 .cpan
@@ -162,3 +166,17 @@ bin/android/platform-tools
 
 # terminfo
 .terminfo/
+
+# Linux / X specifics
+.Xauthority
+.config/Slack/
+.config/Thunar/
+.config/dconf/
+.config/gtk-3.0/
+.config/htop/
+.config/parcellite/
+.config/xfce4/
+.fehbg
+.gtkrc-2.0
+snap/
+.sudo_as_admin_successful
