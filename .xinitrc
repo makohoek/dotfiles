@@ -8,7 +8,7 @@ xsetroot
 setxkbmap -option caps:ctrl_modifier
 
 # optional: set wallpaper
-feh --bg-center ~/images/fantasia_by_luisbc-dat1z88.jpg &
+feh --bg-fill ~/images/fantasia_by_luisbc-dat1z88.jpg &
 
 # optional: start pulse-audio-systray for sound control
 # pasystray &
