@@ -138,6 +138,7 @@ work/
 .jira.d/
 intel-tools
 plantuml.jar
+builds/
 
 # info databases
 info/

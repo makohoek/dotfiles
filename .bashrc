@@ -65,21 +65,13 @@ if [[ $TERM != "eterm-color" ]] && [[ $TERM != "dumb" ]]; then
     source_if_exists ~/.bash_git_prompt
 fi
 source_if_exists ~/.bash_aliases
-source_if_exists /usr/local/share/chruby/chruby.sh
 source_if_exists /etc/bash_completion
 source_if_exists ~/dotfiles/bin/shell_bookmarks.sh
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # Functions
 ######################################################################
-
-# Alert alias for long running commands.
-# Usage example: sleep 10; alert
-alert()
-{
-    icon="$( [ $? = 0 ] && echo terminal || echo error )"
-    text="$( history | tail -n1 | sed 's/^\s*[0-9]\+\s*//' | sed 's/[;&|]\s*alert$//' )"
-    notify-send --urgency=low --icon "$icon" "$text"
-}
 
 # Colored man
 # see man termcap for the variables
@@ -118,6 +110,4 @@ function git() {
 
 # Private includes
 ######################################################################
-source_if_exists  ~/.bash_work
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source_if_exists  ~/work/.work.bash
