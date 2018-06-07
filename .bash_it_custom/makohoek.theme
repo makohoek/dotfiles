@@ -6,7 +6,7 @@ function prompt_command() {
     local repo_info="$(git rev-parse --git-dir --is-inside-git-dir --is-bare-repository --is-inside-work-tree --short HEAD 2>/dev/null)";
     if [ -z "$repo_info" ]
     then
-        PS1="${yellow}\w ${green}$(__git_ps1 "(%s)")${normal}\\$ "
+        PS1="${yellow}\w ${green}$(__git_ps1 "(%s)")${normal}${blue}ϟ${normal} "
         return
     fi
 
@@ -15,20 +15,20 @@ function prompt_command() {
     if [[ $? -ne 0 ]]
     then
         # dirty, so show red
-        PS1="${yellow}\w ${red}$(__git_ps1 "{%s}")${normal}\\$ "
+        PS1="${yellow}\w ${red}$(__git_ps1 "{%s}")${normal} ${blue}ϟ${normal} "
         return
     else
         git diff --no-ext-diff --cached --quiet
         if [[ $? -ne 0 ]]
         then
             # dirty, so show red
-            PS1="${yellow}\w ${red}$(__git_ps1 "{%s}")${normal}\\$ "
+            PS1="${yellow}\w ${red}$(__git_ps1 "{%s}")${normal} ${blue}ϟ${normal} "
             return
         fi
     fi
 
     # clean, show at end
-    PS1="${yellow}\w ${green}$(__git_ps1 "(%s)")${normal}\\$ "
+    PS1="${yellow}\w ${green}$(__git_ps1 "(%s)")${normal} ${blue}ϟ${normal} "
 }
 
 safe_append_prompt_command prompt_command
