@@ -138,7 +138,8 @@ work/
 .jira.d/
 intel-tools
 plantuml.jar
-builds/
+builds
+.ccache/
 
 # info databases
 info/
@@ -181,3 +182,5 @@ bin/android/platform-tools
 .gtkrc-2.0
 snap/
 .sudo_as_admin_successful
+.icons
+images/
