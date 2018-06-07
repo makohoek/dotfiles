@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+
+function prompt_command() {
+    local repo_info;
+    local repo_info="$(git rev-parse --git-dir --is-inside-git-dir --is-bare-repository --is-inside-work-tree --short HEAD 2>/dev/null)";
+    if [ -z "$repo_info" ]
+    then
+        PS1="${yellow}\w ${green}$(__git_ps1 "(%s)")${normal}\\$ "
+        return
+    fi
+
+    # this based on how we compute  GIT_PS1_SHOWDIRTYSTATE=
+    git diff --no-ext-diff --quiet
+    if [[ $? -ne 0 ]]
+    then
+        # dirty, so show red
+        PS1="${yellow}\w ${red}$(__git_ps1 "{%s}")${normal}\\$ "
+        return
+    else
+        git diff --no-ext-diff --cached --quiet
+        if [[ $? -ne 0 ]]
+        then
+            # dirty, so show red
+            PS1="${yellow}\w ${red}$(__git_ps1 "{%s}")${normal}\\$ "
+            return
+        fi
+    fi
+
+    # clean, show at end
+    PS1="${yellow}\w ${green}$(__git_ps1 "(%s)")${normal}\\$ "
+}
+
+safe_append_prompt_command prompt_command
