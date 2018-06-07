@@ -36,15 +36,23 @@ Public/
 .python_history
 .sh_history
 .zsh_history
+.wget-hsts
+.lesshst
+.rnd
+.wifi_fingerprint
 
 # bash
 .bash_sessions
 
 # zsh related
 .zsh-update
+.zcompdump*
 
 # parallel desktop
 Applications (Parallels)/
+
+# Syncplicity
+Syncplicity Folders/
 
 # FZF related
 # is installed by vim with :PlugInstall
@@ -100,6 +108,7 @@ tmp
 
 # .mail is where i store my offlineimap stuff
 .mail
+.offlineimap
 
 # aspell
 .aspell.en.prepl
@@ -119,6 +128,31 @@ code/
 
 # work related stuff
 work/
+.flasher/
+.intel/
+.z
+.jira.d/
+intel-tools
+plantuml.jar
+
+# info databases
+info/
 
 # gnupg
 .gnupg/
+
+# config files
+.config/configstore/
+.config/filezilla/
+.config/karabiner/
+
+# carabiner and trash
+.local/share/
+
+# mu
+.mu/
+
+# cache
+.cache/
+
+.CFUserTextEncoding
