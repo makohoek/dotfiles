@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+export PROMPT_DIRTRIM=3
 
 function prompt_command() {
     local repo_info;
