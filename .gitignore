@@ -156,3 +156,9 @@ info/
 .cache/
 
 .CFUserTextEncoding
+
+# android platform tools
+bin/android/platform-tools
+
+# terminfo
+.terminfo/
