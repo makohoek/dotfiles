@@ -7,6 +7,7 @@ tags
 # ignore vim plugged directory
 .vim/plugged/
 .viminfo
+.vim/.netrwhist
 
 # this is where my dotfiles will live now
 # https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
@@ -184,3 +185,8 @@ snap/
 .sudo_as_admin_successful
 .icons
 images/
+
+# mozilla
+.mozilla
+.pki
+
