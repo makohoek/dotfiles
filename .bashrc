@@ -119,6 +119,8 @@ source_if_exists ~/dotfiles/bin/shell_bookmarks.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # Functions
 ######################################################################
 
