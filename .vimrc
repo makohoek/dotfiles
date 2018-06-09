@@ -39,7 +39,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/confluencewiki.vim'
-Plug 'easymotion/vim-easymotion'
 call plug#end()
 set modelines=1
 
