@@ -218,13 +218,6 @@ function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-command! FZFBuffers call fzf#run({
-      \   'source':  reverse(<sid>buflist()),
-      \   'sink':    function('<sid>bufopen'),
-      \   'options': '+m',
-      \   'down':    len(<sid>buflist()) + 2
-      \ })
-
 command! FZFMru call fzf#run({
     \ 'source': v:oldfiles,
     \ 'sink' : 'e ',
@@ -308,9 +301,6 @@ nnoremap <silent> <Leader>o :FZF<CR>
 
 " Navigate trough open buffers
 nnoremap <silent> <Leader>bb :History<CR>
-
-" Navigate trough most recent used files
-nnoremap <silent> <Leader>br :FZFMru<CR>
 
 " Navigate through all help
 nnoremap <silent> <Leader>hh :Helptags<CR>
