@@ -308,10 +308,13 @@ nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
 nnoremap <silent> <Leader>o :FZF<CR>
 
 " Navigate trough open buffers
-nnoremap <silent> <Leader>b :FZFBuffers<CR>
+nnoremap <silent> <Leader>bb :History<CR>
 
 " Navigate trough most recent used files
-nnoremap <silent> <Leader>r :FZFMru<CR>
+nnoremap <silent> <Leader>br :FZFMru<CR>
+
+" Navigate through all help
+nnoremap <silent> <Leader>hh :Helptags<CR>
 
 " Go to current file directory
 nnoremap <leader>ff :cd %:h<CR>
