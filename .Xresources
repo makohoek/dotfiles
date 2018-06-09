@@ -2,8 +2,8 @@
 !
 URxvt*buffered: true
 URxvt*cursorBlink: true
-URxvt*font: xft:FiraCode:style=Medium:size=8:antialias=true
-URxvt*boldFont: xft:FiraCode:style=Bold:size=8:antialias=true
+URxvt*font: xft:Hack:style=Medium:size=9:antialias=true
+URxvt*boldFont: xft:Hack:style=Bold:size=9:antialias=true
 !URxvt.letterSpace: -2
 ! Workaround for base16 colorscheme troubles
 URxvt*intensityStyles:      false

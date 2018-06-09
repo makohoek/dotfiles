@@ -384,15 +384,6 @@ if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j
 endif
 
-" {{{1 Neovim specifics
-"-------------------------------------------------------------------------------
-if has('nvim')
-  " quit terminal mode with Esc
-  tnoremap <Esc> <Esc><C-\><C-n>
-  " send escape to terminal
-  tnoremap <C><Esc> <Esc>
-endif
-
 " {{{1 Local (specific) extra vimrc
 "-------------------------------------------------------------------------------
 let s:local_vimrc = expand('$HOME').'/.vimrc-extra'

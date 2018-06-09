@@ -1,5 +1,5 @@
 # Set settings for urxvt
-xrdb -merge ~/dotfiles/base16-xresources/base16-tomorrow.dark.xresources
+xrdb -merge ~/base16-xresources/base16-tomorrow.dark.xresources
 
 # set a dark background
 xsetroot
