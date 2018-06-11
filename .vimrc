@@ -307,7 +307,7 @@ nnoremap <leader><leader> :Commands<CR>
 nnoremap <leader>ff :cd %:h<CR>
 
 " delete current buffer, keep the split
-nnoremap <leader>d :call BufferDelete()<CR>
+nnoremap <leader>bd :call BufferDelete()<CR>
 
 " fugitive related
 nnoremap <leader>gs :Gstatus<CR>
