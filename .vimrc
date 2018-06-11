@@ -30,6 +30,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/tomorrow-theme'
 Plug 'junegunn/seoul256.vim'
+Plug 'jnurmine/Zenburn'
 Plug 'Makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -60,7 +61,7 @@ syntax enable         "syntax highlighting on based on filetype
 set t_Co=256
 
 set background=dark
-colorscheme Tomorrow-Night
+colorscheme zenburn
 let g:airline_theme='tomorrow'
 set cursorline        "show current line
 set fdm=syntax        "folding method based on syntax
