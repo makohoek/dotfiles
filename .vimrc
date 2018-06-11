@@ -351,12 +351,6 @@ let g:ycm_confirm_extra_conf = 0
 " {{{2 vim-cpp-enhanced highlight
 let g:cpp_class_scope_highlight = 1
 
-" {{{2 easymotion settings
-let g:EasyMotion_use_upper = 1
-map <Leader> <Plug>(easymotion-prefix)
-let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;'
-hi link EasyMotionTargetDefault IncSearch
-
 " {{{2 Grepper settings
 runtime plugin/grepper.vim    " initialize g:grepper with default values
 
