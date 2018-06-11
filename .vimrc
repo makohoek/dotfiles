@@ -314,6 +314,9 @@ nnoremap <leader>gs :Gstatus<CR>
 " remove trailing whitespaces
 nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
+" grepper/searching
+nnoremap <silent> <Leader>ss :Grepper<CR>
+
 " show element for syntax highlighting for finer tuning
 " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
 map <leader>cg :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . '> trans<'
