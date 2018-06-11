@@ -21,7 +21,6 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-tbone'
 Plug 'tommcdo/vim-exchange'
 Plug 'cbracken/vala.vim'
-Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'honza/vim-snippets' "default snippets for ultisnips
 Plug 'jceb/vim-orgmode'
@@ -36,6 +35,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'mhinz/vim-grepper'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/confluencewiki.vim'
@@ -348,9 +348,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " do NOT request config file
 let g:ycm_confirm_extra_conf = 0
 
-" {{{2 :Ack.vim settings
-let g:ackprg = 'grep -rsni'
-
 " {{{2 vim-cpp-enhanced highlight
 let g:cpp_class_scope_highlight = 1
 
@@ -359,6 +356,9 @@ let g:EasyMotion_use_upper = 1
 map <Leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;'
 hi link EasyMotionTargetDefault IncSearch
+
+" {{{2 Grepper settings
+runtime plugin/grepper.vim    " initialize g:grepper with default values
 
 " {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------
