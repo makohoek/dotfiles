@@ -41,6 +41,9 @@ PATH="$PATH:/Applications/SWI-Prolog.app/Contents/MacOS"
 # for pdflatex
 PATH="$PATH:/usr/local/texlive/2015/bin/universal-darwin/"
 
+alias nvi="~/dotfiles/neovim_helpers/open_file_in_left_split.py"
+alias gcommit="~/dotfiles/neovim_helpers/run_fugitive_commit.py"
+alias nvim='NVIM_LISTEN_ADDRESS=/tmp/nvim nvim'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # for git dotfiles in ~/
