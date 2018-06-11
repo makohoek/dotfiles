@@ -388,6 +388,10 @@ if has('nvim')
   tnoremap <Esc> <Esc><C-\><C-n>
   " send escape to terminal
   tnoremap <C><Esc> <Esc>
+
+  " make nvr the commit message editor
+  " https://github.com/mhinz/neovim-remote/blob/master/README.md
+  let $VISUAL = 'nvr -cc split --remote-wait'
 endif
 
 " {{{1 Local (specific) extra vimrc
