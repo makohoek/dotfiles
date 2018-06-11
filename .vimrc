@@ -26,6 +26,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-grepper'
 Plug 'nanotech/jellybeans.vim'
+Plug 'neomake/neomake'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rust-lang/rust.vim'
 Plug 'tommcdo/vim-exchange'
@@ -351,6 +352,9 @@ let g:cpp_class_scope_highlight = 1
 
 " {{{2 Grepper settings
 runtime plugin/grepper.vim    " initialize g:grepper with default values
+
+" {{{2 neomake settings
+let g:neomake_open_list = 2
 
 " {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------
