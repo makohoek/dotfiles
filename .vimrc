@@ -218,12 +218,6 @@ function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-command! FZFMru call fzf#run({
-    \ 'source': v:oldfiles,
-    \ 'sink' : 'e ',
-    \ 'options' : '-m',
-    \ })
-
 " set kernel style identation
 function! SetCodingStyle(style)
   if a:style == 'kernel'
@@ -305,14 +299,17 @@ nnoremap <silent> <Leader>bb :History<CR>
 " Navigate through all help
 nnoremap <silent> <Leader>hh :Helptags<CR>
 
+" FZF commmand source
+nnoremap <leader><leader> :Commands<CR>
+
 " Go to current file directory
 nnoremap <leader>ff :cd %:h<CR>
 
-" jump back and forth between files
-nnoremap <leader><leader> <C-^>
-
 " delete current buffer, keep the split
 nnoremap <leader>d :call BufferDelete()<CR>
+
+" fugitive related
+nnoremap <leader>gs :Gstatus<CR>
 
 " remove trailing whitespaces
 nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>

@@ -168,7 +168,7 @@ values."
    ;;    dotspacemacs-default-font '("Fira Mono"
    ;; :size 12.0
    dotspacemacs-default-font '("Hack"
-                   :size 10.0
+                   :size 12.0
                    :weight normal
                    :width ultra-condensed
                    :powerline-scale 1.0)
