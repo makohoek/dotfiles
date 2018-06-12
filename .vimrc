@@ -305,6 +305,27 @@ nnoremap <silent> <Leader>hh :Helptags<CR>
 " FZF commmand source
 nnoremap <leader><leader> :Commands<CR>
 
+let g:makohoek_projects = [
+    \ '~/code/cpp/hackerrank/',
+    \ '~/code/gerrit_scripts/',
+    \ '~/code/docker/docker-dotfiles',
+    \ ]
+
+" This is called each time we open a new project
+function! ProjectEditBookmark(bookmark)
+    execute "tabedit " . a:bookmark
+    execute "tcd " . a:bookmark
+endfunction
+
+command! -bang ProjectBookmarks call fzf#run({
+    \ 'source': g:makohoek_projects,
+    \ 'sink' : function('ProjectEditBookmark'),
+    \ 'options' : '-m',
+    \ })
+
+" Project / FZF related
+nnoremap <leader>pp :ProjectBookmarks<CR>
+
 " Go to current file directory
 nnoremap <leader>ff :cd %:h<CR>
 
@@ -312,6 +333,10 @@ nnoremap <leader>ff :cd %:h<CR>
 nnoremap <leader>bd :call BufferDelete()<CR>
 " home buffer
 nnoremap <leader>bh :Startify<CR>
+
+" applications (like terminal and stuff)
+nnoremap <leader>at :terminal<CR>
+nnoremap <leader>ah :terminal hangups<CR>i
 
 " fugitive related
 nnoremap <leader>gs :Gstatus<CR>
@@ -346,7 +371,6 @@ autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\
 "-------------------------------------------------------------------------------
 
 " {{{2 YouCompleteMe settings
-"-------------------------------------------------------------------------------
 let g:ycm_enable_diagnostic_signs = 0 "disable ugly error bar
 " close annoying preview window after completion
 let g:ycm_autoclose_preview_window_after_completion = 1
