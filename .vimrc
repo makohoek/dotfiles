@@ -25,6 +25,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-grepper'
+Plug 'mhinz/vim-startify'
 Plug 'nanotech/jellybeans.vim'
 Plug 'neomake/neomake'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -309,6 +310,8 @@ nnoremap <leader>ff :cd %:h<CR>
 
 " delete current buffer, keep the split
 nnoremap <leader>bd :call BufferDelete()<CR>
+" home buffer
+nnoremap <leader>bh :Startify<CR>
 
 " fugitive related
 nnoremap <leader>gs :Gstatus<CR>
@@ -358,6 +361,9 @@ runtime plugin/grepper.vim    " initialize g:grepper with default values
 
 " {{{2 neomake settings
 let g:neomake_open_list = 2
+
+" {{{2 Startify settings
+let g:startify_custom_header = ['']
 
 " {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------
