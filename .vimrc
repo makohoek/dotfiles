@@ -312,6 +312,9 @@ nnoremap <leader>bd :call BufferDelete()<CR>
 
 " fugitive related
 nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit<CR>
+" this is FZF, browsing through all the commits
+nnoremap <leader>gl :Commits<CR>
 
 " remove trailing whitespaces
 nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
