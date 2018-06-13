@@ -291,10 +291,10 @@ nnoremap <silent> <Leader>hh :Helptags<CR>
 nnoremap <leader>pp :ProjectBookmarks<CR>
 
 " {{{3 Files
-" Go to current file directory
-nnoremap <leader>ff :cd %:h<CR>
 " FZF trough open files
-nnoremap <silent> <Leader>o :FZF<CR>
+nnoremap <leader>ff :FZF<CR>
+" TODO: map this to copy buffer with full path to clipboard
+nnoremap <leader>fy :echo TODO<CR>
 
 " {{{3 Buffers
 " Navigate trough open buffers
