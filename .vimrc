@@ -261,11 +261,19 @@ nnoremap <silent> <Leader>hh :Helptags<CR>
 " FZF commmand source
 nnoremap <leader><leader> :Commands<CR>
 
-let g:makohoek_projects = [
-    \ '~/code/cpp/hackerrank/',
-    \ '~/code/gerrit_scripts/',
-    \ '~/code/docker/docker-dotfiles',
-    \ ]
+" Project related things
+let s:work_vimrc = expand('$HOME').'/work/.work.vimrc'
+if filereadable(s:work_vimrc)
+  execute 'source' s:work_vimrc
+endif
+
+if !exists('g:makohoek_projects')
+  let g:makohoek_projects = [
+        \ '~/code/cpp/hackerrank/',
+        \ '~/code/gerrit_scripts/',
+        \ '~/code/docker/docker-dotfiles',
+        \ ]
+endif
 
 " This is called each time we open a new project
 function! ProjectEditBookmark(bookmark)
