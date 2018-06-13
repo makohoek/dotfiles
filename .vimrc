@@ -103,6 +103,8 @@ set wildignore+=*.jpg,*.jpeg,*.tiff,*.gif,*.png,*.svg,*.psd,*.pdf
 set smartcase "ignore case only when putting on a lowercase
 set incsearch "start search when typing
 
+set spelllang=en_us "spell language which should be used
+
 " allow hidden buffers
 set hidden
 
@@ -208,59 +210,8 @@ function! BufferDelete()
     endif
 endfunction
 
-" {{{1 Keybindings
+" {{{1 Project stuff (poor man's projectile)
 "-------------------------------------------------------------------------------
-let mapleader=" "
-let maplocalleader=" "
-
-" navigate in wrapped lines easily
-noremap <buffer> <silent> k gk
-noremap <buffer> <silent> j gj
-noremap <buffer> <silent> ^ g^
-noremap <buffer> <silent> $ g$
-
-"stop search higlight when hitting return key
-nnoremap <leader>, :nohlsearch<CR>
-
-" Insert a blank line below selected line
-nnoremap <leader><CR> o<Esc>
-
-" YouCompleteMe keybindings
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-set spelllang=en_us "spell language which should be used
-
-" Copy paste clipboard with tmux
-vmap <Leader>y "+ygv:Tyank<CR>
-nmap <Leader>p :Tput<CR>
-vmap <Leader>p :Tput<CR>
-
-" getting help in a fullscreen tab
-map  <silent> <F1> :tabnew<CR>:h<CR>:on<CR>
-
-" Bindings for the great tmux_navigator
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
-
-" show columns for max length rules
-nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
-
-" FZF trough open files
-nnoremap <silent> <Leader>o :FZF<CR>
-
-" Navigate trough open buffers
-nnoremap <silent> <Leader>bb :History<CR>
-
-" Navigate through all help
-nnoremap <silent> <Leader>hh :Helptags<CR>
-
-" FZF commmand source
-nnoremap <leader><leader> :Commands<CR>
-
 " Project related things
 let s:work_vimrc = expand('$HOME').'/work/.work.vimrc'
 if filereadable(s:work_vimrc)
@@ -287,36 +238,89 @@ command! -bang ProjectBookmarks call fzf#run({
     \ 'options' : '-m',
     \ })
 
-" Project / FZF related
+
+" {{{1 Keybindings
+"-------------------------------------------------------------------------------
+let mapleader=" "
+let maplocalleader=" "
+
+" navigate in wrapped lines easily
+noremap <buffer> <silent> k gk
+noremap <buffer> <silent> j gj
+noremap <buffer> <silent> ^ g^
+noremap <buffer> <silent> $ g$
+
+" C-a and C-e support for ex-mode
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" getting help in a fullscreen tab
+map  <silent> <F1> :tabnew<CR>:h<CR>:on<CR>
+
+" Bindings for the great tmux_navigator
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
+
+" {{{2 Leader based keybindings
+" {{{3 Visual stuff
+"stop search higlight when hitting return key
+nnoremap <leader>, :nohlsearch<CR>
+" show columns for max length rules
+nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
+
+" Insert a blank line below selected line
+nnoremap <leader><CR> o<Esc>
+
+" {{{3 Tmux
+" Copy paste clipboard with tmux
+vmap <Leader>y "+ygv:Tyank<CR>
+nmap <Leader>p :Tput<CR>
+vmap <Leader>p :Tput<CR>
+
+" {{{3 Help and commands
+" FZF commmand source
+nnoremap <leader><leader> :Commands<CR>
+" Navigate through all help
+nnoremap <silent> <Leader>hh :Helptags<CR>
+
+" {{{3 Project
 nnoremap <leader>pp :ProjectBookmarks<CR>
 
+" {{{3 Files
 " Go to current file directory
 nnoremap <leader>ff :cd %:h<CR>
+" FZF trough open files
+nnoremap <silent> <Leader>o :FZF<CR>
 
+" {{{3 Buffers
+" Navigate trough open buffers
+nnoremap <silent> <Leader>bb :History<CR>
 " delete current buffer, keep the split
 nnoremap <leader>bd :call BufferDelete()<CR>
 " home buffer
 nnoremap <leader>bh :Startify<CR>
 
-" applications (like terminal and stuff)
+" {{{3 applications (like terminal and hangups)
 nnoremap <leader>at :terminal<CR>
 nnoremap <leader>ah :terminal hangups<CR>i
 
+" {{{3 Git
 " fugitive related
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 " this is FZF, browsing through all the commits
 nnoremap <leader>gl :Commits<CR>
 
-" remove trailing whitespaces
-nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
-
-" grepper/searching
+" {{{3 Grepper/searching
 nnoremap <silent> <Leader>ss :Grepper<CR>
 
-" C-a and C-e support for ex-mode
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
+" {{{3 Misc
+" remove trailing whitespaces
+nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
 " search current word under cursor (found on tpopes vimrc)
 nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
