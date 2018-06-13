@@ -338,13 +338,6 @@ autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\
 " {{{1 Plugin specific settings
 "-------------------------------------------------------------------------------
 
-" {{{2 YouCompleteMe settings
-let g:ycm_enable_diagnostic_signs = 0 "disable ugly error bar
-" close annoying preview window after completion
-let g:ycm_autoclose_preview_window_after_completion = 1
-" do NOT request config file
-let g:ycm_confirm_extra_conf = 0
-
 " {{{2 vim-cpp-enhanced highlight
 let g:cpp_class_scope_highlight = 1
 
