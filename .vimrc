@@ -147,7 +147,7 @@ endfunction
 
 " {{{2 Open the Url passed as argument (thanks tpope)
 function! OpenURL(url)
-    exe "silent !x-www-browser \"".a:url."\""
+    exe "silent !open \"".a:url."\""
     redraw!
 endfunction
 command! -nargs=1 OpenURL :call OpenURL(<q-args>)
@@ -304,13 +304,12 @@ nnoremap <leader>gl :Commits<CR>
 
 " {{{3 Grepper/searching
 nnoremap <silent> <Leader>ss :Grepper -tool ag -cword<CR>
+" search current word under cursor (found on tpopes vimrc)
+nnoremap <silent> <Leader>sw :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 
 " {{{3 Misc
 " remove trailing whitespaces
 nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
-
-" search current word under cursor (found on tpopes vimrc)
-nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 
 " {{{1 Autocommands
 "-------------------------------------------------------------------------------
@@ -347,7 +346,7 @@ augroup END
 augroup makohoek_cpp
   autocmd!
   " if we are doing cpp, use different search
-  autocmd FileType cpp nnoremap gs :OpenURL http://www.cplusplus.com/search.do?q=<cword><CR>
+  autocmd FileType cpp nnoremap <silent> <Leader>sw :OpenURL http://en.cppreference.com/mwiki/index.php?title=Special%3ASearch&search=<cword><CR>
 augroup END
 
 
