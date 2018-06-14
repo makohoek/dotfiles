@@ -80,12 +80,6 @@ set softtabstop=4 "number of spaces that a tab counts for
 set autoindent    "Copy indent from current line when starting a new line
 set backspace=indent,eol,start "backspace over autoindent, linebreaks and insert
 
-"set 4 spaces when editing python
-autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
-autocmd FileType vim set sw=2 sts=2 ts=2 tabstop=2
-autocmd FileType pfw set noet sw=4 sts=4 ts=4 tabstop=4
-autocmd FileType ruby set sw=2 sts=2 ts=2 tabstop=2
-
 " {{{1 status bar configuration
 "-------------------------------------------------------------------------------
 set ruler "show line and column number
@@ -126,17 +120,10 @@ set lazyredraw " Don't redraw while executing macros (good performance config)
 " use par for paragragh formatting
 set formatprg=par\ -w80re
 
-" Go back to laster cursor position for each opened file
-"-------------------------------------------------------------------------------
-autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g`\"" |
-  \ endif
 
 " {{{1 Functions
-
-" {{{2 Shows column limit based on coding styles (80,100 chars)
 "-------------------------------------------------------------------------------
+" {{{2 Shows column limit based on coding styles (80,100 chars)
 function! ToggleShowColumnLimit()
   if &colorcolumn == '' || &colorcolumn == '0'
     set colorcolumn=80,100
@@ -146,7 +133,6 @@ function! ToggleShowColumnLimit()
 endfunction
 
 " {{{2 Remove trailing whitespaces (thanks vimcasts.org)
-"-------------------------------------------------------------------------------
 function! <SID>StripTrailingWhitespaces()
     " Preparation : save last search, and cursor position.
     let _s=@/
@@ -160,14 +146,13 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 " {{{2 Open the Url passed as argument (thanks tpope)
-"-------------------------------------------------------------------------------
 function! OpenURL(url)
     exe "silent !x-www-browser \"".a:url."\""
     redraw!
 endfunction
 command! -nargs=1 OpenURL :call OpenURL(<q-args>)
 
-" 2{{{ FZF specific functions and commands
+" {{{2 FZF specific functions and commands
 function! s:buflist()
   redir => ls
   silent ls
@@ -209,6 +194,7 @@ function! BufferDelete()
         endif
     endif
 endfunction
+
 
 " {{{1 Project stuff (poor man's projectile)
 "-------------------------------------------------------------------------------
@@ -327,6 +313,21 @@ nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 " if we are doing cpp, use different search
 autocmd FileType cpp nnoremap gs :OpenURL http://www.cplusplus.com/search.do?q=<cword><CR>
 
+
+" {{{1 Autocommands
+"-------------------------------------------------------------------------------
+" Go back to laster cursor position for each opened file
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
+
+"set 4 spaces when editing python
+autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
+autocmd FileType vim set sw=2 sts=2 ts=2 tabstop=2
+autocmd FileType pfw set noet sw=4 sts=4 ts=4 tabstop=4
+autocmd FileType ruby set sw=2 sts=2 ts=2 tabstop=2
+
 " commit message specific stuff
 autocmd FileType gitcommit setlocal spell
 autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
@@ -335,9 +336,9 @@ autocmd FileType git,gitcommit exe "normal gg"
 " Use autopep8 for formating python files with gq
 autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\ -
 
+
 " {{{1 Plugin specific settings
 "-------------------------------------------------------------------------------
-
 " {{{2 vim-cpp-enhanced highlight
 let g:cpp_class_scope_highlight = 1
 
@@ -349,6 +350,7 @@ let g:neomake_open_list = 2
 
 " {{{2 Startify settings
 let g:startify_custom_header = ['']
+
 
 " {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------
@@ -371,6 +373,7 @@ if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j
 endif
 
+
 " {{{1 Neovim specifics
 "-------------------------------------------------------------------------------
 if has('nvim')
@@ -383,6 +386,7 @@ if has('nvim')
   " https://github.com/mhinz/neovim-remote/blob/master/README.md
   let $VISUAL = 'nvr -cc split --remote-wait'
 endif
+
 
 " {{{1 Local (specific) extra vimrc
 "-------------------------------------------------------------------------------
