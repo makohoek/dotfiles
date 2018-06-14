@@ -28,8 +28,6 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source /usr/local/share/chruby/chruby.sh
-
 export EDITOR=vim
 
 # par variable from manual
