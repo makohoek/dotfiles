@@ -303,7 +303,7 @@ nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gl :Commits<CR>
 
 " {{{3 Grepper/searching
-nnoremap <silent> <Leader>ss :Grepper<CR>
+nnoremap <silent> <Leader>ss :Grepper -tool ag -cword<CR>
 
 " {{{3 Misc
 " remove trailing whitespaces
@@ -358,6 +358,7 @@ let g:cpp_class_scope_highlight = 1
 
 " {{{2 Grepper settings
 runtime plugin/grepper.vim    " initialize g:grepper with default values
+let g:grepper.dir = 'repo,cwd'
 
 " {{{2 neomake settings
 let g:neomake_open_list = 2
