@@ -20,7 +20,7 @@
 [color]
     ui = true
 [core]
-    editor = vim
+	editor = nvr --remote-wait-silent
 
 [include]
     path = /home/mkorperx/work/.gitconfig
