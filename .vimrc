@@ -365,6 +365,9 @@ let g:neomake_open_list = 2
 " {{{2 Startify settings
 let g:startify_custom_header = ['']
 
+" {{{2 vim-orgmode
+let g:org_plugins = ['Hyperlinks']
+
 
 " {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------
