@@ -64,7 +64,7 @@ set t_Co=256
 
 set background=dark
 colorscheme zenburn
-let g:airline_theme='tomorrow'
+let g:airline_theme='zenburn'
 set cursorline        "show current line
 set fdm=syntax        "folding method based on syntax
 set foldlevel=16      "open folds by default
