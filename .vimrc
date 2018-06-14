@@ -311,31 +311,44 @@ nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
 " search current word under cursor (found on tpopes vimrc)
 nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
-" if we are doing cpp, use different search
-autocmd FileType cpp nnoremap gs :OpenURL http://www.cplusplus.com/search.do?q=<cword><CR>
-
 
 " {{{1 Autocommands
 "-------------------------------------------------------------------------------
 " Go back to laster cursor position for each opened file
-autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g`\"" |
-  \ endif
+augroup makohoek_buffer_tweaks
+  autocmd!
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
 
-"set 4 spaces when editing python
-autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
-autocmd FileType vim set sw=2 sts=2 ts=2 tabstop=2
-autocmd FileType pfw set noet sw=4 sts=4 ts=4 tabstop=4
-autocmd FileType ruby set sw=2 sts=2 ts=2 tabstop=2
+augroup makohoek_python
+  autocmd!
+  "set 4 spaces when editing python
+  autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
+  " Use autopep8 for formating python files with gq
+  autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\ -
+augroup END
 
-" commit message specific stuff
-autocmd FileType gitcommit setlocal spell
-autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
-autocmd FileType git,gitcommit exe "normal gg"
+augroup makohoek_vimfiles
+  autocmd!
+  autocmd FileType vim set sw=2 sts=2 ts=2 tabstop=2
+augroup END
 
-" Use autopep8 for formating python files with gq
-autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\ -
+augroup makohoek_git
+  autocmd!
+  " commit message specific stuff
+  autocmd FileType gitcommit setlocal spell
+  autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
+  autocmd FileType git,gitcommit exe "normal gg"
+augroup END
+
+augroup makohoek_cpp
+  autocmd!
+  " if we are doing cpp, use different search
+  autocmd FileType cpp nnoremap gs :OpenURL http://www.cplusplus.com/search.do?q=<cword><CR>
+augroup END
 
 
 " {{{1 Plugin specific settings
