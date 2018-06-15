@@ -402,6 +402,9 @@ if has('nvim')
   " make nvr the commit message editor
   " https://github.com/mhinz/neovim-remote/blob/master/README.md
   let $VISUAL = 'nvr -cc split --remote-wait'
+
+  " much nicer :s usage (with preview)
+  set inccommand=nosplit
 endif
 
 
