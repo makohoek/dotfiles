@@ -199,4 +199,14 @@ Google Drive/
 
 # Android studio
 AndroidStudioProjects/
+.AndroidStudio2.1/
 
+# torrent clients
+.config/qBittorrent/
+.config/deluge/
+
+# config backup, which is made by the setup.sh script
+.config-backup/
+
+# Fritzing
+.config/Fritzing/
