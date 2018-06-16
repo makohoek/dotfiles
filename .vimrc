@@ -44,9 +44,6 @@ Plug 'vim-scripts/utl.vim' " for links in org-mode
 call plug#end()
 set modelines=1
 
-" load default vim man plugin
-runtime ftplugin/man.vim
-
 " Load additional themes which are not in standard plug directory
 set runtimepath+=~/.vim/plugged/tomorrow-theme/vim
 
