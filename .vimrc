@@ -78,12 +78,6 @@ set softtabstop=4 "number of spaces that a tab counts for
 set autoindent    "Copy indent from current line when starting a new line
 set backspace=indent,eol,start "backspace over autoindent, linebreaks and insert
 
-"set 4 spaces when editing python
-autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
-autocmd FileType vim set sw=2 sts=2 ts=2 tabstop=2
-autocmd FileType pfw set noet sw=4 sts=4 ts=4 tabstop=4
-autocmd FileType ruby set sw=2 sts=2 ts=2 tabstop=2
-
 " {{{1 status bar configuration
 "-------------------------------------------------------------------------------
 set ruler "show line and column number
@@ -100,6 +94,8 @@ set wildignore+=*.jpg,*.jpeg,*.tiff,*.gif,*.png,*.svg,*.psd,*.pdf
 " {{{1 Search options
 set smartcase "ignore case only when putting on a lowercase
 set incsearch "start search when typing
+
+set spelllang=en_us "spell language which should be used
 
 " allow hidden buffers
 set hidden
@@ -122,17 +118,10 @@ set lazyredraw " Don't redraw while executing macros (good performance config)
 " use par for paragragh formatting
 set formatprg=par\ -w80re
 
-" Go back to laster cursor position for each opened file
-"-------------------------------------------------------------------------------
-autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g`\"" |
-  \ endif
 
 " {{{1 Functions
-
-" {{{2 Shows column limit based on coding styles (80,100 chars)
 "-------------------------------------------------------------------------------
+" {{{2 Shows column limit based on coding styles (80,100 chars)
 function! ToggleShowColumnLimit()
   if &colorcolumn == '' || &colorcolumn == '0'
     set colorcolumn=80,100
@@ -142,7 +131,6 @@ function! ToggleShowColumnLimit()
 endfunction
 
 " {{{2 Remove trailing whitespaces (thanks vimcasts.org)
-"-------------------------------------------------------------------------------
 function! <SID>StripTrailingWhitespaces()
     " Preparation : save last search, and cursor position.
     let _s=@/
@@ -156,58 +144,13 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 " {{{2 Open the Url passed as argument (thanks tpope)
-"-------------------------------------------------------------------------------
 function! OpenURL(url)
-    exe "silent !x-www-browser \"".a:url."\""
+    exe "silent !open \"".a:url."\""
     redraw!
 endfunction
 command! -nargs=1 OpenURL :call OpenURL(<q-args>)
 
-" 2{{{ Call Uncrustify with a command
-" Usage : :call Uncrustify('cpp')
-"-------------------------------------------------------------------------------
-" Restore cursor position, window position, and last search after running a
-" command.
-function! Preserve(command)
-  " Save the last search.
-  let search = @/
-
-  " Save the current cursor position.
-  let cursor_position = getpos('.')
-
-  " Save the current window position.
-  normal! H
-  let window_position = getpos('.')
-  call setpos('.', cursor_position)
-
-  " Execute the command.
-  execute a:command
-
-  " Restore the last search.
-  let @/ = search
-
-  " Restore the previous window position.
-  call setpos('.', window_position)
-  normal! zt
-
-  " Restore the previous cursor position.
-  call setpos('.', cursor_position)
-endfunction
-
-" Specify path to your Uncrustify configuration file.
-let g:uncrustify_cfg_file_path =
-    \ shellescape(fnamemodify('~/dotfiles/my-uncrustify.cfg', ':p'))
-
-" Don't forget to add Uncrustify executable to $PATH (on Unix) or
-" %PATH% (on Windows) for this command to work.
-function! Uncrustify(language)
-  call Preserve(':silent %!uncrustify'
-      \ . ' -q '
-      \ . ' -l ' . a:language
-      \ . ' -c ' . g:uncrustify_cfg_file_path)
-endfunction
-
-" 2{{{ FZF specific functions and commands
+" {{{2 FZF specific functions and commands
 function! s:buflist()
   redir => ls
   silent ls
@@ -250,64 +193,22 @@ function! BufferDelete()
     endif
 endfunction
 
-" {{{1 Keybindings
+
+" {{{1 Project stuff (poor man's projectile)
 "-------------------------------------------------------------------------------
-let mapleader=" "
-let maplocalleader=" "
+" Project related things
+let s:work_vimrc = expand('$HOME').'/work/.work.vimrc'
+if filereadable(s:work_vimrc)
+  execute 'source' s:work_vimrc
+endif
 
-" navigate in wrapped lines easily
-noremap <buffer> <silent> k gk
-noremap <buffer> <silent> j gj
-noremap <buffer> <silent> ^ g^
-noremap <buffer> <silent> $ g$
-
-"stop search higlight when hitting return key
-nnoremap <leader>, :nohlsearch<CR>
-
-" Insert a blank line below selected line
-nnoremap <leader><CR> o<Esc>
-
-" YouCompleteMe keybindings
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-set spelllang=en_us "spell language which should be used
-
-" Copy paste clipboard with tmux
-vmap <Leader>y "+ygv:Tyank<CR>
-nmap <Leader>p :Tput<CR>
-vmap <Leader>p :Tput<CR>
-
-" getting help in a fullscreen tab
-map  <silent> <F1> :tabnew<CR>:h<CR>:on<CR>
-
-" Bindings for the great tmux_navigator
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
-
-" show columns for max length rules
-nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
-
-" FZF trough open files
-nnoremap <silent> <Leader>o :FZF<CR>
-
-" Navigate trough open buffers
-nnoremap <silent> <Leader>bb :History<CR>
-
-" Navigate through all help
-nnoremap <silent> <Leader>hh :Helptags<CR>
-
-" FZF commmand source
-nnoremap <leader><leader> :Commands<CR>
-
-let g:makohoek_projects = [
-    \ '~/code/cpp/hackerrank/',
-    \ '~/code/gerrit_scripts/',
-    \ '~/code/docker/docker-dotfiles',
-    \ ]
+if !exists('g:makohoek_projects')
+  let g:makohoek_projects = [
+        \ '~/code/cpp/hackerrank/',
+        \ '~/code/gerrit_scripts/',
+        \ '~/code/docker/docker-dotfiles',
+        \ ]
+endif
 
 " This is called each time we open a new project
 function! ProjectEditBookmark(bookmark)
@@ -321,71 +222,150 @@ command! -bang ProjectBookmarks call fzf#run({
     \ 'options' : '-m',
     \ })
 
-" Project / FZF related
+
+" {{{1 Keybindings
+"-------------------------------------------------------------------------------
+let mapleader=" "
+let maplocalleader=" "
+
+" navigate in wrapped lines easily
+noremap <buffer> <silent> k gk
+noremap <buffer> <silent> j gj
+noremap <buffer> <silent> ^ g^
+noremap <buffer> <silent> $ g$
+
+" C-a and C-e support for ex-mode
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" getting help in a fullscreen tab
+map  <silent> <F1> :tabnew<CR>:h<CR>:on<CR>
+
+" Bindings for the great tmux_navigator
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
+
+" {{{2 Leader based keybindings
+" {{{3 Visual stuff
+"stop search higlight when hitting return key
+nnoremap <leader>, :nohlsearch<CR>
+" show columns for max length rules
+nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
+
+" Insert a blank line below selected line
+nnoremap <leader><CR> o<Esc>
+
+" {{{3 Tmux
+" Copy paste clipboard with tmux
+vmap <Leader>y "+ygv:Tyank<CR>
+nmap <Leader>p :Tput<CR>
+vmap <Leader>p :Tput<CR>
+
+" {{{3 Help and commands
+" FZF commmand source
+nnoremap <leader><leader> :Commands<CR>
+" Navigate through all help
+nnoremap <silent> <Leader>hh :Helptags<CR>
+
+" {{{3 Project
 nnoremap <leader>pp :ProjectBookmarks<CR>
 
-" Go to current file directory
-nnoremap <leader>ff :cd %:h<CR>
+" {{{3 Files
+" FZF trough open files
+nnoremap <leader>ff :FZF<CR>
+" TODO: map this to copy buffer with full path to clipboard
+nnoremap <leader>fy :echo TODO<CR>
+nnoremap <leader>fed :e ~/.vimrc<CR>
 
+" {{{3 Buffers
+" Navigate trough open buffers
+nnoremap <silent> <Leader>bb :History<CR>
 " delete current buffer, keep the split
 nnoremap <leader>bd :call BufferDelete()<CR>
 " home buffer
 nnoremap <leader>bh :Startify<CR>
 
-" applications (like terminal and stuff)
+" {{{3 applications (like terminal and hangups)
 nnoremap <leader>at :terminal<CR>
 nnoremap <leader>ah :terminal hangups<CR>i
 
+" {{{3 Git
 " fugitive related
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 " this is FZF, browsing through all the commits
 nnoremap <leader>gl :Commits<CR>
 
+" {{{3 Grepper/searching
+nnoremap <silent> <Leader>ss :Grepper -tool ag -cword<CR>
+" search current word under cursor (found on tpopes vimrc)
+nnoremap <silent> <Leader>sw :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
+
+" {{{3 Misc
 " remove trailing whitespaces
 nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
-" grepper/searching
-nnoremap <silent> <Leader>ss :Grepper<CR>
+" {{{1 Autocommands
+"-------------------------------------------------------------------------------
+" Go back to laster cursor position for each opened file
+augroup makohoek_buffer_tweaks
+  autocmd!
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
 
-" C-a and C-e support for ex-mode
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
+augroup makohoek_python
+  autocmd!
+  "set 4 spaces when editing python
+  autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
+  " Use autopep8 for formating python files with gq
+  autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\ -
+augroup END
 
-" search current word under cursor (found on tpopes vimrc)
-nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
-" if we are doing cpp, use different search
-autocmd FileType cpp nnoremap gs :OpenURL http://www.cplusplus.com/search.do?q=<cword><CR>
+augroup makohoek_vimfiles
+  autocmd!
+  autocmd FileType vim set sw=2 sts=2 ts=2 tabstop=2
+augroup END
 
-" commit message specific stuff
-autocmd FileType gitcommit setlocal spell
-autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
-autocmd FileType git,gitcommit exe "normal gg"
+augroup makohoek_git
+  autocmd!
+  " commit message specific stuff
+  autocmd FileType gitcommit setlocal spell
+  autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
+  autocmd FileType git,gitcommit exe "normal gg"
+augroup END
 
-" Use autopep8 for formating python files with gq
-autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\ -
+augroup makohoek_cpp
+  autocmd!
+  " if we are doing cpp, use different search
+  autocmd FileType cpp nnoremap <silent> <Leader>sw :OpenURL http://en.cppreference.com/mwiki/index.php?title=Special%3ASearch&search=<cword><CR>
+augroup END
+
 
 " {{{1 Plugin specific settings
 "-------------------------------------------------------------------------------
-
-" {{{2 YouCompleteMe settings
-let g:ycm_enable_diagnostic_signs = 0 "disable ugly error bar
-" close annoying preview window after completion
-let g:ycm_autoclose_preview_window_after_completion = 1
-" do NOT request config file
-let g:ycm_confirm_extra_conf = 0
-
 " {{{2 vim-cpp-enhanced highlight
 let g:cpp_class_scope_highlight = 1
 
 " {{{2 Grepper settings
 runtime plugin/grepper.vim    " initialize g:grepper with default values
+let g:grepper.dir = 'repo,cwd'
 
 " {{{2 neomake settings
 let g:neomake_open_list = 2
 
 " {{{2 Startify settings
 let g:startify_custom_header = ['']
+
+" {{{2 vim-orgmode
+let g:org_plugins = ['Hyperlinks']
+
 
 " {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------
@@ -408,6 +388,7 @@ if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j
 endif
 
+
 " {{{1 Neovim specifics
 "-------------------------------------------------------------------------------
 if has('nvim')
@@ -419,7 +400,11 @@ if has('nvim')
   " make nvr the commit message editor
   " https://github.com/mhinz/neovim-remote/blob/master/README.md
   let $VISUAL = 'nvr -cc split --remote-wait'
+
+  " much nicer :s usage (with preview)
+  set inccommand=nosplit
 endif
+
 
 " {{{1 Local (specific) extra vimrc
 "-------------------------------------------------------------------------------

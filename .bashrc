@@ -86,7 +86,6 @@ shopt -s extglob
 # Environment variables
 ######################################################################
 export EDITOR=vim
-export VISUAL=vim
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 
 # History stuff
@@ -115,7 +114,6 @@ function source_if_exists()
 
 source_if_exists ~/.bash_aliases
 source_if_exists /etc/bash_completion
-source_if_exists ~/dotfiles/bin/shell_bookmarks.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
