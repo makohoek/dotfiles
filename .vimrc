@@ -237,6 +237,10 @@ cnoremap <C-e> <End>
 " getting help in a fullscreen tab
 map  <silent> <F1> :tabnew<CR>:h<CR>:on<CR>
 
+" don't do anything for ex mode
+" I never use that feature
+noremap Q <nop>
+
 " {{{2 Leader based keybindings
 " {{{3 Visual stuff
 "stop search higlight when hitting return key
