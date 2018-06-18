@@ -413,6 +413,10 @@ if has('nvim')
 
   " much nicer :s usage (with preview)
   set inccommand=nosplit
+
+  " This is from my tmux time
+  nnoremap <A-right> :tabnext<CR>
+  nnoremap <A-left> :tabprevious<CR>
 endif
 
 
