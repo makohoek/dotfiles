@@ -15,7 +15,6 @@ Plug 'bogado/file-line'
 Plug 'cbracken/vala.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/tomorrow-theme'
-Plug 'honza/vim-snippets' "default snippets for ultisnips
 Plug 'jceb/vim-orgmode'
 Plug 'jnurmine/Zenburn'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
