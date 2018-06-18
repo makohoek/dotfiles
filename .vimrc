@@ -28,12 +28,13 @@ Plug 'mhinz/vim-startify'
 Plug 'nanotech/jellybeans.vim'
 Plug 'neomake/neomake'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'romainl/Apprentice'
 Plug 'rust-lang/rust.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
@@ -369,6 +370,16 @@ let g:startify_custom_header = ['']
 
 " {{{2 vim-orgmode
 let g:org_plugins = ['Hyperlinks']
+
+" {{{2 vim-pandoc and vim-pandoc-syntax
+" don't touch my bindings
+let g:pandoc#keyboard#use_default_mappings = 0
+" Some modules I don't need
+let g:pandoc#modules#disabled = ["folding", "templates", "bibliography", "yaml"]
+" I think this looks ugly
+let g:pandoc#syntax#conceal#use = 0
+" support python and bash syntax
+let g:pandoc#syntax#codeblocks#embeds#langs = ["python", "bash=sh"]
 
 
 " {{{1 Store temporary files in a central spot
