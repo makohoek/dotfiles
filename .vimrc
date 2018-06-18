@@ -347,6 +347,7 @@ augroup makohoek_git
   " commit message specific stuff
   autocmd FileType gitcommit setlocal spell
   autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
+  autocmd FileType git,gitcommit setlocal colorcolumn=80
   autocmd BufReadPost */COMMIT_EDITMSG exe "normal gg"
   autocmd FileType git,gitcommit :iabbrev <buffer> tr Tracked-On:
 augroup END
