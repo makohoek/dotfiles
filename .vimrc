@@ -69,6 +69,12 @@ let g:xml_syntax_folding=1 "allow folding for xmls
 " This helps me to see which window is active
 hi StatusLine guifg=#313633 guibg=#ccdc90 ctermfg=239 ctermbg=186
 
+" patch zenburn for terminal cursor in neovim
+hi link TermCursor Cursor
+" hi TermCursorNC  guibg=#484848                         ctermbg=238
+hi TermCursorNC  guifg=#000d18 guibg=#8faf9f gui=bold       ctermfg=233 ctermbg=109 cterm=bold
+
+
 " {{{1 Indentation spaces/tabs
 "-------------------------------------------------------------------------------
 set expandtab     "spaces instead of tabs
