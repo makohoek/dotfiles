@@ -167,7 +167,7 @@ endfunction
 " set kernel style identation
 function! SetCodingStyle(style)
   if a:style == 'kernel'
-    set noet sw=8 sts=8 ts=8 tabstop=8
+    set noet sw=4 sts=4 ts=4 tabstop=4
   else
     set et sw=4 sts=4 ts=4 tabstop=4
   endif
