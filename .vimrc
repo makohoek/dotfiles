@@ -70,6 +70,10 @@ set showmatch         "show matching bracket
 set hlsearch          "show search highlighting
 let g:xml_syntax_folding=1 "allow folding for xmls
 
+" patch zenburn theme to have statusbar a bit brighter
+" This helps me to see which window is active
+hi StatusLine guifg=#313633 guibg=#ccdc90 ctermfg=239 ctermbg=186
+
 " {{{1 Indentation spaces/tabs
 "-------------------------------------------------------------------------------
 set expandtab     "spaces instead of tabs
