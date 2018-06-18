@@ -15,7 +15,6 @@ Plug 'bogado/file-line'
 Plug 'cbracken/vala.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/tomorrow-theme'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'honza/vim-snippets' "default snippets for ultisnips
 Plug 'jceb/vim-orgmode'
 Plug 'jnurmine/Zenburn'
@@ -242,17 +241,6 @@ noremap <buffer> <silent> $ g$
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-" getting help in a fullscreen tab
-map  <silent> <F1> :tabnew<CR>:h<CR>:on<CR>
-
-" Bindings for the great tmux_navigator
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
-
 " {{{2 Leader based keybindings
 " {{{3 Visual stuff
 "stop search higlight when hitting return key
@@ -262,12 +250,6 @@ nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
 
 " Insert a blank line below selected line
 nnoremap <leader><CR> o<Esc>
-
-" {{{3 Tmux
-" Copy paste clipboard with tmux
-vmap <Leader>y "+ygv:Tyank<CR>
-nmap <Leader>p :Tput<CR>
-vmap <Leader>p :Tput<CR>
 
 " {{{3 Help and commands
 " FZF commmand source
