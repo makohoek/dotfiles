@@ -295,6 +295,13 @@ nnoremap <leader>wk <C-w>k
 nnoremap <leader>wl <C-w>l
 nnoremap <leader>ww <C-w>w
 nnoremap <leader>w= <C-w>=
+nnoremap <leader>wo <C-w>o
+
+
+" {{{1 Abbreviations
+"-------------------------------------------------------------------------------
+" TODO: make this specific to commit messages only
+iabbrev tr Tracked-On:
 
 
 " {{{1 Autocommands
