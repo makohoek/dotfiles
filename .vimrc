@@ -343,7 +343,7 @@ augroup makohoek_git
   " commit message specific stuff
   autocmd FileType gitcommit setlocal spell
   autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
-  autocmd FileType git,gitcommit exe "normal gg"
+  autocmd BufReadPost */COMMIT_EDITMSG exe "normal gg"
 augroup END
 
 augroup makohoek_cpp
