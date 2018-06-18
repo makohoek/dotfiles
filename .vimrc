@@ -11,7 +11,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'Makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
-Plug 'bling/vim-airline'
 Plug 'bogado/file-line'
 Plug 'cbracken/vala.vim'
 Plug 'chriskempson/base16-vim'
@@ -29,6 +28,7 @@ Plug 'mhinz/vim-startify'
 Plug 'nanotech/jellybeans.vim'
 Plug 'neomake/neomake'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'romainl/Apprentice'
 Plug 'rust-lang/rust.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
@@ -39,7 +39,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/confluencewiki.vim'
 Plug 'vim-scripts/utl.vim' " for links in org-mode
 call plug#end()
@@ -64,7 +63,6 @@ set t_Co=256
 
 set background=dark
 colorscheme zenburn
-let g:airline_theme='zenburn'
 set cursorline        "show current line
 set fdm=syntax        "folding method based on syntax
 set foldlevel=16      "open folds by default

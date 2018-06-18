@@ -30,6 +30,10 @@ Public/
 .DS_Store
 .Trash
 
+# Other MacOS stuff
+News/
+Roms/
+
 # history related
 .bash_history
 .cling_history
@@ -189,4 +193,10 @@ images/
 # mozilla
 .mozilla
 .pki
+
+# Google drive
+Google Drive/
+
+# Android studio
+AndroidStudioProjects/
 
