@@ -305,9 +305,14 @@ nnoremap <silent> <Leader>ss :Grepper -tool ag -cword<CR>
 " search current word under cursor (found on tpopes vimrc)
 nnoremap <silent> <Leader>sw :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 
-" {{{3 Misc
-" remove trailing whitespaces
-nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
+" {{{3 Window related
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wl <C-w>l
+nnoremap <leader>ww <C-w>w
+nnoremap <leader>w= <C-w>=
+
 
 " {{{1 Autocommands
 "-------------------------------------------------------------------------------
