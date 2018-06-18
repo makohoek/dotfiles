@@ -87,7 +87,17 @@ set backspace=indent,eol,start "backspace over autoindent, linebreaks and insert
 "-------------------------------------------------------------------------------
 set ruler "show line and column number
 set laststatus=2 "always show last status
-set statusline=%<%f%h%w%m%r%=%y\ %l,%c\ %P "see :help statusline
+set statusline=%<           "truncate at start
+set statusline+=%f          "show filename/filepath
+set statusline+=%h          "help flag
+set statusline+=%w          "preview flag
+set statusline+=%m          "modified flag
+set statusline+=%r          "readonly flag"
+set statusline+=%=          "next section
+set statusline+=%y          "show filetype
+set statusline+=\ %l,%c\    "lines and colums
+set statusline+=%P          "scroll percentage
+
 set showcmd "show entered command
 
 set wildmenu "command completion in ex mode
