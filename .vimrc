@@ -306,8 +306,6 @@ nnoremap <leader>wo <C-w>o
 
 " {{{1 Abbreviations
 "-------------------------------------------------------------------------------
-" TODO: make this specific to commit messages only
-iabbrev tr Tracked-On:
 
 
 " {{{1 Autocommands
@@ -340,6 +338,7 @@ augroup makohoek_git
   autocmd FileType gitcommit setlocal spell
   autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
   autocmd BufReadPost */COMMIT_EDITMSG exe "normal gg"
+  autocmd FileType git,gitcommit :iabbrev <buffer> tr Tracked-On:
 augroup END
 
 augroup makohoek_cpp
