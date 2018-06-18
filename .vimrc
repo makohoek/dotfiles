@@ -266,6 +266,7 @@ nnoremap <leader>ff :FZF<CR>
 " TODO: map this to copy buffer with full path to clipboard
 nnoremap <leader>fy :echo TODO<CR>
 nnoremap <leader>fed :e ~/.vimrc<CR>
+nnoremap <leader>feR :source ~/.vimrc<CR>
 
 " {{{3 Buffers
 " Navigate trough open buffers
