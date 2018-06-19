@@ -12,10 +12,8 @@ Plug 'Makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bogado/file-line'
-Plug 'cbracken/vala.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/tomorrow-theme'
-Plug 'honza/vim-snippets' "default snippets for ultisnips
 Plug 'jceb/vim-orgmode'
 Plug 'jnurmine/Zenburn'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -24,19 +22,17 @@ Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-grepper'
 Plug 'mhinz/vim-startify'
-Plug 'nanotech/jellybeans.vim'
 Plug 'neomake/neomake'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'romainl/Apprentice'
 Plug 'rust-lang/rust.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/confluencewiki.vim'
 Plug 'vim-scripts/utl.vim' " for links in org-mode
@@ -66,6 +62,16 @@ set showmatch         "show matching bracket
 set hlsearch          "show search highlighting
 let g:xml_syntax_folding=1 "allow folding for xmls
 
+" patch zenburn theme to have statusbar a bit brighter
+" This helps me to see which window is active
+hi StatusLine guifg=#313633 guibg=#ccdc90 ctermfg=239 ctermbg=186
+
+" patch zenburn for terminal cursor in neovim
+hi link TermCursor Cursor
+" hi TermCursorNC  guibg=#484848                         ctermbg=238
+hi TermCursorNC  guifg=#000d18 guibg=#8faf9f gui=bold       ctermfg=233 ctermbg=109 cterm=bold
+
+
 " {{{1 Indentation spaces/tabs
 "-------------------------------------------------------------------------------
 set expandtab     "spaces instead of tabs
@@ -78,7 +84,17 @@ set backspace=indent,eol,start "backspace over autoindent, linebreaks and insert
 "-------------------------------------------------------------------------------
 set ruler "show line and column number
 set laststatus=2 "always show last status
-set statusline=%<%f%h%w%m%r%=%y\ %l,%c\ %P "see :help statusline
+set statusline=%<           "truncate at start
+set statusline+=%f          "show filename/filepath
+set statusline+=%h          "help flag
+set statusline+=%w          "preview flag
+set statusline+=%m          "modified flag
+set statusline+=%r          "readonly flag"
+set statusline+=%=          "next section
+set statusline+=%y          "show filetype
+set statusline+=\ %l,%c\    "lines and colums
+set statusline+=%P          "scroll percentage
+
 set showcmd "show entered command
 
 set wildmenu "command completion in ex mode
@@ -161,7 +177,7 @@ endfunction
 " set kernel style identation
 function! SetCodingStyle(style)
   if a:style == 'kernel'
-    set noet sw=8 sts=8 ts=8 tabstop=8
+    set noet sw=4 sts=4 ts=4 tabstop=4
   else
     set et sw=4 sts=4 ts=4 tabstop=4
   endif
@@ -234,9 +250,6 @@ noremap <buffer> <silent> $ g$
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-" getting help in a fullscreen tab
-map  <silent> <F1> :tabnew<CR>:h<CR>:on<CR>
-
 " don't do anything for ex mode
 " I never use that feature
 noremap Q <nop>
@@ -266,6 +279,7 @@ nnoremap <leader>ff :FZF<CR>
 " TODO: map this to copy buffer with full path to clipboard
 nnoremap <leader>fy :echo TODO<CR>
 nnoremap <leader>fed :e ~/.vimrc<CR>
+nnoremap <leader>feR :source ~/.vimrc<CR>
 
 " {{{3 Buffers
 " Navigate trough open buffers
@@ -291,9 +305,19 @@ nnoremap <silent> <Leader>ss :Grepper -tool ag -cword<CR>
 " search current word under cursor (found on tpopes vimrc)
 nnoremap <silent> <Leader>sw :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 
-" {{{3 Misc
-" remove trailing whitespaces
-nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
+" {{{3 Window related
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wl <C-w>l
+nnoremap <leader>ww <C-w>w
+nnoremap <leader>w= <C-w>=
+nnoremap <leader>wo <C-w>o
+
+
+" {{{1 Abbreviations
+"-------------------------------------------------------------------------------
+
 
 " {{{1 Autocommands
 "-------------------------------------------------------------------------------
@@ -324,7 +348,8 @@ augroup makohoek_git
   " commit message specific stuff
   autocmd FileType gitcommit setlocal spell
   autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
-  autocmd FileType git,gitcommit exe "normal gg"
+  autocmd BufReadPost */COMMIT_EDITMSG exe "normal gg"
+  autocmd FileType git,gitcommit :iabbrev <buffer> tr Tracked-On:
 augroup END
 
 augroup makohoek_cpp
@@ -351,6 +376,16 @@ let g:startify_custom_header = ['']
 
 " {{{2 vim-orgmode
 let g:org_plugins = ['Hyperlinks']
+
+" {{{2 vim-pandoc and vim-pandoc-syntax
+" don't touch my bindings
+let g:pandoc#keyboard#use_default_mappings = 0
+" Some modules I don't need
+let g:pandoc#modules#disabled = ["folding", "templates", "bibliography", "yaml"]
+" I think this looks ugly
+let g:pandoc#syntax#conceal#use = 0
+" support python and bash syntax
+let g:pandoc#syntax#codeblocks#embeds#langs = ["python", "bash=sh"]
 
 
 " {{{1 Store temporary files in a central spot
@@ -389,6 +424,10 @@ if has('nvim')
 
   " much nicer :s usage (with preview)
   set inccommand=nosplit
+
+  " This is from my tmux time
+  nnoremap <A-right> :tabnext<CR>
+  nnoremap <A-left> :tabprevious<CR>
 endif
 
 
