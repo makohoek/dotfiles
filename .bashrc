@@ -163,9 +163,10 @@ function git() {
 # http://yazgoo.github.io/blag/neovim/terminal/multiplexer/tmux/2017/11/29/neovim-one-week-without-tmux.html
 function cd() {
     builtin cd "$@";
-    # if the parent process is nvim, do a vim cd
-    (ps -o comm= $PPID | grep nvim > /dev/null) && \
+    # do a vim :tcd if we managed to cd and we are withing neovim
+    if [[ -n ${NVIM_LISTEN_ADDRESS} ]]; then
         nvr --remote-send "<esc>:tcd $@<cr>i"
+    fi
 }
 export cd
 
