@@ -167,6 +167,18 @@ function cd() {
 }
 export cd
 
+function e() {
+    nvr --remote "$@"
+}
+
+function split() {
+    nvr -o "$@"
+}
+
+function vsplit() {
+    nvr -O "$@"
+}
+
 # Private includes
 ######################################################################
 source_if_exists  ~/work/.work.bash

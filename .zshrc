@@ -62,4 +62,16 @@ function cd() {
 }
 export cd
 
+function e() {
+    nvr --remote "$@"
+}
+
+function split() {
+    nvr -o "$@"
+}
+
+function vsplit() {
+    nvr -O "$@"
+}
+
 [ -f work/.work.zsh ] && source work/.work.zsh
