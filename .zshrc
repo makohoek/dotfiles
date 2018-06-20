@@ -79,4 +79,17 @@ function vsplit() {
     nvr -O "$@"
 }
 
+# no nested nvim instances
+if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
+    if [[ -x "$(command -v nvr)" ]]; then
+        alias nvim=nvr
+        alias vi=nvr
+        alias vim=nvr
+    else
+        alias nvim='echo "No nesting of vim!"'
+        alias vi='echo "No nesting of vim!"'
+        alias vim='echo "No nesting of vim!"'
+    fi
+fi
+
 [ -f work/.work.zsh ] && source work/.work.zsh
