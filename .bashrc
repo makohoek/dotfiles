@@ -116,6 +116,8 @@ source_if_exists ~/.bash_aliases
 source_if_exists /etc/bash_completion
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# remove the bindings fzf creates because i don't want them all
+bind -r '\ec'
 
 export PATH="$HOME/.cargo/bin:$PATH"
 

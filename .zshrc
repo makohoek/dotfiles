@@ -40,6 +40,8 @@ PATH="$PATH:/Applications/SWI-Prolog.app/Contents/MacOS"
 PATH="$PATH:/usr/local/texlive/2015/bin/universal-darwin/"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# remove the bindings fzf creates because i don't want them all
+bindkey -r '\ec'
 
 # for git dotfiles in ~/
 # https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
