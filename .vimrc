@@ -198,7 +198,7 @@ function! BufferDelete()
             bdelete!
             echo "Buffer deleted. Created new buffer."
         else
-            bprevious
+            buffer #
             bdelete! #
             echo "Buffer deleted."
         endif
