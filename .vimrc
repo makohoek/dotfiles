@@ -22,7 +22,6 @@ Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mhinz/vim-grepper'
 Plug 'mhinz/vim-startify'
-Plug 'neomake/neomake'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -30,6 +29,8 @@ Plug 'romainl/Apprentice'
 Plug 'rust-lang/rust.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -369,9 +370,6 @@ let g:cpp_class_scope_highlight = 1
 runtime plugin/grepper.vim    " initialize g:grepper with default values
 let g:grepper.dir = 'repo,cwd'
 
-" {{{2 neomake settings
-let g:neomake_open_list = 2
-
 " {{{2 Startify settings
 let g:startify_custom_header = ['']
 
@@ -387,6 +385,10 @@ let g:pandoc#modules#disabled = ["folding", "templates", "bibliography", "yaml"]
 let g:pandoc#syntax#conceal#use = 0
 " support python and bash syntax
 let g:pandoc#syntax#codeblocks#embeds#langs = ["python", "bash=sh"]
+
+" {{{2 vim-dispatch
+" don't touch my mappings
+let g:nremap = {"m": "", "`": "", "'": "", "g'": ""}
 
 
 " {{{1 Store temporary files in a central spot
