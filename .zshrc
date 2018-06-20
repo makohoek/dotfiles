@@ -52,4 +52,14 @@ function git() {
 }
 # alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# great trick from:
+# http://yazgoo.github.io/blag/neovim/terminal/multiplexer/tmux/2017/11/29/neovim-one-week-without-tmux.html
+function cd() {
+    builtin cd "$@";
+    # if the parent process is nvim, do a vim cd
+    (ps -o comm= $PPID | grep nvim > /dev/null) && \
+        nvr --remote-send "<esc>:tcd $@<cr>i"
+}
+export cd
+
 [ -f work/.work.zsh ] && source work/.work.zsh
