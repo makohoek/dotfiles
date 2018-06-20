@@ -39,9 +39,6 @@ Plug 'vim-scripts/utl.vim' " for links in org-mode
 call plug#end()
 set modelines=1
 
-" load default vim man plugin
-runtime ftplugin/man.vim
-
 " Load additional themes which are not in standard plug directory
 set runtimepath+=~/.vim/plugged/tomorrow-theme/vim
 
@@ -252,6 +249,10 @@ noremap <buffer> <silent> $ g$
 " C-a and C-e support for ex-mode
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+
+" don't do anything for ex mode
+" I never use that feature
+noremap Q <nop>
 
 " {{{2 Leader based keybindings
 " {{{3 Visual stuff
