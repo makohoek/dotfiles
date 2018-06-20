@@ -104,6 +104,8 @@ set wildignore+=.DS_Store,.git/**,tmp/**,*.log,.bundle/**,node_modules/**,tags
 set wildignore+=*.rbc,.rbx,*.scssc,*.sassc,.sass-cache,*.pyc,*.gem
 set wildignore+=*.jpg,*.jpeg,*.tiff,*.gif,*.png,*.svg,*.psd,*.pdf
 
+set splitright
+
 " {{{1 Search options
 set smartcase "ignore case only when putting on a lowercase
 set incsearch "start search when typing
