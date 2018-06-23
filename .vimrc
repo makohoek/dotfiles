@@ -302,6 +302,8 @@ nnoremap <silent> <Leader>bb :History<CR>
 nnoremap <leader>bd :call BufferDelete()<CR>
 " home buffer
 nnoremap <leader>bh :Startify<CR>
+" new scratch buffer
+nnoremap <leader>bs :enew<CR>
 
 " {{{3 applications (like terminal and hangups)
 nnoremap <leader>at :terminal<CR>
