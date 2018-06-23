@@ -128,6 +128,10 @@ set ttimeout ttimeoutlen=0 notimeout " Disable timeout for Esc key
 set ttyfast " Optimize for fast terminal connections
 set lazyredraw " Don't redraw while executing macros (good performance config)
 
+" always use clipboard
+set clipboard+=unnamedplus
+
+
 " {{{1 External programs
 "-------------------------------------------------------------------------------
 " use par for paragragh formatting
@@ -208,6 +212,14 @@ function! BufferDelete()
     endif
 endfunction
 
+" copy currents buffer full filepath to the clipboard
+" useful for copy-pasting to share code snippets
+function! CopyFullFilepath()
+    let l:filepath = expand("%:p")
+    echom l:filepath
+    let @* = l:filepath
+endfunction
+
 
 " {{{1 Project stuff (poor man's projectile)
 "-------------------------------------------------------------------------------
@@ -279,8 +291,7 @@ nnoremap <leader>pp :ProjectBookmarks<CR>
 " {{{3 Files
 " FZF trough open files
 nnoremap <leader>ff :FZF<CR>
-" TODO: map this to copy buffer with full path to clipboard
-nnoremap <leader>fy :echo TODO<CR>
+nnoremap <leader>fy :call CopyFullFilepath()<CR>
 nnoremap <leader>fed :e ~/.vimrc<CR>
 nnoremap <leader>feR :source ~/.vimrc<CR>
 
