@@ -62,13 +62,13 @@ function cd() {
     builtin cd "$@";
     # do a vim :tcd if we managed to cd and we are withing neovim
     if [[ -n ${NVIM_LISTEN_ADDRESS} ]]; then
-        nvr --remote-send "<esc>:tcd $@<cr>i"
+        ~/bin/neovim-cmd cd "$@"
     fi
 }
 export cd
 
 function e() {
-    nvr --remote "$@"
+    ~/bin/neovim-cmd edit "$@"
 }
 
 function split() {
