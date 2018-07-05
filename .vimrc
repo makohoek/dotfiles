@@ -35,6 +35,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-projectionist'
 Plug 'vim-scripts/confluencewiki.vim'
 Plug 'vim-scripts/utl.vim' " for links in org-mode
 call plug#end()
