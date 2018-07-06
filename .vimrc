@@ -36,6 +36,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'tpope/vim-projectionist'
 Plug 'vim-scripts/confluencewiki.vim'
 Plug 'vim-scripts/utl.vim' " for links in org-mode
 call plug#end()
