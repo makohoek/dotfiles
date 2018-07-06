@@ -213,6 +213,25 @@ function! BufferDelete()
     endif
 endfunction
 
+function! BufferRename(name)
+    if exists("b:term_title")
+        " we are in a terminal buffer, we must prepend with term://
+        let l:buffer_name = "term://" . a:name
+    else
+        let l:buffer_name = a:name
+    endif
+    execute 'file ' . l:buffer_name
+endfunction
+
+function! BufferRenameInteractive()
+    let l:new_name = input("New buffer name: ")
+    if l:new_name == ""
+        echomsg "cannot give empty name"
+    else
+        call BufferRename(l:new_name)
+    endif
+endfunction
+
 " copy currents buffer full filepath to the clipboard
 " useful for copy-pasting to share code snippets
 function! CopyFullFilepath()
@@ -301,6 +320,8 @@ nnoremap <leader>feR :source ~/.vimrc<CR>
 nnoremap <silent> <Leader>bb :History<CR>
 " delete current buffer, keep the split
 nnoremap <leader>bd :call BufferDelete()<CR>
+" rename current buffer
+nnoremap <leader>br :call BufferRenameInteractive()<CR>
 " home buffer
 nnoremap <leader>bh :Startify<CR>
 " new scratch buffer
