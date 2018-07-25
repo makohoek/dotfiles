@@ -339,6 +339,7 @@ nnoremap <leader>ah :terminal hangups<CR>i
 " {{{3 Git
 " fugitive related
 nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :GFiles?<CR>
 nnoremap <leader>gc :Gcommit<CR>
 " this is FZF, browsing through all the commits
 nnoremap <leader>gl :Commits<CR>
@@ -432,6 +433,28 @@ let g:pandoc#syntax#codeblocks#embeds#langs = ["python", "bash=sh"]
 " {{{2 vim-dispatch
 " don't touch my mappings
 let g:nremap = {"m": "", "`": "", "'": "", "g'": ""}
+
+
+" {{{2 fzf
+" Use a full (new empty) buffer for fzf commands
+let g:fzf_layout = { 'window': 'enew' }
+" nicer git commmit format (:Commits)
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" {{{3 projectionist
+" augroup configure_projects
+"   autocmd!
+"   autocmd User ProjectionistActivate call s:compilers()
+" augroup END
+" 
+" function! s:compilers() abort
+"   let l:compile_command = projectionist#query('dispatch')
+"   if len(l:compile_command) > 0
+"     nnoremap <buffer> <leader>pc :Dispatch<CR>
+"   endif
+" " nnoremap <buffer> <leader>pt :Dispatch cargo run<CR>
+" " nnoremap <buffer> <leader>pf :Dispatch cargo fmt<CR>
+" endfunction
 
 
 " {{{1 Store temporary files in a central spot
