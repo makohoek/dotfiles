@@ -257,6 +257,7 @@ if !exists('g:makohoek_projects')
   let g:makohoek_projects = [
         \ '~/code/cpp/hackerrank/',
         \ '~/code/gerrit_scripts/',
+        \ '~/code/rust/neovim-cmd/',
         \ '~/code/docker/docker-dotfiles',
         \ ]
 endif
