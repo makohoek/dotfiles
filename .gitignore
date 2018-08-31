@@ -8,6 +8,9 @@ tags
 .vim/plugged/
 .viminfo
 .vim/.netrwhist
+# vim spelling
+.vim/spell/en.utf-8.spl
+.vim/spell/en.utf-8.sug
 
 # this is where my dotfiles will live now
 # https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
