@@ -1,5 +1,5 @@
 # Set settings for urxvt
-xrdb -merge ~/dotfiles/base16-xresources/base16-tomorrow.dark.xresources
+xrdb -merge ~/base16-xresources/base16-tomorrow.dark.xresources
 
 # set a dark background
 xsetroot
@@ -8,7 +8,7 @@ xsetroot
 setxkbmap -option caps:ctrl_modifier
 
 # optional: set wallpaper
-feh --bg-center ~/images/fantasia_by_luisbc-dat1z88.jpg &
+feh --bg-fill ~/images/fantasia_by_luisbc-dat1z88.jpg &
 
 # optional: start pulse-audio-systray for sound control
 # pasystray &

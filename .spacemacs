@@ -63,6 +63,7 @@ values."
      emacs-lisp
      shell-scripts
      go
+     docker
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      python
@@ -166,7 +167,7 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    ;;    dotspacemacs-default-font '("Fira Mono"
    ;; :size 12.0
-   dotspacemacs-default-font '("Menlo"
+   dotspacemacs-default-font '("Hack"
                    :size 12.0
                    :weight normal
                    :width ultra-condensed
@@ -338,7 +339,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; additional files
   ;; don't pollute my spacemacs file, add it to a custom.el file
-  (load "~/dotfiles/.emacs.d/custom")
+  (load "~/.config/spacemacs/custom")
 
   ;; work related stuff: do not report errors if file do not exist
   (load "~/intel-tools/spacemacs/makohoek-intel/proxy" 't)
@@ -431,4 +432,3 @@ Minibuffer is ignored."
                  (window-height       . 0.33)
                  ))
   (setq sasa/help-temp-buffers (cdr sasa/help-temp-buffers))))
-

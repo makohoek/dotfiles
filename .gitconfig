@@ -7,6 +7,7 @@
     treeb = "log --oneline --decorate --graph --branches"
     ll = "!. ~/.githelpers && pretty_git_log"
     vimdiff = difftool -w -y -t vimdiff
+    changelog = "log --oneline --pretty=format:'%h | %s%d [%an]'"
 [user]
     email = mattijs.korpershoek@gmail.com
     name = Mattijs Korpershoek
@@ -19,4 +20,7 @@
 [color]
     ui = true
 [core]
-	editor = vim
+	editor = nvr --remote-wait-silent
+
+[include]
+    path = /home/mkorperx/work/.gitconfig

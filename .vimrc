@@ -8,43 +8,42 @@
 set modelines=0
 let g:plug_url_format = 'https://github.com/%s.git'
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-tbone'
-Plug 'tommcdo/vim-exchange'
-Plug 'cbracken/vala.vim'
-Plug 'mileszs/ack.vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'honza/vim-snippets' "default snippets for ultisnips
-Plug 'jceb/vim-orgmode'
-Plug 'vim-scripts/utl.vim' " for links in org-mode
-Plug 'bogado/file-line'
-Plug 'nanotech/jellybeans.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'chriskempson/tomorrow-theme'
-Plug 'junegunn/seoul256.vim'
 Plug 'Makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bogado/file-line'
+Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/tomorrow-theme'
+Plug 'jceb/vim-orgmode'
+Plug 'jnurmine/Zenburn'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'mhinz/vim-grepper'
+Plug 'mhinz/vim-startify'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'radenling/vim-dispatch-neovim'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'rhysd/vim-clang-format'
+Plug 'romainl/Apprentice'
 Plug 'rust-lang/rust.vim'
+Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'tpope/vim-projectionist'
 Plug 'vim-scripts/confluencewiki.vim'
-Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/utl.vim' " for links in org-mode
 call plug#end()
 set modelines=1
-
-" load default vim man plugin
-runtime ftplugin/man.vim
 
 " Load additional themes which are not in standard plug directory
 set runtimepath+=~/.vim/plugged/tomorrow-theme/vim
@@ -61,14 +60,23 @@ syntax enable         "syntax highlighting on based on filetype
 set t_Co=256
 
 set background=dark
-colorscheme Tomorrow-Night
-let g:airline_theme='tomorrow'
+colorscheme zenburn
 set cursorline        "show current line
 set fdm=syntax        "folding method based on syntax
 set foldlevel=16      "open folds by default
 set showmatch         "show matching bracket
 set hlsearch          "show search highlighting
 let g:xml_syntax_folding=1 "allow folding for xmls
+
+" patch zenburn theme to have statusbar a bit brighter
+" This helps me to see which window is active
+hi StatusLine guifg=#313633 guibg=#ccdc90 ctermfg=239 ctermbg=186
+
+" patch zenburn for terminal cursor in neovim
+hi link TermCursor Cursor
+" hi TermCursorNC  guibg=#484848                         ctermbg=238
+hi TermCursorNC  guifg=#000d18 guibg=#8faf9f gui=bold       ctermfg=233 ctermbg=109 cterm=bold
+
 
 " {{{1 Indentation spaces/tabs
 "-------------------------------------------------------------------------------
@@ -78,17 +86,21 @@ set softtabstop=4 "number of spaces that a tab counts for
 set autoindent    "Copy indent from current line when starting a new line
 set backspace=indent,eol,start "backspace over autoindent, linebreaks and insert
 
-"set 4 spaces when editing python
-autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
-autocmd FileType vim set sw=2 sts=2 ts=2 tabstop=2
-autocmd FileType pfw set noet sw=4 sts=4 ts=4 tabstop=4
-autocmd FileType ruby set sw=2 sts=2 ts=2 tabstop=2
-
 " {{{1 status bar configuration
 "-------------------------------------------------------------------------------
 set ruler "show line and column number
 set laststatus=2 "always show last status
-set statusline=%<%f%h%w%m%r%=%y\ %l,%c\ %P "see :help statusline
+set statusline=%<           "truncate at start
+set statusline+=%f          "show filename/filepath
+set statusline+=%h          "help flag
+set statusline+=%w          "preview flag
+set statusline+=%m          "modified flag
+set statusline+=%r          "readonly flag"
+set statusline+=%=          "next section
+set statusline+=%y          "show filetype
+set statusline+=\ %l,%c\    "lines and colums
+set statusline+=%P          "scroll percentage
+
 set showcmd "show entered command
 
 set wildmenu "command completion in ex mode
@@ -97,9 +109,13 @@ set wildignore+=.DS_Store,.git/**,tmp/**,*.log,.bundle/**,node_modules/**,tags
 set wildignore+=*.rbc,.rbx,*.scssc,*.sassc,.sass-cache,*.pyc,*.gem
 set wildignore+=*.jpg,*.jpeg,*.tiff,*.gif,*.png,*.svg,*.psd,*.pdf
 
+set splitright
+
 " {{{1 Search options
 set smartcase "ignore case only when putting on a lowercase
 set incsearch "start search when typing
+
+set spelllang=en_us "spell language which should be used
 
 " allow hidden buffers
 set hidden
@@ -117,22 +133,19 @@ set ttimeout ttimeoutlen=0 notimeout " Disable timeout for Esc key
 set ttyfast " Optimize for fast terminal connections
 set lazyredraw " Don't redraw while executing macros (good performance config)
 
+" always use clipboard
+set clipboard+=unnamedplus
+
+
 " {{{1 External programs
 "-------------------------------------------------------------------------------
 " use par for paragragh formatting
-set formatprg=par\ -w80re
+set formatprg=par
 
-" Go back to laster cursor position for each opened file
-"-------------------------------------------------------------------------------
-autocmd BufReadPost *
-  \ if line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g`\"" |
-  \ endif
 
 " {{{1 Functions
-
-" {{{2 Shows column limit based on coding styles (80,100 chars)
 "-------------------------------------------------------------------------------
+" {{{2 Shows column limit based on coding styles (80,100 chars)
 function! ToggleShowColumnLimit()
   if &colorcolumn == '' || &colorcolumn == '0'
     set colorcolumn=80,100
@@ -142,7 +155,6 @@ function! ToggleShowColumnLimit()
 endfunction
 
 " {{{2 Remove trailing whitespaces (thanks vimcasts.org)
-"-------------------------------------------------------------------------------
 function! <SID>StripTrailingWhitespaces()
     " Preparation : save last search, and cursor position.
     let _s=@/
@@ -156,58 +168,13 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 " {{{2 Open the Url passed as argument (thanks tpope)
-"-------------------------------------------------------------------------------
 function! OpenURL(url)
-    exe "silent !x-www-browser \"".a:url."\""
+    exe "silent !open \"".a:url."\""
     redraw!
 endfunction
 command! -nargs=1 OpenURL :call OpenURL(<q-args>)
 
-" 2{{{ Call Uncrustify with a command
-" Usage : :call Uncrustify('cpp')
-"-------------------------------------------------------------------------------
-" Restore cursor position, window position, and last search after running a
-" command.
-function! Preserve(command)
-  " Save the last search.
-  let search = @/
-
-  " Save the current cursor position.
-  let cursor_position = getpos('.')
-
-  " Save the current window position.
-  normal! H
-  let window_position = getpos('.')
-  call setpos('.', cursor_position)
-
-  " Execute the command.
-  execute a:command
-
-  " Restore the last search.
-  let @/ = search
-
-  " Restore the previous window position.
-  call setpos('.', window_position)
-  normal! zt
-
-  " Restore the previous cursor position.
-  call setpos('.', cursor_position)
-endfunction
-
-" Specify path to your Uncrustify configuration file.
-let g:uncrustify_cfg_file_path =
-    \ shellescape(fnamemodify('~/dotfiles/my-uncrustify.cfg', ':p'))
-
-" Don't forget to add Uncrustify executable to $PATH (on Unix) or
-" %PATH% (on Windows) for this command to work.
-function! Uncrustify(language)
-  call Preserve(':silent %!uncrustify'
-      \ . ' -q '
-      \ . ' -l ' . a:language
-      \ . ' -c ' . g:uncrustify_cfg_file_path)
-endfunction
-
-" 2{{{ FZF specific functions and commands
+" {{{2 FZF specific functions and commands
 function! s:buflist()
   redir => ls
   silent ls
@@ -219,23 +186,10 @@ function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-command! FZFBuffers call fzf#run({
-      \   'source':  reverse(<sid>buflist()),
-      \   'sink':    function('<sid>bufopen'),
-      \   'options': '+m',
-      \   'down':    len(<sid>buflist()) + 2
-      \ })
-
-command! FZFMru call fzf#run({
-    \ 'source': v:oldfiles,
-    \ 'sink' : 'e ',
-    \ 'options' : '-m',
-    \ })
-
 " set kernel style identation
 function! SetCodingStyle(style)
   if a:style == 'kernel'
-    set noet sw=8 sts=8 ts=8 tabstop=8
+    set noet sw=4 sts=4 ts=4 tabstop=4
   else
     set et sw=4 sts=4 ts=4 tabstop=4
   endif
@@ -253,15 +207,73 @@ function! BufferDelete()
         let s:total_nr_buffers = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
 
         if s:total_nr_buffers == 1
-            bdelete
+            bdelete!
             echo "Buffer deleted. Created new buffer."
         else
-            bprevious
-            bdelete #
+            buffer #
+            bdelete! #
             echo "Buffer deleted."
         endif
     endif
 endfunction
+
+function! BufferRename(name)
+    if exists("b:term_title")
+        " we are in a terminal buffer, we must prepend with term://
+        let l:buffer_name = "term://" . a:name
+    else
+        let l:buffer_name = a:name
+    endif
+    execute 'file ' . l:buffer_name
+endfunction
+
+function! BufferRenameInteractive()
+    let l:new_name = input("New buffer name: ")
+    if l:new_name == ""
+        echomsg "cannot give empty name"
+    else
+        call BufferRename(l:new_name)
+    endif
+endfunction
+
+" copy currents buffer full filepath to the clipboard
+" useful for copy-pasting to share code snippets
+function! CopyFullFilepath()
+    let l:filepath = expand("%:p")
+    echom l:filepath
+    let @* = l:filepath
+endfunction
+
+
+" {{{1 Project stuff (poor man's projectile)
+"-------------------------------------------------------------------------------
+" Project related things
+let s:work_vimrc = expand('$HOME').'/work/.work.vimrc'
+if filereadable(s:work_vimrc)
+  execute 'source' s:work_vimrc
+endif
+
+if !exists('g:makohoek_projects')
+  let g:makohoek_projects = [
+        \ '~/code/cpp/hackerrank/',
+        \ '~/code/gerrit_scripts/',
+        \ '~/code/rust/neovim-cmd/',
+        \ '~/code/docker/docker-dotfiles',
+        \ ]
+endif
+
+" This is called each time we open a new project
+function! ProjectEditBookmark(bookmark)
+    execute "tabedit " . a:bookmark
+    execute "tcd " . a:bookmark
+endfunction
+
+command! -bang ProjectBookmarks call fzf#run({
+    \ 'source': g:makohoek_projects,
+    \ 'sink' : function('ProjectEditBookmark'),
+    \ 'options' : '-m',
+    \ })
+
 
 " {{{1 Keybindings
 "-------------------------------------------------------------------------------
@@ -274,102 +286,176 @@ noremap <buffer> <silent> j gj
 noremap <buffer> <silent> ^ g^
 noremap <buffer> <silent> $ g$
 
-"stop search higlight when hitting return key
-nnoremap <leader>, :nohlsearch<CR>
-
-" Insert a blank line below selected line
-nnoremap <leader><CR> o<Esc>
-
-" YouCompleteMe keybindings
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-set spelllang=en_us "spell language which should be used
-
-" Copy paste clipboard with tmux
-vmap <Leader>y "+ygv:Tyank<CR>
-nmap <Leader>p :Tput<CR>
-vmap <Leader>p :Tput<CR>
-
-" getting help in a fullscreen tab
-map  <silent> <F1> :tabnew<CR>:h<CR>:on<CR>
-
-" Bindings for the great tmux_navigator
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
-
-" show columns for max length rules
-nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
-
-" FZF trough open files
-nnoremap <silent> <Leader>o :FZF<CR>
-
-" Navigate trough open buffers
-nnoremap <silent> <Leader>b :FZFBuffers<CR>
-
-" Navigate trough most recent used files
-nnoremap <silent> <Leader>r :FZFMru<CR>
-
-" Go to current file directory
-nnoremap <leader>ff :cd %:h<CR>
-
-" jump back and forth between files
-nnoremap <leader><leader> <C-^>
-
-" delete current buffer, keep the split
-nnoremap <leader>d :call BufferDelete()<CR>
-
-" remove trailing whitespaces
-nnoremap <leader>w :call <SID>StripTrailingWhitespaces()<CR>
-
-" show element for syntax highlighting for finer tuning
-" http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
-map <leader>cg :echo "hi<" . synIDattr(synID(line("."), col("."), 1), "name") . '> trans<'
-            \ . synIDattr(synID(line("."), col("."), 0), "name") . "> lo<"
-            \ . synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name") . ">"<CR>
-
 " C-a and C-e support for ex-mode
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+" don't do anything for ex mode
+" I never use that feature
+noremap Q <nop>
+
+" {{{2 Leader based keybindings
+" {{{3 Visual stuff
+"stop search higlight when hitting return key
+nnoremap <leader>, :nohlsearch<CR>
+" show columns for max length rules
+nnoremap <leader>v :call ToggleShowColumnLimit()<CR>
+
+" Insert a blank line below selected line
+nnoremap <leader><CR> o<Esc>
+
+" {{{3 Help and commands
+" FZF commmand source
+nnoremap <leader><leader> :Commands<CR>
+" Navigate through all help
+nnoremap <silent> <Leader>hh :Helptags<CR>
+
+" {{{3 Project
+nnoremap <leader>pp :ProjectBookmarks<CR>
+
+" {{{3 Files
+" FZF trough open files
+nnoremap <leader>ff :FZF<CR>
+nnoremap <leader>fy :call CopyFullFilepath()<CR>
+nnoremap <leader>fed :e ~/.vimrc<CR>
+nnoremap <leader>feR :source ~/.vimrc<CR>
+
+" {{{3 Buffers
+" Navigate trough open buffers
+nnoremap <silent> <Leader>bb :History<CR>
+" delete current buffer, keep the split
+nnoremap <leader>bd :call BufferDelete()<CR>
+" rename current buffer
+nnoremap <leader>br :call BufferRenameInteractive()<CR>
+" home buffer
+nnoremap <leader>bh :Startify<CR>
+" new scratch buffer
+nnoremap <leader>bs :enew<CR>
+
+" {{{3 applications (like terminal and hangups)
+nnoremap <leader>at :terminal<CR>
+nnoremap <leader>ah :terminal hangups<CR>i
+
+" {{{3 Git
+" fugitive related
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :GFiles?<CR>
+nnoremap <leader>gc :Gcommit<CR>
+" this is FZF, browsing through all the commits
+nnoremap <leader>gl :Commits<CR>
+
+" {{{3 Grepper/searching
+nnoremap <silent> <Leader>ss :Grepper -tool ag -cword<CR>
 " search current word under cursor (found on tpopes vimrc)
-nnoremap gs :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
-" if we are doing cpp, use different search
-autocmd FileType cpp nnoremap gs :OpenURL http://www.cplusplus.com/search.do?q=<cword><CR>
+nnoremap <silent> <Leader>sw :OpenURL https://www.duckduckgo.com/search?q=<cword><CR>
 
-" commit message specific stuff
-autocmd FileType gitcommit setlocal spell
-autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
-autocmd FileType git,gitcommit exe "normal gg"
+" {{{3 Window related
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wl <C-w>l
+nnoremap <leader>ww <C-w>w
+nnoremap <leader>w= <C-w>=
+nnoremap <leader>wo <C-w>o
 
-" Use autopep8 for formating python files with gq
-autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\ -
+
+" {{{1 Abbreviations
+"-------------------------------------------------------------------------------
+
+
+" {{{1 Autocommands
+"-------------------------------------------------------------------------------
+" Go back to laster cursor position for each opened file
+augroup makohoek_buffer_tweaks
+  autocmd!
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
+
+augroup makohoek_python
+  autocmd!
+  "set 4 spaces when editing python
+  autocmd FileType python set sw=4 sts=4 ts=4 tabstop=4
+  " Use autopep8 for formating python files with gq
+  autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\ -
+augroup END
+
+augroup makohoek_vimfiles
+  autocmd!
+  autocmd FileType vim set sw=2 sts=2 ts=2 tabstop=2
+augroup END
+
+augroup makohoek_git
+  autocmd!
+  " commit message specific stuff
+  autocmd FileType gitcommit setlocal spell
+  autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
+  autocmd FileType git,gitcommit setlocal colorcolumn=72
+  autocmd FileType git,gitcommit setlocal textwidth=72
+  autocmd BufReadPost */COMMIT_EDITMSG exe "normal gg"
+  autocmd FileType git,gitcommit :iabbrev <buffer> tr Tracked-On:
+augroup END
+
+augroup makohoek_cpp
+  autocmd!
+  " if we are doing cpp, use different search
+  autocmd FileType cpp nnoremap <silent> <Leader>sw :OpenURL http://en.cppreference.com/mwiki/index.php?title=Special%3ASearch&search=<cword><CR>
+augroup END
+
 
 " {{{1 Plugin specific settings
 "-------------------------------------------------------------------------------
-
-" {{{2 YouCompleteMe settings
-"-------------------------------------------------------------------------------
-let g:ycm_enable_diagnostic_signs = 0 "disable ugly error bar
-" close annoying preview window after completion
-let g:ycm_autoclose_preview_window_after_completion = 1
-" do NOT request config file
-let g:ycm_confirm_extra_conf = 0
-
-" {{{2 :Ack.vim settings
-let g:ackprg = 'grep -rsni'
-
 " {{{2 vim-cpp-enhanced highlight
 let g:cpp_class_scope_highlight = 1
 
-" {{{2 easymotion settings
-let g:EasyMotion_use_upper = 1
-map <Leader> <Plug>(easymotion-prefix)
-let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;'
-hi link EasyMotionTargetDefault IncSearch
+" {{{2 Grepper settings
+runtime plugin/grepper.vim    " initialize g:grepper with default values
+let g:grepper.dir = 'repo,cwd'
+
+" {{{2 Startify settings
+let g:startify_custom_header = ['']
+
+" {{{2 vim-orgmode
+let g:org_plugins = ['Hyperlinks']
+
+" {{{2 vim-pandoc and vim-pandoc-syntax
+" don't touch my bindings
+let g:pandoc#keyboard#use_default_mappings = 0
+" Some modules I don't need
+let g:pandoc#modules#disabled = ["folding", "templates", "bibliography", "yaml"]
+" I think this looks ugly
+let g:pandoc#syntax#conceal#use = 0
+" support python and bash syntax
+let g:pandoc#syntax#codeblocks#embeds#langs = ["python", "bash=sh"]
+
+" {{{2 vim-dispatch
+" don't touch my mappings
+let g:nremap = {"m": "", "`": "", "'": "", "g'": ""}
+
+
+" {{{2 fzf
+" Use a full (new empty) buffer for fzf commands
+let g:fzf_layout = { 'window': 'enew' }
+" nicer git commmit format (:Commits)
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" {{{3 projectionist
+" augroup configure_projects
+"   autocmd!
+"   autocmd User ProjectionistActivate call s:compilers()
+" augroup END
+" 
+" function! s:compilers() abort
+"   let l:compile_command = projectionist#query('dispatch')
+"   if len(l:compile_command) > 0
+"     nnoremap <buffer> <leader>pc :Dispatch<CR>
+"   endif
+" " nnoremap <buffer> <leader>pt :Dispatch cargo run<CR>
+" " nnoremap <buffer> <leader>pf :Dispatch cargo fmt<CR>
+" endfunction
+
 
 " {{{1 Store temporary files in a central spot
 "------------------------------------------------------------------------------
@@ -392,6 +478,7 @@ if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j
 endif
 
+
 " {{{1 Neovim specifics
 "-------------------------------------------------------------------------------
 if has('nvim')
@@ -399,7 +486,19 @@ if has('nvim')
   tnoremap <Esc> <Esc><C-\><C-n>
   " send escape to terminal
   tnoremap <C><Esc> <Esc>
+
+  " make nvr the commit message editor
+  " https://github.com/mhinz/neovim-remote/blob/master/README.md
+  let $VISUAL = 'nvr -cc split --remote-wait'
+
+  " much nicer :s usage (with preview)
+  set inccommand=nosplit
+
+  " This is from my tmux time
+  nnoremap <A-right> :tabnext<CR>
+  nnoremap <A-left> :tabprevious<CR>
 endif
+
 
 " {{{1 Local (specific) extra vimrc
 "-------------------------------------------------------------------------------

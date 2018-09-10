@@ -21,4 +21,8 @@ alias tmux='export TERM="screen-256color"; tmux -2'
 # neovim specific stuff
 alias nvimd='NVIM_LISTEN_ADDRESS=/tmp/nvim nvim'
 
+# for git dotfiles in ~/
+# https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
 # vim: filetype=sh syntax=sh

@@ -28,13 +28,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source /usr/local/share/chruby/chruby.sh
+source ~/.cargo/env
 
 export EDITOR=vim
-
-# Setting for the new UTF-8 terminal support in Lion
-export LC_ALL=fr_FR.UTF-8
-export LC_CTYPE=fr_FR.UTF-8
 
 # par variable from manual
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
@@ -48,13 +44,63 @@ PATH="$PATH:/usr/local/texlive/2017basic/bin/x86_64-darwin"
 # for my own custom scripts
 PATH="$PATH:/Users/makohoek/bin"
 
-alias nvi="~/dotfiles/neovim_helpers/open_file_in_left_split.py"
-alias gcommit="~/dotfiles/neovim_helpers/run_fugitive_commit.py"
-alias nvim='NVIM_LISTEN_ADDRESS=/tmp/nvim nvim'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
 
 # gpgagnet
 start_gpg_agent() {
     eval $(gpg-agent --daemon)
 }
+
+# remove the bindings fzf creates because i don't want them all
+bindkey -r '\ec'
+
+# for git dotfiles in ~/
+# https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
+function git() {
+    if [[ "$PWD" == "$HOME" ]]; then
+        /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME "$@"
+    else
+        /usr/bin/git "$@"
+    fi
+}
+# alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# great trick from:
+# http://yazgoo.github.io/blag/neovim/terminal/multiplexer/tmux/2017/11/29/neovim-one-week-without-tmux.html
+function cd() {
+    builtin cd "$@";
+    # do a vim :tcd if we managed to cd and we are withing neovim
+    if [[ -n ${NVIM_LISTEN_ADDRESS} ]]; then
+        ~/bin/neovim-cmd cd "$@"
+    fi
+}
+export cd
+
+function e() {
+    ~/bin/neovim-cmd edit "$@"
+}
+
+function split() {
+    nvr -o "$@"
+}
+
+function vsplit() {
+    nvr -O "$@"
+}
+
+# no nested nvim instances
+if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
+    if [[ -x "$(command -v nvr)" ]]; then
+        alias nvim=nvr
+        alias vi=nvr
+        alias vim=nvr
+    else
+        alias nvim='echo "No nesting of vim!"'
+        alias vi='echo "No nesting of vim!"'
+        alias vim='echo "No nesting of vim!"'
+    fi
+fi
+
+[ -f work/.work.zsh ] && source work/.work.zsh
