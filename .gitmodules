@@ -15,4 +15,4 @@
 	url = https://github.com/syl20bnr/spacemacs
 [submodule "bash_it"]
 	path = bash_it
-	url = https://github.com/Bash-it/bash-it
+	url = https://github.com/Bash-it/bash-it.git
