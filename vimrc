@@ -6,7 +6,7 @@
 " {{{1 Plugin loading with vim-plug
 "-------------------------------------------------------------------------------
 if filereadable(expand("~/.vimrc.plugins"))
-  source ~/.vimrc.bundles
+  source ~/.vimrc.plugins
 endif
 
 " Load additional themes which are not in standard plug directory
