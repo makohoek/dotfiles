@@ -9,12 +9,17 @@ https://github.com/thoughtbot/rcm#installation
 
 ## Installation
 
-- Run the install script:
-~~~sh
-cd ~/ && curl -Lks https://raw.githubusercontent.com/Makohoek/dotfiles/master/setup.sh | /bin/bash
-~~~
+- Clone the repository:
+```sh
+git clone https://github.com/Makohoek/dotfiles.git ~/.dotfiles
+```
 
 - Then, initialize the submodules:
-~~~sh
-git submodule update --init --recursive
-~~~
+```sh
+cd ~/.dotfiles && git submodule update --init --recursive
+```
+
+- Then, use `rcm` to create the symlinks:
+```sh
+cd && rcup -v
+```
