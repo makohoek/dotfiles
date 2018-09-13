@@ -1,14 +1,13 @@
 # Makohoek's dotfiles
 
-This repository is stored in my home folder using the trick described below:
-[https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/]()
+Here be dragons :dragon: :dragon: :dragon:
 
-http://thoughtbot.github.io/rcm/rcm.7.html
-https://robots.thoughtbot.com/rcm-for-rc-files-in-dotfiles-repos
-https://github.com/thoughtbot/rcm#installation
+## Prerequisite
+My dotfiles are managed through `rcm`.
+To install `rcm`, visit [https://github.com/thoughtbot/rcm#installation].
+
 
 ## Installation
-
 - Clone the repository:
 ```sh
 git clone https://github.com/Makohoek/dotfiles.git ~/.dotfiles
@@ -23,3 +22,7 @@ cd ~/.dotfiles && git submodule update --init --recursive
 ```sh
 cd && rcup -v
 ```
+
+## More information on `rcm`
+- [http://thoughtbot.github.io/rcm/rcm.7.html]
+- [https://robots.thoughtbot.com/rcm-for-rc-files-in-dotfiles-repos]
