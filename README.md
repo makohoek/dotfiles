@@ -1,10 +1,10 @@
 # Makohoek's dotfiles
 
-Here be dragons :dragon: :dragon: :dragon:
+:dragon: here be dragons :dragon:
 
 ## Prerequisite
 My dotfiles are managed through `rcm`.
-To install `rcm`, visit [https://github.com/thoughtbot/rcm#installation].
+To install `rcm`, visit https://github.com/thoughtbot/rcm#installation
 
 
 ## Installation
@@ -24,5 +24,5 @@ cd && rcup -v
 ```
 
 ## More information on `rcm`
-- [http://thoughtbot.github.io/rcm/rcm.7.html]
-- [https://robots.thoughtbot.com/rcm-for-rc-files-in-dotfiles-repos]
+- http://thoughtbot.github.io/rcm/rcm.7.html
+- https://robots.thoughtbot.com/rcm-for-rc-files-in-dotfiles-repos
