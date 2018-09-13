@@ -5,45 +5,9 @@
 "------------------------------------------------------------------------------
 " {{{1 Plugin loading with vim-plug
 "-------------------------------------------------------------------------------
-set modelines=0
-let g:plug_url_format = 'https://github.com/%s.git'
-call plug#begin('~/.vim/plugged')
-Plug 'Makohoek/pfw-vim-syntax'
-Plug 'airblade/vim-gitgutter'
-Plug 'altercation/vim-colors-solarized'
-Plug 'bogado/file-line'
-Plug 'chriskempson/base16-vim'
-Plug 'chriskempson/tomorrow-theme'
-Plug 'jceb/vim-orgmode'
-Plug 'jnurmine/Zenburn'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'mhinz/vim-grepper'
-Plug 'mhinz/vim-startify'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'radenling/vim-dispatch-neovim'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'rhysd/vim-clang-format'
-Plug 'romainl/Apprentice'
-Plug 'rust-lang/rust.vim'
-Plug 'tommcdo/vim-exchange'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'tpope/vim-projectionist'
-Plug 'vim-scripts/confluencewiki.vim'
-Plug 'vim-scripts/utl.vim' " for links in org-mode
-call plug#end()
-set modelines=1
+if filereadable(expand("~/.vimrc.plugins"))
+  source ~/.vimrc.plugins
+endif
 
 " Load additional themes which are not in standard plug directory
 set runtimepath+=~/.vim/plugged/tomorrow-theme/vim

@@ -148,17 +148,6 @@ cscope_rebuild_index()
     cscope -b -q -k
 }
 
-# for git dotfiles in ~/
-# https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
-function git() {
-    if [[ "$PWD" == "$HOME" ]]; then
-        /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME "$@"
-    else
-        /usr/bin/git "$@"
-    fi
-}
-# alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 # great trick from:
 # http://yazgoo.github.io/blag/neovim/terminal/multiplexer/tmux/2017/11/29/neovim-one-week-without-tmux.html
 function cd() {
