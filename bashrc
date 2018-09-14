@@ -109,9 +109,9 @@ source_if_exists ~/.fzf.bash
 bind -r '\ec'
 
 
-##################
-# PATH expension #
-##################
+##########################
+# PATH extra directories #
+##########################
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
