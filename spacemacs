@@ -398,37 +398,4 @@ you should place your code here."
     (setq tramp-verbose 1)
     (add-to-list 'tramp-remote-path "~/bin")
     (add-to-list 'exec-path "~/bin")
-    )
-
-  (defun sasa/display-buffer (buffer &optional alist)
-    "Select window for BUFFER (need to use word ALIST on the first line).
-Returns thirth visible window if there are three visible windows, nil otherwise.
-Minibuffer is ignored."
-    (let ((wnr (if (active-minibuffer-window) 3 2)))
-      (when (= (+ wnr 1) (length (window-list)))
-        (let ((window (nth wnr (window-list))))
-          (set-window-buffer window buffer)
-          window)))
-    )
-
-(defvar sasa/help-temp-buffers '("^\\*Flycheck errors\\*$"
-                                 "^\\*Completions\\*$"
-                                 "^\\*Help\\*$"
-                                 "^\\*compilation\\*$"
-                                 "^\\*magit\\*$"
-                                 "^\\*ag search text*\\*$"
-                                 "^\\*Org Sync Output\\*$"
-                                 "^\\*Colors\\*$"
-                                 "^\\*Async Shell Command\\*$"))
-
-(while sasa/help-temp-buffers
-  (add-to-list 'display-buffer-alist
-               `(,(car sasa/help-temp-buffers)
-                 (display-buffer-reuse-window
-                  sasa/display-buffer
-                  display-buffer-in-side-window)
-                 (reusable-frames     . visible)
-                 (side                . bottom)
-                 (window-height       . 0.33)
-                 ))
-  (setq sasa/help-temp-buffers (cdr sasa/help-temp-buffers))))
+    ))
