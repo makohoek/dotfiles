@@ -5,14 +5,12 @@
 device_control_commands=(
     "adb reboot bootloader"
     "adb reboot recovery"
-    "adb shell setprop sys.adb.config fastboot"
-    "adb shell setprop sys.forcecoldboot yes"
-    "adb logcat | ~/dotfiles/bin/logfilter.sh"
-    "phoneflashtool-cli-launcher.sh -f"
     "fastboot continue"
+    "fastboot flash bootloader bootloader.img"
     "fastboot flash recovery recovery.img"
     "fastboot flash boot boot.img"
     "fastboot flash system system.img"
+    "fastboot update"
 )
 
 # utility function used to write the command in the shell
