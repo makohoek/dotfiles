@@ -14,17 +14,11 @@ export BASH_IT_THEME="$HOME/.bash_it_custom/makohoek.theme"
 # cloned bash-it with a remote other than origin such as `bash-it`.
 # export BASH_IT_REMOTE='bash-it'
 
-# Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='git@git.domain.com'
-
 # Don't check mail when opening terminal.
 unset MAILCHECK
 
 # Change this to your console based IRC client of choice.
 export IRC_CLIENT='irssi'
-
-# Set this to the command you use for todo.txt-cli
-export TODO="t"
 
 # Set this to false to turn off version control status checking within the prompt for all themes
 export SCM_CHECK=true
@@ -43,27 +37,19 @@ export SCM_CHECK=true
 # Uncomment this to set.
 #export SHORT_TERM_LINE=true
 
-# Set vcprompt executable path for scm advance info in prompt (demula theme)
-# https://github.com/djl/vcprompt
-#export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
-
-# (Advanced): Uncomment this to make Bash-it reload itself automatically
-# after enabling or disabling aliases, plugins, and completions.
-# export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
-
-# Uncomment this to make Bash-it create alias reload.
-# export BASH_IT_RELOAD_LEGACY=1
-
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 
-# additional settings
+
+#######################
+# additional settings #
+#######################
 # disable flow control (C-s and C-q) since I use tmux for that feature
 stty -ixon
 
-# Shell Options
-######################################################################
-
+#################
+# Shell Options #
+#################
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -83,14 +69,17 @@ shopt -s hostcomplete
 # allow extended globs such as !()
 shopt -s extglob
 
-# Environment variables
-######################################################################
+
+#########################
+# Environment variables #
+#########################
 export EDITOR=vim
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 
-# History stuff
-######################################################################
 
+#################
+# History stuff #
+#################
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth:erasedups
@@ -99,9 +88,10 @@ HISTCONTROL=ignoreboth:erasedups
 HISTSIZE=10000
 HISTFILESIZE=20000
 
-# Extra includes
-######################################################################
 
+##################
+# Extra includes #
+##################
 function source_if_exists()
 {
     local file_to_source="$1"
@@ -114,16 +104,21 @@ function source_if_exists()
 
 source_if_exists ~/.bash_aliases
 source_if_exists /etc/bash_completion
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source_if_exists ~/.fzf.bash
 # remove the bindings fzf creates because i don't want them all
 bind -r '\ec'
 
+
+##################
+# PATH expension #
+##################
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
-# Functions
-######################################################################
 
+#############
+# Functions #
+#############
 # Colored man
 # see man termcap for the variables
 man() {
@@ -138,6 +133,7 @@ man() {
         man "$@"
 }
 
+# cscope
 cscope_generate_files()
 {
     find $(pwd) -name '*.c' -o -name '*.h' -o -name '*.cpp' -o -name '*.hpp' > cscope.files
@@ -148,6 +144,9 @@ cscope_rebuild_index()
     cscope -b -q -k
 }
 
+##########
+# Neovim #
+##########
 # great trick from:
 # http://yazgoo.github.io/blag/neovim/terminal/multiplexer/tmux/2017/11/29/neovim-one-week-without-tmux.html
 function cd() {
@@ -160,15 +159,27 @@ function cd() {
 export cd
 
 function e() {
-    nvr --remote "$@"
+    if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
+        nvr --remote "$@"
+    else
+        vim "$@"
+    fi
 }
 
 function split() {
+    if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
     nvr -o "$@"
+    else
+        vim "$@"
+    fi
 }
 
 function vsplit() {
-    nvr -O "$@"
+    if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
+        nvr -O "$@"
+    else
+        vim "$@"
+    fi
 }
 
 # no nested nvim instances
@@ -185,6 +196,7 @@ if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
 fi
 
 
-# Private includes
-######################################################################
-source_if_exists  ~/work/.work.bash
+####################
+# Private includes #
+####################
+source_if_exists ~/work/.work.bash
