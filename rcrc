@@ -1,0 +1,3 @@
+EXCLUDES="README.md"
+SYMLINK_DIRS="bin"
+UNDOTTED="bin"

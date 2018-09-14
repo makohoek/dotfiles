@@ -20,7 +20,7 @@ cd ~/.dotfiles && git submodule update --init --recursive
 
 - Then, use `rcm` to create the symlinks:
 ```sh
-cd && rcup -v
+cd && env RCRC=$HOME/.dotfiles/rcrc rcup
 ```
 
 ## More information on `rcm`
