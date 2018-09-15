@@ -23,71 +23,85 @@ plugins=(git colored-man-pages)
 # Oh my zsh
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+######################
+# User configuration #
+######################
+# disable flow control (C-s and C-q) since I use tmux for that feature
+stty -ixon
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
 
-source ~/.cargo/env
-
+#########################
+# Environment variables #
+#########################
 export EDITOR=vim
-
-# par variable from manual
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 
-# for swi prolog
-PATH="$PATH:/Applications/SWI-Prolog.app/Contents/MacOS"
 
-# for pdflatex
-PATH="$PATH:/usr/local/texlive/2017basic/bin/x86_64-darwin"
-
-# for my own custom scripts
-PATH="$PATH:/Users/makohoek/bin"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
-
-# gpgagnet
-start_gpg_agent() {
-    eval $(gpg-agent --daemon)
+##################
+# Extra includes #
+##################
+function source_if_exists()
+{
+    local file_to_source="$1"
+    if [ -f "$file_to_source" ]; then
+        source $file_to_source
+    else
+        >&2 echo "$file_to_source is not available!"
+    fi
 }
 
+source_if_exists ~/.fzf.zsh
 # remove the bindings fzf creates because i don't want them all
 bindkey -r '\ec'
 
-# for git dotfiles in ~/
-# https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
-function git() {
-    if [[ "$PWD" == "$HOME" ]]; then
-        /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME "$@"
-    else
-        /usr/bin/git "$@"
-    fi
-}
-# alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+##########################
+# PATH extra directories #
+##########################
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+# for swi prolog
+PATH="$PATH:/Applications/SWI-Prolog.app/Contents/MacOS"
+# for pdflatex
+PATH="$PATH:/usr/local/texlive/2015/bin/universal-darwin/"
+
+
+##########
+# Neovim #
+##########
 # great trick from:
 # http://yazgoo.github.io/blag/neovim/terminal/multiplexer/tmux/2017/11/29/neovim-one-week-without-tmux.html
 function cd() {
     builtin cd "$@";
     # do a vim :tcd if we managed to cd and we are withing neovim
     if [[ -n ${NVIM_LISTEN_ADDRESS} ]]; then
-        ~/bin/neovim-cmd cd "$@"
+        nvr --remote-send "<esc>:tcd $@<cr>i"
     fi
 }
 export cd
 
 function e() {
-    ~/bin/neovim-cmd edit "$@"
+    if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
+        nvr --remote "$@"
+    else
+        vim "$@"
+    fi
 }
 
 function split() {
+    if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
     nvr -o "$@"
+    else
+        vim "$@"
+    fi
 }
 
 function vsplit() {
-    nvr -O "$@"
+    if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
+        nvr -O "$@"
+    else
+        vim "$@"
+    fi
 }
 
 # no nested nvim instances
@@ -103,4 +117,8 @@ if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
     fi
 fi
 
-[ -f work/.work.zsh ] && source work/.work.zsh
+
+####################
+# Private includes #
+####################
+source_if_exists ~/work/.work.zsh
