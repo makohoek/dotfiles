@@ -88,6 +88,10 @@ HISTCONTROL=ignoreboth:erasedups
 HISTSIZE=10000
 HISTFILESIZE=20000
 
+# Use arrow keys to complete commands from history
+bind '"\e[A"':history-search-backward
+bind '"\e[B"':history-search-forward
+
 
 ##################
 # Extra includes #
