@@ -121,4 +121,4 @@ fi
 ####################
 # Private includes #
 ####################
-source_if_exists ~/work/.work.zsh
+source_if_exists ~/work/work.zsh

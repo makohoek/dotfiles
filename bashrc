@@ -204,4 +204,4 @@ fi
 ####################
 # Private includes #
 ####################
-source_if_exists ~/work/.work.bash
+source_if_exists ~/work/work.bash
