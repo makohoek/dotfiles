@@ -75,6 +75,7 @@ shopt -s extglob
 #########################
 export EDITOR=vim
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
+export TERM=xterm-256color
 
 
 #################
