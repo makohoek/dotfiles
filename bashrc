@@ -158,14 +158,14 @@ function cd() {
     builtin cd "$@";
     # do a vim :tcd if we managed to cd and we are withing neovim
     if [[ -n ${NVIM_LISTEN_ADDRESS} ]]; then
-        nvr --remote-send "<esc>:tcd $@<cr>i"
+        neovim-cmd cd "$@"
     fi
 }
 export cd
 
 function e() {
     if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
-        nvr --remote "$@"
+        neovim-cmd edit "$@"
     else
         vim "$@"
     fi
@@ -173,7 +173,7 @@ function e() {
 
 function split() {
     if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
-    nvr -o "$@"
+        neovim-cmd edit "$@"
     else
         vim "$@"
     fi
@@ -181,7 +181,7 @@ function split() {
 
 function vsplit() {
     if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
-        nvr -O "$@"
+        neovim-cmd edit "$@"
     else
         vim "$@"
     fi
@@ -189,10 +189,10 @@ function vsplit() {
 
 # no nested nvim instances
 if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
-    if [[ -x "$(command -v nvr)" ]]; then
-        alias nvim=nvr
-        alias vi=nvr
-        alias vim=nvr
+    if [[ -x "$(command -v neovim-cmd)" ]]; then
+        alias nvim='neovim-cmd edit'
+        alias vi='neovim-cmd edit'
+        alias vim='neovim-cmd edit'
     else
         alias nvim='echo "No nesting of vim!"'
         alias vi='echo "No nesting of vim!"'
