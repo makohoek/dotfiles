@@ -77,6 +77,7 @@ export EDITOR=vim
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 export TERM=screen-256color
 export BAT_THEME="zenburn"
+export BAT_STYLE="plain"
 
 
 #################
