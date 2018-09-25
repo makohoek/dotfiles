@@ -65,6 +65,8 @@ export PATH="$HOME/bin:$PATH"
 PATH="$PATH:/Applications/SWI-Prolog.app/Contents/MacOS"
 # for pdflatex
 PATH="$PATH:/usr/local/texlive/2015/bin/universal-darwin/"
+# Homebrew
+export PATH="/usr/local/bin:$PATH"
 
 
 ##########
