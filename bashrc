@@ -35,7 +35,7 @@ export SCM_CHECK=true
 
 # Set Xterm/screen/Tmux title with shortened command and directory.
 # Uncomment this to set.
-#export SHORT_TERM_LINE=true
+export SHORT_TERM_LINE=true
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
@@ -75,7 +75,6 @@ shopt -s extglob
 #########################
 export EDITOR=vim
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
-export TERM=screen-256color
 export BAT_THEME="zenburn"
 export BAT_STYLE="plain"
 
