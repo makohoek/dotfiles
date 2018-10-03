@@ -96,7 +96,7 @@
 (setq private-android-allowed-targets '("aosp_dragon" "aosp_shamu"))
 
 ;; Load private projects, if they exist
-(setq private-projects "~/dotfiles-private/spacemacs/makohoek-dev/projects.el")
+(setq private-projects "~/.dotfiles-private/spacemacs-layers//makohoek-dev/projects.el")
 (load private-projects 't)
 
 (defun makohoek-project-make-android-prefix (target)

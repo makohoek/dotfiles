@@ -68,6 +68,8 @@ PATH="$PATH:/Applications/SWI-Prolog.app/Contents/MacOS"
 PATH="$PATH:/usr/local/texlive/2015/bin/universal-darwin/"
 # Homebrew
 export PATH="/usr/local/bin:$PATH"
+# kitty
+export PATH="$HOME/.local/kitty.app/bin:$PATH"
 
 
 ##########
