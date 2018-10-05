@@ -43,6 +43,8 @@ This function should only modify configuration layer settings."
      spacemacs-completion
      spacemacs-layouts
      spacemacs-org
+     spacemacs-modeline
+     spacemacs-visual
      (spacemacs-editing-visual :packages auto-highlight-symbol)
      ivy
      ;; additional spacemacs layers
@@ -226,7 +228,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(spacemacs :separator bar :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -497,9 +499,6 @@ before packages are loaded."
   ;; see coding-style-kernel for switching to kernel style
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode nil)
-
-  ;; use smaller powerline seperator
-  (setq powerline-default-separator 'bar)
 
   ;; coding style for kernel/userspace
   (defun coding-style-kernel()
