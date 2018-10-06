@@ -92,7 +92,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(org-jira ox-reveal copy-as-format xclip realgud)
+   dotspacemacs-additional-packages '(org-jira ox-reveal copy-as-format xclip)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
