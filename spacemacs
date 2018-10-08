@@ -51,7 +51,7 @@ This function should only modify configuration layer settings."
      spacemacs-navigation
      spacemacs-org
      spacemacs-project
-     ;; spacemacs-purpose ;; TODO: this seems nice, introduce it
+     spacemacs-purpose
      spacemacs-visual
      ivy
      ;; additional spacemacs layers
