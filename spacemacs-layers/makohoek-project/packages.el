@@ -22,12 +22,11 @@
 ;;   `makohoek-project/post-init-PACKAGE' to customize the package as it is loaded.
 
 ;;; Code:
-
-;; this is empty since projectile is owned by spacemacs-project: see layers.el
 (defconst makohoek-project-packages
-  '(counsel-projectile))
+  '(counsel-projectile
+    projectile))
 
-(cl-defstruct makohoek-project
+(cl-defstruct makohoek-project-struct
   name            ; name of the projectile project . This is matched with the git folder name
   compile-command ; compile command for this project
   test-command    ; test command for this project
@@ -51,7 +50,7 @@
    "lunch " target "-userdebug"       " && "))
 
 ;; projectile is owned by 'spacemacs-project'
-(defun makohoek-dev/post-init-projectile ()
+(defun makohoek-project/post-init-projectile ()
   ;; specific per-project compile commands
   (defun my-switch-project-hook ()
     "Perform some action after switching Projectile projects."
