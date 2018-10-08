@@ -86,6 +86,7 @@ This function should only modify configuration layer settings."
      ;; own, private layers
      makohoek-dev
      makohoek-email
+     makohoek-project
      makohoek-org
      makohoek-osx
      makohoek-work
