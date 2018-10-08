@@ -84,7 +84,6 @@ This function should only modify configuration layer settings."
      yaml
      (mu4e :variables mu4e-account-alist t)
      ;; own, private layers
-     makohoek-theme
      makohoek-dev
      makohoek-email
      makohoek-org
