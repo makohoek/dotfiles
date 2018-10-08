@@ -40,13 +40,19 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; layers from spacemacs-all
+     ;; spacemacs-base just has spacemacs-defaults
      spacemacs-completion
      spacemacs-layouts
-     spacemacs-org
-     spacemacs-modeline
-     spacemacs-visual
-     spacemacs-project
+     spacemacs-editing
      (spacemacs-editing-visual :packages auto-highlight-symbol)
+     (spacemacs-evil :packages (not vi-tilde-fringe))
+     (spacemacs-misc :packages (not request))
+     spacemacs-modeline
+     spacemacs-navigation
+     spacemacs-org
+     spacemacs-project
+     ;; spacemacs-purpose ;; TODO: this seems nice, introduce it
+     spacemacs-visual
      ivy
      ;; additional spacemacs layers
      (auto-completion :variables
