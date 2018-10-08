@@ -45,6 +45,7 @@ This function should only modify configuration layer settings."
      spacemacs-org
      spacemacs-modeline
      spacemacs-visual
+     spacemacs-project
      (spacemacs-editing-visual :packages auto-highlight-symbol)
      ivy
      ;; additional spacemacs layers
