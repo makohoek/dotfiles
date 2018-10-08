@@ -25,7 +25,7 @@
 
 ;; this is empty since projectile is owned by spacemacs-project: see layers.el
 (defconst makohoek-project-packages
-  '())
+  '(counsel-projectile))
 
 (cl-defstruct makohoek-project
   name            ; name of the projectile project . This is matched with the git folder name
@@ -52,8 +52,6 @@
 
 ;; projectile is owned by 'spacemacs-project'
 (defun makohoek-dev/post-init-projectile ()
-  ;; do not run find-file after a project switch
-  (setq projectile-switch-project-action 'projectile-dired)
   ;; specific per-project compile commands
   (defun my-switch-project-hook ()
     "Perform some action after switching Projectile projects."
@@ -83,5 +81,12 @@
 
   (add-hook 'projectile-after-switch-project-hook
             #'my-switch-project-hook))
+
+(defun makohoek-project/post-init-counsel-projectile ()
+    ;; do not run find-file after a project switch
+    (with-eval-after-load 'counsel-projectile
+      (counsel-projectile-modify-action
+       'counsel-projectile-switch-project-action
+       '((default counsel-projectile-switch-project-action-dired)))))
 
 ;;; packages.el ends here
