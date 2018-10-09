@@ -59,9 +59,9 @@
       ;; FIXME: should remove only the key/value for this project, not all
       (clrhash projectile-compilation-cmd-map)
       (clrhash projectile-test-cmd-map)
-      (when (string= (projectile-project-name) (makohoek-project-name proj))
+      (when (string= (projectile-project-name) (makohoek-project-struct-name proj))
         ;; if project exists, check if it is an android project
-        (if (makohoek-project-android proj)
+        (if (makohoek-project-struct-android proj)
             ;; if it is an android project, ask for target + prefix&postfix the compile command
             (progn
               (setq allowed-targets private-android-allowed-targets)
@@ -69,14 +69,14 @@
               (setq projectile-project-compilation-cmd
                     (concat
                      (makohoek-project-make-android-prefix selected-target)
-                     (makohoek-project-compile-command proj)
+                     (makohoek-project-struct-compile-command proj)
                      "'"))
-              (setq projectile-project-test-cmd (makohoek-project-test-command proj))
+              (setq projectile-project-test-cmd (makohoek-project-struct-test-command proj))
               )
           ;; else, just set the variables
           (progn
-            (setq projectile-project-compilation-cmd (makohoek-project-compile-command proj))
-            (setq projectile-project-test-cmd (makohoek-project-test-command proj)))))))
+            (setq projectile-project-compilation-cmd (makohoek-project-struct-compile-command proj))
+            (setq projectile-project-test-cmd (makohoek-project-struct-test-command proj)))))))
 
   (add-hook 'projectile-after-switch-project-hook
             #'my-switch-project-hook))
