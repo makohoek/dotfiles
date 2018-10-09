@@ -34,7 +34,6 @@
                                   ediff
                                   dtrt-indent
                                   magit
-                                  projectile
                                   whitespace
                                   (log-tools :location local)
                                   (lt-logcat :location local)
@@ -82,63 +81,6 @@
 (defun makohoek-dev/init-lt-serial-kernel()
   ;; nothing to configure here
   (require 'lt-serial-kernel))
-
-(cl-defstruct makohoek-project
-  name            ; name of the projectile project . This is matched with the git folder name
-  compile-command ; compile command for this project
-  test-command    ; test command for this project
-  (android nil))  ; is this project part of the android tree? if yes, commands will be run from root dir
-
-(setq makohoek-project-list '())
-
-;; default values, must be overriden
-(setq private-android-code-directory nil)
-(setq private-android-allowed-targets '("aosp_dragon" "aosp_shamu"))
-
-;; Load private projects, if they exist
-(setq private-projects "~/.dotfiles-private/spacemacs-layers//makohoek-dev/projects.el")
-(load private-projects 't)
-
-(defun makohoek-project-make-android-prefix (target)
-  (setq root-directory private-android-code-directory)
-  (concat
-   "/bin/bash -c 'cd " root-directory " && "
-   "source build/envsetup.sh"         " && "
-   "lunch " target "-userdebug"       " && "))
-
-;; projectile is owned by 'spacemacs-base'
-(defun makohoek-dev/post-init-projectile ()
-  ;; do not run find-file after a project switch
-  (setq projectile-switch-project-action 'projectile-dired)
-  ;; specific per-project compile commands
-  (defun my-switch-project-hook ()
-    "Perform some action after switching Projectile projects."
-    (dolist (proj makohoek-project-list)
-      ;; project is in our database: we don't want to use the "cached compilation cmd"
-      ;; FIXME: should remove only the key/value for this project, not all
-      (clrhash projectile-compilation-cmd-map)
-      (clrhash projectile-test-cmd-map)
-      (when (string= (projectile-project-name) (makohoek-project-name proj))
-        ;; if project exists, check if it is an android project
-        (if (makohoek-project-android proj)
-            ;; if it is an android project, ask for target + prefix&postfix the compile command
-            (progn
-              (setq allowed-targets private-android-allowed-targets)
-              (setq selected-target (ivy-completing-read "target: " allowed-targets))
-              (setq projectile-project-compilation-cmd
-                    (concat
-                     (makohoek-project-make-android-prefix selected-target)
-                     (makohoek-project-compile-command proj)
-                     "'"))
-              (setq projectile-project-test-cmd (makohoek-project-test-command proj))
-              )
-          ;; else, just set the variables
-          (progn
-            (setq projectile-project-compilation-cmd (makohoek-project-compile-command proj))
-            (setq projectile-project-test-cmd (makohoek-project-test-command proj)))))))
-
-  (add-hook 'projectile-after-switch-project-hook
-            #'my-switch-project-hook))
 
 ;; magit is owned by layer 'git'
 (defun makohoek-dev/post-init-magit ()

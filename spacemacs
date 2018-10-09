@@ -40,12 +40,19 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; layers from spacemacs-all
+     ;; spacemacs-base just has spacemacs-defaults
      spacemacs-completion
      spacemacs-layouts
-     spacemacs-org
-     spacemacs-modeline
-     spacemacs-visual
+     spacemacs-editing
      (spacemacs-editing-visual :packages auto-highlight-symbol)
+     (spacemacs-evil :packages (not vi-tilde-fringe))
+     (spacemacs-misc :packages (not request))
+     spacemacs-modeline
+     spacemacs-navigation
+     spacemacs-org
+     spacemacs-project
+     spacemacs-purpose
+     spacemacs-visual
      ivy
      ;; additional spacemacs layers
      (auto-completion :variables
@@ -77,9 +84,9 @@ This function should only modify configuration layer settings."
      yaml
      (mu4e :variables mu4e-account-alist t)
      ;; own, private layers
-     makohoek-theme
      makohoek-dev
      makohoek-email
+     makohoek-project
      makohoek-org
      makohoek-osx
      makohoek-work
