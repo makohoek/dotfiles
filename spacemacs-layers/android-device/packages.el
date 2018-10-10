@@ -19,10 +19,11 @@
   (use-package log-tools
     :config
     (progn
-      (require 'lt-logcat)
-      (require 'lt-serial)
-      (require 'lt-serial-kernel)
-      (customize-set-variable 'lt-serial-default-port "ttyUSB1"))))
+      (use-package lt-logcat)
+      (use-package lt-serial
+        :config
+        (customize-set-variable 'lt-serial-default-port "ttyUSB1"))
+      (use-package lt-serial-kernel))))
 
 (defun android-device/init-device-control ()
   (use-package device-control)
