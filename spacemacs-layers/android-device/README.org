@@ -1,11 +1,8 @@
 #+TITLE: android-device layer
 
-# The maximum height of the logo should be 200 pixels.
-# TODO: add device logo
-# [[img/android-device.png]]
+[[file:img/android-device.png]]
 
-# TOC links should be GitHub style anchors.
-* Table of Contents                                        :TOC_4_gh:noexport:
+* Table of Contents                                       :TOC_4_gh:noexport:
 - [[#description][Description]]
   - [[#features][Features:]]
 - [[#install][Install]]
