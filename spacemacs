@@ -44,7 +44,7 @@ This function should only modify configuration layer settings."
      spacemacs-completion
      spacemacs-layouts
      spacemacs-editing
-     (spacemacs-editing-visual :packages auto-highlight-symbol)
+     (spacemacs-editing-visual :packages (not highlight-parentheses rainbow-delimiters))
      (spacemacs-evil :packages (not vi-tilde-fringe))
      (spacemacs-misc :packages (not request))
      spacemacs-modeline
