@@ -485,6 +485,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; work related stuff: do not report errors if file do not exist
   (load "~/.dotfiles-private/spacemacs-layers/makohoek-work/proxy.el" 't)
 
+  ;;  Nobody likes to have to type out the full yes or no when Emacs asks. Which
+  ;;  it does often. Make it one character.
+  (defalias 'yes-or-no-p 'y-or-n-p)
+
   ;; stop warning about this!
   ;; If non-nil, warn if variables are being set in the wrong shell startup files.
   ;; Environment variables should be set in .profile or .zshenv rather than
