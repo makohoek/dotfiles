@@ -1,18 +1,12 @@
 [submodule "external/i3blocks"]
 	path = external/i3blocks
 	url = https://github.com/Anachron/i3blocks.git
-[submodule "spacemacs-layers/makohoek-dev/local/log-tools"]
-	path = spacemacs-layers/makohoek-dev/local/log-tools
-	url = https://github.com/JulienMasson/log-tools.git
 [submodule "spacemacs-layers/makohoek-dev/local/pfw-emacs-mode"]
 	path = spacemacs-layers/makohoek-dev/local/pfw-emacs-mode
 	url = https://github.com/Makohoek/pfw-emacs-mode.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "emacs.d"]
-	path = emacs.d
-	url = https://github.com/syl20bnr/spacemacs
 [submodule "bash_it"]
 	path = bash_it
 	url = https://github.com/Bash-it/bash-it.git

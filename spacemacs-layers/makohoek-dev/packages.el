@@ -35,10 +35,7 @@
                                   dtrt-indent
                                   magit
                                   whitespace
-                                  (log-tools :location local)
-                                  (lt-logcat :location local)
-                                  (lt-serial :location local)
-                                  (lt-serial-kernel :location local))
+                                  )
   "The list of Lisp packages required by the makohoek-dev layer.")
 
 (defun makohoek-dev/init-dtrt-indent ()
@@ -51,36 +48,6 @@
 ;; nothing to configure. We still need to init it so that
 ;; it is available
 (defun makohoek-dev/init-ag ())
-
-(defun logtools-run-logcat ()
-  (interactive)
-  (log-tools "logcat"))
-
-(defun logtools-run-kernel ()
-  (interactive)
-  (log-tools "serial-kernel"))
-
-(defun makohoek-dev/init-log-tools()
-  ;; nothing to configure here
-  (require 'log-tools)
-  (spacemacs/declare-prefix "il" "intel-log-tools")
-  (spacemacs/set-leader-keys "ill" 'logtools-run-logcat)
-  (spacemacs/set-leader-keys "ilk" 'logtools-run-kernel)
-  )
-
-(defun makohoek-dev/init-lt-logcat()
-  ;; nothing to configure here
-  (require 'lt-logcat)
-  )
-
-(defun makohoek-dev/init-lt-serial()
-  ;; nothing to configure here
-  (require 'lt-serial)
-  (customize-set-variable 'lt-serial-default-port "ttyUSB1"))
-
-(defun makohoek-dev/init-lt-serial-kernel()
-  ;; nothing to configure here
-  (require 'lt-serial-kernel))
 
 ;; magit is owned by layer 'git'
 (defun makohoek-dev/post-init-magit ()

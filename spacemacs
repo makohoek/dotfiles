@@ -84,6 +84,7 @@ This function should only modify configuration layer settings."
      yaml
      (mu4e :variables mu4e-account-alist t)
      ;; own, private layers
+     android-device
      makohoek-dev
      makohoek-email
      makohoek-project
