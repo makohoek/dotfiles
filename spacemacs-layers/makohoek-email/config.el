@@ -32,3 +32,10 @@
 
 ;; show full addresses in view message
 (setq mu4e-view-show-addresses 't)
+
+(with-eval-after-load 'mu4e
+(add-to-list 'mu4e-bookmarks
+             (make-mu4e-bookmark
+              :name  "Inbox"
+              :query "maildir:/gmail/Inbox"
+              :key ?i)))
