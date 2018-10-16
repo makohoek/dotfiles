@@ -77,6 +77,7 @@ This function should only modify configuration layer settings."
      (syntax-checking :variables
                       syntax-checking-enable-by-default nil)
      python
+     pass
      javascript
      html
      osx
