@@ -523,9 +523,6 @@ before packages are loaded."
   ;; call SPC bB with SPC bb
   (spacemacs/set-leader-keys "bb" 'spacemacs-layouts/non-restricted-buffer-list-ivy)
 
-  ;; always prefer horizontal splitting to vertical
-  (setq split-height-threshold nil)
-
   ;; fringe style: equivalent of "half-width"
   (set-fringe-style 4)
 
