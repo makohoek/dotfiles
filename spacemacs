@@ -43,9 +43,9 @@ This function should only modify configuration layer settings."
      ;; spacemacs-base just has spacemacs-defaults
      spacemacs-completion
      spacemacs-layouts
-     spacemacs-editing
-     (spacemacs-editing-visual :packages (not highlight-parentheses rainbow-delimiters))
-     (spacemacs-evil :packages (not vi-tilde-fringe))
+     (spacemacs-editing :packages aggressive-indent eval-sexp-fu)
+     spacemacs-editing-visual
+     (spacemacs-evil :packages (not evil-tutor evil-escape vi-tilde-fringe))
      (spacemacs-misc :packages (not request))
      spacemacs-modeline
      spacemacs-navigation
