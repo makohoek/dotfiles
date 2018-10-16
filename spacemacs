@@ -526,6 +526,12 @@ before packages are loaded."
   ;; fringe style: equivalent of "half-width"
   (set-fringe-style 4)
 
+  (with-eval-after-load 'ivy
+    ;; makes it possible to select the prompt
+    ;; useful for creating new dirs which start with the prefix
+    ;; of an existing one
+    (setq ivy-use-selectable-prompt t))
+
   (with-eval-after-load 'tramp
     (setq tramp-default-method "ssh")
     (setq tramp-completion-reread-directory-timeout nil)
