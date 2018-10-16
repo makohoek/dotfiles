@@ -34,6 +34,7 @@
                                   ediff
                                   dtrt-indent
                                   magit
+                                  ripgrep
                                   whitespace
                                   )
   "The list of Lisp packages required by the makohoek-dev layer.")
@@ -47,7 +48,14 @@
 
 ;; nothing to configure. We still need to init it so that
 ;; it is available
-(defun makohoek-dev/init-ag ())
+(defun makohoek-dev/init-ag ()
+  (use-package ag))
+
+;; nothing to configure. We still need to init it so that
+;; it is available
+(defun makohoek-dev/init-ripgrep ()
+  (use-package ripgrep
+    :config (spacemacs/set-leader-keys "srr" 'ripgrep-regexp)))
 
 ;; magit is owned by layer 'git'
 (defun makohoek-dev/post-init-magit ()
