@@ -514,18 +514,6 @@ before packages are loaded."
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode nil)
 
-  ;; coding style for kernel/userspace
-  (defun coding-style-kernel()
-    "Set coding style to tabs/tabwidth=8"
-    (interactive)
-    (setq-default tab-width 8)
-    (setq-default indent-tabs-mode 't))
-  (defun coding-style-userspace()
-    "Set coding style to spaces/tabwidth=4"
-    (interactive)
-    (setq-default tab-width 4)
-    (setq-default indent-tabs-mode nil))
-
   ;; call SPC bB with SPC bb
   (spacemacs/set-leader-keys "bb" 'spacemacs-layouts/non-restricted-buffer-list-ivy)
 
