@@ -55,35 +55,44 @@ This function should only modify configuration layer settings."
      spacemacs-visual
      ivy
      ;; additional spacemacs layers
+     ;; +lang
+     c-c++
+     emacs-lisp
+     go
+     html
+     javascript
+     markdown
+     python
+     shell-scripts
+     vimscript
+     yaml
+     ;; +source-control
+     git
+     ;; +email
+     (mu4e :variables mu4e-account-alist t)
+     ;; +auto-completion
      (auto-completion :variables
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-enable-snippets-in-popup t
                       :disabled-for org erc)
-     git
-     markdown
+     ;; +emacs
      (org :variables
           org-enable-reveal-js-support t)
-     (shell :variables
-        shell-default-height 30
-        shell-default-position 'bottom)
+     ;; +tags
      cscope
-     c-c++
-     emacs-lisp
-     shell-scripts
-     go
-     docker
+     ;; +checkers
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      (syntax-checking :variables
                       syntax-checking-enable-by-default nil)
-     python
-     pass
-     javascript
-     html
+     ;; +os
      osx
-     vimscript
-     yaml
-     (mu4e :variables mu4e-account-alist t)
+     ;; +tools
+     docker
+     pass
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      ;; own, private layers
      android-device
      makohoek-dev
