@@ -58,9 +58,6 @@ This function should only modify configuration layer settings."
      ;; +lang
      c-c++
      emacs-lisp
-     go
-     html
-     javascript
      markdown
      python
      shell-scripts
