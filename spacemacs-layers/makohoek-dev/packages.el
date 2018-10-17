@@ -83,7 +83,7 @@
       "Push an arbitrary branch or commit somewhere.
   Both the source and the target are read in the minibuffer."
       (interactive
-       (let ((source (magit-read-local-branch-or-commit "Push")))
+       (let ((source (magit-read-local-branch-or-commit "Gerrit")))
          (list source
                (magit-read-remote-branch (format "Push %s to" source) nil
                                          (magit-get-upstream-branch source)
