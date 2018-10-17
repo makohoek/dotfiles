@@ -95,34 +95,25 @@
       ?g "gerrit" 'magit-push-gerrit)
   ))
 
-;; ediff is owned by 'spacemacs-base' layer
+;; whitespace is owned by 'spacemacs-defaults' layer
 (defun makohoek-dev/post-init-whitespace ()
-  ;; whitespace mode
-  (with-eval-after-load 'whitespace
-    (setq whitespace-style '(face spaces tabs newline indentation trailing tab-mark))
-    ;; for tabs in between lines
-    (set-face-attribute 'whitespace-tab nil :background nil
-                        :foreground "DimGray")
-    ;; for tabs as indentation
-    (set-face-attribute 'whitespace-indentation
-                        nil :background nil
-                        :foreground "DimGray")
+  (use-package whitespace
+    :config
+    (setq whitespace-style
+          '(face spaces tabs newline indentation trailing tab-mark))
+    (set-face-attribute 'whitespace-tab nil
+                        :background nil :foreground "DimGray")
+    (set-face-attribute 'whitespace-indentation nil
+                        :background nil :foreground "DimGray")
     ;; change tab displayed char to »
-    (setq whitespace-display-mappings '((tab-mark 9
-                                                  [187 9]
-                                                  [92 9]) ; 9:tab, 187:»
-                                        ))
-    ;; enable whitespace mode in C and Cpp
-    (add-hook 'c-mode-hook (function whitespace-mode))
-    (add-hook 'c++-mode-hook (function whitespace-mode))
-    ;; enable whitespace mode in elisp
-    (add-hook 'emacs-lisp-mode-hook (function whitespace-mode))
-    ;; enable whitespace mode in go
-    (add-hook 'go-mode-hook (function whitespace-mode))
-    ;; enable whitespace mode in makefile mode
-    (add-hook 'makefile-mode-hook (function whitespace-mode))
-    ;; enable whitespace mode in python
-    (add-hook 'python-mode-hook (function whitespace-mode))))
+    ;; 9:tab, 187:»
+    (setq whitespace-display-mappings
+          '((tab-mark 9 [187 9] [92 9])))
+    :hook
+    ((c-mode-common   . whitespace-mode)
+     (emacs-lisp-mode . whitespace-mode)
+     (makefile-mode   . whitespace-mode)
+     (python-mode     . whitespace-mode))))
 
 ;; ediff is owned by 'spacemacs-base' layer
 (defun makohoek-dev/post-init-ediff ()
