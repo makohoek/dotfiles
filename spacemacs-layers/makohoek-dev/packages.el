@@ -32,6 +32,7 @@
 
 (defconst makohoek-dev-packages '(ag
                                   ediff
+                                  info
                                   dtrt-indent
                                   magit
                                   ripgrep
@@ -56,6 +57,17 @@
 (defun makohoek-dev/init-ripgrep ()
   (use-package ripgrep
     :config (spacemacs/set-leader-keys "srr" 'ripgrep-regexp)))
+
+(defun makohoek-dev/init-info()
+  (use-package info
+    :config
+    ;; add to list of directories to search for Info documentation files.
+    ;; to add libc:
+    ;; $ cd ~/info
+    ;; $ wget https://www.gnu.org/software/libc/manual/info/libc-info.tar.gz
+    ;; $ tar zxvf libc-info.tar.gz
+    ;; $ install-info --info-dir=/home/julienm/info/ /home/julienm/info/libc.info
+    (customize-set-variable 'Info-additional-directory-list '("~/info"))))
 
 ;; magit is owned by layer 'git'
 (defun makohoek-dev/post-init-magit ()
