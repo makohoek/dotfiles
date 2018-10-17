@@ -15,7 +15,7 @@ git clone https://github.com/Makohoek/dotfiles.git ~/.dotfiles
 
 - Then, initialize the submodules:
 ```sh
-cd ~/.dotfiles && git submodule update --init --recursive
+cd ~/.dotfiles && git submodule update --init --recursive --remote --depth=1
 ```
 
 - Then, use `rcm` to create the symlinks:
