@@ -42,10 +42,8 @@
 
 (defun makohoek-dev/init-dtrt-indent ()
   "Enable dtrt-indent for c development."
-  (add-hook 'c-mode-common-hook
-            (lambda ()
-              (require 'dtrt-indent)
-              (dtrt-indent-mode t))))
+  (use-package dtrt-indent
+    :hook (c-mode-common . dtrt-indent-mode)))
 
 ;; nothing to configure. We still need to init it so that
 ;; it is available
