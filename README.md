@@ -28,7 +28,7 @@ cd && env RCRC=$HOME/.dotfiles/rcrc rcup
 - Spacemacs (`develop branch`)
 ```sh
 git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
-```sh
+```
 
 - Neovim (usually vim is enough for basics)
 See https://github.com/neovim/neovim/releases/
