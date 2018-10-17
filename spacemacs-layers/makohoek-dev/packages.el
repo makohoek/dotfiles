@@ -10,25 +10,25 @@
 ;;; License: GPLv3
 ;;; Code:
 
-(defconst makohoek-dev-packages '(ag
-                                  ediff
-                                  info
-                                  dtrt-indent
-                                  magit
-                                  ripgrep
-                                  whitespace
-                                  )
+(defconst makohoek-dev-packages
+  '(ag
+    dtrt-indent
+    ediff
+    info
+    magit
+    ripgrep
+    whitespace)
   "The list of Lisp packages required by the makohoek-dev layer.")
-
-(defun makohoek-dev/init-dtrt-indent ()
-  "Enable dtrt-indent for c development."
-  (use-package dtrt-indent
-    :hook (c-mode-common . dtrt-indent-mode)))
 
 ;; nothing to configure. We still need to init it so that
 ;; it is available
 (defun makohoek-dev/init-ag ()
   (use-package ag))
+
+(defun makohoek-dev/init-dtrt-indent ()
+  "Enable dtrt-indent for c development."
+  (use-package dtrt-indent
+    :hook (c-mode-common . dtrt-indent-mode)))
 
 ;; nothing to configure. We still need to init it so that
 ;; it is available
