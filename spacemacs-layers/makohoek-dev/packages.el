@@ -117,18 +117,18 @@
 
 ;; ediff is owned by 'spacemacs-base' layer
 (defun makohoek-dev/post-init-ediff ()
-  ;; ediff customization: show char based diff
-  (with-eval-after-load 'ediff
-    (setq-default ediff-forward-word-function
-                  'forward-char)))
+  (use-package ediff
+    :config
+    ;; ediff customization: show char based diff
+    (setq-default ediff-forward-word-function 'forward-char)))
 
 ;; xcscope is owned by 'cscope' layer
 (defun makohoek-dev/post-init-xcscope()
-  (with-eval-after-load 'xcscope
+  (use-package xcscope
+    :config
     ;; The -q option in cscope: use an inverted database index. Takes
     ;; longer to build, but results in faster lookups. Useful for very
     ;; large codebases
     (setq cscope-option-use-inverted-index t)))
-
 ;;; packages.el ends here
 
