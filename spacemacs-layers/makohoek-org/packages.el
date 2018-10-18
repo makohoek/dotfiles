@@ -25,21 +25,29 @@
           org-gcal-client-secret (auth-source-pass-get "client-secret" "org-gcal-makohoek")
           org-gcal-file-alist '(("mattijs.korpershoek@gmail.com" .  "~/org/gcal-main.org")))))
 
+;; org is owned by the org layer
 (defun makohoek-org/post-init-org ()
   (with-eval-after-load 'org
     ;; org todo keywords
-    (setq org-todo-keywords '(
-                              (sequence "TODO(t!)" "ONGOING(i!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELLED(c)")
+    (setq org-todo-keywords
+          '((sequence "TODO(t!)"
+                      "ONGOING(i!)"
+                      "WAIT(w@/!)" "|"
+                      "DONE(d)" "CANCELLED(c)")
                               ))
     ;; org todo keywords colors
-    (setq org-todo-keyword-faces '(("TODO" . org-todo)
-                                   ("ONGOING" . "orange")
-                                   ("WAIT" . "orange")
-                                   ("DONE" . org-done)
-                                   ("CANCELLED" . org-done)))
+    (setq org-todo-keyword-faces
+          '(("TODO"      . org-todo)
+            ("ONGOING"   . "orange")
+            ("WAIT"      . "orange")
+            ("DONE"      . org-done)
+            ("CANCELLED" . org-done)))
     ;; org-agenda files
     (setq org-agenda-files
-          '("~/org/work.org" "~/org/Notes.org" "~/org/calendar.org" "~/org/gcal-main.org"))
+          '("~/org/work.org"
+            "~/org/Notes.org"
+            "~/org/calendar.org"
+            "~/org/gcal-main.org"))
 
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
     (spacemacs/set-leader-keys-for-major-mode
