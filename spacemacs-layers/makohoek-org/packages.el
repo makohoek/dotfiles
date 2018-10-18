@@ -1,31 +1,13 @@
 ;;; packages.el --- makohoek-org layer packages file for Spacemacs.
 ;;
-;; Copyright (c) 2012-2016 Mattijs Korpershoek
+;; Copyright (c) 2012-2018 Mattijs Korpershoek
 ;;
-;; Author:  <mattijs.korpershoek@gmail.com>
+;; Author: Mattijs Korpershoek <mattijs.korpershoek@gmail.com>
 ;; URL: https://github.com/Makohoek/dotfiles
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; License: GPLv3
-
-;;; Commentary:
-
-;; See the Spacemacs documentation and FAQs for instructions on how to implement
-;; a new layer:
-;;
-;;   SPC h SPC layers RET
-;;
-;;
-;; Briefly, each package to be installed or configured by this layer should be
-;; added to `makohoek-org-packages'. Then, for each package PACKAGE:
-;;
-;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
-;;   function `makohoek-org/init-PACKAGE' to load and initialize the package.
-
-;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
-;;   define the functions `makohoek-org/pre-init-PACKAGE' and/or
-;;   `makohoek-org/post-init-PACKAGE' to customize the package as it is loaded.
 
 ;;; Code:
 
@@ -48,11 +30,11 @@
   (with-eval-after-load 'org
     ;; org todo keywords
     (setq org-todo-keywords '(
-                              (sequence "TODO(t!)" "IN PROGRESS(i!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELLED(c)")
+                              (sequence "TODO(t!)" "ONGOING(i!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELLED(c)")
                               ))
     ;; org todo keywords colors
     (setq org-todo-keyword-faces '(("TODO" . org-todo)
-                                   ("IN PROGRESS" . "orange")
+                                   ("ONGOING" . "orange")
                                    ("WAIT" . "orange")
                                    ("DONE" . org-done)
                                    ("CANCELLED" . org-done)))
