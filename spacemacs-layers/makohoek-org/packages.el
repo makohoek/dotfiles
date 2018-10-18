@@ -26,9 +26,6 @@
           org-gcal-file-alist '(("mattijs.korpershoek@gmail.com" .  "~/org/gcal-main.org")))))
 
 (defun makohoek-org/post-init-org ()
-  ;; point towards default reveal directory
-  ;; FIXME: reveal.js should probably be a submodule of this repo
-  (setq org-reveal-root "file:///home/mako/code/js/reveal.js-master/")
   (with-eval-after-load 'org
     ;; org todo keywords
     (setq org-todo-keywords '(
