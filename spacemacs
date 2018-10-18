@@ -486,10 +486,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  ;; additional files
-  ;; don't pollute my spacemacs file, add it to a custom.el file
-  (load "~/.config/spacemacs/custom")
-
   ;; work related stuff: do not report errors if file do not exist
   (load "~/.dotfiles-private/spacemacs-layers/makohoek-work/proxy.el" 't)
 
