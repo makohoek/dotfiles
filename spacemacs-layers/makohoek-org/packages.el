@@ -41,7 +41,8 @@
                                    ("DONE" . org-done)
                                    ("CANCELLED" . org-done)))
     ;; org-agenda files
-    (setq org-agenda-files (append org-agenda-files '("~/org/work.org" "~/org/Notes.org" "~/org/calendar.org" "~/org/gcal-main.org")))
+    (setq org-agenda-files
+          '("~/org/work.org" "~/org/Notes.org" "~/org/calendar.org" "~/org/gcal-main.org"))
 
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
     (spacemacs/set-leader-keys-for-major-mode
