@@ -526,7 +526,11 @@ before packages are loaded."
     ;; makes it possible to select the prompt
     ;; useful for creating new dirs which start with the prefix
     ;; of an existing one
-    (setq ivy-use-selectable-prompt t))
+    (setq ivy-use-selectable-prompt t)
+    ;; ignore mega long lines in output as it slows down emacs
+    ;; found on https://oremacs.com/2018/03/05/grep-exclude/
+    (setq counsel-rg-base-command
+          "rg -i -M 250 --no-heading --line-number --color never %s ."))
 
   (with-eval-after-load 'tramp
     (setq tramp-default-method "ssh")
