@@ -3,7 +3,7 @@
 ;; Copyright (c) 2012-2018 Mattijs Korpershoek
 ;;
 ;; Author: Mattijs Korpershoek <mattijs.korpershoek@gmail.com>
-;; URL: https://github.com/Makohoek/dotfiles
+;; URL: https://github.com/makohoek/dotfiles
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -27,7 +27,8 @@
 
 ;; org is owned by the org layer
 (defun makohoek-org/post-init-org ()
-  (with-eval-after-load 'org
+  (use-package org
+    :init
     ;; org todo keywords
     (setq org-todo-keywords
           '((sequence "TODO(t!)"
@@ -48,7 +49,7 @@
             "~/org/Notes.org"
             "~/org/calendar.org"
             "~/org/gcal-main.org"))
-
+    :config
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
     (spacemacs/set-leader-keys-for-major-mode
       'org-mode "k" 'org-toggle-checkbox)
@@ -64,7 +65,7 @@
     (add-hook 'org-pomodoro-finished-hook
               (function pomodoro-completed))
     (add-hook 'org-pomodoro-break-finished-hook
-              (function pomodoro-break-completed)))
+              (function pomodoro-break-completed))
 
   ;; org-sync + makefile from jgoerzen (thanks !)
   ;; https://github.com/jgoerzen/public-snippets/blob/master/emacs/org-tools/emacs-config.org
@@ -92,7 +93,6 @@
      :command (cl-list* "make" (list "-C" "~/org"))
      :sentinel 'jgoerzen/org-sync-sentinel))
 
-  (spacemacs/set-leader-keys "is" 'jgoerzen/org-sync)
-  )
+  (spacemacs/set-leader-keys "is" 'jgoerzen/org-sync)))
 
 ;;; packages.el ends here
