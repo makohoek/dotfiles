@@ -43,7 +43,7 @@ This function should only modify configuration layer settings."
      ;; spacemacs-base just has spacemacs-defaults
      spacemacs-completion
      spacemacs-layouts
-     (spacemacs-editing :packages aggressive-indent eval-sexp-fu)
+     (spacemacs-editing :packages aggressive-indent eval-sexp-fu smartparens)
      spacemacs-editing-visual
      (spacemacs-evil :packages (not evil-tutor evil-escape vi-tilde-fringe))
      (spacemacs-misc :packages (not request))
@@ -113,7 +113,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(helm-cscope rainbow-delimiters neotree company-mode smartparens linum-mode tern)
+   dotspacemacs-excluded-packages '(helm-cscope rainbow-delimiters neotree company-mode linum-mode tern)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.

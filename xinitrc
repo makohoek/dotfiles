@@ -20,4 +20,7 @@ nm-applet &
 # parcellite, to synchronize clipboards
 parcellite &
 
+# small notification tray
+dunst&
+
 exec i3
