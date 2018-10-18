@@ -15,13 +15,15 @@
 
 (defun makohoek-org/init-org-gcal()
   (use-package org-gcal
-    :init
-    (progn
-      ;; XXX: auth-source-pass is emacs 26 only
-      (auth-source-pass-enable)
-      (setq org-gcal-client-id (auth-source-pass-get "client-id" "org-gcal-makohoek")
-            org-gcal-client-secret (auth-source-pass-get "client-secret" "org-gcal-makohoek")
-            org-gcal-file-alist '(("mattijs.korpershoek@gmail.com" .  "~/org/gcal-main.org"))))))
+    :commands org-gcal-fetch
+    :config
+    ;; XXX: auth-source-pass is emacs 26 only
+    (use-package auth-source-pass
+      :config
+      (auth-source-pass-enable))
+    (setq org-gcal-client-id (auth-source-pass-get "client-id" "org-gcal-makohoek")
+          org-gcal-client-secret (auth-source-pass-get "client-secret" "org-gcal-makohoek")
+          org-gcal-file-alist '(("mattijs.korpershoek@gmail.com" .  "~/org/gcal-main.org")))))
 
 (defun makohoek-org/post-init-org ()
   ;; point towards default reveal directory
