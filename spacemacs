@@ -43,9 +43,9 @@ This function should only modify configuration layer settings."
      ;; spacemacs-base just has spacemacs-defaults
      spacemacs-completion
      spacemacs-layouts
-     spacemacs-editing
-     (spacemacs-editing-visual :packages auto-highlight-symbol)
-     (spacemacs-evil :packages (not vi-tilde-fringe))
+     (spacemacs-editing :packages aggressive-indent eval-sexp-fu smartparens)
+     spacemacs-editing-visual
+     (spacemacs-evil :packages (not evil-tutor evil-escape vi-tilde-fringe))
      (spacemacs-misc :packages (not request))
      spacemacs-modeline
      spacemacs-navigation
@@ -55,34 +55,41 @@ This function should only modify configuration layer settings."
      spacemacs-visual
      ivy
      ;; additional spacemacs layers
+     ;; +lang
+     c-c++
+     emacs-lisp
+     markdown
+     python
+     shell-scripts
+     vimscript
+     yaml
+     ;; +source-control
+     git
+     ;; +email
+     (mu4e :variables mu4e-account-alist t)
+     ;; +auto-completion
      (auto-completion :variables
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-enable-snippets-in-popup t
                       :disabled-for org erc)
-     git
-     markdown
+     ;; +emacs
      (org :variables
           org-enable-reveal-js-support t)
-     (shell :variables
-        shell-default-height 30
-        shell-default-position 'bottom)
+     ;; +tags
      cscope
-     c-c++
-     emacs-lisp
-     shell-scripts
-     go
-     docker
+     ;; +checkers
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      (syntax-checking :variables
                       syntax-checking-enable-by-default nil)
-     python
-     javascript
-     html
+     ;; +os
      osx
-     vimscript
-     yaml
-     (mu4e :variables mu4e-account-alist t)
+     ;; +tools
+     docker
+     pass
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      ;; own, private layers
      android-device
      makohoek-dev
@@ -106,7 +113,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(helm-cscope rainbow-delimiters neotree company-mode smartparens linum-mode tern)
+   dotspacemacs-excluded-packages '(helm-cscope rainbow-delimiters neotree company-mode linum-mode tern)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -225,10 +232,11 @@ It should only modify the values of Spacemacs settings."
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(zenburn
-             spacegray
-             base16-eighties
-             spacemacs-dark
-             solarized-light)
+                         solarized-light
+                         spacegray
+                         base16-eighties
+                         spacemacs-dark
+                         )
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
    ;; first three are spaceline themes. `doom' is the doom-emacs mode-line.
@@ -364,7 +372,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil unicode symbols are displayed in the mode line.
    ;; If you use Emacs as a daemon and wants unicode characters only in GUI set
    ;; the value to quoted `display-graphic-p'. (default t)
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
 
    ;; If non-nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
@@ -485,6 +493,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; work related stuff: do not report errors if file do not exist
   (load "~/.dotfiles-private/spacemacs-layers/makohoek-work/proxy.el" 't)
 
+  ;;  Nobody likes to have to type out the full yes or no when Emacs asks. Which
+  ;;  it does often. Make it one character.
+  (defalias 'yes-or-no-p 'y-or-n-p)
+
   ;; stop warning about this!
   ;; If non-nil, warn if variables are being set in the wrong shell startup files.
   ;; Environment variables should be set in .profile or .zshenv rather than
@@ -500,8 +512,6 @@ before packages are loaded."
   ;; never prompt, always follow symlinks
   (setq vc-follow-symlinks t)
 
-  (setq dotspacemacs-mode-line-unicode-symbols nil)
-
   ;; enable cscope minor mode on startup in C and C++
   (cscope-setup)
 
@@ -510,26 +520,17 @@ before packages are loaded."
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode nil)
 
-  ;; coding style for kernel/userspace
-  (defun coding-style-kernel()
-    "Set coding style to tabs/tabwidth=8"
-    (interactive)
-    (setq-default tab-width 8)
-    (setq-default indent-tabs-mode 't))
-  (defun coding-style-userspace()
-    "Set coding style to spaces/tabwidth=4"
-    (interactive)
-    (setq-default tab-width 4)
-    (setq-default indent-tabs-mode nil))
-
   ;; call SPC bB with SPC bb
   (spacemacs/set-leader-keys "bb" 'spacemacs-layouts/non-restricted-buffer-list-ivy)
 
-  ;; always prefer horizontal splitting to vertical
-  (setq split-height-threshold nil)
-
   ;; fringe style: equivalent of "half-width"
   (set-fringe-style 4)
+
+  (with-eval-after-load 'ivy
+    ;; makes it possible to select the prompt
+    ;; useful for creating new dirs which start with the prefix
+    ;; of an existing one
+    (setq ivy-use-selectable-prompt t))
 
   (with-eval-after-load 'tramp
     (setq tramp-default-method "ssh")
