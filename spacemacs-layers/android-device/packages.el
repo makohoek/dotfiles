@@ -22,8 +22,8 @@
     (progn
       (use-package lt-logcat)
       (use-package lt-serial
-        :config
-        (customize-set-variable 'lt-serial-default-port "ttyUSB1"))
+        :custom
+        (lt-serial-default-port "ttyUSB1" "default serial port is /dev/ttyUSB1"))
       (use-package lt-serial-kernel))))
 
 (defun android-device/init-device-control ()
