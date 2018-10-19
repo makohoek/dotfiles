@@ -17,6 +17,7 @@
 
 (defun android-device/init-log-tools ()
   (use-package log-tools
+    :commands log-tools
     :config
     (progn
       (use-package lt-logcat)
@@ -26,8 +27,9 @@
       (use-package lt-serial-kernel))))
 
 (defun android-device/init-device-control ()
-  (use-package device-control)
+  (use-package device-control
+  :commands device-control
   :config
-  (use-package dctrl-android))
+  (use-package dctrl-android)))
 
 ;;; packages.el ends here
