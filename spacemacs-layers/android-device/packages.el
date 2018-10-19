@@ -12,8 +12,10 @@
 ;;; Code:
 
 (defconst android-device-packages
-  '((log-tools :location (recipe :fetcher github :repo jeremy-compostella/log-tools))
-    (device-control :location (recipe :fetcher github :repo jeremy-compostella/device-control))))
+  '((log-tools
+     :location (recipe :fetcher github :repo jeremy-compostella/log-tools))
+    (device-control
+     :location (recipe :fetcher github :repo jeremy-compostella/device-control))))
 
 (defun android-device/init-log-tools ()
   (use-package log-tools
