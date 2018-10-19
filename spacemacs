@@ -73,8 +73,7 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-snippets-in-popup t
                       :disabled-for org erc)
      ;; +emacs
-     (org :variables
-          org-enable-reveal-js-support t)
+     org
      ;; +tags
      cscope
      ;; +checkers
