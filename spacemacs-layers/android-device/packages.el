@@ -9,6 +9,13 @@
 ;;
 ;;; License: GPLv3
 
+
+;;; Commentary:
+
+;; android-device is a layer to control android based devices.
+;; It is intended for platform/aosp developers that want to interact
+;; with their development boards from within Emacs.
+
 ;;; Code:
 
 (defconst android-device-packages
@@ -18,6 +25,7 @@
      :location (recipe :fetcher github :repo jeremy-compostella/device-control))))
 
 (defun android-device/init-log-tools ()
+  "Log tools allow adb logcat and serial logs via UART."
   (use-package log-tools
     :commands log-tools
     :config
@@ -29,6 +37,7 @@
       (use-package lt-serial-kernel))))
 
 (defun android-device/init-device-control ()
+  "Flash via fastboot or use adb to interact with the device."
   (use-package device-control
   :commands device-control
   :config
