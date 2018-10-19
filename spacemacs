@@ -1,7 +1,6 @@
 ;; -*- mode: emacs-lisp; lexical-binding: t -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
-
 (defun dotspacemacs/layers ()
   "Layer configuration:
 This function should only modify configuration layer settings."
@@ -95,8 +94,7 @@ This function should only modify configuration layer settings."
      makohoek-project
      makohoek-org
      makohoek-osx
-     makohoek-work
-     )
+     makohoek-work)
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -111,7 +109,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(helm-cscope rainbow-delimiters neotree company-mode linum-mode tern)
+   dotspacemacs-excluded-packages '(helm-cscope org-mu4e rainbow-delimiters neotree company-mode linum-mode tern)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -537,4 +535,3 @@ before packages are loaded."
     (add-to-list 'tramp-remote-path "~/bin")
     (add-to-list 'exec-path "~/bin")
     ))
-
