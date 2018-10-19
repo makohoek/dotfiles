@@ -11,19 +11,13 @@
 ;;; Code:
 
 (defconst makohoek-dev-packages
-  '(ag
-    dtrt-indent
+  '(dtrt-indent
     ediff
     info
     magit
     ripgrep
     whitespace)
   "The list of Lisp packages required by the makohoek-dev layer.")
-
-;; nothing to configure. We still need to init it so that
-;; it is available
-(defun makohoek-dev/init-ag ()
-  (use-package ag))
 
 (defun makohoek-dev/init-dtrt-indent ()
   "Enable dtrt-indent for c development."
