@@ -28,6 +28,7 @@
 ;; org is owned by the org layer
 (defun makohoek-org/post-init-org ()
   (use-package org
+    :defer t
     :init
     ;; org todo keywords
     (setq org-todo-keywords

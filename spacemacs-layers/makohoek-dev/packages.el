@@ -112,6 +112,7 @@
 ;; ediff is owned by 'spacemacs-base' layer
 (defun makohoek-dev/post-init-ediff ()
   (use-package ediff
+    :defer t
     :config
     ;; ediff customization: show char based diff
     (setq-default ediff-forward-word-function 'forward-char)))
