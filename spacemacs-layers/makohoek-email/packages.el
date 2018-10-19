@@ -15,9 +15,8 @@
 ;; mu4e is owned by the mu4e layer
 (defun makohoek-email-post-init-mu4e()
   (use-package mu4e
-    ;; defer loading, only when we invoke mu4e
-    :command mu4e
-    :init
+    :defer t
+    :config
     ;; Set up some common mu4e variables
     (setq mu4e-maildir "~/.email"
           mu4e-sent-folder "/gmail/[Gmail]/Sent Mail"
@@ -26,9 +25,7 @@
           mu4e-refile-folder "/gmail/archive"
           mu4e-get-mail-command "mbsync -a"
           mu4e-update-interval nil
-          mu4e-compose-signature-auto-include nil
-          mu4e-view-show-images t
-          mu4e-view-show-addresses t)
+          mu4e-compose-signature-auto-include nil)
 
     ;; this is a fix for mbsync errors
     ;; http://pragmaticemacs.com/emacs/fixing-duplicate-uid-errors-when-using-mbsync-and-mu4e/
@@ -37,10 +34,11 @@
     ;; change headers in mail view
     (setq mu4e-headers-date-format "%a %b %d %R %Y")
     ;; Fri Jan 26 09:48:44 2018
-
     (setq mu4e-headers-fields '((:date    .  23)
                                 (:from    .  28)
                                 (:subject .  nil)))
+
+    ;; view customization
     (setq mu4e-view-fields '(:from :to :cc :subject :date :mailing-list :attachments :signature))
 
     ;; enable inline images
@@ -51,7 +49,6 @@
 
     ;; show full addresses in view message
     (setq mu4e-view-show-addresses 't)
-    :config
     (add-to-list 'mu4e-bookmarks
                  (make-mu4e-bookmark
                   :name  "Inbox"
