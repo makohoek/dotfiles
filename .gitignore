@@ -213,3 +213,7 @@ AndroidStudioProjects/
 
 # Fritzing
 .config/Fritzing/
+
+# submodules i don't need to track
+bash_it
+oh-my-zsh
