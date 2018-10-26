@@ -14,6 +14,7 @@
   '(dtrt-indent
     ediff
     info
+    hide-lines
     magit
     ripgrep
     whitespace)
@@ -23,6 +24,10 @@
   "Enable dtrt-indent for c development."
   (use-package dtrt-indent
     :hook (c-mode-common . dtrt-indent-mode)))
+
+(defun makohoek-dev/init-hide-lines ()
+  (use-package hide-lines
+    :commands hide-lines))
 
 ;; nothing to configure. We still need to init it so that
 ;; it is available
