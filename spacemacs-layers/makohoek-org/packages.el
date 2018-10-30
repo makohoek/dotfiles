@@ -47,8 +47,8 @@
     ;; org-agenda files
     (setq org-agenda-files
           '("~/org/work.org"
+            "~/org/work-cal.org"
             "~/org/Notes.org"
-            "~/org/calendar.org"
             "~/org/gcal-main.org"))
     :config
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
