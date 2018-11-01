@@ -25,7 +25,9 @@
       (auth-source-pass-enable))
     (setq org-gcal-client-id (auth-source-pass-get "client-id" "org-gcal-makohoek")
           org-gcal-client-secret (auth-source-pass-get "client-secret" "org-gcal-makohoek")
-          org-gcal-file-alist '(("mattijs.korpershoek@gmail.com" .  "~/org/gcal-main.org")))))
+          org-gcal-file-alist
+          '(("mattijs.korpershoek@gmail.com" .  "~/org/gcal-main.org")
+            ("ghitimou3nseap7k05iskembpk@group.calendar.google.com" .  "~/org/gcal-shared.org")))))
 
 (defun makohoek-org/init-org-wunderlist()
   (use-package org-wunderlist
@@ -65,7 +67,8 @@
      '("~/org/work.org"
        "~/org/work-cal.org"
        "~/org/Notes.org"
-       "~/org/gcal-main.org"))
+       "~/org/gcal-main.org"
+       "~/org/gcal-shared.org"))
     :config
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
     (spacemacs/set-leader-keys-for-major-mode
