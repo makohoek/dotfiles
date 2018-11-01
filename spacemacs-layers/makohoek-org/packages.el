@@ -11,7 +11,9 @@
 
 ;;; Code:
 
-(defconst makohoek-org-packages '(org org-gcal))
+(defconst makohoek-org-packages '(org
+                                  org-gcal
+                                  org-wunderlist))
 
 (defun makohoek-org/init-org-gcal()
   (use-package org-gcal
@@ -24,6 +26,19 @@
     (setq org-gcal-client-id (auth-source-pass-get "client-id" "org-gcal-makohoek")
           org-gcal-client-secret (auth-source-pass-get "client-secret" "org-gcal-makohoek")
           org-gcal-file-alist '(("mattijs.korpershoek@gmail.com" .  "~/org/gcal-main.org")))))
+
+(defun makohoek-org/init-org-wunderlist()
+  (use-package org-wunderlist
+    :commands org-wunderlist-fetch
+    :config
+    ;; XXX: auth-source-pass is emacs 26 only
+    (use-package auth-source-pass
+      :config
+      (auth-source-pass-enable))
+    (setq org-wunderlist-client-id (auth-source-pass-get "client-id" "org-wunderlist-makohoek")
+          org-wunderlist-token (auth-source-pass-get "token" "org-wunderlist-makohoek")
+          org-wunderlist-file  "~/org/wunderlist.org"
+          org-wunderlist-dir "~/org/wunderlist/")))
 
 ;; org is owned by the org layer
 (defun makohoek-org/post-init-org ()
