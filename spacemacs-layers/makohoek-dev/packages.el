@@ -3,7 +3,7 @@
 ;; Copyright (c) 2012-2018 Mattijs Korpershoek
 ;;
 ;; Author: Mattijs Korpershoek <mattijs.korpershoek@gmail.com>
-;; URL: https://github.com/Makohoek/dotfiles
+;; URL: https://github.com/makohoek/dotfiles
 ;;
 ;; This file is not part of GNU Emacs.
 ;;

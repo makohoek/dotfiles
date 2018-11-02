@@ -1,4 +1,4 @@
-# Makohoek's dotfiles
+# makohoek's dotfiles
 
 :dragon: here be dragons :dragon:
 
@@ -10,7 +10,7 @@ To install `rcm`, visit https://github.com/thoughtbot/rcm#installation
 ## Installation
 - Clone the repository:
 ```sh
-git clone https://github.com/Makohoek/dotfiles.git ~/.dotfiles
+git clone https://github.com/makohoek/dotfiles.git ~/.dotfiles
 ```
 
 - Then, initialize the submodules:

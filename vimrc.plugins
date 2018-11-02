@@ -5,7 +5,7 @@ end
 set modelines=0
 let g:plug_url_format = 'https://github.com/%s.git'
 call plug#begin('~/.vim/plugged')
-Plug 'Makohoek/pfw-vim-syntax'
+Plug 'makohoek/pfw-vim-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bogado/file-line'
