@@ -20,9 +20,13 @@
 
 (defconst android-device-packages
   '((log-tools
-     :location (recipe :fetcher github :repo jeremy-compostella/log-tools))
+     :location (recipe
+                :fetcher github
+                :repo jeremy-compostella/log-tools))
     (device-control
-     :location (recipe :fetcher github :repo jeremy-compostella/device-control))))
+     :location (recipe
+                :fetcher github
+                :repo jeremy-compostella/device-control))))
 
 (defun android-device/init-log-tools ()
   "Log tools allow adb logcat and serial logs via UART."
@@ -39,8 +43,8 @@
 (defun android-device/init-device-control ()
   "Flash via fastboot or use adb to interact with the device."
   (use-package device-control
-  :commands device-control
-  :config
-  (use-package dctrl-android)))
+    :commands device-control
+    :config
+    (use-package dctrl-android)))
 
 ;;; packages.el ends here
