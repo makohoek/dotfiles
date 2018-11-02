@@ -1,2 +1,4 @@
-(configuration-layer/declare-layer 'cscope)
-(configuration-layer/declare-layer 'git)
+(configuration-layer/declare-layers
+ '(cscope
+   git
+   spacemacs-defaults))
