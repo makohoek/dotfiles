@@ -37,14 +37,14 @@
 
 (defun makohoek-dev/init-info()
   (use-package info
-    :config
+    :custom
     ;; add to list of directories to search for Info documentation files.
     ;; to add libc:
     ;; $ cd ~/info
     ;; $ wget https://www.gnu.org/software/libc/manual/info/libc-info.tar.gz
     ;; $ tar zxvf libc-info.tar.gz
     ;; $ install-info --info-dir=/home/julienm/info/ /home/julienm/info/libc.info
-    (customize-set-variable 'Info-additional-directory-list '("~/info"))))
+    (Info-additional-directory-list '("~/info"))))
 
 ;; magit is owned by layer 'git'
 (defun makohoek-dev/post-init-magit ()
@@ -126,10 +126,7 @@
 ;; xcscope is owned by 'cscope' layer
 (defun makohoek-dev/post-init-xcscope()
   (use-package xcscope
-    :config
-    ;; The -q option in cscope: use an inverted database index. Takes
-    ;; longer to build, but results in faster lookups. Useful for very
-    ;; large codebases
-    (setq cscope-option-use-inverted-index t)))
+    :custom
+    (cscope-option-use-inverted-index t)))
 ;;; packages.el ends here
 
