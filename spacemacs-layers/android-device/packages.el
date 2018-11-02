@@ -45,7 +45,6 @@
   (use-package device-control
     :commands device-control
     :config
-    (use-package dctrl-android
-      :defer t)))
+    (use-package dctrl-android)))
 
 ;;; packages.el ends here
