@@ -1,3 +1,5 @@
 (spacemacs/declare-prefix "aa" "Android")
-(spacemacs/set-leader-keys "aal" 'log-tools)
-(spacemacs/set-leader-keys "aad" 'device-control)
+(when (configuration-layer/package-used-p 'log-tools)
+  (spacemacs/set-leader-keys "aal" 'log-tools))
+(when (configuration-layer/package-used-p 'device-control)
+  (spacemacs/set-leader-keys "aad" 'device-control))
