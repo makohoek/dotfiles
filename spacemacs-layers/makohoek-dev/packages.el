@@ -48,7 +48,9 @@
 
 ;; magit is owned by layer 'git'
 (defun makohoek-dev/post-init-magit ()
-  (with-eval-after-load 'magit
+  (when (configuration-layer/package-used-p 'magit)
+    (spacemacs|use-package-add-hook magit
+      :post-config
     ;; performance tricks for magit (useful in kernel tree)
     ;; remove tag entry for magit status
     (setq magit-status-headers-hook (remove 'magit-insert-tags-header magit-status-headers-hook))
@@ -92,7 +94,7 @@
 
     (magit-define-popup-action 'magit-push-popup
       ?g "gerrit" 'magit-push-gerrit)
-  ))
+  )))
 
 ;; whitespace is owned by 'spacemacs-defaults' layer
 (defun makohoek-dev/post-init-whitespace ()
