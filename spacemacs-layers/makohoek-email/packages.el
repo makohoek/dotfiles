@@ -13,7 +13,7 @@
 (defconst makohoek-email-packages '(mu4e))
 
 ;; mu4e is owned by the mu4e layer
-(defun makohoek-email-post-init-mu4e()
+(defun makohoek-email/post-init-mu4e()
   (use-package mu4e
     :defer t
     :config
