@@ -85,34 +85,7 @@
     (add-hook 'org-pomodoro-finished-hook
               (function pomodoro-completed))
     (add-hook 'org-pomodoro-break-finished-hook
-              (function pomodoro-break-completed))
+              (function pomodoro-break-completed))))
 
-  ;; org-sync + makefile from jgoerzen (thanks !)
-  ;; https://github.com/jgoerzen/public-snippets/blob/master/emacs/org-tools/emacs-config.org
-  (defun jgoerzen/org-sync-sentinel (_process retcode)
-    "Handle output from the org-sync"
-    (if (equal retcode "finished\n")
-        (progn (org-revert-all-org-buffers)
-               (org-id-update-id-locations)
-               (org-save-all-org-buffers)
-               (switch-to-buffer "*Org Sync Output*")
-               (make-process
-                :name "org-sync"
-                :buffer "*Org Sync Output*"
-                :command (cl-list* "make" (list "-C" "~/org" "push"))
-                ))))
-  (defun jgoerzen/org-sync ()
-    "Sync org."
-    (interactive)
-    (org-save-all-org-buffers)
-    (switch-to-buffer "*Org Sync Output*")
-    (erase-buffer)
-    (make-process
-     :name "org-sync"
-     :buffer "*Org Sync Output*"
-     :command (cl-list* "make" (list "-C" "~/org"))
-     :sentinel 'jgoerzen/org-sync-sentinel))
-
-  (spacemacs/set-leader-keys "is" 'jgoerzen/org-sync)))
 
 ;;; packages.el ends here
