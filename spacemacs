@@ -59,6 +59,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      markdown
      python
+     ruby
      shell-scripts
      yaml
      ;; +source-control
