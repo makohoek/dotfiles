@@ -22,7 +22,7 @@
           mu4e-sent-folder "/gmail/[Gmail]/Sent Mail"
           mu4e-drafts-folder "/gmail/[Gmail]/Drafts"
           mu4e-trash-folder "/gmail/[Gmail]/Trash"
-          mu4e-refile-folder "/gmail/archive"
+          mu4e-refile-folder "/gmail/[Gmail]/All Mail"
           mu4e-get-mail-command "mbsync -a"
           mu4e-update-interval nil
           mu4e-compose-signature-auto-include nil)
