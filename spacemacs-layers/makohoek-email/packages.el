@@ -47,8 +47,21 @@
     ;; body display on the html-version
     (setq mu4e-view-prefer-html t)
 
+    ;; hide index messages
+    (setq mu4e-hide-index-messages t)
+
+    ;; use mu4e for e-mail in emacs
+    (setq mail-user-agent 'mu4e-user-agent)
+
     ;; show full addresses in view message
     (setq mu4e-view-show-addresses 't)
+
+    ;; message buffer will be killed after sending a message
+    (setq message-kill-buffer-on-exit t)
+
+    ;; shell command used to converts from html to plain text
+    (setq mu4e-html2text-command 'mu4e-shr2text)
+
     (add-to-list 'mu4e-bookmarks
                  (make-mu4e-bookmark
                   :name  "Inbox"
