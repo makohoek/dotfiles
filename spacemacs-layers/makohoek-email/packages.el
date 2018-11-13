@@ -66,4 +66,14 @@
                  (make-mu4e-bookmark
                   :name  "Inbox"
                   :query "maildir:/gmail/Inbox"
-                  :key ?i))))
+                  :key ?i))
+
+    (setq user-mail-address "mattijs.korpershoek@gmail.com"
+          user-full-name "Mattijs Korpershoek")
+
+    ;; default config when sending mail
+    (setq send-mail-function 'message-send-mail-with-sendmail
+          message-send-mail-function 'message-send-mail-with-sendmail
+          smtpmail-debug-info nil
+          mail-setup-hook nil
+          sendmail-program "/usr/local/bin/msmtp")))
