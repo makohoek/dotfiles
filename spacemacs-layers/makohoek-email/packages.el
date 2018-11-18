@@ -68,6 +68,11 @@
                   :query "maildir:/gmail/Inbox"
                   :key ?i))
 
+    ;; Sometimes html email is just not readable in a text based client, this lets me open the
+    ;; email in my browser.
+    (add-to-list 'mu4e-view-actions '("View in browser" . mu4e-action-view-in-browser) t)
+
+
     (setq user-mail-address "mattijs.korpershoek@gmail.com"
           user-full-name "Mattijs Korpershoek")
 
