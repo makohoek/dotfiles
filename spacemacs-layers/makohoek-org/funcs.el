@@ -43,3 +43,7 @@
   (let ((default-directory "~/bin/ews-orgmode/"))
     (async-shell-command "python ews-fetch-calendar.py > ~/org/work-cal.org" "*org-work-cal*")))
 
+(defun makohoek-org/fetch-all-calendars ()
+  (interactive)
+  (makohoek-org/ews-work-calendar)
+  (org-gcal-fetch))
