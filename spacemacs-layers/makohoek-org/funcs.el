@@ -41,7 +41,9 @@
 (defun makohoek-org/ews-work-calendar ()
   (interactive)
   (let ((default-directory "~/bin/ews-orgmode/"))
-    (async-shell-command "python ews-fetch-calendar.py > ~/org/work-cal.org" "*org-work-cal*")))
+    (start-process-shell-command "org-work-cal" "*org-work-cal*"
+                   "python"
+                   "ews-fetch-calendar.py > ~/org/work-cal.org")))
 
 (defun makohoek-org/fetch-all-calendars ()
   (interactive)
