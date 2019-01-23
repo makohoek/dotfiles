@@ -13,7 +13,9 @@
 
 (defconst makohoek-org-packages '(org
                                   org-gcal
-                                  org-wunderlist))
+                                  org-wunderlist
+                                  org-plus-contrib))
+                                  ;; ox-confluence is installed by `org-plus-contrib'
 
 (defun makohoek-org/init-org-gcal()
   (use-package org-gcal
@@ -41,6 +43,11 @@
           org-wunderlist-token (auth-source-pass-get "token" "org-wunderlist-makohoek")
           org-wunderlist-file  "~/org/wunderlist.org"
           org-wunderlist-dir "~/org/wunderlist/")))
+
+;; org-plus-contrib is owned by the org layer
+(defun makohoek-org/post-init-org-plus-contrib()
+  (use-package ox-confluence
+    :commands org-confluence-export-as-confluence))
 
 ;; org is owned by the org layer
 (defun makohoek-org/post-init-org ()

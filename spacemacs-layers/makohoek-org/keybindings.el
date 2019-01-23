@@ -1,1 +1,1 @@
-(spacemacs/set-leader-keys "is" 'makohoek-org/org-sync)
+(spacemacs/set-leader-keys "aos" 'makohoek-org/fetch-all-calendars)
