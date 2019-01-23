@@ -31,6 +31,13 @@
     ;; http://pragmaticemacs.com/emacs/fixing-duplicate-uid-errors-when-using-mbsync-and-mu4e/
     (setq mu4e-change-filenames-when-moving t)
 
+    ;; Set up some common mu4e variables
+    ;; https://vxlabs.com/2015/01/28/sending-emails-with-math-and-source-code/
+    ;; when mail is sent, automatically convert org body to HTML
+    ;; use C-c to send
+    ;; M-x org~mu4e-mime-switch-headers-or-body
+    (setq org-mu4e-convert-to-html t)
+
     ;; change headers in mail view
     (setq mu4e-headers-date-format "%a %b %d %R %Y")
     ;; Fri Jan 26 09:48:44 2018
