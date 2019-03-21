@@ -3,6 +3,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# if we are emacs, don't do anything
+[[ $TERM = "dumb" ]] && return
+
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash_it"
 
@@ -206,6 +209,7 @@ if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
         alias vim='echo "No nesting of vim!"'
     fi
 fi
+
 
 
 ####################
