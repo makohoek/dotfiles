@@ -32,6 +32,7 @@ git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 - Neovim (usually vim is enough for basics)
 See https://github.com/neovim/neovim/releases/
+Otherwise, minimum vim 8.0
 
 ## More information on `rcm`
 - http://thoughtbot.github.io/rcm/rcm.7.html
