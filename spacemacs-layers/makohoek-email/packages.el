@@ -69,11 +69,27 @@
     ;; shell command used to converts from html to plain text
     (setq mu4e-html2text-command 'mu4e-shr2text)
 
-    (add-to-list 'mu4e-bookmarks
-                 (make-mu4e-bookmark
-                  :name  "Inbox"
-                  :query "maildir:/gmail/Inbox"
-                  :key ?i))
+    (setq
+     mu4e-index-cleanup nil      ;; don't do a full cleanup check
+     mu4e-index-lazy-check t)    ;; don't consider up-to-date dirs
+
+    ; Mail directory shortcuts
+    (setq mu4e-maildir-shortcuts
+          '(("/gmail/INBOX" . ?g)))
+
+    ;; Bookmarks
+    (setq mu4e-bookmarks
+          `(("flag:unread AND NOT flag:trashed" "Unread messages" ?u)
+            ("date:today..now" "Today's messages" ?t)
+            ("date:2019" "This year" ?y)
+            ("date:7d..now" "Last 7 days" ?w)
+            ("mime:image/*" "Messages with images" ?p)
+            (,(mapconcat 'identity
+                         (mapcar
+                          (lambda (maildir)
+                            (concat "maildir:" (car maildir)))
+                          mu4e-maildir-shortcuts) " OR ")
+             "All inboxes" ?i)))
 
     ;; Sometimes html email is just not readable in a text based client, this lets me open the
     ;; email in my browser.
