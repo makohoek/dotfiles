@@ -6,3 +6,5 @@ before_install:
   - echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee -a /etc/apt/sources.list
   - sudo apt-get update -qq
   - sudo apt-get install rcm
+install:
+  - env RCRC=$HOME/makohoek/dotfiles/rcrc rcup
