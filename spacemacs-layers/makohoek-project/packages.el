@@ -26,70 +26,30 @@
   '(counsel-projectile
     projectile))
 
-(cl-defstruct makohoek-project-struct
-  name            ; name of the projectile project . This is matched with the git folder name
-  compile-command ; compile command for this project
-  test-command    ; test command for this project
-  (android nil))  ; is this project part of the android tree? if yes, commands will be run from root dir
-
-(setq makohoek-project-list '())
-
-;; default values, must be overriden
-(setq private-android-code-directory nil)
-(setq private-android-allowed-targets '("aosp_dragon" "aosp_shamu"))
-
-;; Load private projects, if they exist
-(setq private-projects "~/.dotfiles-private/spacemacs-layers/makohoek-project/projects.el")
-(load private-projects 't)
-
-(defun makohoek-project-make-android-prefix (target)
-  (setq root-directory private-android-code-directory)
-  (concat
-   "/bin/bash -c 'cd " root-directory " && "
-   "source build/envsetup.sh"         " && "
-   "lunch " target "-userdebug"       " && "))
-
 ;; projectile is owned by 'spacemacs-project'
 (defun makohoek-project/post-init-projectile ()
   ;; always run dired after switching project
   ;; this is for performance reasons:
   ;; projectile-find-file is a bit slow over/tramp in the linux kernel directory
-  (setq projectile-switch-project-action #'projectile-dired)
-  ;; specific per-project compile commands
-  (defun my-switch-project-hook ()
-    "Perform some action after switching Projectile projects."
-    (dolist (proj makohoek-project-list)
-      ;; project is in our database: we don't want to use the "cached compilation cmd"
-      ;; FIXME: should remove only the key/value for this project, not all
-      (clrhash projectile-compilation-cmd-map)
-      (clrhash projectile-test-cmd-map)
-      (when (string= (projectile-project-name) (makohoek-project-struct-name proj))
-        ;; if project exists, check if it is an android project
-        (if (makohoek-project-struct-android proj)
-            ;; if it is an android project, ask for target + prefix&postfix the compile command
-            (progn
-              (setq allowed-targets private-android-allowed-targets)
-              (setq selected-target (ivy-completing-read "target: " allowed-targets))
-              (setq projectile-project-compilation-cmd
-                    (concat
-                     (makohoek-project-make-android-prefix selected-target)
-                     (makohoek-project-struct-compile-command proj)
-                     "'"))
-              (setq projectile-project-test-cmd (makohoek-project-struct-test-command proj))
-              )
-          ;; else, just set the variables
-          (progn
-            (setq projectile-project-compilation-cmd (makohoek-project-struct-compile-command proj))
-            (setq projectile-project-test-cmd (makohoek-project-struct-test-command proj)))))))
+  (use-package projectile
+    :defer t
+    :config
+    (setq projectile-switch-project-action #'projectile-dired)
+    (projectile-register-project-type 'linux-kernel
+                                      '("Kconfig")
+                                      :compilation-dir "../../"
+                                      :compile 'makohoek-project/android/compile-kernel)))
 
-  (add-hook 'projectile-after-switch-project-hook
-            #'my-switch-project-hook))
-
+;; counsel-projectile is owned by 'spacemacs-layouts'
 (defun makohoek-project/post-init-counsel-projectile ()
-    ;; do not run find-file after a project switch
-    (with-eval-after-load 'counsel-projectile
-      (counsel-projectile-modify-action
-       'counsel-projectile-switch-project-action
-       '((default counsel-projectile-switch-project-action-dired)))))
+  ;; always run dired after switching project
+  ;; this is for performance reasons:
+  ;; projectile-find-file is a bit slow over/tramp in the linux kernel directory
+  (use-package counsel-projectile
+    :defer t
+    :config
+    (counsel-projectile-modify-action
+     'counsel-projectile-switch-project-action
+     '((default counsel-projectile-switch-project-action-dired)))))
 
 ;;; packages.el ends here
