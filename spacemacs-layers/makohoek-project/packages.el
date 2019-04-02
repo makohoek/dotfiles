@@ -51,6 +51,10 @@
 
 ;; projectile is owned by 'spacemacs-project'
 (defun makohoek-project/post-init-projectile ()
+  ;; always run dired after switching project
+  ;; this is for performance reasons:
+  ;; projectile-find-file is a bit slow over/tramp in the linux kernel directory
+  (setq projectile-switch-project-action #'projectile-dired)
   ;; specific per-project compile commands
   (defun my-switch-project-hook ()
     "Perform some action after switching Projectile projects."
