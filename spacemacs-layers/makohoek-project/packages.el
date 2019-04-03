@@ -35,10 +35,16 @@
     :defer t
     :config
     (setq projectile-switch-project-action #'projectile-dired)
-    (projectile-register-project-type 'linux-kernel
-                                      '("Kconfig")
-                                      :compilation-dir "../../"
-                                      :compile 'makohoek-project/android/compile-kernel)))
+    (projectile-register-project-type
+     'linux-kernel
+     '("Kconfig")
+     :compilation-dir "../../"
+     :compile 'makohoek-project/android/compile-kernel)
+    (projectile-register-project-type
+     'android-system
+     '("art")
+     :compile 'makohoek-project/android/compile-system)
+  ))
 
 ;; counsel-projectile is owned by 'spacemacs-layouts'
 (defun makohoek-project/post-init-counsel-projectile ()

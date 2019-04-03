@@ -38,4 +38,8 @@ This is useful when switching between different lunch targets."
 
   (defun makohoek-project/android/compile-kernel ()
     "Returns a String representing how to compile kernel in Android"
-    (makohoek-project/android/compile-command "make bootimage")))
+    (makohoek-project/android/compile-command "make bootimage"))
+
+  (defun makohoek-project/android/compile-system ()
+    "Returns a String representing how to compile system in Android"
+    (makohoek-project/android/compile-command "make systemimage")))
