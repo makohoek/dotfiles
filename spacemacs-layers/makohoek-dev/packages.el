@@ -113,7 +113,8 @@
     ((c-mode-common   . whitespace-mode)
      (emacs-lisp-mode . whitespace-mode)
      (makefile-mode   . whitespace-mode)
-     (python-mode     . whitespace-mode))))
+     (python-mode     . whitespace-mode)
+     (yaml-mode     . whitespace-mode))))
 
 ;; ediff is owned by 'spacemacs-base' layer
 (defun makohoek-dev/post-init-ediff ()
