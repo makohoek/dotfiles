@@ -5,6 +5,8 @@ before_install:
   - curl https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
   - echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee -a /etc/apt/sources.list
   - sudo apt-get update -qq
-  - sudo apt-get install rcm
+  - sudo apt-get install -y rcm
+  - sudo apt-get install -y vim emacs
 install:
   - env RCRC=$HOME/makohoek/dotfiles/rcrc rcup -f -d .
+  - emacs -nw --execute '(if (dotspacemacs/test-dotfile) (kill-emacs) (kill-emacs 1))'
