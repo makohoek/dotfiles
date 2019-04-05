@@ -44,6 +44,9 @@
      'android-system
      '("art")
      :compile 'makohoek-project/android/compile-system)
+    :custom
+    (projectile-git-command "fd . -0" "faster indexing")
+    (projectile-git-submodule-command nil "disable submodule indexing")
   ))
 
 ;; counsel-projectile is owned by 'spacemacs-layouts'
