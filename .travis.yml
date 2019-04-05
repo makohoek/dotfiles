@@ -9,4 +9,5 @@ before_install:
   - sudo apt-get install -y vim emacs
 install:
   - env RCRC=$HOME/makohoek/dotfiles/rcrc rcup -f -d .
+  - git clone --depth 5 -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
   - emacs -nw --execute '(if (dotspacemacs/test-dotfile) (kill-emacs) (kill-emacs 1))'
