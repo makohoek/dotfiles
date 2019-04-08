@@ -73,6 +73,7 @@ This function should only modify configuration layer settings."
                       :disabled-for org erc)
      ;; +emacs
      org
+     emoji
      ;; +tags
      cscope
      ;; +checkers
