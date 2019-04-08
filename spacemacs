@@ -249,7 +249,6 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-default-font '("Hack"
                    :size 12.0
                    :weight normal
-                   :width ultra-condensed
                    :powerline-scale 1.0)
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
