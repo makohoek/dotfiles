@@ -16,6 +16,7 @@
     info
     hide-lines
     magit
+    dts-mode
     ripgrep
     whitespace)
   "The list of Lisp packages required by the makohoek-dev layer.")
@@ -28,6 +29,9 @@
 (defun makohoek-dev/init-hide-lines ()
   (use-package hide-lines
     :commands hide-lines))
+
+(defun makohoek-dev/init-dts-mode()
+  (use-package dts-mode))
 
 ;; nothing to configure. We still need to init it so that
 ;; it is available
