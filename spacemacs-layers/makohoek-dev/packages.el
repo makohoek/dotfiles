@@ -64,7 +64,8 @@
       (setq magit-log-arguments '("-n30" "--decorate"))
       ;; signed-off by default
       (setq transient-values '((magit-commit "--signoff")
-                               (magit-revert "--signoff")))
+                               (magit-revert "--signoff")
+                               (magit-log:magit-log-mode "-n256" "--decorate")))
       ;; better rebase
       (setq magit-rebase-arguments (quote ("--autosquash" "--autostash")))
       ;; title must be no longer than 50
