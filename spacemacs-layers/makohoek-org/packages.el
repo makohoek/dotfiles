@@ -87,7 +87,7 @@
                             :timeout 0))
     (defun pomodoro-break-completed ()
       (notifications-notify :title "Break done"
-                            :body "Go fix some code"
+                            :body "Time for another pomodoro"
                             :timeout 0))
     (add-hook 'org-pomodoro-finished-hook
               (function pomodoro-completed))
