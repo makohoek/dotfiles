@@ -48,7 +48,7 @@
     ;; $ wget https://www.gnu.org/software/libc/manual/info/libc-info.tar.gz
     ;; $ tar zxvf libc-info.tar.gz
     ;; $ install-info --info-dir=/home/julienm/info/ /home/julienm/info/libc.info
-    (Info-additional-directory-list '("~/info"))))
+    (Info-additional-directory-list '("~/.info"))))
 
 ;; magit is owned by layer 'git'
 (defun makohoek-dev/post-init-magit ()
