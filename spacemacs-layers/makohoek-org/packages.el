@@ -77,6 +77,11 @@
        "~/org/gcal-main.org"
        "~/org/gcal-shared.org"))
     :config
+    (setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("p" "Pomodoro" entry (file+headline "~/work/org/pomodoro.org" "Pomodoro")
+         "* %t [/][\%]\n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n")))
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
     (spacemacs/set-leader-keys-for-major-mode
       'org-mode "k" 'org-toggle-checkbox)
