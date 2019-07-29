@@ -11,3 +11,6 @@ URxvt*scrollBar: false
 URxvt*saveLines: 10000
 URxvt*termName: screen-256color
 URxvt.urlLauncher:firefox
+
+! for DPI stuff (dunst)
+! Xft.dpi: 192
