@@ -37,7 +37,8 @@
       (use-package lt-logcat)
       (use-package lt-serial
         :custom
-        (lt-serial-default-port "ttyUSB1" "default serial port is /dev/ttyUSB1"))
+        (lt-serial-default-port "ttyUSB0" "default serial port is /dev/ttyUSB0")
+        (lt-serial-default-speed 921600 "default serial baud rate is 921600"))
       (use-package lt-serial-kernel))))
 
 (defun android-device/init-device-control ()
