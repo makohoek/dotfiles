@@ -248,7 +248,7 @@ It should only modify the values of Spacemacs settings."
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Hack"
-                   :size 12.0
+                   :size 9.0
                    :weight normal
                    :powerline-scale 1.0)
    ;; The leader key (default "SPC")
