@@ -95,8 +95,7 @@ This function should only modify configuration layer settings."
      makohoek-dev
      makohoek-email
      makohoek-project
-     makohoek-org
-     makohoek-osx)
+     makohoek-org)
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
