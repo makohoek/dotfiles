@@ -51,9 +51,6 @@
     ;; enable inline images
     (setq mu4e-view-show-images t)
 
-    ;; body display on the html-version
-    (setq mu4e-view-prefer-html t)
-
     ;; hide index messages
     (setq mu4e-hide-index-messages t)
 
