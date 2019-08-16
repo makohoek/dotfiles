@@ -223,8 +223,6 @@ selection:
 
 dynamic_title: true
 
-hide_cursor_when_typing: false
-
 # Style of the cursor
 #
 # Values for 'cursor_style':
