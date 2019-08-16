@@ -229,7 +229,8 @@ dynamic_title: true
 # - Block
 # - Underline
 # - Beam
-cursor_style: Block
+cursor:
+  style: Block
 
 # Live config reload (changes require restart)
 live_config_reload: true
