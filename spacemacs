@@ -514,6 +514,10 @@ before packages are loaded."
   ;; fringe style: equivalent of "half-width"
   (set-fringe-style 4)
 
+  ;; chrome default browser
+  (setq shr-external-browser 'browse-url-chrome)
+  (setq browse-url-browser-function 'browse-url-chrome)
+
   (with-eval-after-load 'ivy
     ;; makes it possible to select the prompt
     ;; useful for creating new dirs which start with the prefix
