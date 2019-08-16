@@ -43,6 +43,7 @@ bindsym $mod+w exec rofi -show window -theme gruvbox-dark-hard
 
 # no window title
 new_window pixel
+hide_edge_borders smart
 
 # change focus
 bindsym $mod+h focus left
