@@ -68,6 +68,7 @@
             ("WAIT"      . "orange")
             ("DONE"      . org-done)
             ("CANCELLED" . org-done)))
+    (setq org-default-notes-file "~/work/org/baylibre/inbox.org")
     ;; org-agenda files
     :custom
     (org-agenda-files
@@ -78,7 +79,7 @@
        "~/org/gcal-shared.org"))
     :config
     (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+      '(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
          "* TODO %?\n  %i\n  %a")
         ("p" "Pomodoro" entry (file+headline "~/work/org/pomodoro.org" "Pomodoro")
          "* %t [/][\%]\n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n")))
