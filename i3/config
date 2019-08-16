@@ -177,23 +177,49 @@ mode "$mode_system" {
 		bindsym Escape mode "default"
 }
 
+# colors come from zenburn emacs theme:
+# https://github.com/bbatsov/zenburn-emacs/blob/master/zenburn-theme.el
+# colorscheme
+set $zenburn-fg     #DCDCCC
+set $zenburn-fg-1   #656555
+set $zenburn-bg-05  #383838
+set $zenburn-bg+1   #4F4F4F
+set $zenburn-yellow #F0DFAF
+set $zenburn-blue   #8CD0D3
+set $zenburn-blue-3 #5C888B
+set $zenburn-red    #CC9393
+set $zenburn-red-3  #9C6363
+
+# class                 border  backgr. text    indicator child_border
+client.unfocused $zenburn-bg-05 $zenburn-bg-05 $zenburn-fg #333333
+client.focused_inactive $zenburn-bg-05 $zenburn-fg-1 $zenburn-fg #000000
+client.focused $zenburn-bg-05 $zenburn-fg-1 $zenburn-fg #000000
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  font pango:Terminus 9
-  position top
-  #status_command py3status -c ~/.i3/status
-	status_command i3blocks
+ font pango:Hack 9
+ position top
+ status_command i3status
 
-  strip_workspace_numbers yes
-  colors {
-    statusline #AAAAAA
-    background #333333
-    focused_workspace #282828 #282828 #FFFFFF
-    inactive_workspace #333333 #333333 #AAAAAA
-  }
+ strip_workspace_numbers yes
+ # do not do anything with scrolling wheels
+ bindsym button4 nop
+ bindsym button5 nop
+
+ separator_symbol "|"
+
+ colors {
+   background $zenburn-bg-05
+   statusline $zenburn-fg
+   separator  $zenburn-bg+1
+
+   # colors are:
+   # <colorclass> <border> <background> <text>
+   focused_workspace  $zenburn-fg    $zenburn-fg    $zenburn-bg-05
+   inactive_workspace $zenburn-bg-05 $zenburn-bg-05 $zenburn-fg
+
+   urgent_workspace   $zenburn-red-3 $zenburn-red-3 $zenburn-bg-05
+   binding_mode       $zenburn-bg-05 $zenburn-yellow $zenburn-bg-05
+ }
 }
-
-client.unfocused #333333 #333333 #FFFFFF #333333
-client.focused_inactive #333333 #333333 #FFFFFF #000000
-client.focused #444444 #444444 #FFFFFF #000000
