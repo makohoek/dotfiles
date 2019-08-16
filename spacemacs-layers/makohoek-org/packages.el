@@ -28,8 +28,8 @@
     (setq org-gcal-client-id (auth-source-pass-get "client-id" "org-gcal-makohoek")
           org-gcal-client-secret (auth-source-pass-get "client-secret" "org-gcal-makohoek")
           org-gcal-file-alist
-          '(("mattijs.korpershoek@gmail.com" .  "~/org/gcal-main.org")
-            ("ghitimou3nseap7k05iskembpk@group.calendar.google.com" .  "~/org/gcal-shared.org")))))
+          '(("mattijs.korpershoek@gmail.com" .  "~/home/org/calendars/gcal-main.org")
+            ("ghitimou3nseap7k05iskembpk@group.calendar.google.com" .  "~/home/org/calendars/gcal-shared.org")))))
 
 (defun makohoek-org/init-org-wunderlist()
   (use-package org-wunderlist
@@ -72,11 +72,9 @@
     ;; org-agenda files
     :custom
     (org-agenda-files
-     '("~/org/work.org"
-       "~/org/work-cal.org"
-       "~/org/Notes.org"
-       "~/org/gcal-main.org"
-       "~/org/gcal-shared.org"))
+     '("~/work/org/baylibre/"
+       "~/work/org/calendars/"
+       "~/home/org/calendars/"))
     :config
     (setq org-capture-templates
       '(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
