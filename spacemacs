@@ -482,9 +482,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  ;; work related stuff: do not report errors if file do not exist
-  (load "~/.dotfiles-private/spacemacs-layers/makohoek-work/proxy.el" 't)
-
   ;; stop warning about this!
   ;; If non-nil, warn if variables are being set in the wrong shell startup files.
   ;; Environment variables should be set in .profile or .zshenv rather than
