@@ -102,7 +102,9 @@
     (add-hook 'org-pomodoro-finished-hook
               (function pomodoro-completed))
     (add-hook 'org-pomodoro-break-finished-hook
-              (function pomodoro-break-completed))))
+              (function pomodoro-break-completed))
+    :hook
+    ((org-agenda-mode . emojify-mode))))
 
 
 ;;; packages.el ends here
