@@ -101,4 +101,4 @@
           message-send-mail-function 'message-send-mail-with-sendmail
           smtpmail-debug-info nil
           mail-setup-hook nil
-          sendmail-program "/usr/local/bin/msmtp")))
+          sendmail-program "/usr/bin/msmtp"))
