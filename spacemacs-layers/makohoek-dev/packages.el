@@ -16,6 +16,7 @@
     info
     hide-lines
     magit
+    dts-mode
     ripgrep
     whitespace)
   "The list of Lisp packages required by the makohoek-dev layer.")
@@ -28,6 +29,9 @@
 (defun makohoek-dev/init-hide-lines ()
   (use-package hide-lines
     :commands hide-lines))
+
+(defun makohoek-dev/init-dts-mode()
+  (use-package dts-mode))
 
 ;; nothing to configure. We still need to init it so that
 ;; it is available
@@ -44,7 +48,7 @@
     ;; $ wget https://www.gnu.org/software/libc/manual/info/libc-info.tar.gz
     ;; $ tar zxvf libc-info.tar.gz
     ;; $ install-info --info-dir=/home/julienm/info/ /home/julienm/info/libc.info
-    (Info-additional-directory-list '("~/info"))))
+    (Info-additional-directory-list '("~/.info"))))
 
 ;; magit is owned by layer 'git'
 (defun makohoek-dev/post-init-magit ()
@@ -60,7 +64,8 @@
       (setq magit-log-arguments '("-n30" "--decorate"))
       ;; signed-off by default
       (setq transient-values '((magit-commit "--signoff")
-                               (magit-revert "--signoff")))
+                               (magit-revert "--signoff")
+                               (magit-log:magit-log-mode "-n256" "--decorate")))
       ;; better rebase
       (setq magit-rebase-arguments (quote ("--autosquash" "--autostash")))
       ;; title must be no longer than 50
@@ -114,7 +119,8 @@
      (emacs-lisp-mode . whitespace-mode)
      (makefile-mode   . whitespace-mode)
      (python-mode     . whitespace-mode)
-     (yaml-mode     . whitespace-mode))))
+     (yaml-mode       . whitespace-mode)
+     (dts-mode        . whitespace-mode))))
 
 ;; ediff is owned by 'spacemacs-base' layer
 (defun makohoek-dev/post-init-ediff ()

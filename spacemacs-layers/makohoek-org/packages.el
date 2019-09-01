@@ -11,11 +11,17 @@
 
 ;;; Code:
 
-(defconst makohoek-org-packages '(org
+(defconst makohoek-org-packages '(auth-source-pass
+                                  org
                                   org-gcal
                                   org-wunderlist
                                   org-plus-contrib))
                                   ;; ox-confluence is installed by `org-plus-contrib'
+
+(defun makohoek-org/init-auth-source-pass ()
+  (use-package auth-source-pass
+    :init
+    (auth-source-pass-enable)))
 
 (defun makohoek-org/init-org-gcal()
   (use-package org-gcal
@@ -28,8 +34,8 @@
     (setq org-gcal-client-id (auth-source-pass-get "client-id" "org-gcal-makohoek")
           org-gcal-client-secret (auth-source-pass-get "client-secret" "org-gcal-makohoek")
           org-gcal-file-alist
-          '(("mattijs.korpershoek@gmail.com" .  "~/org/gcal-main.org")
-            ("ghitimou3nseap7k05iskembpk@group.calendar.google.com" .  "~/org/gcal-shared.org")))))
+          '(("mattijs.korpershoek@gmail.com" .  "~/home/org/calendars/gcal-main.org")
+            ("ghitimou3nseap7k05iskembpk@group.calendar.google.com" .  "~/home/org/calendars/gcal-shared.org")))))
 
 (defun makohoek-org/init-org-wunderlist()
   (use-package org-wunderlist
@@ -68,15 +74,18 @@
             ("WAIT"      . "orange")
             ("DONE"      . org-done)
             ("CANCELLED" . org-done)))
+    (setq org-default-notes-file "~/work/org/baylibre/inbox.org")
     ;; org-agenda files
-    :custom
-    (org-agenda-files
-     '("~/org/work.org"
-       "~/org/work-cal.org"
-       "~/org/Notes.org"
-       "~/org/gcal-main.org"
-       "~/org/gcal-shared.org"))
     :config
+    (setq org-agenda-files
+     '("~/work/org/baylibre/"
+       "~/work/org/calendars/"
+       "~/home/org/calendars/"))
+    (setq org-capture-templates
+      '(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("p" "Pomodoro" entry (file+headline "~/work/org/pomodoro.org" "Pomodoro")
+         "* %t [/][\%]\n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n")))
     ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
     (spacemacs/set-leader-keys-for-major-mode
       'org-mode "k" 'org-toggle-checkbox)
@@ -87,12 +96,14 @@
                             :timeout 0))
     (defun pomodoro-break-completed ()
       (notifications-notify :title "Break done"
-                            :body "Go fix some code"
+                            :body "Time for another pomodoro"
                             :timeout 0))
     (add-hook 'org-pomodoro-finished-hook
               (function pomodoro-completed))
     (add-hook 'org-pomodoro-break-finished-hook
-              (function pomodoro-break-completed))))
+              (function pomodoro-break-completed))
+    :hook
+    ((org-agenda-mode . emojify-mode))))
 
 
 ;;; packages.el ends here

@@ -32,7 +32,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(rust
+   '(graphviz
+     rust
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -94,8 +95,7 @@ This function should only modify configuration layer settings."
      makohoek-dev
      makohoek-email
      makohoek-project
-     makohoek-org
-     makohoek-osx)
+     makohoek-org)
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -104,7 +104,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(org-jira copy-as-format xclip)
+   dotspacemacs-additional-packages '(org-jira copy-as-format xclip notmuch)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -247,7 +247,7 @@ It should only modify the values of Spacemacs settings."
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Hack"
-                   :size 12.0
+                   :size 9.0
                    :weight normal
                    :powerline-scale 1.0)
    ;; The leader key (default "SPC")
@@ -482,9 +482,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  ;; work related stuff: do not report errors if file do not exist
-  (load "~/.dotfiles-private/spacemacs-layers/makohoek-work/proxy.el" 't)
-
   ;; stop warning about this!
   ;; If non-nil, warn if variables are being set in the wrong shell startup files.
   ;; Environment variables should be set in .profile or .zshenv rather than
@@ -513,6 +510,10 @@ before packages are loaded."
 
   ;; fringe style: equivalent of "half-width"
   (set-fringe-style 4)
+
+  ;; chrome default browser
+  (setq shr-external-browser 'browse-url-chrome)
+  (setq browse-url-browser-function 'browse-url-chrome)
 
   (with-eval-after-load 'ivy
     ;; makes it possible to select the prompt

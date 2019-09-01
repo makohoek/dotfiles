@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font pango:Terminus 9
+font pango:DejaVu Sans Mono 9
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
@@ -43,6 +43,7 @@ bindsym $mod+w exec rofi -show window -theme gruvbox-dark-hard
 
 # no window title
 new_window pixel
+hide_edge_borders smart
 
 # change focus
 bindsym $mod+h focus left
@@ -97,20 +98,21 @@ bindsym $mod+a focus parent
 
 # fontawesome based workspace names
 # http://fontawesome.io/cheatsheet/
-set $workspace_emacs 1: 
-set $workspace_terminal 2: 
-set $workspace_chrome 3: 
-set $workspace_pcmanfm 4: 
+set $workspace_emacs 1:
+set $workspace_terminal 2:
+set $workspace_chrome 3:
+set $workspace_slack 4:
+set $workspace_chat 8:8
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace_emacs
 bindsym $mod+2 workspace $workspace_terminal
 bindsym $mod+3 workspace $workspace_chrome
-bindsym $mod+4 workspace $workspace_pcmanfm
+bindsym $mod+4 workspace $workspace_slack
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
+bindsym $mod+8 workspace $workspace_chat
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
@@ -118,11 +120,11 @@ bindsym $mod+0 workspace 10
 bindsym $mod+Shift+1 move container to workspace $workspace_emacs
 bindsym $mod+Shift+2 move container to workspace $workspace_terminal
 bindsym $mod+Shift+3 move container to workspace $workspace_chrome
-bindsym $mod+Shift+4 move container to workspace $workspace_pcmanfm
+bindsym $mod+Shift+4 move container to workspace $workspace_slack
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+8 move container to workspace $workspace_chat
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
@@ -133,20 +135,22 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
-bindsym XF86MonBrightnessUp   exec "xbacklight -inc 10"
+bindsym XF86MonBrightnessDown exec "brightnessctl set 1%-"
+bindsym XF86MonBrightnessUp   exec "brightnessctl set 1%+"
+bindsym XF86AudioMute         exec "pactl set-sink-mute 0 toggle"
+bindsym XF86AudioRaiseVolume  exec "pactl set-sink-volume 0 +5%"
+bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume 0 -5%"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-
         # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
+        # Pressing down will grow the window’s height.
         bindsym j resize grow height 10 px or 10 ppt
+        # Pressing up will shrink the window’s height.
         bindsym k resize shrink height 10 px or 10 ppt
+        # Pressing right will grow the window’s width.
         bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
@@ -162,34 +166,61 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # resize window (you can also use the mouse for that)
-set $mode_system System: [l]ock
+set $mode_system System: [l]ock [s]uspend
 bindsym $mod+Shift+s mode "$mode_system"
 
 mode "$mode_system" {
 		bindsym l exec "i3lock-fancy", mode "default"
+		bindsym s exec "systemctl suspend", mode "default"
 
 		# back to normal: Enter or Escape
 		bindsym Return mode "default"
 		bindsym Escape mode "default"
 }
 
+# colors come from zenburn emacs theme:
+# https://github.com/bbatsov/zenburn-emacs/blob/master/zenburn-theme.el
+# colorscheme
+set $zenburn-fg     #DCDCCC
+set $zenburn-fg-1   #656555
+set $zenburn-bg-05  #383838
+set $zenburn-bg+1   #4F4F4F
+set $zenburn-yellow #F0DFAF
+set $zenburn-blue   #8CD0D3
+set $zenburn-blue-3 #5C888B
+set $zenburn-red    #CC9393
+set $zenburn-red-3  #9C6363
+
+# class                 border  backgr. text    indicator child_border
+client.unfocused $zenburn-bg-05 $zenburn-bg-05 $zenburn-fg #333333
+client.focused_inactive $zenburn-bg-05 $zenburn-fg-1 $zenburn-fg #000000
+client.focused $zenburn-bg-05 $zenburn-fg-1 $zenburn-fg #000000
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  font pango:Terminus 9
-  position top
-  #status_command py3status -c ~/.i3/status
-	status_command i3blocks
+ font pango:Hack 9
+ position top
+ status_command i3status
 
-  strip_workspace_numbers yes
-  colors {
-    statusline #AAAAAA
-    background #333333
-    focused_workspace #282828 #282828 #FFFFFF
-    inactive_workspace #333333 #333333 #AAAAAA
-  }
+ strip_workspace_numbers yes
+ # do not do anything with scrolling wheels
+ bindsym button4 nop
+ bindsym button5 nop
+
+ separator_symbol "|"
+
+ colors {
+   background $zenburn-bg-05
+   statusline $zenburn-fg
+   separator  $zenburn-bg+1
+
+   # colors are:
+   # <colorclass> <border> <background> <text>
+   focused_workspace  $zenburn-fg    $zenburn-fg    $zenburn-bg-05
+   inactive_workspace $zenburn-bg-05 $zenburn-bg-05 $zenburn-fg
+
+   urgent_workspace   $zenburn-red-3 $zenburn-red-3 $zenburn-bg-05
+   binding_mode       $zenburn-bg-05 $zenburn-yellow $zenburn-bg-05
+ }
 }
-
-client.unfocused #333333 #333333 #FFFFFF #333333
-client.focused_inactive #333333 #333333 #FFFFFF #000000
-client.focused #444444 #444444 #FFFFFF #000000

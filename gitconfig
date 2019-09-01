@@ -20,7 +20,9 @@
 [color]
     ui = true
 [core]
-	editor = nvr --remote-wait-silent
+	editor = vim
 
 [include]
     path = /home/mkorperx/work/.gitconfig
+[credential]
+	helper = !pass-git-helper $@

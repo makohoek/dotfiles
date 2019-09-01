@@ -51,9 +51,6 @@
     ;; enable inline images
     (setq mu4e-view-show-images t)
 
-    ;; body display on the html-version
-    (setq mu4e-view-prefer-html t)
-
     ;; hide index messages
     (setq mu4e-hide-index-messages t)
 
@@ -104,4 +101,7 @@
           message-send-mail-function 'message-send-mail-with-sendmail
           smtpmail-debug-info nil
           mail-setup-hook nil
-          sendmail-program "/usr/local/bin/msmtp")))
+          sendmail-program "/usr/bin/msmtp")
+
+  ;; load (optional) work email config
+  (load "~/.dotfiles-private/spacemacs-layers/makohoek-work/config.el" 't)))
