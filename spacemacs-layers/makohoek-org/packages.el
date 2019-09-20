@@ -86,9 +86,6 @@
          "* TODO %?\n  %i\n  %a")
         ("p" "Pomodoro" entry (file+headline "~/work/org/pomodoro.org" "Pomodoro")
          "* %t [/][\%]\n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n")))
-    ;; better shortcut for org-toggle-checkbox (WHY C-c C-x C-b????)
-    (spacemacs/set-leader-keys-for-major-mode
-      'org-mode "k" 'org-toggle-checkbox)
     ;; org-pomodoro notification once pomodoro is completed
     (defun pomodoro-completed ()
       (notifications-notify :title "Pomodoro completed"
