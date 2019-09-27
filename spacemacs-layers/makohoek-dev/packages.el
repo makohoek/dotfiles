@@ -65,9 +65,9 @@
       ;; signed-off by default
       (setq transient-values '((magit-commit "--signoff")
                                (magit-revert "--signoff")
-                               (magit-log:magit-log-mode "-n256" "--decorate")))
-      ;; better rebase
-      (setq magit-rebase-arguments (quote ("--autosquash" "--autostash")))
+                               (magit-log:magit-log-mode "-n256" "--decorate")
+                               (magit-rebase "--autosquash" "--autostash")))
+
       ;; title must be no longer than 50
       (setq git-commit-summary-max-length 50)
       ;; line must not be longer than 72
