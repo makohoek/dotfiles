@@ -37,13 +37,17 @@
     (setq projectile-switch-project-action #'projectile-dired)
     (projectile-register-project-type
      'linux-kernel
-     '("Kconfig")
+     '(".projectile-type-linux")
      :compilation-dir "../../"
      :compile 'makohoek-project/android/compile-kernel)
     (projectile-register-project-type
      'android-system
      '("art")
      :compile 'makohoek-project/android/compile-system)
+    (projectile-register-project-type
+     'u-boot
+     '(".projectile-type-u-boot")
+     :compile 'makohoek-project/uboot/compile)
     :custom
     (projectile-git-command "fd . -0" "faster indexing")
     (projectile-git-submodule-command nil "disable submodule indexing")
