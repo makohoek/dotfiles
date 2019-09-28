@@ -10,7 +10,7 @@
 ;;; License: GPLv3
 
 ;;; Code:
-(defconst makohoek-email-packages '(mu4e))
+(defconst makohoek-email-packages '(mu4e mu4e-maildirs-extension))
 
 ;; mu4e is owned by the mu4e layer
 (defun makohoek-email/post-init-mu4e()
@@ -103,5 +103,14 @@
           mail-setup-hook nil
           sendmail-program "/usr/bin/msmtp")
 
-  ;; load (optional) work email config
-  (load "~/.dotfiles-private/spacemacs-layers/makohoek-work/config.el" 't)))
+    ;; load (optional) work email config
+    (load "~/.dotfiles-private/spacemacs-layers/makohoek-work/config.el" 't)))
+
+
+(defun makohoek-email/post-init-mu4e-maildirs-extension()
+  (use-package mu4e-maildirs-extension
+    :defer t
+    :config
+    (setq mu4e-maildirs-extension-action-text nil
+          mu4e-maildirs-extension-insert-before-str "\n  Bookmarks")))
+

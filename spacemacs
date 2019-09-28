@@ -66,7 +66,9 @@ This function should only modify configuration layer settings."
      ;; +source-control
      git
      ;; +email
-     (mu4e :variables mu4e-account-alist t)
+     (mu4e :variables
+           mu4e-account-alist t
+           mu4e-use-maildirs-extension t)
      ;; +auto-completion
      (auto-completion :variables
                       auto-completion-tab-key-behavior 'complete
