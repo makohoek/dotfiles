@@ -72,8 +72,8 @@
       (setq git-commit-summary-max-length 50)
       ;; line must not be longer than 72
       (setq git-commit-fill-column 72)
-      ;; support Tracked-On: + Change-Id: pseudo-headers
-      (add-to-list 'git-commit-known-pseudo-headers "Tracked-On")
+      ;; support Bug: + Change-Id: pseudo-headers
+      (add-to-list 'git-commit-known-pseudo-headers "Bug")
       (add-to-list 'git-commit-known-pseudo-headers "Change-Id")
 
       ;; magit push gerrit
