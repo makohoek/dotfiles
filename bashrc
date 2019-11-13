@@ -87,9 +87,9 @@ export TERM=screen-256color
 #################
 # History stuff #
 #################
-# don't put duplicate lines or lines starting with space in the history.
+# don't put duplicate lines in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth:erasedups
+HISTCONTROL=erasedups
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
