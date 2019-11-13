@@ -128,9 +128,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 # Homebrew
 export PATH="/usr/local/bin:$PATH"
-# kitty
-export PATH="$HOME/.local/kitty.app/bin:$PATH"
-
 
 #############
 # Functions #
