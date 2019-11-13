@@ -166,6 +166,11 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
+# tab completion for jira
+if [ "$(command -v jira)" ]; then
+    eval "$(jira --completion-script-bash)"
+fi
+
 ####################
 # Private includes #
 ####################
