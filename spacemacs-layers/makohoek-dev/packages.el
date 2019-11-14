@@ -24,7 +24,8 @@
 (defun makohoek-dev/init-dtrt-indent ()
   "Enable dtrt-indent for c development."
   (use-package dtrt-indent
-    :hook (c-mode-common . dtrt-indent-mode)))
+    :hook ((c-mode-common . dtrt-indent-mode)
+           (dts-mode . dtrt-indent-mode))))
 
 (defun makohoek-dev/init-hide-lines ()
   (use-package hide-lines
