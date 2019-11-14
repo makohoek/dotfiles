@@ -16,6 +16,7 @@
     info
     hide-lines
     magit
+    forge
     dts-mode
     ripgrep
     whitespace)
@@ -50,6 +51,10 @@
     ;; $ tar zxvf libc-info.tar.gz
     ;; $ install-info --info-dir=/home/julienm/info/ /home/julienm/info/libc.info
     (Info-additional-directory-list '("~/.info"))))
+
+(defun makohoek-dev/init-forge ()
+  (use-package forge
+    :after magit))
 
 ;; magit is owned by layer 'git'
 (defun makohoek-dev/post-init-magit ()
