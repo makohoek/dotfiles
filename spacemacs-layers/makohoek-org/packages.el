@@ -65,13 +65,14 @@
           '((sequence "TODO(t!)"
                       "ONGOING(i!)"
                       "WAIT(w@/!)" "|"
-                      "DONE(d)" "CANCELLED(c)")
+                      "DONE(d!)" "CANCELLED(c!)" "NOTE(n)")
                               ))
     ;; org todo keywords colors
     (setq org-todo-keyword-faces
           '(("TODO"      . org-todo)
             ("ONGOING"   . "orange")
             ("WAIT"      . "orange")
+            ("NOTE"      . font-lock-comment-face)
             ("DONE"      . org-done)
             ("CANCELLED" . org-done)))
     (setq org-default-notes-file "~/work/org/baylibre/inbox.org")
