@@ -3,6 +3,21 @@
   (setq makohoek-project/android/allowed-targets '("aosp_dragon" "aosp_shamu"))
   (setq makohoek-project/uboot/allowed-targets '("aosp_dragon" "aosp_shamu"))
 
+  (cl-defstruct android/kernel-build
+    dist-folder
+    sh-config
+    aosp-out-folder)
+
+  (setq makohoek-project/android/kernel-build-info-for-target
+        '(("aosp_dragon" . (make-android/kernel-build
+                            :dist-folder "~/src/aosp/device/google/dragon-kernel"
+                            :sh-config "common/build.config.gki.aarch64"
+                            :aosp-out-folder "out/target/product/dragon"))
+          ("aosp_shamu"  . (make-android/kernel-build
+                            :dist-folder "~/src/aosp/device/google/shamu-kernel"
+                            :sh-config "common/build.config.gki.aarch64"
+                            :aosp-out-folder "out/target/product/shamu"))))
+
   (setq makohoek-project/uboot/env-out-for-target
         '(("aosp_dragon" . "~/aosp/device/google/dragon/u-boot-env")
           ("aosp_shamu" . "~/aosp/device/google/shamu/u-boot-env")))
@@ -47,7 +62,29 @@ This is useful when switching between different lunch targets."
 
   (defun makohoek-project/android/compile-kernel ()
     "Returns a String representing how to compile kernel in Android"
-    (makohoek-project/android/compile-command "make bootimage"))
+    (setq target (completing-read "Target: " makohoek-project/android/allowed-targets))
+    (let ((build-info (eval (cdr (assoc target makohoek-project/android/kernel-build-info-for-target))))
+          (aosp-src-dir "~/src/aosp/"))
+          (concat "/bin/bash -c '"
+                  " DIST_DIR=" (android/kernel-build-dist-folder build-info)
+                  " BUILD_CONFIG=" (android/kernel-build-sh-config build-info)
+                  " SKIP_MRPROPER=1 build/build.sh" " && "
+                  "cd " aosp-src-dir " && "
+                  "source build/envsetup.sh && lunch " target "-userdebug && "
+                  "croot && "
+                  "make bootimage vendorimage " (android/kernel-build-aosp-out-folder build-info) "/dtbo.img"
+                  (makohoek-project/android/compile-suffix))))
+
+  (defun makohoek-project/android/flash-kernel ()
+    "Returns a String representing how to flash kernel in Android"
+    (setq target (completing-read "Target: " makohoek-project/android/allowed-targets))
+    (let ((build-info (eval (cdr (assoc target makohoek-project/android/kernel-build-info-for-target))))
+          (aosp-src-dir "~/src/aosp/"))
+      (concat "/bin/bash -c '"
+              "cd " aosp-src-dir " && "
+              "cd " (android/kernel-build-aosp-out-folder build-info) " && "
+              "python2 flashimage.py --boot"
+              (makohoek-project/android/compile-suffix))))
 
   (defun makohoek-project/android/compile-system ()
     "Returns a String representing how to compile system in Android"

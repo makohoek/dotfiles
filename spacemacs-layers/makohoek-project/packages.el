@@ -38,8 +38,9 @@
     (projectile-register-project-type
      'linux-kernel
      '(".projectile-type-linux")
-     :compilation-dir "../../"
-     :compile 'makohoek-project/android/compile-kernel)
+     :compilation-dir "../"
+     :compile 'makohoek-project/android/compile-kernel
+     :test 'makohoek-project/android/flash-kernel)
     (projectile-register-project-type
      'android-system
      '("art")
