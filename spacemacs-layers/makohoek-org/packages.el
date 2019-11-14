@@ -96,10 +96,14 @@
       (notifications-notify :title "Break done"
                             :body "Time for another pomodoro"
                             :timeout 0))
+    (defun pomodoro-started ()
+      (write-region (format-time-string "%H:%M" org-pomodoro-end-time) nil "~/.org-pomodoro/end-time"))
     (add-hook 'org-pomodoro-finished-hook
               (function pomodoro-completed))
     (add-hook 'org-pomodoro-break-finished-hook
               (function pomodoro-break-completed))
+    (add-hook 'org-pomodoro-started-hook
+              (function pomodoro-started))
     :hook
     ((org-agenda-mode . emojify-mode))))
 
