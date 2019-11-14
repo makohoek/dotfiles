@@ -61,13 +61,13 @@
       (setq magit-status-headers-hook (remove 'magit-insert-tags-header magit-status-headers-hook))
       ;; remove revision header in magit-diff
       (setq magit-revision-sections-hook (remove 'magit-insert-revision-headers magit-revision-sections-hook))
-      ;; don't display --graph on magit-log
-      (setq magit-log-arguments '("-n30" "--decorate"))
       ;; signed-off by default
-      (setq transient-values '((magit-commit "--signoff")
-                               (magit-revert "--signoff")
-                               (magit-log:magit-log-mode "-n256" "--decorate")
-                               (magit-rebase "--autosquash" "--autostash")))
+      ;; set signoff by default
+      (defvar transient-default-values '((magit-commit "--signoff")
+                                         (magit-revert "--signoff")
+                                         (magit-log:magit-log-mode "-n256" "--decorate")
+                                         (magit-rebase "--autosquash" "--autostash")))
+      (setq transient-values transient-default-values)
 
       ;; title must be no longer than 50
       (setq git-commit-summary-max-length 50)
