@@ -1,5 +1,5 @@
 # Paths ----------------------------------------------
-set folder           = ~/.mail               # mailbox location
+set folder           = ~/.email               # mailbox location
 set header_cache     = ~/.mutt/cache/headers # where to store headers
 set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
 set certificate_file = ~/.mutt/certificates  # where to store certs
@@ -20,11 +20,6 @@ unset mark_old           # read/new is good enough for me
 set beep_new             # bell on new mails
 set pipe_decode          # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
-
-# Sidebar Patch --------------------------------------
-set sidebar_delim   = " │"
-set sidebar_visible = yes
-set sidebar_width   = 45
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
