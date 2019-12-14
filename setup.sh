@@ -27,7 +27,7 @@ stowit() {
     local app
     usr=$1
     app=$2
-    stow --verbose --recursive --target ${usr} ${app}
+    stow --verbose --recursive --target=${usr} ${app}
 }
 
 echo ""
