@@ -1,17 +1,11 @@
 language: generic
 git:
   depth: 5
-dist: xenial
+dist: bionic
 
 before_install:
-  - curl https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
-  - echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee -a /etc/apt/sources.list
-  - sudo apt-get update -qq
-  - sudo apt-get install -y rcm
-  - sudo add-apt-repository -y 'ppa:kelleyk/emacs'
-  - sudo apt-get update -qq
-  - sudo apt-get install -y emacs26
+  - sudo apt-get update -qq && sudo apt-get install -y stow emacs
 install:
-  - env RCRC=$HOME/makohoek/dotfiles/rcrc rcup -f -d .
+  - cd $HOME/makohoek/dotfiles && ./setup.sh
   - git clone --depth 5 -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
   - emacs26-x -nw --execute '(if (dotspacemacs/test-dotfile) (kill-emacs) (kill-emacs 1))'
