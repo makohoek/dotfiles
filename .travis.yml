@@ -6,6 +6,6 @@ dist: bionic
 before_install:
   - sudo apt-get update -qq && sudo apt-get install -y stow emacs
 install:
-  - cd makohoek/dotfiles && ./setup.sh
+  - ./setup.sh
   - git clone --depth 5 -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
   - emacs26-x -nw --execute '(if (dotspacemacs/test-dotfile) (kill-emacs) (kill-emacs 1))'
