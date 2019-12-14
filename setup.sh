@@ -23,12 +23,11 @@ linux_only=(
 
 # run the stow command for the passed in directory ($2) in location $1
 stowit() {
+    local usr
+    local app
     usr=$1
     app=$2
-    # -v verbose
-    # -R recursive
-    # -t target
-    stow -v -R -t ${usr} ${app}
+    stow --verbose --restow --target=${usr} ${app}
 }
 
 echo ""
