@@ -6,15 +6,19 @@
 git submodule init
 git submodule update
 
-# what directories should be installable by all users including the root user
+# what directories should be installable by all machines
 base=(
-    bash
+    git
+    spacemacs
     vim
 )
 
-# folders that should, or only need to be installed for a local user
-useronly=(
-    git
+darwin_only=(
+    zsh
+)
+
+linux_only=(
+    bash
 )
 
 # run the stow command for the passed in directory ($2) in location $1
@@ -30,17 +34,27 @@ stowit() {
 echo ""
 echo "Stowing apps for user: ${whoami}"
 
-# install apps available to local users and root
+# install apps available to local users
 for app in ${base[@]}; do
-    stowit "${HOME}" $app 
+    stowit "${HOME}" $app
 done
 
-# install only user space folders
-for app in ${useronly[@]}; do
-    if [[ ! "$(whoami)" = *"root"* ]]; then
-        stowit "${HOME}" $app 
-    fi
-done
+echo ""
+echo "Stowing apps for $(uname)"
+
+# install only user for darwin (MacOS)
+if [[ $(uname) = 'Darwin' ]]; then
+    for app in ${darwin_only[@]}; do
+        stowit "${HOME}" $app
+    done
+fi
+
+# install only for Linux
+if [[ $(uname) = 'Linux' ]]; then
+    for app in ${linux_only[@]}; do
+        stowit "${HOME}" $app
+    done
+fi
 
 echo ""
 echo "##### ALL DONE"
