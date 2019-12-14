@@ -6,9 +6,19 @@
 [![Built with Spacemacs](https://cdn.rawgit.com/syl20bnr/spacemacs/442d025779da2f62fc86c2082703697714db6514/assets/spacemacs-badge.svg)](http://spacemacs.org)
 
 ## Prerequisite
-My dotfiles are managed through `rcm`.
-To install `rcm`, visit https://github.com/thoughtbot/rcm#installation
+My dotfiles are managed through GNU `stow`.
+To install `stow`, do:
 
+- For debian based:
+
+```sh
+sudo apt update && sudo apt install stow
+```
+
+- For MacOS:
+```sh
+brew install stow
+```
 
 ## Installation
 - Clone the repository:
@@ -21,9 +31,9 @@ git clone https://github.com/makohoek/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles && git submodule update --init --recursive --remote --depth=1
 ```
 
-- Then, use `rcm` to create the symlinks:
+- Then, use `stow` to create the symlinks:
 ```sh
-cd && env RCRC=$HOME/.dotfiles/rcrc rcup
+cd ~/.dotfiles && setup.sh
 ```
 
 ## Post-install/more tools
@@ -37,7 +47,6 @@ git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 See https://github.com/neovim/neovim/releases/
 Otherwise, minimum vim 8.0
 
-## More information on `rcm`
-- http://thoughtbot.github.io/rcm/rcm.7.html
-- https://robots.thoughtbot.com/rcm-for-rc-files-in-dotfiles-repos
-
+## More information on managing dotfiles with GNU `stow`
+- TODO add link1
+- TODO add link2
