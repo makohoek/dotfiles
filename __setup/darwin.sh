@@ -2,8 +2,12 @@
 
 # This should be ran PRIOR to running stow
 
+command_exists() {
+    command -v "$@" >/dev/null 2>&1
+}
+
 # install brew
-command -v brew >/dev/null 2>&1 || {
+command_exists brew || {
     echo "homebrew is not installed, installing ...";
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 }
