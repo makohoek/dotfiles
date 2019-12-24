@@ -11,6 +11,7 @@ base=(
     git
     spacemacs
     vim
+    email
 )
 
 darwin_only=(
