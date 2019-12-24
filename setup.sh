@@ -11,6 +11,7 @@ base=(
     git
     spacemacs
     vim
+    tmux
     email
 )
 
