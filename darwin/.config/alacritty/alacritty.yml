@@ -58,15 +58,12 @@ font:
     # style: Italic
 
   # Point size of the font
-  # this is laptop mode
-  size: 5.5
-  # this is desktop mode
-  # size: 9.5
+  size: 12
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
-    x: -1
+    x: 0
     y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
@@ -79,7 +76,7 @@ font:
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
   # false.
-  use_thin_strokes: false
+  use_thin_strokes: true
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
