@@ -17,10 +17,12 @@ base=(
 
 darwin_only=(
     zsh
+    darwin
 )
 
 linux_only=(
     bash
+    linux
 )
 
 # run the stow command for the passed in directory ($2) in location $1
