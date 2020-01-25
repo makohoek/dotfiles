@@ -80,6 +80,7 @@
       (setq git-commit-fill-column 72)
       ;; support Bug: + Change-Id: pseudo-headers
       (add-to-list 'git-commit-known-pseudo-headers "Bug")
+      (add-to-list 'git-commit-known-pseudo-headers "Fixes")
       (add-to-list 'git-commit-known-pseudo-headers "Change-Id"))))
 
 ;; whitespace is owned by 'spacemacs-defaults' layer
