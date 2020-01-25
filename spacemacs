@@ -503,13 +503,13 @@ before packages are loaded."
   ;; enable cscope minor mode on startup in C and C++
   (cscope-setup)
 
-  ;; tab indentation: default to userspace mode
-  ;; see coding-style-kernel for switching to kernel style
-  (setq-default tab-width 4)
-  (setq-default indent-tabs-mode nil)
-
   ;; call SPC bB with SPC bb
   (spacemacs/set-leader-keys "bb" 'spacemacs-layouts/non-restricted-buffer-list-ivy)
+
+  ;; tab indentation: default to userspace mode
+  ;; see coding-style-kernel for switching to kernel style
+  (setq-default tab-width 8)
+  (setq-default indent-tabs-mode nil)
 
   ;; fringe style: equivalent of "half-width"
   (set-fringe-style 4)
