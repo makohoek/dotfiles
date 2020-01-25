@@ -95,6 +95,7 @@ This function should only modify configuration layer settings."
      ;; own, private layers
      android-device
      makohoek-dev
+     makohoek-git
      makohoek-email
      makohoek-project
      makohoek-org)
