@@ -90,6 +90,10 @@ This is useful when switching between different lunch targets."
     "Returns a String representing how to compile system in Android"
     (makohoek-project/android/compile-command "make systemimage"))
 
+  (defun makohoek-project/android/compile-vendor ()
+    "Returns a String representing how to compile system in Android"
+    (makohoek-project/android/compile-command "make vendorimage"))
+
   (defun makohoek-project/uboot/compile-prefix (config_name)
     "Returns a string representing the begin of an Uboot compilation command"
     (concat
