@@ -32,7 +32,9 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(graphviz
+   '(go
+     html
+     graphviz
      rust
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
