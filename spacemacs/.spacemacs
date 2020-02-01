@@ -467,7 +467,16 @@ It should only modify the values of Spacemacs settings."
    ;; Run `spacemacs/prettify-org-buffer' when
    ;; visiting README.org files of Spacemacs.
    ;; (default nil)
-   dotspacemacs-pretty-docs nil))
+   dotspacemacs-pretty-docs nil)
+
+  ;; for MacOS, do some overrides
+  (when (string-equal system-type "darwin")
+    (setq dotspacemacs-themes '(spacemacs-dark
+                                spacemacs-light)
+          dotspacemacs-default-font '(("Fira Code"
+                                       :size 12.0
+                                       :weight normal
+                                       :powerline-scale 1.0)))))
 
 (defun dotspacemacs/user-env ()
   "Environment variables setup.
