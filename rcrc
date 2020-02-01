@@ -1,2 +1,0 @@
-EXCLUDES="README.md emacs.d"
-UNDOTTED="bin work"
