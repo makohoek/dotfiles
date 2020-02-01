@@ -13,6 +13,7 @@ base=(
     vim
     tmux
     email
+    misc
 )
 
 darwin_only=(
