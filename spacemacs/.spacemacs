@@ -53,7 +53,7 @@ This function should only modify configuration layer settings."
      spacemacs-project
      spacemacs-purpose
      spacemacs-visual
-     ivy
+     helm
      ;; additional spacemacs layers
      ;; +lang
      c-c++
@@ -516,25 +516,12 @@ before packages are loaded."
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode nil)
 
-  ;; call SPC bB with SPC bb
-  (spacemacs/set-leader-keys "bb" 'spacemacs-layouts/non-restricted-buffer-list-ivy)
-
   ;; fringe style: equivalent of "half-width"
   (set-fringe-style 4)
 
   ;; chrome default browser
   (setq shr-external-browser 'browse-url-chrome)
   (setq browse-url-browser-function 'browse-url-chrome)
-
-  (with-eval-after-load 'ivy
-    ;; makes it possible to select the prompt
-    ;; useful for creating new dirs which start with the prefix
-    ;; of an existing one
-    (setq ivy-use-selectable-prompt t)
-    ;; ignore mega long lines in output as it slows down emacs
-    ;; found on https://oremacs.com/2018/03/05/grep-exclude/
-    (setq counsel-rg-base-command
-          "rg -i -M 250 --no-heading --line-number --color never %s ."))
 
   (with-eval-after-load 'tramp
     (setq tramp-default-method "ssh")
