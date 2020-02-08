@@ -48,5 +48,5 @@ See https://github.com/neovim/neovim/releases/
 Otherwise, minimum vim 8.0
 
 ## More information on managing dotfiles with GNU `stow`
-- TODO add link1
-- TODO add link2
+- https://dev.to/writingcode/how-i-manage-my-dotfiles-using-gnu-stow-4l59
+- https://alexpearce.me/2016/02/managing-dotfiles-with-stow
