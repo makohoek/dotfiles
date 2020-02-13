@@ -23,6 +23,7 @@ darwin_only=(
 
 linux_only=(
     bash
+    i3
     linux
 )
 
