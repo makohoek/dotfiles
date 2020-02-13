@@ -102,11 +102,17 @@ bindsym $mod+a focus parent
 
 # fontawesome based workspace names
 # http://fontawesome.io/cheatsheet/
-set $workspace_emacs 1:
-set $workspace_terminal 2:
-set $workspace_chrome 3:
-set $workspace_slack 4:
-set $workspace_chat 8:8
+# set $workspace_emacs 1:
+# set $workspace_terminal 2:
+# set $workspace_chrome 3:
+# set $workspace_slack 4:
+# set $workspace_chat 8:8
+
+set $workspace_emacs 1
+set $workspace_terminal 2
+set $workspace_chrome 3
+set $workspace_slack 4
+set $workspace_chat 8
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace_emacs
