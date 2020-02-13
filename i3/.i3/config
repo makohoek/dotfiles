@@ -151,6 +151,8 @@ bindsym XF86AudioMute         exec "pactl set-sink-mute 0 toggle"
 bindsym XF86AudioRaiseVolume  exec "pactl set-sink-volume 0 +5%"
 bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume 0 -5%"
 
+bindsym XF86Search exec "~/.screenlayout/toggle_mode.sh"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
