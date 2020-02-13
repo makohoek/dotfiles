@@ -238,3 +238,9 @@ client.focused $zenburn-bg-05 $zenburn-fg-1 $zenburn-fg #000000
 # }
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# startup programs
+exec_always --no-startup-id "setxkbmap -option caps:ctrl_modifier"
+exec "feh --bg-fill ~/Pictures/cv9h04ic8lr31.png"
+exec "parcellite"
+exec_always --no-startup-id "~/.screenlayout/toggle_mode.sh"
