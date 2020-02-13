@@ -7,5 +7,3 @@ else
          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 vim -u "$HOME"/.vimrc.plugins +PlugUpdate +PlugClean! +qa
-
-reset -Q

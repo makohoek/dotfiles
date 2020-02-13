@@ -103,6 +103,10 @@
           mail-setup-hook nil
           sendmail-program "/usr/bin/msmtp")
 
+    ;; for MacOS, change msmtp path
+    (when (string-equal system-type "darwin")
+      (setq sendmail-program "/usr/local/bin/msmtp"))
+
     ;; load (optional) work email config
     (load "~/.dotfiles-private/spacemacs-layers/makohoek-work/config.el" 't)))
 
