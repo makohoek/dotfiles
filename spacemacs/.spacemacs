@@ -517,8 +517,7 @@ before packages are loaded."
   ;; call SPC bB with SPC bb
   (spacemacs/set-leader-keys "bb" 'spacemacs-layouts/non-restricted-buffer-list-ivy)
 
-  ;; tab indentation: default to userspace mode
-  ;; see coding-style-kernel for switching to kernel style
+  ;; tab indentation: set to 8 for linux kernel code
   (setq-default tab-width 8)
   (setq-default indent-tabs-mode nil)
 
