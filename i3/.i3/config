@@ -36,6 +36,10 @@ bindsym $mod+Shift+q kill
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -dpi 0 -show run -theme gruvbox-dark-mattijs
 bindsym $mod+w exec rofi -dpi 0 -show window -theme gruvbox-dark-mattijs
+
+# browse bookmarks with buku_run
+bindsym $mod+b exec /home/mkorpershoek/home/code/buku_run/buku_run
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
