@@ -1,0 +1,359 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;==========================================================
+; colors come from zenburn emacs theme:
+; https://github.com/bbatsov/zenburn-emacs/blob/master/zenburn-theme.el
+[zenburn]
+fg-1     = #656555
+fg-05    = #989890
+fg       = #DCDCCC
+fg+1     = #FFFFEF
+fg+2     = #FFFFFD
+bg-2     = #000000
+bg-1     = #2B2B2B
+bg-08    = #303030
+bg-05    = #383838
+bg       = #3F3F3F
+bg+05    = #494949
+bg+1     = #4F4F4F
+bg+2     = #5F5F5F
+bg+3     = #6F6F6F
+red-6    = #6C3333
+red-5    = #7C4343
+red-4    = #8C5353
+red-3    = #9C6363
+red-2    = #AC7373
+red-1    = #BC8383
+red      = #CC9393
+red+1    = #DCA3A3
+red+2    = #ECB3B3
+orange   = #DFAF8F
+yellow-2 = #D0BF8F
+yellow-1 = #E0CF9F
+yellow   = #F0DFAF
+green-5  = #2F4F2F
+green-4  = #3F5F3F
+green-3  = #4F6F4F
+green-2  = #5F7F5F
+green-1  = #6F8F6F
+green    = #7F9F7F
+green+1  = #8FB28F
+green+2  = #9FC59F
+green+3  = #AFD8AF
+green+4  = #BFEBBF
+cyan     = #93E0E3
+blue+3   = #BDE0F3
+blue+2   = #ACE0E3
+blue+1   = #94BFF3
+blue     = #8CD0D3
+blue-1   = #7CB8BB
+blue-2   = #6CA0A3
+blue-3   = #5C888B
+blue-4   = #4C7073
+blue-5   = #366060
+magenta  = #DC8CC3
+
+
+[colors]
+background = ${zenburn.bg-05}
+background-alt = ${zenburn.bg+1}
+foreground = ${zenburn.fg}
+foreground-alt = ${zenburn.fg-05}
+alert = ${zenburn.red}
+
+[bar/makohoek]
+; desktop
+dpi-x = 96
+dpi-y = 96
+; laptop
+; dpi-x = 192
+; dpi-y = 192
+
+width = 100%
+; desktop config
+height = 1.5%
+; laptop config
+; height = 44
+; height = 2%
+;offset-x = 1%
+;offset-y = 1%
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+; config for desktop
+font-0 = Hack:pixelsize=9:antialias=true;1
+font-1 = FontAwesome:style=Regular:pixelsize=9;1
+font-3 = Siji:pixelsize=10:antialias=false;1
+
+; config when we have built-in laptop screen
+; font-0 = Hack:pixelsize=18:antialias=true;1
+; font-1 = FontAwesome:style=Regular:pixelsize=18;1
+; font-2 = siji:pixelsize=20;1
+
+modules-left = i3 mpd
+modules-center = date
+modules-right = filesystem battery pulseaudio wlan memory cpu temperature san_francisco_date
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;
+ws-icon-8 = 9;9
+ws-icon-default =
+
+label-mode-padding = 0
+label-mode-foreground = #000
+label-mode-background = ${colors.background}
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-background = ${colors.background-alt}
+label-focused-underline = ${zenburn.orange}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/mpd]
+type = internal/mpd
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = localhost
+port = 6600
+password = 
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted = %{F#0a81f5}%mountpoint%%{F-} : %free%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "CPU "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${zenburn.orange}
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "MEM "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-underline = #9f78e1
+label-connected =  %essid%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 30
+
+date =
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M
+
+;format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${zenburn.blue}
+
+label = %date% %time%
+
+[module/san_francisco_date]
+type = custom/script
+exec = TZ=America/Los_Angeles date +"SF: %H:%M"
+interval = 30
+format-underline = ${zenburn.blue}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume> 
+label-volume =  %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted =  muted
+label-muted-foreground = ${zenburn.fg-1}
+
+bar-volume-width = 8
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-framerate = 750
+
+[module/temperature]
+type = internal/temperature
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+interval = 5
+
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = ${zenburn.red}
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${zenburn.red}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+[global/wm]
+margin-top = 1
+margin-bottom = 1
+
+; vim:ft=dosini
