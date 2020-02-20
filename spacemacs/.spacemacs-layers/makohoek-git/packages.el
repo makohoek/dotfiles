@@ -11,7 +11,12 @@
 ;;; Code:
 
 (defconst makohoek-git-packages
-  '(magit forge)
+  '(magit
+    (forge :location (recipe
+                      :fetcher github
+                      :repo JulienMasson/forge
+                      :branch "code-review-support"
+                      :files ("*.el" "lisp/*.el"))))
   "The list of Lisp packages required by the makohoek-git layer.")
 
 (defun makohoek-git/init-forge ()
