@@ -108,7 +108,7 @@
       (setq sendmail-program "/usr/local/bin/msmtp"))
 
     ;; load (optional) work email config
-    (load "~/.dotfiles-private/spacemacs-layers/makohoek-work/config.el" 't)))
+    (load "~/.spacemacs-layers/makohoek-work/config.el" 't)))
 
 
 (defun makohoek-email/post-init-mu4e-maildirs-extension()
