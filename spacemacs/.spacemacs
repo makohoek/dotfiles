@@ -522,20 +522,6 @@ before packages are loaded."
   ;; fringe style: equivalent of "half-width"
   (set-fringe-style 4)
 
-  ;; configure how my window behave (especially popup windows)
-  ;; never split vertically (one above another)
-  (setq split-height-threshold 0)
-
-  ;; See: https://github.com/syl20bnr/spacemacs/issues/6649#issuecomment-234490739
-  ;; replace default entries
-  (setcdr (assoc "*compilation*" popwin:special-display-config)
-          '(:dedicated t :position right :stick t :noselect t :width 0.3))
-
-  ;; add new entries
-  (push '("*ripgrep-search*" :dedicated t :position right :stick t :noselect nil :width 0.25)
-        popwin:special-display-config)
-  (pupo/update-purpose-config)
-
   ;; chrome default browser
   (setq shr-external-browser 'browse-url-chrome)
   (setq browse-url-browser-function 'browse-url-chrome)
