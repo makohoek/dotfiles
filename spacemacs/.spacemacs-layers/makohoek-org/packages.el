@@ -86,7 +86,7 @@
       '(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
          "* TODO %?\n  %i\n  %a")
         ("p" "Pomodoro" entry (file+headline "~/work/org/pomodoro.org" "Pomodoro")
-         "* %t [/][\%]\n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n")))
+         "* %t [/][\%]\n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n")))
     ;; org-pomodoro notification once pomodoro is completed
     (defun pomodoro-completed ()
       (notifications-notify :title "Pomodoro completed"
