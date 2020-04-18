@@ -120,6 +120,9 @@ source_if_exists ~/.fzf.bash
 bind -r '\ec'
 source_if_exists ~/.neovim.bash
 
+## git completion in Arch
+source_if_exists /usr/share/git/completion/git-prompt.sh
+
 
 ##########################
 # PATH extra directories #
