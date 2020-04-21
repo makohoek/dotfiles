@@ -169,6 +169,9 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
+# fasd + fzf
+alias j='cd $(z -l | fzf)'
+
 # tab completion for jira
 if [ "$(command -v jira)" ]; then
     eval "$(jira --completion-script-bash)"
