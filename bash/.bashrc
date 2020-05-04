@@ -88,11 +88,11 @@ export TERM=screen-256color
 #################
 # don't put duplicate lines in the history.
 # See bash(1) for more options
-HISTCONTROL=erasedups
+export HISTCONTROL=erasedups
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=20000
+export HISTSIZE=10000
+export HISTFILESIZE=20000
 
 # Use arrow keys to complete commands from history
 bind '"\e[A"':history-search-backward
