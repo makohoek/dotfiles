@@ -11,7 +11,8 @@
 ;;; Code:
 
 (defconst makohoek-dev-packages
-  '(dtrt-indent
+  '(bitbake
+    dtrt-indent
     ediff
     info
     hide-lines
@@ -19,6 +20,10 @@
     ripgrep
     whitespace)
   "The list of Lisp packages required by the makohoek-dev layer.")
+
+(defun makohoek-dev/init-bitbake ()
+  "Use bitbake for yocto developpment"
+  (use-package bitbake))
 
 (defun makohoek-dev/init-dtrt-indent ()
   "Enable dtrt-indent for c development."
