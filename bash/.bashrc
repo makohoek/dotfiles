@@ -131,6 +131,9 @@ export PATH="$HOME/bin:$PATH"
 # Homebrew
 export PATH="/usr/local/bin:$PATH"
 
+# python local modules
+export PATH="$HOME/.local/bin:$PATH"
+
 #############
 # Functions #
 #############
