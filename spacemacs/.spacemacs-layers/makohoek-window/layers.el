@@ -1,1 +1,2 @@
-(configuration-layer/declare-layers '(spacemacs-purpose))
+;; we depend on spacemacs-purpose
+(configuration-layer/declare-layer 'spacemacs-purpose)
