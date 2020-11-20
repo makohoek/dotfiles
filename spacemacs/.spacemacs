@@ -72,6 +72,7 @@ This function should only modify configuration layer settings."
            mu4e-account-alist t
            mu4e-use-maildirs-extension t)
      ;; +auto-completion
+     notmuch
      (auto-completion :variables
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-enable-snippets-in-popup t
