@@ -11,17 +11,11 @@
 
 ;;; Code:
 
-(defconst makohoek-org-packages '(auth-source-pass
-                                  org
+(defconst makohoek-org-packages '(org
                                   org-gcal
                                   org-wunderlist
                                   org-plus-contrib))
                                   ;; ox-confluence is installed by `org-plus-contrib'
-
-(defun makohoek-org/init-auth-source-pass ()
-  (use-package auth-source-pass
-    :init
-    (auth-source-pass-enable)))
 
 (defun makohoek-org/init-org-gcal()
   (use-package org-gcal
