@@ -15,6 +15,7 @@
     dtrt-indent
     ediff
     info
+    undo-tree
     hide-lines
     dts-mode
     ripgrep
@@ -38,6 +39,11 @@
 
 (defun makohoek-dev/init-dts-mode()
   (use-package dts-mode))
+
+(defun makohoek-dev/init-undo-tree()
+  (use-package undo-tree
+    :config
+    (global-undo-tree-mode)))
 
 ;; nothing to configure. We still need to init it so that
 ;; it is available
