@@ -88,7 +88,7 @@ This function should only modify configuration layer settings."
      osx
      ;; +tools
      docker
-     pass
+     (pass :packages (not auth-source-pass))
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
