@@ -1,1 +1,1 @@
-(configuration-layer/declare-layers '(git pass))
+(configuration-layer/declare-layers '(git))

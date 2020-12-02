@@ -16,26 +16,12 @@
                       :fetcher github
                       :repo JulienMasson/forge
                       :branch "code-review-support"
-                      :files ("*.el" "lisp/*.el")))
-    (auth-source-pass
-     :location (recipe
-                :fetcher github
-                :repo "DamienCassou/auth-source-pass"
-                :files ("*.el"))
-     :min-version "4.0.2"))
+                      :files ("*.el" "lisp/*.el"))))
   "The list of Lisp packages required by the makohoek-git layer.")
 
 (defun makohoek-git/init-forge ()
   (use-package forge
     :after magit))
-
-;; the built-in password-store in emacs 26.3 does not work properly with
-;; forge authentication method, so use upstream package instead
-(defun makohoek-git/init-auth-source-pass ()
-  (use-package auth-source-pass
-    :after auth-source
-    :config
-    (auth-source-pass-enable)))
 
 ;; magit is owned by layer 'git'
 (defun makohoek-git/post-init-magit ()
