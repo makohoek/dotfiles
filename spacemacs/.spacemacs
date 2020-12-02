@@ -56,12 +56,10 @@ This function should only modify configuration layer settings."
      ;; +lang
      c-c++
      emacs-lisp
-     go
      graphviz
      html
      markdown
      python
-     ruby
      rust
      shell-scripts
      yaml
