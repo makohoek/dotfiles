@@ -1,3 +1,3 @@
-;; we depend on the mu4e spacemacs layer because this
-;; layer is only configuration for mu4e
-(configuration-layer/declare-layer 'mu4e)
+;; we depend on the notmuch spacemacs layer because this
+;; layer is only configuration for notmuch
+(configuration-layer/declare-layer 'notmuch)
