@@ -38,61 +38,46 @@ This is useful when switching between different lunch targets."
     (clrhash projectile-compilation-cmd-map)
     (clrhash projectile-test-cmd-map))
 
-  (defun makohoek-project/android/compile-prefix (lunch-target)
-    "Returns a string representing the begin of an Android compilation command"
-    (concat
-     "/bin/bash -c '"
-     "source build/envsetup.sh"        " && "
-     "lunch " lunch-target"-userdebug" " && "))
-
-  (defun makohoek-project/android/compile-suffix ()
-    "Returns a string representing the end of an Android compilation command"
-    "'")
-
-  (defun makohoek-project/android/compile-command (command)
-    "Forges an Android compilation command
-    Examples:
-    (makohoek-project/android/compile-command \"make bootimage\")
-    (makohoek-project/android/compile-command \"make systemimage\")
-    (makohoek-project/android/compile-command \"m libbluetooth\")"
-    (setq target (completing-read "Target: " makohoek-project/android/allowed-targets))
-    (concat (makohoek-project/android/compile-prefix target)
-            command
-            (makohoek-project/android/compile-suffix)))
-
   (defun makohoek-project/android/compile-kernel ()
     "Returns a String representing how to compile kernel in Android"
     (setq target (completing-read "Target: " makohoek-project/android/allowed-targets))
     (let ((build-info (eval (cdr (assoc target makohoek-project/android/kernel-build-info-for-target))))
-          (aosp-src-dir "~/src/aosp/"))
+          (aosp-src-dir "~/src/aosp-11/"))
           (concat "/bin/bash -c '"
                   " DIST_DIR=" (android/kernel-build-dist-folder build-info)
                   " BUILD_CONFIG=" (android/kernel-build-sh-config build-info)
                   " SKIP_MRPROPER=1 build/build.sh" " && "
                   "cd " aosp-src-dir " && "
-                  "source build/envsetup.sh && lunch " target "-userdebug && "
+                  "source build/envsetup.sh && lunch " target " && "
                   "croot && "
-                  "make bootimage vendorimage " (android/kernel-build-aosp-out-folder build-info) "/dtbo.img"
-                  (makohoek-project/android/compile-suffix))))
+                  "make bootimage vendorimage " (android/kernel-build-aosp-out-folder build-info) "/dtbo.img'")))
 
   (defun makohoek-project/android/flash-kernel ()
     "Returns a String representing how to flash kernel in Android"
     (setq target (completing-read "Target: " makohoek-project/android/allowed-targets))
     (let ((build-info (eval (cdr (assoc target makohoek-project/android/kernel-build-info-for-target))))
-          (aosp-src-dir "~/src/aosp/"))
+          (aosp-src-dir "~/src/aosp-11/"))
       (concat "/bin/bash -c '"
               "cd " aosp-src-dir " && "
-              "cd " (android/kernel-build-aosp-out-folder build-info) " && "
-              "python2 flashimage.py --boot"
-              (makohoek-project/android/compile-suffix))))
+              "adb reboot fastboot; "
+              "fastboot flash boot " (android/kernel-build-aosp-out-folder build-info) "/boot.img && "
+              "fastboot flash vendor " (android/kernel-build-aosp-out-folder build-info) "/vendor.img && "
+              "fastboot reboot'")))
 
-  (defun makohoek-project/android/compile-system ()
-    "Returns a String representing how to compile system in Android"
-    (makohoek-project/android/compile-command "make systemimage"))
+  (defun makohoek-project/android/compile ()
+    (let ((repo-dir (completing-read "Repo: " makohoek-project/android/repo-directories))
+          (lunch-target (completing-read  "Lunch target: " makohoek-project/android/allowed-targets))
+          (module-name (completing-read "Module: " makohoek-project/android/module-names)))
+      (concat "/bin/bash -c '~/.dotfiles/bin/bin/build-android.sh " repo-dir
+              " " lunch-target " " module-name "'")))
 
-  (defun makohoek-project/android/compile-vendor ()
-    "Returns a String representing how to compile system in Android"
-    (makohoek-project/android/compile-command "make vendorimage"))
+  (defun makohoek-project/android/test ()
+    (let ((repo-dir (completing-read "Repo: " makohoek-project/android/repo-directories))
+          (lunch-target (completing-read  "Lunch target: " makohoek-project/android/allowed-targets))
+          (module-name (completing-read "Module: " makohoek-project/android/module-names)))
+      (concat "/bin/bash -c '~/.dotfiles/bin/bin/install-android.sh " repo-dir
+              " " lunch-target " " module-name "'")))
+
 
   (defun makohoek-project/uboot/compile-prefix (config_name)
     "Returns a string representing the begin of an Uboot compilation command"
