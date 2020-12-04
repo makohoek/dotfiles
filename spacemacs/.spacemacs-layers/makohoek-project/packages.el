@@ -48,7 +48,7 @@
     (projectile-register-project-type
      'android-vendor
      '(".projectile-type-android-vendor")
-     :compilation-dir "~/src/aosp/"
+     :compilation-dir "../../../.."
      :compile 'makohoek-project/android/compile-vendor)
     (projectile-register-project-type
      'u-boot
