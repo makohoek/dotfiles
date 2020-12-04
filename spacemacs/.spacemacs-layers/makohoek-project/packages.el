@@ -42,15 +42,6 @@
      :compile 'makohoek-project/android/compile-kernel
      :test 'makohoek-project/android/flash-kernel)
     (projectile-register-project-type
-     'android-system
-     '("art")
-     :compile 'makohoek-project/android/compile-system)
-    (projectile-register-project-type
-     'android-vendor
-     '(".projectile-type-android-vendor")
-     :compilation-dir "../../../.."
-     :compile 'makohoek-project/android/compile-vendor)
-    (projectile-register-project-type
      'u-boot
      '(".projectile-type-u-boot")
      :compile 'makohoek-project/uboot/compile)
