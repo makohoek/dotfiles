@@ -43,14 +43,14 @@ This is useful when switching between different lunch targets."
     (setq target (completing-read "Target: " makohoek-project/android/allowed-targets))
     (let ((build-info (eval (cdr (assoc target makohoek-project/android/kernel-build-info-for-target))))
           (aosp-src-dir "~/src/aosp-11/"))
-          (concat "/bin/bash -c '"
-                  " DIST_DIR=" (android/kernel-build-dist-folder build-info)
-                  " BUILD_CONFIG=" (android/kernel-build-sh-config build-info)
-                  " SKIP_MRPROPER=1 build/build.sh" " && "
-                  "cd " aosp-src-dir " && "
-                  "source build/envsetup.sh && lunch " target " && "
-                  "croot && "
-                  "make bootimage vendorimage " (android/kernel-build-aosp-out-folder build-info) "/dtbo.img'")))
+      (concat "/bin/bash -c '"
+              " DIST_DIR=" (android/kernel-build-dist-folder build-info)
+              " BUILD_CONFIG=" (android/kernel-build-sh-config build-info)
+              " SKIP_MRPROPER=1 build/build.sh" " && "
+              "cd " aosp-src-dir " && "
+              "source build/envsetup.sh && lunch " target " && "
+              "croot && "
+              "make bootimage vendorimage " (android/kernel-build-aosp-out-folder build-info) "/dtbo.img'")))
 
   (defun makohoek-project/android/flash-kernel ()
     "Returns a String representing how to flash kernel in Android"
