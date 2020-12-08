@@ -532,6 +532,15 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; Environment variables should be set in .profile or .zshenv rather than
   ;; .bashrc or .zshrc.
   (setq exec-path-from-shell-check-startup-files nil))
+  (setq exec-path-from-shell-check-startup-files nil)
+
+  ;; zenburn theme configuration
+  ;; use variable-pitch fonts for some headings and titles
+  (setq zenburn-use-variable-pitch t)
+  ;; scale headings in org-mode
+  (setq zenburn-scale-org-headlines t)
+  ;; scale headings in outline-mode
+  (setq zenburn-scale-outline-headlines t))
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
