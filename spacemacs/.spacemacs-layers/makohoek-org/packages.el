@@ -13,7 +13,6 @@
 
 (defconst makohoek-org-packages '(org
                                   org-gcal
-                                  org-wunderlist
                                   org-plus-contrib))
                                   ;; ox-confluence is installed by `org-plus-contrib'
 
@@ -30,19 +29,6 @@
           org-gcal-file-alist
           '(("mattijs.korpershoek@gmail.com" .  "~/home/org/calendars/gcal-main.org")
             ("ghitimou3nseap7k05iskembpk@group.calendar.google.com" .  "~/home/org/calendars/gcal-shared.org")))))
-
-(defun makohoek-org/init-org-wunderlist()
-  (use-package org-wunderlist
-    :commands org-wunderlist-fetch
-    :config
-    ;; XXX: auth-source-pass is emacs 26 only
-    (use-package auth-source-pass
-      :config
-      (auth-source-pass-enable))
-    (setq org-wunderlist-client-id (auth-source-pass-get "client-id" "org-wunderlist-makohoek")
-          org-wunderlist-token (auth-source-pass-get "token" "org-wunderlist-makohoek")
-          org-wunderlist-file  "~/org/wunderlist.org"
-          org-wunderlist-dir "~/org/wunderlist/")))
 
 ;; org-plus-contrib is owned by the org layer
 (defun makohoek-org/post-init-org-plus-contrib()
