@@ -35,5 +35,24 @@
     (when (string-equal system-type "darwin")
       (setq sendmail-program "/usr/local/bin/msmtp"))
 
+    (setq notmuch-saved-searches
+          '((:name "Inbox"
+                   :query "folder:gmail/Inbox and tag:unread"
+                   :key "i")
+            (:name "sent"
+                   :query "tag:sent")))
+
+    (with-eval-after-load 'notmuch
+      ;; disable logo
+      (setq notmuch-show-logo nil)
+
+      ;; remove search bar
+      (setq notmuch-hello-sections
+            (list #'notmuch-hello-insert-header
+                  #'notmuch-hello-insert-saved-searches
+                  #'notmuch-hello-insert-recent-searches
+                  #'notmuch-hello-insert-alltags
+                  #'notmuch-hello-insert-footer)))
+
     ;; load (optional) work email config
     (load "~/.spacemacs-layers/makohoek-work/config.el" 't)))
