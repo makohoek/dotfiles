@@ -32,7 +32,7 @@ stowit() {
     local app
     usr=$1
     app=$2
-    stow --verbose --restow --target=${usr} ${app}
+    stow --restow --target=${usr} ${app}
 }
 
 echo ""
