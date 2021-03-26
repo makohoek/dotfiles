@@ -4,7 +4,6 @@ RefuseManualStart=no
 RefuseManualStop=no
 
 [Timer]
-Persistent=true
 OnBootSec= 5sec
 OnUnitActiveSec= 15min
 Unit=notmuch-email.service
