@@ -179,6 +179,9 @@ if [ "$(command -v jira)" ]; then
     eval "$(jira --completion-script-bash)"
 fi
 
+# ripgrep
+export RIPGREP_CONFIG_PATH=~/.ripgreprc
+
 ####################
 # Private includes #
 ####################
