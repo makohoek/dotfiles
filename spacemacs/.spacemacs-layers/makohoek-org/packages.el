@@ -59,9 +59,7 @@
     ;; org-agenda files
     :config
     (setq org-agenda-files
-     '("~/work/org/baylibre/"
-       "~/work/org/calendars/"
-       "~/home/org/calendars/"))
+     '("~/work/org/"))
     (setq org-capture-templates
       '(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
          "* TODO %?\n  %i\n  %a")
