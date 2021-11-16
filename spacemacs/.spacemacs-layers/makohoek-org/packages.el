@@ -61,10 +61,10 @@
     (setq org-agenda-files
      '("~/work/org/"))
     (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
+      `(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
          "* TODO %?\n  %i\n  %a")
         ("p" "Pomodoro" entry (file+headline "~/work/org/pomodoro.org" "Pomodoro")
-         "* %t [/][\%]\n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n")))
+         ,(concat "* %t [/][\%]" (string-join (make-list 15 "\n- [ ] "))))))
     ;; org-pomodoro notification once pomodoro is completed
     (defun pomodoro-completed ()
       (notifications-notify :title "Pomodoro completed"
