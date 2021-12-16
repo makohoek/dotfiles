@@ -12,9 +12,14 @@
 ;;; Code:
 
 (defconst makohoek-org-packages '(org
+                                  org-clock-split
                                   org-gcal
                                   org-plus-contrib))
                                   ;; ox-confluence is installed by `org-plus-contrib'
+
+(defun makohoek-org/org-clock-split())
+  (use-package org-clock-split
+    :commands org-gcal-fetch))
 
 (defun makohoek-org/init-org-gcal()
   (use-package org-gcal
