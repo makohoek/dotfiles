@@ -1,0 +1,8 @@
+[Unit]
+Description=notmuch new to fetch email and re-index it
+RefuseManualStart=no
+RefuseManualStop=yes
+
+[Service]
+Type=oneshot
+ExecStart=notmuch new

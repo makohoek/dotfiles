@@ -562,7 +562,6 @@ before packages are loaded."
   (set-fringe-style 4)
 
   ;; chrome default browser
-  (setq shr-external-browser 'browse-url-chrome)
   (setq browse-url-browser-function 'browse-url-chrome)
 
   (with-eval-after-load 'tramp

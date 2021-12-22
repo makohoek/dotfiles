@@ -12,9 +12,14 @@
 ;;; Code:
 
 (defconst makohoek-org-packages '(org
+                                  org-clock-split
                                   org-gcal
                                   org-plus-contrib))
                                   ;; ox-confluence is installed by `org-plus-contrib'
+
+(defun makohoek-org/org-clock-split())
+  (use-package org-clock-split
+    :commands org-gcal-fetch))
 
 (defun makohoek-org/init-org-gcal()
   (use-package org-gcal
@@ -55,18 +60,16 @@
             ("NOTE"      . font-lock-comment-face)
             ("DONE"      . org-done)
             ("CANCELLED" . org-done)))
-    (setq org-default-notes-file "~/work/org/baylibre/inbox.org")
+    (setq org-default-notes-file "~/work/org/inbox.org")
     ;; org-agenda files
     :config
     (setq org-agenda-files
-     '("~/work/org/baylibre/"
-       "~/work/org/calendars/"
-       "~/home/org/calendars/"))
+     '("~/work/org/"))
     (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
+      `(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
          "* TODO %?\n  %i\n  %a")
         ("p" "Pomodoro" entry (file+headline "~/work/org/pomodoro.org" "Pomodoro")
-         "* %t [/][\%]\n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n- [ ] \n")))
+         ,(concat "* %t [/][\%]" (string-join (make-list 15 "\n- [ ] "))))))
     ;; org-pomodoro notification once pomodoro is completed
     (defun pomodoro-completed ()
       (notifications-notify :title "Pomodoro completed"
