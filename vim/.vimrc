@@ -41,6 +41,11 @@ hi link TermCursor Cursor
 " hi TermCursorNC  guibg=#484848                         ctermbg=238
 hi TermCursorNC  guifg=#000d18 guibg=#8faf9f gui=bold       ctermfg=233 ctermbg=109 cterm=bold
 
+if has('mac')
+  colorscheme solarized
+  set background=light
+endif
+
 
 " {{{1 Indentation spaces/tabs
 "-------------------------------------------------------------------------------
