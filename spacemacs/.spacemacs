@@ -505,7 +505,7 @@ It should only modify the values of Spacemacs settings."
 
   ;; for MacOS, do some overrides
   (when (string-equal system-type "darwin")
-    (setq dotspacemacs-themes '(spacemacs-light
+    (setq dotspacemacs-themes '(solarized-light
                                 zenburn)
           dotspacemacs-default-font '(("Fira Code"
                                        :size 12.0
