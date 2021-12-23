@@ -46,6 +46,8 @@
       ;; disable logo
       (setq notmuch-show-logo nil)
 
+      (setq notmuch-archive-tags '("-unread"))
+
       ;; remove search bar
       (setq notmuch-hello-sections
             (list #'notmuch-hello-insert-header
