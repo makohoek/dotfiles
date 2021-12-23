@@ -17,7 +17,7 @@
                                   org-plus-contrib))
                                   ;; ox-confluence is installed by `org-plus-contrib'
 
-(defun makohoek-org/org-clock-split())
+(defun makohoek-org/init-org-clock-split()
   (use-package org-clock-split
     :commands org-gcal-fetch))
 
