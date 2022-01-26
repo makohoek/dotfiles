@@ -35,6 +35,9 @@
     (when (string-equal system-type "darwin")
       (setq sendmail-program "/usr/local/bin/msmtp"))
 
+    (setq message-citation-line-format "On %a, %b %d, %Y at %R, %f wrote:\n")
+    (setq message-citation-line-function 'message-insert-formatted-citation-line)
+
     (setq notmuch-saved-searches
           '((:name "Inbox"
                    :query "folder:gmail/Inbox and tag:unread"
