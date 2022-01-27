@@ -76,6 +76,8 @@
     ;; 9:tab, 187:»
     (setq whitespace-display-mappings
           '((tab-mark 9 [187 9] [92 9])))
+    ;; align with kernel length for line length
+    (setq whitespace-line-column 100)
     :hook
     ((c-mode-common   . whitespace-mode)
      (emacs-lisp-mode . whitespace-mode)
