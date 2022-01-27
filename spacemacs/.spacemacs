@@ -85,7 +85,6 @@ This function should only modify configuration layer settings."
      ;; +os
      osx
      ;; +tools
-     docker
      pass
      (shell :variables
             shell-default-height 30
