@@ -19,11 +19,7 @@
 ;;; Code:
 
 (defconst android-platform-packages
-  '((log-tools
-     :location (recipe
-                :fetcher github
-                :repo jeremy-compostella/log-tools))
-    (device-control
+  '((device-control
      :location (recipe
                 :fetcher github
                 :repo jeremy-compostella/device-control))
@@ -31,19 +27,6 @@
       :location (recipe
                  :fetcher github
                  :repo makohoek/emacs-soong-mode))))
-
-(defun android-platform/init-log-tools ()
-  "Log tools allow adb logcat and serial logs via UART."
-  (use-package log-tools
-    :commands log-tools
-    :config
-    (progn
-      (use-package lt-logcat)
-      (use-package lt-serial
-        :custom
-        (lt-serial-default-port "ttyUSB0" "default serial port is /dev/ttyUSB0")
-        (lt-serial-default-speed 921600 "default serial baud rate is 921600"))
-      (use-package lt-serial-kernel))))
 
 (defun android-platform/init-device-control ()
   "Flash via fastboot or use adb to interact with the device."
