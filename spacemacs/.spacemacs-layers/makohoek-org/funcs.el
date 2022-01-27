@@ -27,4 +27,9 @@
   (defun makohoek-org/fetch-all-calendars ()
     (interactive)
     (makohoek-org/ews-work-calendar)
-    (org-gcal-fetch)))
+    (org-gcal-fetch))
+
+
+  (defun makohoek-org/split-25mins-pomodoro ()
+    (interactive)
+    (org-clock-split nil "25m")))
