@@ -1,4 +1,4 @@
-#+TITLE: android-device layer
+#+TITLE: android-platform layer
 
 [[file:img/android-device.png]]
 
@@ -9,7 +9,7 @@
 - [[#key-bindings][Key bindings]]
 
 * Description
-This layer adds support for android device development in spacemacs.
+This layer adds support for android platform development in spacemacs.
 
 ** Features:
   - Android logcat / serial logs via [[https://github.com/jeremy-compostella/log-tools][log-tools]]
@@ -17,7 +17,7 @@ This layer adds support for android device development in spacemacs.
 
 * Install
 To use this configuration layer, add it to your =~/.spacemacs=. You will need to
-add =android-device= to the existing =dotspacemacs-configuration-layers= list in this
+add =android-platform= to the existing =dotspacemacs-configuration-layers= list in this
 file.
 
 * Key bindings

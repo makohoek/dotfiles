@@ -90,7 +90,7 @@ This function should only modify configuration layer settings."
             shell-default-height 30
             shell-default-position 'bottom)
      ;; own, private layers
-     android-device
+     android-platform
      makohoek-dev
      makohoek-git
      makohoek-email
