@@ -26,7 +26,11 @@
     (device-control
      :location (recipe
                 :fetcher github
-                :repo jeremy-compostella/device-control))))
+                :repo jeremy-compostella/device-control))
+     (soong-mode
+      :location (recipe
+                 :fetcher github
+                 :repo makohoek/emacs-soong-mode))))
 
 (defun android-platform/init-log-tools ()
   "Log tools allow adb logcat and serial logs via UART."
@@ -47,5 +51,8 @@
     :commands device-control
     :config
     (use-package dctrl-android)))
+
+(defun android-platform/init-soong-mode()
+  (use-package soong-mode))
 
 ;;; packages.el ends here

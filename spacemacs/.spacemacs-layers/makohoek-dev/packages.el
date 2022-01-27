@@ -18,10 +18,6 @@
     undo-tree
     hide-lines
     dts-mode
-    (soong-mode
-     :location (recipe
-                :fetcher github
-                :repo makohoek/emacs-soong-mode))
     ripgrep
     whitespace)
   "The list of Lisp packages required by the makohoek-dev layer.")
@@ -48,9 +44,6 @@
   (use-package undo-tree
     :config
     (global-undo-tree-mode)))
-
-(defun makohoek-dev/init-soong-mode()
-  (use-package soong-mode))
 
 ;; nothing to configure. We still need to init it so that
 ;; it is available
