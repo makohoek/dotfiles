@@ -46,7 +46,7 @@
      '(".projectile-type-u-boot")
      :compile 'makohoek-project/uboot/compile)
     :custom
-    (projectile-git-command "fdfind . -0" "faster indexing")
+    (projectile-git-command "fd . -H -0 -E .git" "faster indexing")
     (projectile-git-submodule-command nil "disable submodule indexing")
   ))
 
