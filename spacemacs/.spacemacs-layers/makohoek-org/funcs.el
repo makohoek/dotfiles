@@ -29,7 +29,6 @@
     (makohoek-org/ews-work-calendar)
     (org-gcal-fetch))
 
-
   (defun makohoek-org/split-25mins-pomodoro ()
     (interactive)
     (org-clock-split nil "25m")))
