@@ -31,4 +31,10 @@
 
   (defun makohoek-org/split-25mins-pomodoro ()
     (interactive)
-    (org-clock-split nil "25m")))
+    (org-clock-split nil "25m"))
+
+  (defun makohoek-org/mark-task-as-done()
+    (interactive)
+    (org-todo "DONE")))
+
+
