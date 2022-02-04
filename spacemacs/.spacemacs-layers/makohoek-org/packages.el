@@ -68,8 +68,10 @@
     (setq org-capture-templates
       `(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
          "* TODO %?\n  %i\n  %a")
-        ("p" "Pomodoro" entry (file+headline "~/work/org/pomodoro.org" "Pomodoro")
-         ,(concat "* %t [/][\%]" (string-join (make-list 15 "\n- [ ] "))))))
+        ("p" "Pomodoro" entry (file+olp+datetree "~/work/org/pomodoro-test.org" "Pomodoro")
+         ,(concat "* stats [/][\%]\n:PROPERTIES:\n:LOGGING: nil\n:END:\n" (string-join (make-list 15 "\n** TODO ")))
+         :tree-type week
+         :jump-to-captured 't)))
     ;; org-pomodoro notification once pomodoro is completed
     (defun pomodoro-completed ()
       (notifications-notify :title "Pomodoro completed"
