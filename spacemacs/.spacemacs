@@ -531,7 +531,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; Environment variables should be set in .profile or .zshenv rather than
   ;; .bashrc or .zshrc.
   (setq exec-path-from-shell-check-startup-files nil)
-  (setq exec-path-from-shell-check-startup-files nil)
 
   ;; zenburn theme configuration
   ;; use variable-pitch fonts for some headings and titles
