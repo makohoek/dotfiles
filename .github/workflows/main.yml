@@ -31,6 +31,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Install dotfiles and test emacs config
+      - shell: bash
         run: |
           ./setup.sh
           git clone --depth 5 -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
