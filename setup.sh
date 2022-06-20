@@ -13,10 +13,10 @@ base=(
     vim
     tmux
     misc
+    zsh
 )
 
 darwin_only=(
-    zsh
     email
     darwin
 )
