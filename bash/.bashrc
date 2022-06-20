@@ -126,7 +126,8 @@ source_if_exists /usr/share/git/completion/git-prompt.sh
 ##########################
 # PATH extra directories #
 ##########################
-export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.cargo/env"
+
 export PATH="$HOME/bin:$PATH"
 # Homebrew
 export PATH="/usr/local/bin:$PATH"
