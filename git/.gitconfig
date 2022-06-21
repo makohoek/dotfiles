@@ -28,3 +28,5 @@
     path = /home/mkorperx/work/.gitconfig
 [credential]
 	helper = !pass-git-helper $@
+[gitlab]
+	user = makohoek
