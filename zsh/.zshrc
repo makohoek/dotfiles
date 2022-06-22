@@ -73,6 +73,9 @@ export PATH="/usr/local/bin:$PATH"
 # kitty
 export PATH="$HOME/.local/kitty.app/bin:$PATH"
 
+# ~/.local/bin
+export PATH="$HOME/.local/bin:$PATH"
+
 
 ##########
 # Neovim #
