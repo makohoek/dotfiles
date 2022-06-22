@@ -25,3 +25,5 @@
 	helper = !pass-git-helper $@
 [gitlab]
 	user = makohoek
+[format]
+    cover-from-description = subject
