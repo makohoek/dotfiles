@@ -31,3 +31,7 @@
     cookiefile = /home/makohoek/.gitcookies
 [am]
     threeWay = true
+
+# Work specific configs
+[includeIf "gitdir:~/work/"]
+    path = ~/.dotfiles-private/git/.gitconfig
