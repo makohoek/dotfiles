@@ -27,3 +27,5 @@
 	user = makohoek
 [format]
     cover-from-description = subject
+[http]
+    cookiefile = /home/makohoek/.gitcookies
