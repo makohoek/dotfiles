@@ -2,11 +2,8 @@
     st = status
     amend = commit --amend
     dc = diff --cached
-    di = diff
     tree = "log --oneline --decorate --all --graph"
     treeb = "log --oneline --decorate --graph --branches"
-    ll = "!. ~/.githelpers && pretty_git_log"
-    vimdiff = difftool -w -y -t vimdiff
     changelog = "log --oneline --pretty=format:'%h | %s%d [%an]'"
 [user]
     email = mattijs.korpershoek@gmail.com
