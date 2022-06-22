@@ -29,3 +29,5 @@
     cover-from-description = subject
 [http]
     cookiefile = /home/makohoek/.gitcookies
+[am]
+    threeWay = true
