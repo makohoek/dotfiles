@@ -34,4 +34,4 @@
 
 # Work specific configs
 [includeIf "gitdir:~/work/"]
-    path = ~/.dotfiles-private/git/.gitconfig
+    path = ~/.gitconfig-work
