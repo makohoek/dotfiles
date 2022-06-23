@@ -10,6 +10,7 @@ git submodule update
 base=(
     git
     spacemacs
+    email
     vim
     tmux
     misc
@@ -17,7 +18,6 @@ base=(
 )
 
 darwin_only=(
-    email
     darwin
 )
 
