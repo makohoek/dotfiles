@@ -27,7 +27,7 @@
           ("aosp_shamu" . "~/aosp/device/google/shamu/fip.bin")))
 
   ;; override project definitions, if they are present
-  (load "~/.spacemacs-layers/makohoek-project/projects-private.el" 't)
+  (load "~/.spacemacs-layers-work/makohoek-project/projects-private.el" 't)
 
   (defun makohoek-project/projectile-clear-compilation-cmd-cache ()
     "Clears the compilation command cache

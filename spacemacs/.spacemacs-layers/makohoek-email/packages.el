@@ -60,4 +60,4 @@
                   #'notmuch-hello-insert-footer)))
 
     ;; load (optional) work email config
-    (load "~/.spacemacs-layers/makohoek-work/config.el" 't)))
+    (load "~/.spacemacs-layers-work/makohoek-work/config.el" 't)))
