@@ -36,7 +36,7 @@ stowit() {
 }
 
 echo ""
-echo "Stowing apps for user: ${whoami}"
+echo "Stowing apps for user: $(whoami)"
 
 # install apps available to local users
 for app in ${base[@]}; do
