@@ -32,12 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-     ;; `M-m f e R' (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     ;; layers from spacemacs-all
+   '(;; layers from spacemacs-all
      ;; spacemacs-base just has spacemacs-defaults
      spacemacs-completion
      spacemacs-layouts
