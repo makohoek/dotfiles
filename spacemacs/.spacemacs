@@ -84,6 +84,7 @@ This function should only modify configuration layer settings."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
+     docker
      ;; own, private layers
      android-platform
      makohoek-dev
