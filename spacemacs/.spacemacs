@@ -265,8 +265,8 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '("Hack"
-                   :size 9.0
+   dotspacemacs-default-font '("Inconsolata"
+                   :size 11.0
                    :weight normal
                    :powerline-scale 1.0)
    ;; The leader key (default "SPC")
