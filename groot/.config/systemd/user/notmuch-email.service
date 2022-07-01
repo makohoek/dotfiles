@@ -5,4 +5,5 @@ RefuseManualStop=yes
 
 [Service]
 Type=oneshot
-ExecStart=notmuch new
+WorkingDirectory=/mnt/5c26050c-a7ac-42ba-a6e4-2bfe27686c4b/.email-lieer
+ExecStart=/home/makohoek/.local/bin/gmi sync
