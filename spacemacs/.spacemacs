@@ -92,7 +92,8 @@ This function should only modify configuration layer settings."
      makohoek-email
      makohoek-project
      makohoek-org
-     makohoek-window)
+     makohoek-window
+     makohoek-work)
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -505,13 +506,12 @@ It should only modify the values of Spacemacs settings."
           dotspacemacs-default-font '(("Fira Code"
                                        :size 12.0
                                        :weight normal
-                                       :powerline-scale 1.0)))))
                                        :powerline-scale 1.0))))
 
   ;; for my desktop (groot), so some overrides
   (when (string-equal system-name "groot")
     (setq dotspacemacs-default-font '(("Hack"
-                                  :size 10.0
+                                  :size 9.0
                                   :weight normal
                                   :powerline-scale 1.0)))))
 
@@ -572,4 +572,27 @@ before packages are loaded."
     (setq tramp-verbose 1)
     (add-to-list 'tramp-remote-path "~/bin")
     (add-to-list 'exec-path "~/bin")
+
+    (add-to-list 'tramp-remote-path "~/.local/bin")
+    (add-to-list 'exec-path "~/.local/bin")
     ))
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(evil-want-Y-yank-to-eol nil)
+ '(package-selected-packages
+   '(helm-gtags godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc ggtags flycheck-golangci-lint dap-mode lsp-treemacs bui lsp-mode treemacs cfrs pfuture posframe counsel-gtags counsel swiper ivy company-go go-mode pomm org-clock-split zenburn-theme yasnippet-snippets yasnippet-classic-snippets yapfify yaml-mode xterm-color xcscope xclip writeroom-mode winum which-key web-mode web-beautify vterm volatile-highlights use-package undo-tree toml-mode toc-org terminal-here tagedit symon symbol-overlay sphinx-doc spaceline-all-the-icons spacegray-theme soong-mode solarized-theme smeargle slim-mode shell-pop scss-mode sass-mode ron-mode ripgrep reveal-in-osx-finder restart-emacs racer pytest pyenv-mode py-isort pug-mode prettier-js popwin poetry pippel pipenv pip-requirements persp-mode pcre2el password-store-otp paradox overseer osx-trash osx-clipboard orgit-forge org-superstar org-rich-yank org-projectile org-present org-pomodoro org-mime org-gcal org-download org-cliplink org-brain open-junk-file nose nameless multi-term markdown-toc magit-section macrostep log-tools live-py-mode launchctl insert-shebang indent-guide importmagic impatient-mode hybrid-mode hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-lines helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-pass helm-org-rifle helm-org helm-notmuch helm-mode-manager helm-make helm-ls-git helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag graphviz-dot-mode google-c-style golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rust flycheck-rtags flycheck-pos-tip flycheck-package flycheck-elsa flycheck-bashate flx-ido fish-mode fancy-battery eyebrowse evil-visualstar evil-visual-mark-mode evil-unimpaired evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-ediff evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emr emojify emoji-cheat-sheet-plus emmet-mode elisp-slime-nav dumb-jump dts-mode dtrt-indent dotenv-mode doom-modeline dockerfile-mode docker disaster diminish device-control devdocs cython-mode cpp-auto-include copy-as-format company-ycmd company-web company-shell company-rtags company-emoji company-c-headers company-anaconda column-enforce-mode centered-cursor-mode cargo blacken bitbake base16-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line ac-ispell)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
+)
