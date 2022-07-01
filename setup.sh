@@ -26,6 +26,14 @@ linux_only=(
     linux
 )
 
+groot_only=(
+    groot
+)
+
+laptop_only=(
+    laptop
+)
+
 # run the stow command for the passed in directory ($2) in location $1
 stowit() {
     local usr
@@ -56,6 +64,20 @@ fi
 # install only for Linux
 if [[ $(uname) = 'Linux' ]]; then
     for app in ${linux_only[@]}; do
+        stowit "${HOME}" $app
+    done
+fi
+
+# install only for groot desktop
+if [[ $(hostname) = 'groot' ]]; then
+    for app in ${groot_only[@]}; do
+        stowit "${HOME}" $app
+    done
+fi
+
+# install only for laptop
+if [[ $(hostname) = 'fedora' ]]; then
+    for app in ${laptop_only[@]}; do
         stowit "${HOME}" $app
     done
 fi

@@ -1,0 +1,12 @@
+[Unit]
+Description=Fetch email (via notmuch) periodically
+RefuseManualStart=no
+RefuseManualStop=no
+
+[Timer]
+OnBootSec= 5sec
+OnUnitActiveSec= 15min
+Unit=notmuch-email.service
+
+[Install]
+WantedBy=default.target
