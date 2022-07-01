@@ -506,6 +506,14 @@ It should only modify the values of Spacemacs settings."
                                        :size 12.0
                                        :weight normal
                                        :powerline-scale 1.0)))))
+                                       :powerline-scale 1.0))))
+
+  ;; for my desktop (groot), so some overrides
+  (when (string-equal system-name "groot")
+    (setq dotspacemacs-default-font '(("Hack"
+                                  :size 10.0
+                                  :weight normal
+                                  :powerline-scale 1.0)))))
 
 (defun dotspacemacs/user-env ()
   "Environment variables setup.
