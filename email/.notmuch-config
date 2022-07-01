@@ -50,8 +50,8 @@ primary_email=mkorpershoek@baylibre.com
 #
 
 [new]
-tags=unread;inbox;
-ignore=
+tags=
+ignore=/.*[.](json|lock|bak)$/
 
 # Search configuration
 #
