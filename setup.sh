@@ -68,6 +68,9 @@ if [[ $(uname) = 'Linux' ]]; then
     done
 fi
 
+echo ""
+echo "Stowing apps for $(hostname)"
+
 # install only for groot desktop
 if [[ $(hostname) = 'groot' ]]; then
     for app in ${groot_only[@]}; do
