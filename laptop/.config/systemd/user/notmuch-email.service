@@ -5,4 +5,5 @@ RefuseManualStop=yes
 
 [Service]
 Type=oneshot
-ExecStart=notmuch new
+WorkingDirectory=/home/mkorpershoek/work/.email-lieer
+ExecStart=/home/mkorpershoek/.local/bin/gmi sync
