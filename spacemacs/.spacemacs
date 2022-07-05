@@ -567,6 +567,9 @@ before packages are loaded."
   ;; chrome default browser
   (setq browse-url-browser-function 'browse-url-chrome)
 
+  (with-eval-after-load 'undo-tree
+    (setq undo-tree-auto-save-history nil))
+
   (with-eval-after-load 'tramp
     (setq tramp-default-method "ssh")
     (setq tramp-completion-reread-directory-timeout nil)
