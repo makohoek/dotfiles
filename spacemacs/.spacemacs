@@ -57,6 +57,7 @@ This function should only modify configuration layer settings."
      python
      rust
      shell-scripts
+     systemd
      yaml
      ;; +source-control
      git
