@@ -49,7 +49,7 @@ This function should only modify configuration layer settings."
      helm
      ;; additional spacemacs layers
      ;; +lang
-     c-c++
+     (c-c++ :variables c-c++-backend 'lsp-ccls)
      emacs-lisp
      graphviz
      html
