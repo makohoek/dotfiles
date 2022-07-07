@@ -10,6 +10,7 @@
     name = Mattijs Korpershoek
 [merge]
     tool = vimdiff
+    autoStash = true
 [difftool]
     tool = vimdiff
 [diff]
@@ -37,3 +38,5 @@
     path = ~/.gitconfig-work
 [github]
 	user = makohoek
+[rebase]
+	autoStash = true
