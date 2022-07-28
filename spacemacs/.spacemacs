@@ -86,6 +86,11 @@ This function should only modify configuration layer settings."
             shell-default-height 30
             shell-default-position 'bottom)
      docker
+     (lsp :variables
+          lsp-headerline-breadcrumb-enable nil
+          lsp-lens-enable nil
+          lsp-modeline-diagnostics-enable nil
+          lsp-modeline-code-actions-enable nil)
      ;; own, private layers
      android-platform
      makohoek-dev
