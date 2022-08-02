@@ -112,7 +112,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(helm-cscope org-mu4e rainbow-delimiters neotree company-mode linum-mode tern)
+   dotspacemacs-excluded-packages '(helm-cscope org-mu4e rainbow-delimiters neotree linum-mode tern)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
