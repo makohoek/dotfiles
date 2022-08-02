@@ -575,6 +575,9 @@ before packages are loaded."
   (with-eval-after-load 'undo-tree
     (setq undo-tree-auto-save-history nil))
 
+  ;; no window decorations
+  (set-frame-parameter nil 'undecorated t)
+
   (with-eval-after-load 'tramp
     (setq tramp-default-method "ssh")
     (setq tramp-completion-reread-directory-timeout nil)
