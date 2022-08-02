@@ -559,9 +559,6 @@ before packages are loaded."
   ;; never prompt, always follow symlinks
   (setq vc-follow-symlinks t)
 
-  ;; enable cscope minor mode on startup in C and C++
-  (cscope-setup)
-
   ;; tab indentation: set to 8 for linux kernel code
   (setq-default tab-width 8)
   (setq-default indent-tabs-mode nil)
