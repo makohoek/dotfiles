@@ -152,18 +152,6 @@ man() {
         man "$@"
 }
 
-# cscope
-cscope_generate_files()
-{
-    find $(pwd) -name '*.c' -o -name '*.h' -o -name '*.cpp' -o -name '*.hpp' > cscope.files
-}
-
-cscope_rebuild_index()
-{
-    cscope -b -q -k
-}
-
-
 # fasd
 fasd_cache="$HOME/.fasd-init-bash"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then

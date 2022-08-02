@@ -1,3 +1,2 @@
 (configuration-layer/declare-layers
- '(cscope
-   spacemacs-defaults))
+ '(spacemacs-defaults))

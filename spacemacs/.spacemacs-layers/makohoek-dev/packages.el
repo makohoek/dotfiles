@@ -94,10 +94,5 @@
     ;; ediff customization: show char based diff
     (setq-default ediff-forward-word-function 'forward-char)))
 
-;; xcscope is owned by 'cscope' layer
-(defun makohoek-dev/post-init-xcscope()
-  (use-package xcscope
-    :custom
-    (cscope-option-use-inverted-index t)))
 ;;; packages.el ends here
 
