@@ -24,7 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      
+
       # Runs a single command using the runners shell
       - name: Install dependencies
         run: sudo apt-get update -qq && sudo apt-get install -y git stow emacs zsh
@@ -32,6 +32,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install dotfiles and test emacs config
         run: |
+          rm ~/.bash_logout ~/.bash_profile ~/.bashrc
           ./setup.sh
           git clone --depth 5 -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
           script -e -c "emacs -nw --execute '(if (dotspacemacs/test-dotfile) (kill-emacs) (kill-emacs 1))'"
