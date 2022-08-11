@@ -3,7 +3,7 @@
 # The example below contains 2 tags: "layer" and "web service"
 # Avaliable tags are listed in <spacemacs_root>/.ci/spacedoc-cfg.edn
 # under ":spacetools.spacedoc.config/valid-tags" section.
-#+TAGS: layer|web service
+#+TAGS: layer|programming
 
 # The maximum height of the logo should be 200 pixels.
 [[img/linux-kernel.png]]
