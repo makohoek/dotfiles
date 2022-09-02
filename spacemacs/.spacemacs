@@ -91,6 +91,7 @@ This function should only modify configuration layer settings."
           lsp-modeline-code-actions-enable nil)
      ;; own, private layers
      android-platform
+     linux-kernel
      makohoek-dev
      makohoek-git
      makohoek-email
