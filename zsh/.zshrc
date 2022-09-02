@@ -76,6 +76,8 @@ export PATH="$HOME/.local/kitty.app/bin:$PATH"
 # ~/.local/bin
 export PATH="$HOME/.local/bin:$PATH"
 
+# beta testing of b4 submit
+alias b4='/home/mkorpershoek/work/b4/b4.sh'
 
 ##########
 # Neovim #
