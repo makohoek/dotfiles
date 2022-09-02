@@ -16,7 +16,6 @@
     ediff
     info
     undo-tree
-    dts-mode
     ripgrep
     whitespace)
   "The list of Lisp packages required by the makohoek-dev layer.")
@@ -31,9 +30,6 @@
     :hook ((c-mode-common . dtrt-indent-mode)
            (dts-mode . dtrt-indent-mode)
            (makefile-mode . dtrt-indent-mode))))
-
-(defun makohoek-dev/init-dts-mode()
-  (use-package dts-mode))
 
 (defun makohoek-dev/init-undo-tree()
   (use-package undo-tree
