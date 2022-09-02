@@ -407,7 +407,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil the frame is undecorated when Emacs starts up. Combine this
    ;; variable with `dotspacemacs-maximized-at-startup' in OSX to obtain
    ;; borderless fullscreen. (default nil)
-   dotspacemacs-undecorated-at-startup nil
+   dotspacemacs-undecorated-at-startup t
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
@@ -643,9 +643,6 @@ before packages are loaded."
 
   (with-eval-after-load 'undo-tree
     (setq undo-tree-auto-save-history nil))
-
-  ;; no window decorations
-  (set-frame-parameter nil 'undecorated t)
 
   (with-eval-after-load 'tramp
     (setq tramp-default-method "ssh")
