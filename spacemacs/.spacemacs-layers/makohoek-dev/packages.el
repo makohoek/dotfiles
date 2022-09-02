@@ -12,7 +12,6 @@
 
 (defconst makohoek-dev-packages
   '(bitbake
-    dtrt-indent
     ediff
     info
     undo-tree
@@ -24,12 +23,6 @@
   "Use bitbake for yocto developpment"
   (use-package bitbake))
 
-(defun makohoek-dev/init-dtrt-indent ()
-  "Enable dtrt-indent for c development."
-  (use-package dtrt-indent
-    :hook ((c-mode-common . dtrt-indent-mode)
-           (dts-mode . dtrt-indent-mode)
-           (makefile-mode . dtrt-indent-mode))))
 
 (defun makohoek-dev/init-undo-tree()
   (use-package undo-tree

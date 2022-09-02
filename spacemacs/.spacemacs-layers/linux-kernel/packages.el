@@ -27,7 +27,14 @@
 ;;; Code:
 
 (defconst linux-kernel-packages
-  '(dts-mode))
+  '(dtrt-indent
+    dts-mode))
+
+(defun makohoek-dev/init-dtrt-indent ()
+  (use-package dtrt-indent
+    :hook ((c-mode-common . dtrt-indent-mode)
+           (dts-mode . dtrt-indent-mode)
+           (makefile-mode . dtrt-indent-mode))))
 
 (defun linux-kernel/init-dts-mode()
   (use-package dts-mode))
