@@ -16,7 +16,6 @@
     ediff
     info
     undo-tree
-    hide-lines
     dts-mode
     ripgrep
     whitespace)
@@ -32,10 +31,6 @@
     :hook ((c-mode-common . dtrt-indent-mode)
            (dts-mode . dtrt-indent-mode)
            (makefile-mode . dtrt-indent-mode))))
-
-(defun makohoek-dev/init-hide-lines ()
-  (use-package hide-lines
-    :commands hide-lines))
 
 (defun makohoek-dev/init-dts-mode()
   (use-package dts-mode))
