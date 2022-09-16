@@ -28,7 +28,8 @@
 
 (defconst linux-kernel-packages
   '(dtrt-indent
-    dts-mode))
+    dts-mode
+    kconfig-mode))
 
 (defun makohoek-dev/init-dtrt-indent ()
   (use-package dtrt-indent
@@ -38,3 +39,6 @@
 
 (defun linux-kernel/init-dts-mode()
   (use-package dts-mode))
+
+(defun linux-kernel/init-kconfig-mode()
+  (use-package kconfig-mode))
