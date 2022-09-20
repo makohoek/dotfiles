@@ -31,7 +31,7 @@
     dts-mode
     kconfig-mode))
 
-(defun makohoek-dev/init-dtrt-indent ()
+(defun linux-kernel/init-dtrt-indent ()
   (use-package dtrt-indent
     :hook ((c-mode-common . dtrt-indent-mode)
            (dts-mode . dtrt-indent-mode)
