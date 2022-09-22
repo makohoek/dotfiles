@@ -67,15 +67,8 @@ bindkey -r '\ec'
 # PATH extra directories #
 ##########################
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-# for swi prolog
-PATH="$PATH:/Applications/SWI-Prolog.app/Contents/MacOS"
-# for pdflatex
-PATH="$PATH:/usr/local/texlive/2015/bin/universal-darwin/"
 # Homebrew
 export PATH="/usr/local/bin:$PATH"
-# kitty
-export PATH="$HOME/.local/kitty.app/bin:$PATH"
 
 # ~/.local/bin
 export PATH="$HOME/.local/bin:$PATH"
