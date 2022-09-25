@@ -12,7 +12,7 @@
 #
 
 [database]
-path=/mnt/5c26050c-a7ac-42ba-a6e4-2bfe27686c4b/.email-lieer
+path=/Users/makohoek/.email/
 
 # User configuration
 #
@@ -32,7 +32,7 @@ path=/mnt/5c26050c-a7ac-42ba-a6e4-2bfe27686c4b/.email-lieer
 
 [user]
 name=Mattijs Korpershoek
-primary_email=mkorpershoek@baylibre.com
+primary_email=mattijs.korpershoek@gmail.com
 
 # Configuration for "notmuch new"
 #
@@ -50,7 +50,7 @@ primary_email=mkorpershoek@baylibre.com
 #
 
 [new]
-tags=
+tags=;
 ignore=/.*[.](json|lock|bak)$/
 
 # Search configuration
