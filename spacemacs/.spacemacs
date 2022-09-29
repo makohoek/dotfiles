@@ -107,7 +107,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(copy-as-format yasnippet-classic-snippets)
+   dotspacemacs-additional-packages '(copy-as-format yasnippet-classic-snippets exec-path-from-shell)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -654,7 +654,11 @@ before packages are loaded."
 
     (add-to-list 'tramp-remote-path "~/.local/bin")
     (add-to-list 'exec-path "~/.local/bin")
-    ))
+    )
+
+  (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "NIX_SSL_CERT_FILE" "NIX_PATH"))
+    (add-to-list 'exec-path-from-shell-variables var))
+  (exec-path-from-shell-initialize))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
