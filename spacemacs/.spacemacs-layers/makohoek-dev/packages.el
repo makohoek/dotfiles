@@ -16,6 +16,7 @@
     info
     undo-tree
     ripgrep
+    exec-path-from-shell
     whitespace)
   "The list of Lisp packages required by the makohoek-dev layer.")
 
@@ -77,6 +78,13 @@
     :config
     ;; ediff customization: show char based diff
     (setq-default ediff-forward-word-function 'forward-char)))
+
+(defun makohoek-dev/init-exec-path-from-shell ()
+  (use-package exec-path-from-shell
+    :config
+    (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "NIX_SSL_CERT_FILE" "NIX_PATH"))
+      (add-to-list 'exec-path-from-shell-variables var))
+    (exec-path-from-shell-initialize)))
 
 ;;; packages.el ends here
 
