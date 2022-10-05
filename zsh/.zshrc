@@ -23,10 +23,6 @@ plugins=(git colored-man-pages autojump)
 # Oh my zsh
 source $ZSH/oh-my-zsh.sh
 
-# ssh/gpg
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
-
 ######################
 # User configuration #
 ######################
