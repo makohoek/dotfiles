@@ -649,6 +649,9 @@ before packages are loaded."
   (with-eval-after-load 'undo-tree
     (setq undo-tree-auto-save-history nil))
 
+  (with-eval-after-load 'doom-modeline
+    (setq doom-modeline-buffer-file-name-style 'relative-to-project))
+
   (with-eval-after-load 'tramp
     (setq tramp-default-method "sshx")
     (setq tramp-completion-reread-directory-timeout nil)
