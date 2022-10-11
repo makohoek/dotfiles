@@ -650,11 +650,9 @@ before packages are loaded."
     (setq undo-tree-auto-save-history nil))
 
   (with-eval-after-load 'tramp
-    (setq tramp-default-method "ssh")
+    (setq tramp-default-method "sshx")
     (setq tramp-completion-reread-directory-timeout nil)
     (setq tramp-verbose 1)
-    (add-to-list 'tramp-remote-path "~/bin")
-    (add-to-list 'exec-path "~/bin")
 
     (add-to-list 'tramp-remote-path "~/.local/bin")
     (add-to-list 'exec-path "~/.local/bin")
