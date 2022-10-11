@@ -38,7 +38,7 @@ This function should only modify configuration layer settings."
      (spacemacs-editing :packages aggressive-indent eval-sexp-fu smartparens)
      spacemacs-editing-visual
      (spacemacs-evil :packages (not evil-tutor evil-escape vi-tilde-fringe))
-     spacemacs-modeline
+     (spacemacs-modeline :packages (not anzu fancy-battery symon vim-powerline))
      spacemacs-navigation
      spacemacs-org
      spacemacs-project
