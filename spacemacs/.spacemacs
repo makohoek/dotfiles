@@ -636,6 +636,10 @@ before packages are loaded."
   (setq-default tab-width 8)
   (setq-default indent-tabs-mode nil)
 
+  ;; I have dtrt-indent for this
+  ;; note that i could set spacemacs-yank-indent-threshold to 0 instead
+  (advice-remove 'evil-paste-after 'spacemacs//yank-indent-region)
+
   ;; fringe style: equivalent of "half-width"
   (set-fringe-style 4)
 
