@@ -10,7 +10,7 @@
 ;;; License: GPLv3
 
 ;;; Code:
-(defconst makohoek-email-packages '(notmuch))
+(defconst makohoek-email-packages '(notmuch ol-notmuch))
 
 ;; notmuch is owned by the notmuch layer
 (defun makohoek-email/post-init-notmuch()
@@ -60,3 +60,6 @@
 
     ;; load (optional) work email config
     (load "~/.spacemacs-layers-work/makohoek-work/config.el" 't)))
+
+(defun makohoek-email/init-ol-notmuch()
+  (use-package ol-notmuch))
