@@ -11,12 +11,8 @@
 ;;; Code:
 
 (defconst makohoek-git-packages
-  '(magit forge)
+  '(magit)
   "The list of Lisp packages required by the makohoek-git layer.")
-
-(defun makohoek-git/init-forge ()
-  (use-package forge
-    :after magit))
 
 ;; magit is owned by layer 'git'
 (defun makohoek-git/post-init-magit ()
@@ -44,6 +40,4 @@
     (add-to-list 'git-commit-known-pseudo-headers "Fixes")
     (add-to-list 'git-commit-known-pseudo-headers "Suggested-by")
     (add-to-list 'git-commit-known-pseudo-headers "Change-Id")))
-
-
 ;;; packages.el ends here
