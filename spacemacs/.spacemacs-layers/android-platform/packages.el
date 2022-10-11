@@ -19,21 +19,10 @@
 ;;; Code:
 
 (defconst android-platform-packages
-  '((device-control
+  '((soong-mode
      :location (recipe
                 :fetcher github
-                :repo jeremy-compostella/device-control))
-     (soong-mode
-      :location (recipe
-                 :fetcher github
-                 :repo makohoek/emacs-soong-mode))))
-
-(defun android-platform/init-device-control ()
-  "Flash via fastboot or use adb to interact with the device."
-  (use-package device-control
-    :commands device-control
-    :config
-    (use-package dctrl-android)))
+                :repo makohoek/emacs-soong-mode))))
 
 (defun android-platform/init-soong-mode()
   (use-package soong-mode))
