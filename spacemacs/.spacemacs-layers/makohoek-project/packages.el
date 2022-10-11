@@ -9,18 +9,6 @@
 ;;
 ;;; License: GPLv3
 
-;;; Commentary:
-
-;; Briefly, each package to be installed or configured by this layer should be
-;; added to `makohoek-project-packages'. Then, for each package PACKAGE:
-;;
-;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
-;;   function `makohoek-project/init-PACKAGE' to load and initialize the package.
-
-;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
-;;   define the functions `makohoek-project/pre-init-PACKAGE' and/or
-;;   `makohoek-project/post-init-PACKAGE' to customize the package as it is loaded.
-
 ;;; Code:
 (defconst makohoek-project-packages
   '(counsel-projectile
@@ -35,20 +23,9 @@
     :defer t
     :config
     (setq projectile-switch-project-action #'projectile-dired)
-    (projectile-register-project-type
-     'linux-kernel
-     '(".projectile-type-linux")
-     :compilation-dir "../"
-     :compile 'makohoek-project/android/compile-kernel
-     :test 'makohoek-project/android/flash-kernel)
-    (projectile-register-project-type
-     'u-boot
-     '(".projectile-type-u-boot")
-     :compile 'makohoek-project/uboot/compile)
     :custom
     (projectile-git-command "fd . -H -0 -E .git" "faster indexing")
-    (projectile-git-submodule-command nil "disable submodule indexing")
-  ))
+    (projectile-git-submodule-command nil "disable submodule indexing")))
 
 ;; counsel-projectile is owned by 'spacemacs-layouts'
 (defun makohoek-project/post-init-counsel-projectile ()
