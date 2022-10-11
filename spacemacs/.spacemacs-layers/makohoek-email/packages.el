@@ -55,7 +55,6 @@
       (setq notmuch-hello-sections
             (list #'notmuch-hello-insert-header
                   #'notmuch-hello-insert-saved-searches
-                  #'notmuch-hello-insert-recent-searches
                   #'notmuch-hello-insert-alltags
                   #'notmuch-hello-insert-footer)))
 
