@@ -13,27 +13,12 @@
 
 (defconst makohoek-org-packages '(org
                                   org-clock-split
-                                  org-gcal
                                   org-plus-contrib))
                                   ;; ox-confluence is installed by `org-plus-contrib'
 
 (defun makohoek-org/init-org-clock-split()
   (use-package org-clock-split
     :commands org-clock-split))
-
-(defun makohoek-org/init-org-gcal()
-  (use-package org-gcal
-    :commands org-gcal-fetch
-    :config
-    ;; XXX: auth-source-pass is emacs 26 only
-    (use-package auth-source-pass
-      :config
-      (auth-source-pass-enable))
-    (setq org-gcal-client-id (auth-source-pass-get "client-id" "org-gcal-makohoek")
-          org-gcal-client-secret (auth-source-pass-get "client-secret" "org-gcal-makohoek")
-          org-gcal-file-alist
-          '(("mattijs.korpershoek@gmail.com" .  "~/home/org/calendars/gcal-main.org")
-            ("ghitimou3nseap7k05iskembpk@group.calendar.google.com" .  "~/home/org/calendars/gcal-shared.org")))))
 
 ;; org-plus-contrib is owned by the org layer
 (defun makohoek-org/post-init-org-plus-contrib()
@@ -87,6 +72,5 @@
               (function pomodoro-break-completed))
     :hook
     ((org-agenda-mode . emojify-mode))))
-
 
 ;;; packages.el ends here
