@@ -69,8 +69,6 @@ This function should only modify configuration layer settings."
      ;; +emacs
      org
      emoji
-     ;; +tags
-     cscope
      ;; +checkers
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
