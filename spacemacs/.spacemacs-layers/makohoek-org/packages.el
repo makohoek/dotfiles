@@ -11,7 +11,8 @@
 
 ;;; Code:
 
-(defconst makohoek-org-packages '(org
+(defconst makohoek-org-packages '(deft
+                                  org
                                   org-clock-split
                                   org-plus-contrib))
                                   ;; ox-confluence is installed by `org-plus-contrib'
@@ -73,4 +74,10 @@
     :hook
     ((org-agenda-mode . emojify-mode))))
 
+;; deft is owned by the deft layer
+(defun makohoek-org/pre-init-deft ()
+  (use-package deft
+    :commands deft
+    :init
+    (setq deft-directory "~/work/org/deft")))
 ;;; packages.el ends here

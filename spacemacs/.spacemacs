@@ -69,6 +69,7 @@ This function should only modify configuration layer settings."
      ;; +emacs
      org
      emoji
+     deft
      ;; +checkers
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
