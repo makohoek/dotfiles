@@ -54,7 +54,7 @@
     (setq org-capture-templates
       `(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
          "* TODO %?\n  %i\n  %a")
-        ("p" "Pomodoro" entry (file+olp+datetree "~/work/org/pomodoro/2022.org" "Pomodoro")
+        ("p" "Pomodoro" entry (file+olp+datetree "~/work/org/deft/pomodoro-2022.org" "Pomodoro")
          ,(concat "* stats [/][\%]\n:PROPERTIES:\n:LOGGING: nil\n:END:\n" (string-join (make-list 15 "\n** TODO ")))
          :tree-type week
          :jump-to-captured 't)))
