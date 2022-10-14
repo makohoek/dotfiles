@@ -36,6 +36,8 @@
 # Work specific configs
 [includeIf "gitdir:~/work/"]
     path = ~/.gitconfig-work
+[includeIf "gitdir:/mnt/work/"]
+    path = ~/.gitconfig-work
 [github]
 	user = makohoek
 [rebase]
