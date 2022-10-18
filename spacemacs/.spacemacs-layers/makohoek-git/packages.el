@@ -31,6 +31,8 @@
                                        (magit-rebase "--autosquash" "--autostash")))
     (setq transient-values transient-default-values)
 
+    (setq magit-diff-refine-hunk 'all)
+
     ;; title must be no longer than 50
     (setq git-commit-summary-max-length 50)
     ;; line must not be longer than 72
