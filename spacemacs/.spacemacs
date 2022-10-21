@@ -49,8 +49,6 @@ This function should only modify configuration layer settings."
      ;; +lang
      (c-c++ :variables c-c++-backend 'lsp-ccls)
      emacs-lisp
-     graphviz
-     html
      markdown
      python
      rust
