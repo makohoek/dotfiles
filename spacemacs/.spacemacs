@@ -70,6 +70,7 @@ This function should only modify configuration layer settings."
      org
      emoji
      deft
+     dtrt-indent
      ;; +checkers
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
