@@ -44,3 +44,11 @@
 	autoStash = true
 [pull]
 	rebase = true
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
+
+[url "git@gitlab.baylibre.com:"]
+	insteadOf = https://gitlab.baylibre.com/
+
+[gitlab "gitlab.baylibre.com/api/v4"]
+	user = mkorpershoek
