@@ -33,6 +33,10 @@
 
     (setq magit-diff-refine-hunk 'all)
 
+    ;; display buffer below selected window
+    (setq transient-display-buffer-action '(display-buffer-below-selected))
+    (setq window-combination-limit #'display-buffer)
+
     ;; title must be no longer than 50
     (setq git-commit-summary-max-length 50)
     ;; line must not be longer than 72
