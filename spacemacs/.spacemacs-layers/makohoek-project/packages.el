@@ -22,10 +22,7 @@
   (use-package projectile
     :defer t
     :config
-    (setq projectile-switch-project-action #'projectile-dired)
-    :custom
-    (projectile-git-command "fd . -H -0 -E .git" "faster indexing")
-    (projectile-git-submodule-command nil "disable submodule indexing")))
+    (setq projectile-switch-project-action #'projectile-dired)))
 
 ;; counsel-projectile is owned by 'spacemacs-layouts'
 (defun makohoek-project/post-init-counsel-projectile ()
