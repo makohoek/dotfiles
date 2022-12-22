@@ -11,11 +11,12 @@
 
 ;;; Code:
 
-(defconst makohoek-org-packages '(deft
-                                  org
-                                  org-clock-split
-                                  org-plus-contrib))
-                                  ;; ox-confluence is installed by `org-plus-contrib'
+(defconst makohoek-org-packages
+  '(deft
+     org
+     org-clock-split
+     org-plus-contrib))
+;; ox-confluence is installed by `org-plus-contrib'
 
 (defun makohoek-org/init-org-clock-split()
   (use-package org-clock-split
