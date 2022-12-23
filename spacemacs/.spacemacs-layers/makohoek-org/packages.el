@@ -15,6 +15,7 @@
   '(deft
      org
      org-clock-split
+     (org-gcal :location (recipe :fetcher local))
      org-plus-contrib))
 ;; ox-confluence is installed by `org-plus-contrib'
 
