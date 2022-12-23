@@ -84,10 +84,9 @@
       (notifications-notify :title "Pomodoro completed" :body "Go take a break" :timeout 0))
     (defun pomodoro-break-completed ()
       (notifications-notify :title "Break done" :body "Time for another pomodoro" :timeout 0))
-    (add-hook 'org-pomodoro-finished-hook
-              (function pomodoro-completed))
-    (add-hook 'org-pomodoro-break-finished-hook
-              (function pomodoro-break-completed))))
+    :hook
+    ((org-pomodoro-finished . pomodoro-completed)
+     (org-pomodoro-break-finished . pomodoro-break-completed))))
 
 ;; deft is owned by the deft layer
 (defun makohoek-org/pre-init-deft ()
