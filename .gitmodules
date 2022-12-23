@@ -1,3 +1,6 @@
 [submodule "spacemacs-layers/makohoek-dev/local/pfw-emacs-mode"]
 	path = spacemacs/.spacemacs-layers/makohoek-dev/local/pfw-emacs-mode
 	url = https://github.com/Makohoek/pfw-emacs-mode.git
+[submodule "spacemacs/.spacemacs-layers/makohoek-org/local/org-gcal"]
+	path = spacemacs/.spacemacs-layers/makohoek-org/local/org-gcal
+	url = https://git.sr.ht/~jmasson/org-gcal
