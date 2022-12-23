@@ -23,6 +23,29 @@
   (use-package org-clock-split
     :commands org-clock-split))
 
+(defun makohoek-org/init-org-gcal()
+  (use-package org-gcal
+    :commands org-gcal
+    :config
+    ;; add work calendar
+    (auth-source-pass-enable)
+    (org-gcal-register-account :name "work"
+                               :directory "~/.emacs.d/.cache/org/gcal-work/"
+                               :client-id (auth-source-pass-get "client-id" "baylibre/org-gcal-bl")
+                               :client-secret (auth-source-pass-get "client-secret" "baylibre/org-gcal-bl")
+                               :calendars '(("mkorpershoek@baylibre.com" . "work.org")))
+    (add-to-list 'org-agenda-files "~/.emacs.d/.cache/org/gcal-work/work.org")
+    (org-gcal-register-account :name "mattijs"
+                               :directory "~/.emacs.d/.cache/org/gcal-mattijs/"
+                               :client-id (auth-source-pass-get "client-id" "org-gcal-makohoek")
+                               :client-secret (auth-source-pass-get "client-secret" "org-gcal-makohoek")
+                               :calendars '(("mattijs.korpershoek@gmail.com" . "mattijs.org")
+                                            ("ghitimou3nseap7k05iskembpk@group.calendar.google.com" . "couple.org")
+                                            ("jhtiaatk3uqnei6e67ikrjfts8@group.calendar.google.com" . "family.org")))
+    (add-to-list 'org-agenda-files "~/.emacs.d/.cache/org/gcal-mattijs/mattijs.org")
+    (add-to-list 'org-agenda-files "~/.emacs.d/.cache/org/gcal-mattijs/couple.org")
+    (add-to-list 'org-agenda-files "~/.emacs.d/.cache/org/gcal-mattijs/family.org")))
+
 ;; org-plus-contrib is owned by the org layer
 (defun makohoek-org/post-init-org-plus-contrib()
   (use-package ox-confluence
