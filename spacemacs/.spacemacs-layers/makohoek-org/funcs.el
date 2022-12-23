@@ -16,6 +16,13 @@
 
   (defun makohoek-org/mark-task-as-done()
     (interactive)
-    (org-todo "DONE")))
+    (org-todo "DONE"))
+
+  (defun pomodoro-completed ()
+    (notifications-notify :title "Pomodoro completed"
+                          :body "Go take a break" :timeout 0))
+    (defun pomodoro-break-completed ()
+      (notifications-notify :title "Break done"
+                            :body "Time for another pomodoro" :timeout 0)))
 
 

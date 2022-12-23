@@ -80,10 +80,6 @@
          :tree-type week
          :jump-to-captured 't)))
     ;; org-pomodoro notification once pomodoro is completed
-    (defun pomodoro-completed ()
-      (notifications-notify :title "Pomodoro completed" :body "Go take a break" :timeout 0))
-    (defun pomodoro-break-completed ()
-      (notifications-notify :title "Break done" :body "Time for another pomodoro" :timeout 0))
     :hook
     ((org-pomodoro-finished . pomodoro-completed)
      (org-pomodoro-break-finished . pomodoro-break-completed))))
