@@ -95,9 +95,7 @@
     (add-hook 'org-pomodoro-finished-hook
               (function pomodoro-completed))
     (add-hook 'org-pomodoro-break-finished-hook
-              (function pomodoro-break-completed))
-    :hook
-    ((org-agenda-mode . emojify-mode))))
+              (function pomodoro-break-completed))))
 
 ;; deft is owned by the deft layer
 (defun makohoek-org/pre-init-deft ()
