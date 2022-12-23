@@ -71,7 +71,7 @@
             ("NOTE"      . font-lock-comment-face)
             ("DONE"      . org-done)
             ("CANCELLED" . org-done)))
-    (setq org-default-notes-file "~/work/org/inbox.org")
+    (setq org-default-notes-file "~/work/org/deft/inbox.org")
     ;; org-agenda files
     :config
     (setq org-agenda-files
