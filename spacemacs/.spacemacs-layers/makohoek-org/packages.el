@@ -71,7 +71,7 @@
     (setq org-default-notes-file "~/work/org/deft/inbox.org")
     ;; org-agenda files
     :config
-    (setq org-agenda-files '("~/work/org/deft"))
+    (add-to-list 'org-agenda-files "~/work/org/deft")
     (setq org-capture-templates
       `(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
          "* TODO %?\n  %i\n  %a")
