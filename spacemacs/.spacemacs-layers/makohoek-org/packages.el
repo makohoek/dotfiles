@@ -58,11 +58,8 @@
     :init
     ;; org todo keywords
     (setq org-todo-keywords
-          '((sequence "TODO(t!)"
-                      "ONGOING(i!)"
-                      "WAIT(w@/!)" "|"
-                      "DONE(d!)" "CANCELLED(c!)" "NOTE(n)")
-                              ))
+          '((sequence "TODO(t!)" "ONGOING(i!)" "WAIT(w@/!)" "|"
+                      "DONE(d!)" "CANCELLED(c!)" "NOTE(n)")))
     ;; org todo keywords colors
     (setq org-todo-keyword-faces
           '(("TODO"      . org-todo)
@@ -74,8 +71,7 @@
     (setq org-default-notes-file "~/work/org/deft/inbox.org")
     ;; org-agenda files
     :config
-    (setq org-agenda-files
-     '("~/work/org/deft"))
+    (setq org-agenda-files '("~/work/org/deft"))
     (setq org-capture-templates
       `(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
          "* TODO %?\n  %i\n  %a")
@@ -85,13 +81,9 @@
          :jump-to-captured 't)))
     ;; org-pomodoro notification once pomodoro is completed
     (defun pomodoro-completed ()
-      (notifications-notify :title "Pomodoro completed"
-                            :body "Go take a break"
-                            :timeout 0))
+      (notifications-notify :title "Pomodoro completed" :body "Go take a break" :timeout 0))
     (defun pomodoro-break-completed ()
-      (notifications-notify :title "Break done"
-                            :body "Time for another pomodoro"
-                            :timeout 0))
+      (notifications-notify :title "Break done" :body "Time for another pomodoro" :timeout 0))
     (add-hook 'org-pomodoro-finished-hook
               (function pomodoro-completed))
     (add-hook 'org-pomodoro-break-finished-hook
