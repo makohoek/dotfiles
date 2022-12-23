@@ -72,6 +72,7 @@
     ;; org-agenda files
     :config
     (add-to-list 'org-agenda-files "~/work/org/deft")
+    (setq org-agenda-prefix-format '((agenda . "%-13i %?-12t") (tags . "%-14i")))
     (setq org-capture-templates
       `(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
          "* TODO %?\n  %i\n  %a")
