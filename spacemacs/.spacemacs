@@ -66,7 +66,7 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-snippets-in-popup t
                       :disabled-for org erc)
      ;; +emacs
-     org
+     (org :packages (not ob))
      emoji
      deft
      dtrt-indent
