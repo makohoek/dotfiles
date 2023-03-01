@@ -16,7 +16,7 @@
 [diff]
     tool = vimdiff
 [color]
-    ui = true
+	ui = auto
 [core]
     editor = vim
     abbrev = 12
