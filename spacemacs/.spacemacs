@@ -579,8 +579,8 @@ It should only modify the values of Spacemacs settings."
 
   ;; for my desktop (groot), so some overrides
   (when (string-equal system-name "groot")
-    (setq dotspacemacs-default-font '(("Hack"
-                                  :size 9.0
+    (setq dotspacemacs-default-font '(("Inconsolata"
+                                  :size 11.0
                                   :weight normal
                                   :powerline-scale 1.0)))))
 
