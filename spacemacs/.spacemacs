@@ -53,6 +53,7 @@ This function should only modify configuration layer settings."
      python
      rust
      shell-scripts
+     (javascript :packages (json-mode))
      systemd
      yaml
      ;; +source-control
