@@ -79,7 +79,7 @@ if [[ $(hostname) = 'groot' ]]; then
 fi
 
 # install only for laptop
-if [[ $(hostname) = 'fedora' ]]; then
+if [[ $(hostname) = 'mkorpershoek-xps13' ]]; then
     for app in ${laptop_only[@]}; do
         stowit "${HOME}" $app
     done
