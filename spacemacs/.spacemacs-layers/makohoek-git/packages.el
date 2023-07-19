@@ -11,12 +11,16 @@
 ;;; Code:
 
 (defconst makohoek-git-packages
-  '(magit)
+  '(magit sqlite3)
   "The list of Lisp packages required by the makohoek-git layer.")
+
+(defun makohoek-git/init-sqlite3 ()
+  (use-package sqlite3))
 
 ;; magit is owned by layer 'git'
 (defun makohoek-git/post-init-magit ()
   (use-package magit
+    :after sqlite3
     :config
     ;; performance tricks for magit (useful in kernel tree)
     ;; remove tag entry for magit status
