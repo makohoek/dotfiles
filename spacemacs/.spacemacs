@@ -605,15 +605,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; If non-nil, warn if variables are being set in the wrong shell startup files.
   ;; Environment variables should be set in .profile or .zshenv rather than
   ;; .bashrc or .zshrc.
-  (setq exec-path-from-shell-check-startup-files nil)
-
-  ;; zenburn theme configuration
-  ;; use variable-pitch fonts for some headings and titles
-  (setq zenburn-use-variable-pitch t)
-  ;; scale headings in org-mode
-  (setq zenburn-scale-org-headlines t)
-  ;; scale headings in outline-mode
-  (setq zenburn-scale-outline-headlines t))
+  (setq exec-path-from-shell-check-startup-files nil))
 
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
