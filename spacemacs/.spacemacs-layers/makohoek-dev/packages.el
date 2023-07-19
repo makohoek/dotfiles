@@ -52,7 +52,7 @@
   (use-package whitespace
     :config
     (setq whitespace-style
-          '(face spaces tabs newline indentation trailing tab-mark))
+          '(face tabs newline indentation trailing tab-mark))
     (set-face-attribute 'whitespace-tab nil
                         :background nil :foreground "DimGray")
     (set-face-attribute 'whitespace-indentation nil
