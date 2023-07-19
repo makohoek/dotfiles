@@ -50,6 +50,7 @@ This function should only modify configuration layer settings."
      (c-c++ :variables c-c++-backend 'lsp-ccls)
      emacs-lisp
      markdown
+     meson
      python
      rust
      shell-scripts
