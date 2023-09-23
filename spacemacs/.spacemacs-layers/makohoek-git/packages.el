@@ -49,5 +49,6 @@
     (add-to-list 'git-commit-known-pseudo-headers "Bug")
     (add-to-list 'git-commit-known-pseudo-headers "Fixes")
     (add-to-list 'git-commit-known-pseudo-headers "Suggested-by")
-    (add-to-list 'git-commit-known-pseudo-headers "Change-Id")))
+    (add-to-list 'git-commit-known-pseudo-headers "Change-Id")
+    (require 'seq-25)))
 ;;; packages.el ends here
