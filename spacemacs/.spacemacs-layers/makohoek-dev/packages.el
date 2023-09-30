@@ -51,7 +51,7 @@
 (defun makohoek-dev/post-init-whitespace ()
   (use-package whitespace
     :config
-    (setq whitespace-style
+    (setq-default whitespace-style
           '(face tabs newline indentation trailing tab-mark))
     (set-face-attribute 'whitespace-tab nil
                         :background nil :foreground "DimGray")
