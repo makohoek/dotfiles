@@ -46,9 +46,9 @@
     ;; line must not be longer than 72
     (setq git-commit-fill-column 72)
     ;; support Bug: + Change-Id: pseudo-headers
-    (add-to-list 'git-commit-known-pseudo-headers "Bug")
-    (add-to-list 'git-commit-known-pseudo-headers "Fixes")
-    (add-to-list 'git-commit-known-pseudo-headers "Suggested-by")
-    (add-to-list 'git-commit-known-pseudo-headers "Change-Id")
+    (add-to-list 'git-commit-trailers "Bug")
+    (add-to-list 'git-commit-trailers "Fixes")
+    (add-to-list 'git-commit-trailers "Suggested-by")
+    (add-to-list 'git-commit-trailers "Change-Id")
     (require 'seq-25)))
 ;;; packages.el ends here
