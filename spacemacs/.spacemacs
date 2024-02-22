@@ -47,7 +47,7 @@ This function should only modify configuration layer settings."
      helm
      ;; additional spacemacs layers
      ;; +lang
-     (c-c++ :variables c-c++-backend 'lsp-ccls)
+     (c-c++ :variables c-c++-backend 'lsp-clangd)
      emacs-lisp
      markdown
      meson
