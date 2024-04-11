@@ -1,0 +1,10 @@
+import = [
+    "~/.config/alacritty/themes/themes/zenburn.toml"
+]
+
+[font]
+size = 10.0
+
+[font.normal]
+family = "Source Code Pro"
+style = "Regular"
