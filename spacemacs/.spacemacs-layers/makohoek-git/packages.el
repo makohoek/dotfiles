@@ -49,6 +49,5 @@
     (add-to-list 'git-commit-trailers "Bug")
     (add-to-list 'git-commit-trailers "Fixes")
     (add-to-list 'git-commit-trailers "Suggested-by")
-    (add-to-list 'git-commit-trailers "Change-Id")
-    (require 'seq-25)))
+    (add-to-list 'git-commit-trailers "Change-Id")))
 ;;; packages.el ends here
