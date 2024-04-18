@@ -2,6 +2,12 @@ import = [
     "~/.config/alacritty/themes/themes/zenburn.toml"
 ]
 
+[window]
+decorations = "None"
+padding = { x = 0, y = 0}
+dynamic_padding = true
+option_as_alt = "None"
+
 [font]
 size = 10.0
 
