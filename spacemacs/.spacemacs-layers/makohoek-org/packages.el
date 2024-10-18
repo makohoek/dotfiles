@@ -74,12 +74,17 @@
     (add-to-list 'org-agenda-files "~/work/org/deft")
     (setq org-agenda-prefix-format '((agenda . "%-13i %?-12t") (tags . "%-14i")))
     (setq org-capture-templates
-      `(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
-         "* TODO %?\n  %i\n  %a")
-        ("p" "Pomodoro" entry (file+olp+datetree "~/work/org/deft/pomodoro/2024.org" "Pomodoro")
-         ,(concat "* stats [/][\%]\n:PROPERTIES:\n:LOGGING: nil\n:END:\n" (string-join (make-list 14 "\n** TODO ")))
-         :tree-type week
-         :jump-to-captured 't)))
+          `(("t" "Todo" entry (file+headline org-default-notes-file "Tasks")
+             "* TODO %?\n  %i\n  %a")
+            ;; Use let to create a dynamic filename for Pomodoro entries
+            ,(let ((filename (concat "~/work/org/deft/pomodoro/"
+                                     (format-time-string "%Y-%m")
+                                     ".org")))
+               `("p" "Pomodoro" entry (file+olp+datetree ,filename)
+                 ,(concat "* stats [/][%]\n:PROPERTIES:\n:LOGGING: nil\n:END:\n"
+                          (string-join (make-list 14 "\n** TODO ")))
+                 :tree-type week
+                 :jump-to-captured 't))))
     ;; org-pomodoro notification once pomodoro is completed
     :hook
     ((org-pomodoro-finished . pomodoro-completed)
