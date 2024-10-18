@@ -22,9 +22,13 @@
   '((soong-mode
      :location (recipe
                 :fetcher github
-                :repo makohoek/emacs-soong-mode))))
+                :repo makohoek/emacs-soong-mode))
+    bazel))
 
 (defun android-platform/init-soong-mode()
   (use-package soong-mode))
+
+(defun android-platform/init-bazel()
+  (use-package bazel))
 
 ;;; packages.el ends here
