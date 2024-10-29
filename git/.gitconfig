@@ -22,6 +22,7 @@
     abbrev = 12
 [pretty]
     fixes = Fixes: %h (\"%s\")
+    commit = commit %h (\"%s\")
 [credential]
 	helper = !pass-git-helper $@
 [gitlab]
