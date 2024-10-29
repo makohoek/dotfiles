@@ -15,6 +15,7 @@
     ediff
     info
     undo-tree
+    undo-fu
     ripgrep
     exec-path-from-shell
     whitespace)
@@ -24,6 +25,9 @@
   "Use bitbake for yocto developpment"
   (use-package bitbake))
 
+(defun makohoek-dev/init-undo-fu ()
+  "default undo for spacemacs, seems not included"
+  (use-package undo-fu))
 
 (defun makohoek-dev/init-undo-tree()
   (use-package undo-tree
