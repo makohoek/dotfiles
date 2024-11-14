@@ -38,7 +38,6 @@ export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 export BAT_THEME="zenburn"
 export BAT_STYLE="plain"
 export DISPLAY=:0
-export TERM=screen-256color
 
 
 ##################
