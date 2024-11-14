@@ -299,9 +299,9 @@ It should only modify the values of Spacemacs settings."
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
    dotspacemacs-default-font '("Inconsolata"
-                   :size 11.0
-                   :weight normal
-                   :powerline-scale 1.0)
+                               :size 11.0
+                               :weight normal
+                               :powerline-scale 1.0)
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
@@ -531,7 +531,7 @@ It should only modify the values of Spacemacs settings."
    ;; Color highlight trailing whitespace in all prog-mode and text-mode derived
    ;; modes such as c++-mode, python-mode, emacs-lisp, html-mode, rst-mode etc.
    ;; (default t)
-   dotspacemacs-show-trailing-whitespace t 
+   dotspacemacs-show-trailing-whitespace t
 
    ;; Delete whitespace while saving buffer. Possible values are `all'
    ;; to aggressively delete empty line and long sequences of whitespace,
@@ -582,9 +582,9 @@ It should only modify the values of Spacemacs settings."
   ;; for my desktop (groot), so some overrides
   (when (string-equal system-name "groot")
     (setq dotspacemacs-default-font '(("Inconsolata"
-                                  :size 11.0
-                                  :weight normal
-                                  :powerline-scale 1.0)))))
+                                       :size 11.0
+                                       :weight normal
+                                       :powerline-scale 1.0)))))
 
 (defun dotspacemacs/user-env ()
   "Environment variables setup.
@@ -612,7 +612,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 This function is called only while dumping Spacemacs configuration. You can
 `require' or `load' the libraries of your choice that will be included in the
 dump."
-)
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
