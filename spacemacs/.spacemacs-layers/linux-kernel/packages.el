@@ -27,9 +27,19 @@
 ;;; Code:
 
 (defconst linux-kernel-packages
-  '(dtrt-indent
+  '((magit-b4
+     :location (recipe
+                :fetcher github
+                :repo JulienMasson/magit-b4))
+    dtrt-indent
     dts-mode
     kconfig-mode))
+
+(defun linux-kernel/init-magit-b4 ()
+  (use-package magit-b4
+    :after magit
+    :init
+    (define-key magit-mode-map "#" 'magit-b4-dispatch)))
 
 (defun linux-kernel/post-init-dtrt-indent ()
   (use-package dtrt-indent
