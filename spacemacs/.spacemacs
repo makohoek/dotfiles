@@ -88,6 +88,8 @@ This function should only modify configuration layer settings."
           lsp-lens-enable nil
           lsp-modeline-diagnostics-enable nil
           lsp-modeline-code-actions-enable nil)
+     ;; +web-services
+     (llm-client :variables llm-client-enable-gptel t)
      ;; own, private layers
      android-platform
      linux-kernel
