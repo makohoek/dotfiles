@@ -86,6 +86,7 @@ This function should only modify configuration layer settings."
      (lsp :variables
           lsp-headerline-breadcrumb-enable nil
           lsp-lens-enable nil
+          lsp-enable-suggest-server-download nil
           lsp-modeline-diagnostics-enable nil
           lsp-modeline-code-actions-enable nil)
      ;; +web-services
