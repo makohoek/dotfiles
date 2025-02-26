@@ -41,10 +41,7 @@
     (setq transient-display-buffer-action '(display-buffer-below-selected))
     (setq window-combination-limit #'display-buffer)
 
-    ;; title must be no longer than 50
-    (setq git-commit-summary-max-length 50)
-    ;; line must not be longer than 72
-    (setq git-commit-fill-column 72)
+    (setq git-commit-summary-max-length 70)
     ;; support Bug: + Change-Id: pseudo-headers
     (add-to-list 'git-commit-trailers "Bug")
     (add-to-list 'git-commit-trailers "Fixes")
