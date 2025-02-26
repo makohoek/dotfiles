@@ -11,7 +11,7 @@
 ;;; Code:
 
 (defconst makohoek-git-packages
-  '(magit sqlite3)
+  '(magit sqlite3 display-fill-column-indicator)
   "The list of Lisp packages required by the makohoek-git layer.")
 
 (defun makohoek-git/init-sqlite3 ()
@@ -47,4 +47,17 @@
     (add-to-list 'git-commit-trailers "Fixes")
     (add-to-list 'git-commit-trailers "Suggested-by")
     (add-to-list 'git-commit-trailers "Change-Id")))
+
+;; display-fill-column-indicator is owned by layer 'spacemacs-visual'
+(defun makohoek-git/post-init-display-fill-column-indicator ()
+  (use-package display-fill-column-indicator
+    :when (>= emacs-major-version 28)
+    :config
+    (set-face-attribute 'fill-column-indicator nil
+                        :foreground "gray30"
+                        :background "gray30")
+    (add-hook 'git-commit-setup-hook
+              (lambda ()
+                (setq fill-column 72) ; was 70
+                (display-fill-column-indicator-mode 1)))))
 ;;; packages.el ends here
