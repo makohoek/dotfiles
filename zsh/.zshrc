@@ -34,11 +34,6 @@ stty -ixon
 # Environment variables #
 #########################
 export EDITOR=vim
-export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
-export BAT_THEME="zenburn"
-export BAT_STYLE="plain"
-export DISPLAY=:0
-
 
 ##################
 # Extra includes #
@@ -56,7 +51,6 @@ function source_if_exists()
 source_if_exists ~/.fzf.zsh
 # remove the bindings fzf creates because i don't want them all
 bindkey -r '\ec'
-
 
 ##########################
 # PATH extra directories #
