@@ -30,7 +30,7 @@
 [format]
     cover-from-description = subject
 [http]
-    cookiefile = /home/makohoek/.gitcookies
+	cookiefile = /home/mkorpershoek/.gitcookies
 [am]
     threeWay = true
 
