@@ -1,53 +1,54 @@
 [alias]
-    st = status
-    amend = commit --amend
-    dc = diff --cached
-    tree = "log --oneline --decorate --all --graph"
-    treeb = "log --oneline --decorate --graph --branches"
-    changelog = "log --oneline --pretty=format:'%h | %s%d [%an]'"
+	st = status
+	amend = commit --amend
+	dc = diff --cached
+	tree = "log --oneline --decorate --all --graph"
+	treeb = "log --oneline --decorate --graph --branches"
+	changelog = "log --oneline --pretty=format:'%h | %s%d [%an]'"
 [user]
-    email = mattijs.korpershoek@gmail.com
-    name = Mattijs Korpershoek
-    signingKey = 2EE942A7B61F6ABE5313AD00190D1DB4664E1935
+	email = mattijs.korpershoek@gmail.com
+	name = Mattijs Korpershoek
+	signingKey = 2EE942A7B61F6ABE5313AD00190D1DB4664E1935
 [merge]
-    tool = vimdiff
-    autoStash = true
+	tool = vimdiff
+	autoStash = true
 [difftool]
-    tool = vimdiff
+	tool = vimdiff
 [diff]
-    tool = vimdiff
+	tool = vimdiff
 [color]
 	ui = auto
 [core]
-    editor = vim
-    abbrev = 12
+	editor = vim
+	abbrev = 12
 [pretty]
-    fixes = Fixes: %h (\"%s\")
-    commit = commit %h (\"%s\")
+	fixes = Fixes: %h (\"%s\")
+	commit = commit %h (\"%s\")
 [credential]
 	helper = !pass-git-helper $@
 [gitlab]
 	user = makohoek
 [format]
-    cover-from-description = subject
+	cover-from-description = subject
 [http]
 	cookiefile = /home/mkorpershoek/.gitcookies
 [am]
-    threeWay = true
+	threeWay = true
 
 # Work specific configs
 [includeIf "gitdir:~/work/"]
-    path = ~/.gitconfig-work
+	path = ~/.gitconfig-work
 [includeIf "gitdir:/mnt/work/"]
-    path = ~/.gitconfig-work
+	path = ~/.gitconfig-work
 [includeIf "gitdir:/mnt/linux-data/work/"]
-    path = ~/.gitconfig-work
+	path = ~/.gitconfig-work
 [github]
 	user = makohoek
 [rebase]
 	autoStash = true
 [pull]
 	rebase = true
+
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
 
