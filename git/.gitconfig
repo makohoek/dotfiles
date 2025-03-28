@@ -8,6 +8,7 @@
 [user]
     email = mattijs.korpershoek@gmail.com
     name = Mattijs Korpershoek
+    signingKey = 2EE942A7B61F6ABE5313AD00190D1DB4664E1935
 [merge]
     tool = vimdiff
     autoStash = true
