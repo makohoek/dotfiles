@@ -1,10 +1,17 @@
 (defun linux-kernel/reviewed-by ()
   (interactive)
-  (insert (concat "Reviewed-by: " user-full-name " <" user-mail-address ">")))
+  "Get the 'From:' header in Notmuch Message mode."
+  (let ((from-header (message-fetch-field "From")))
+    (if from-header
+        (insert (concat "Reviewed-by: " from-header))
+      (message "No From: header found!"))))
 
 (defun linux-kernel/tested-by ()
   (interactive)
-  (insert (concat "Tested-by: " user-full-name " <" user-mail-address ">")))
+  (let ((from-header (message-fetch-field "From")))
+    (if from-header
+        (insert (concat "Tested-by: " from-header))
+      (message "No From: header found!"))))
 
 (defun linux-kernel/serial-term ()
   (interactive)
