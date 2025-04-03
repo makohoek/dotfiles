@@ -13,6 +13,14 @@
         (insert (concat "Tested-by: " from-header))
       (message "No From: header found!"))))
 
+(defun linux-kernel/greet-submitter ()
+  (interactive)
+  (let ((to-header (message-fetch-field "To")))
+    (if to-header
+        (let ((first-name (car (split-string to-header))))
+          (insert (concat "Hi " first-name ",\n\nThank you for the patch."))))
+    (message "No To: header found!")))
+
 (defun linux-kernel/serial-term ()
   (interactive)
   (let ((speed (completing-read "Speed (b/s) "
