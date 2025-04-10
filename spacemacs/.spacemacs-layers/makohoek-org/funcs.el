@@ -21,8 +21,25 @@
   (defun pomodoro-completed ()
     (notifications-notify :title "Pomodoro completed"
                           :body "Go take a break" :timeout 0))
-    (defun pomodoro-break-completed ()
-      (notifications-notify :title "Break done"
-                            :body "Time for another pomodoro" :timeout 0)))
+  (defun pomodoro-break-completed ()
+    (notifications-notify :title "Break done"
+                          :body "Time for another pomodoro" :timeout 0)))
+
+(defun makohoek-org/count-tags-in-subtree ()
+  "Count occurrences of each tag in the current subtree."
+  (interactive)
+  (let ((tags-count (make-hash-table :test 'equal))
+        (current-heading (point)))
+    (org-map-entries
+     (lambda ()
+       (let ((tags (org-get-tags)))
+         (dolist (tag tags)
+           (puthash tag (1+ (gethash tag tags-count 0)) tags-count))))
+     t 'tree)
+    (with-output-to-temp-buffer "*Tag Statistics*"
+      (princ "Tag statistics in current subtree:\n\n")
+      (maphash (lambda (tag count)
+                 (princ (format "%-20s %d\n" tag count)))
+               tags-count))))
 
 
