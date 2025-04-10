@@ -18,7 +18,7 @@
   (let ((to-header (message-fetch-field "To")))
     (if to-header
         (let ((first-name (car (split-string to-header))))
-          (insert (concat "Hi " first-name ",\n\nThank you for the patch."))))
+          (insert (concat "Hi " first-name ",\n\nThank you for the patch.\n"))))
     (message "No To: header found!")))
 
 (defun linux-kernel/serial-term ()
