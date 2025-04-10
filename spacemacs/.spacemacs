@@ -640,6 +640,9 @@ before packages are loaded."
   ;; chrome default browser
   (setq browse-url-browser-function 'browse-url-chrome)
 
+  ;; Only use the gpg (encrypted) authinfo
+  (setq auth-sources '("~/.authinfo.gpg"))
+
   (with-eval-after-load 'undo-tree
     (setq undo-tree-auto-save-history nil))
 
