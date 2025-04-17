@@ -12,7 +12,7 @@
 #
 
 [database]
-path=/home/mkorpershoek/work/.email-lieer
+path=/var/home/mkorpershoek/.email
 
 # User configuration
 #
@@ -32,7 +32,7 @@ path=/home/mkorpershoek/work/.email-lieer
 
 [user]
 name=Mattijs Korpershoek
-primary_email=mkorpershoek@baylibre.com
+primary_email=mattijs.korpershoek@gmail.com
 
 # Configuration for "notmuch new"
 #
