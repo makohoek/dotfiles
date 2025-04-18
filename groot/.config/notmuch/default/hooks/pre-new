@@ -1,2 +1,6 @@
 #!/bin/bash
-cd ~/work/.email-lieer/ && gmi sync
+echo '[-] syncing mattijs.korpershoek@gmail.com'
+cd ~/linux-data/.email/mattijs.korpershoek.gmail/ && gmi sync
+echo '[-] syncing mkorpershoek@redhat.com'
+cd ~/linux-data/.email/mkorpers.redhat.com/ && gmi sync
+# echo "[-] disabled gmi sync via notmuch"
