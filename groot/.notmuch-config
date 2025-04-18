@@ -12,7 +12,8 @@
 #
 
 [database]
-path=/mnt/work/.email-lieer
+# path=/mnt/work/.email-lieer
+path=/mnt/linux-data/.email
 
 # User configuration
 #
@@ -32,7 +33,8 @@ path=/mnt/work/.email-lieer
 
 [user]
 name=Mattijs Korpershoek
-primary_email=mkorpershoek@baylibre.com
+primary_email=mattijs.korpershoek@gmail.com
+other_email=mkorpershoek@baylibre.com;mkorpershoek@redhat.com
 
 # Configuration for "notmuch new"
 #
