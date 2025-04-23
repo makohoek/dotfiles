@@ -40,10 +40,6 @@
 [pull]
 	rebase = true
 
-# redirects
-[url "git@gitlab.com:"]
-	insteadOf = https://gitlab.com/
-
 [url "git@gitlab.baylibre.com:"]
 	insteadOf = https://gitlab.baylibre.com/
 
