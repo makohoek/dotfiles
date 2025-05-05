@@ -34,6 +34,10 @@ laptop_only=(
     laptop
 )
 
+koolstof_only=(
+    laptop
+)
+
 # run the stow command for the passed in directory ($2) in location $1
 stowit() {
     local usr
@@ -81,6 +85,13 @@ fi
 # install only for laptop
 if [[ $(hostname) = 'klein' ]]; then
     for app in ${laptop_only[@]}; do
+        stowit "${HOME}" $app
+    done
+fi
+
+# install only for koolstof
+if [[ $(hostname) = 'koolstof' ]]; then
+    for app in ${koolstof_only[@]}; do
         stowit "${HOME}" $app
     done
 fi
