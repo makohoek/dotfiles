@@ -32,7 +32,7 @@ cd ~/.dotfiles && git submodule update --init --recursive --remote --depth=1
 
 - Then, use `stow` to create the symlinks:
 ```sh
-cd ~/.dotfiles && setup.sh
+cd ~/.dotfiles && ./setup.sh
 ```
 
 ## Post-install/more tools
