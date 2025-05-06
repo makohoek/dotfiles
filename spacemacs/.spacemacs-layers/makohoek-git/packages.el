@@ -27,13 +27,9 @@
     (setq magit-status-headers-hook (remove 'magit-insert-tags-header magit-status-headers-hook))
     ;; remove revision header in magit-diff
     (setq magit-revision-sections-hook (remove 'magit-insert-revision-headers magit-revision-sections-hook))
-    ;; signed-off by default
-    ;; set signoff by default
-    (defvar transient-default-values '((magit-commit "--signoff")
-                                       (magit-revert "--signoff")
-                                       (magit-log:magit-log-mode "-n256" "--decorate")
-                                       (magit-rebase "--autosquash" "--autostash")))
-    (setq transient-values transient-default-values)
+    ;; Show signoff in transient
+    ;; See: https://github.com/magit/magit/issues/2993#issuecomment-2700472389
+    (transient-set-default-level 'magit:--signoff 1)
 
     (setq magit-diff-refine-hunk 'all)
 
