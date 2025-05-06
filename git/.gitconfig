@@ -53,3 +53,5 @@
 	path = ~/.gitconfig-work
 [includeIf "gitdir:/mnt/linux-data/work/"]
 	path = ~/.gitconfig-work
+[includeIf "gitdir:/var/home/mkorpershoek/work/"]
+	path = ~/.gitconfig-work
