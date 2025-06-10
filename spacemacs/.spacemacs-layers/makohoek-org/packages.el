@@ -17,6 +17,7 @@
     org-clock-split
     org-plus-contrib))
 ;; ox-confluence is installed by `org-plus-contrib'
+;; ox-jira is installed by `org'
 
 (defun makohoek-org/init-org-clock-split()
   (use-package org-clock-split
